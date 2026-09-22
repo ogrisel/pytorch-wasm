@@ -1,0 +1,32 @@
+Cloning into '/workspace/.emsdk'...
+Already up to date.
+Resolving SDK version '3.1.58' to 'sdk-releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'
+Installing SDK 'sdk-releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'..
+Installing tool 'node-24.19.0-64bit'..
+Downloading: /workspace/.emsdk/downloads/node-v24.19.0-linux-x64.tar.xz from https://storage.googleapis.com/webassembly/emscripten-releases-builds/deps/node-v24.19.0-linux-x64.tar.xz, 31633904 Bytes
+ [----------------------------------------------------------------------------]
+Unpacking '/workspace/.emsdk/downloads/node-v24.19.0-linux-x64.tar.xz' to '/workspace/.emsdk/node/24.19.0_64bit'
+Done installing tool 'node-24.19.0-64bit'.
+Installing tool 'releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'..
+Downloading: /workspace/.emsdk/downloads/a4d4afb626c5010f6ccda4638b8d77579a63782e-wasm-binaries.tar.xz from https://storage.googleapis.com/webassembly/emscripten-releases-builds/linux/a4d4afb626c5010f6ccda4638b8d77579a63782e/wasm-binaries.tar.xz, 292090164 Bytes
+ [----------------------------------------------------------------------------]
+Unpacking '/workspace/.emsdk/downloads/a4d4afb626c5010f6ccda4638b8d77579a63782e-wasm-binaries.tar.xz' to '/workspace/.emsdk/upstream'
+Done installing tool 'releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'.
+Done installing SDK 'sdk-releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'.
+Resolving SDK version '3.1.58' to 'sdk-releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit'
+Setting the following tools as active:
+   node-24.19.0-64bit
+   releases-a4d4afb626c5010f6ccda4638b8d77579a63782e-64bit
+
+Next steps:
+- To conveniently access emsdk tools from the command line,
+  consider adding the following directories to your PATH:
+    /workspace/.emsdk
+    /workspace/.emsdk/upstream/emscripten
+- This can be done for the current shell by running:
+    source "/workspace/.emsdk/emsdk_env.sh"
+- Configure emsdk in your shell startup scripts by running:
+    echo 'source "/workspace/.emsdk/emsdk_env.sh"' >> $HOME/.bash_profile
+
+Emscripten 3.1.58 installed at /workspace/.emsdk
+Activate with: source /workspace/.emsdk/emsdk_env.sh
