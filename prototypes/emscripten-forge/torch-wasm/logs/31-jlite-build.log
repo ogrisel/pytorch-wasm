@@ -1,0 +1,215 @@
+[LiteBuildApp] No archive (yet): jupyterlite-jupyterlite.tgz
+[LiteBuildApp]     jupyter-lite.(json|ipynb): 0 files
+/workspace/.mmroot/envs/jlite/lib/python3.12/site-packages/jupyterlite_core/addons/base.py:297: UserWarning: install libarchive-c for better performance when working with archives: No module named 'libarchive'
+  return has_optional_dependency(
+⚠ Shard Index for file:///workspace/.torch-channel/emscripten-wasm32 not available, falling back to flat repodata
+Using Flat Repodata for file:///workspace/.torch-channel/emscripten-wasm32                      ✔ Starting
+Using Flat Repodata for file:///workspace/.torch-channel/emscripten-wasm32                ✔ Done (0.0 sec)
+⚠ Shard Index for file:///workspace/.torch-channel/noarch not available, falling back to flat repodata
+Using Flat Repodata for file:///workspace/.torch-channel/noarch                                 ✔ Starting
+Using Flat Repodata for file:///workspace/.torch-channel/noarch                           ✔ Done (0.0 sec)
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wasm32                 ⧖ Starting
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wasm32           ✔ Done (0.4 sec)
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                            ⧖ Starting
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                      ✔ Done (0.3 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Fetch Shard Index for conda-forge/emscripten-wasm32                                             ⧖ Starting
+Fetch Shard Index for conda-forge/emscripten-wasm32                                       ✔ Done (0.0 sec)
+Fetch Shard Index for conda-forge/noarch                                                        ⧖ Starting
+Fetch Shard Index for conda-forge/noarch                                                  ✔ Done (0.1 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wa...               ✔ Done
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Using Cached Shard Index for conda-forge/emscripten-wasm32                                          ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Parsing Packages' Records                                                                 ✔ Done (0.9 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.0 sec)
+
+Transaction
+
+  Prefix: /tmp/tmpv4i6u31o/_env/envs/xeus-torch-wasm
+
+  Updating specs:
+
+   - xeus-python
+   - numpy
+   - torch
+
+
+  Package                   Version  Build              Channel                              Size
+───────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + asttokens                 3.0.2  pyhd8ed1ab_0       conda-forge                          35kB
+  + backcall                  0.2.0  pyh9f0ad1d_0       conda-forge                          14kB
+  + decorator                 5.3.1  pyhd8ed1ab_0       conda-forge                          16kB
+  + emscripten-abi           3.1.73  h267e887_12        prefix.dev/emscripten-forge-dev      12kB
+  + executing                 2.2.1  pyhd8ed1ab_0       conda-forge                          31kB
+  + ipython                  9.12.0  py313hd355c7d_0    prefix.dev/emscripten-forge-dev     444kB
+  + matplotlib-inline         0.2.2  pyhd8ed1ab_0       conda-forge                          16kB
+  + nlohmann_json-abi        3.12.0  h0f90c79_2         conda-forge                           4kB
+  + numpy                     2.4.4  py313h6394566_0    prefix.dev/emscripten-forge-dev       3MB
+  + packaging                  26.3  pyhc364b38_0       conda-forge                         116kB
+  + pexpect                   4.9.0  pyhd8ed1ab_1       conda-forge                          54kB
+  + pickleshare               0.7.5  pyhd8ed1ab_1004    conda-forge                          12kB
+  + prompt-toolkit           3.0.53  pyha770c72_0       conda-forge                         276kB
+  + ptyprocess                0.7.0  pyhd8ed1ab_1       conda-forge                          19kB
+  + pure_eval                 0.2.4  pyhd8ed1ab_0       conda-forge                          18kB
+  + pygments                 2.21.0  pyhcf101f3_0       conda-forge                         959kB
+  + pyjs-rt                   3.2.0  py313h7595f35_0    prefix.dev/emscripten-forge-dev      46kB
+  + pyodide-http              0.2.2  pyhcf101f3_0       conda-forge                          17kB
+  + python                   3.13.1  h_c8de616_6_cp313  prefix.dev/emscripten-forge-dev       6MB
+  + python_abi               3.13.1  1_cp313            prefix.dev/emscripten-forge-dev       3kB
+  + stack_data                0.6.3  pyhd8ed1ab_1       conda-forge                          27kB
+  + torch                     2.8.0  0                  /workspace/.torch-channel            26MB
+  + traitlets                5.16.1  pyhcf101f3_0       conda-forge                         117kB
+  + typing_extensions        4.16.0  pyhcf101f3_0       conda-forge                          53kB
+  + wcwidth                   0.8.4  pyh5ded981_0       conda-forge                         142kB
+  + xeus                      5.2.8  h2072262_0         prefix.dev/emscripten-forge-dev     379kB
+  + xeus-python              0.17.8  py313h027658c_0    prefix.dev/emscripten-forge-dev       5MB
+  + xeus-python-shell         0.6.6  pyh332efcf_0       conda-forge                           7kB
+  + xeus-python-shell-lite    0.6.6  pyhd8ed1ab_0       conda-forge                           7kB
+  + xeus-python-shell-raw     0.6.6  pyhd8ed1ab_0       conda-forge                          13kB
+
+  Summary:
+
+  Install: 30 packages
+
+  Total download: 42MB
+
+───────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking python_abi-3.13.1-1_cp313
+Linking emscripten-abi-3.1.73-h267e887_12
+Linking nlohmann_json-abi-3.12.0-h0f90c79_2
+Linking pyjs-rt-3.2.0-py313h7595f35_0
+Linking python-3.13.1-h_c8de616_6_cp313
+Linking numpy-2.4.4-py313h6394566_0
+Linking xeus-5.2.8-h2072262_0
+Linking ptyprocess-0.7.0-pyhd8ed1ab_1
+Linking wcwidth-0.8.4-pyh5ded981_0
+Linking pure_eval-0.2.4-pyhd8ed1ab_0
+Linking executing-2.2.1-pyhd8ed1ab_0
+Linking asttokens-3.0.2-pyhd8ed1ab_0
+Linking backcall-0.2.0-pyh9f0ad1d_0
+Linking pickleshare-0.7.5-pyhd8ed1ab_1004
+Linking pygments-2.21.0-pyhcf101f3_0
+Linking typing_extensions-4.16.0-pyhcf101f3_0
+Linking decorator-5.3.1-pyhd8ed1ab_0
+Linking traitlets-5.16.1-pyhcf101f3_0
+Linking packaging-26.3-pyhc364b38_0
+Linking xeus-python-shell-raw-0.6.6-pyhd8ed1ab_0
+Linking pyodide-http-0.2.2-pyhcf101f3_0
+Linking pexpect-4.9.0-pyhd8ed1ab_1
+Linking prompt-toolkit-3.0.53-pyha770c72_0
+Linking stack_data-0.6.3-pyhd8ed1ab_1
+Linking matplotlib-inline-0.2.2-pyhd8ed1ab_0
+Linking torch-2.8.0-0
+Linking ipython-9.12.0-py313hd355c7d_0
+Linking xeus-python-shell-0.6.6-pyh332efcf_0
+Linking xeus-python-shell-lite-0.6.6-pyhd8ed1ab_0
+Linking xeus-python-0.17.8-py313h027658c_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate xeus-torch-wasm
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n xeus-torch-wasm mycommand
+
+.  pre_status:static:jupyter-lite.json
+    tarball:         jupyterlite-app-0.8.3.tgz 15MB
+    output:          /workspace/prototypes/emscripten-forge/torch-wasm/jupyterlite/_site
+    lite dir:        /workspace/prototypes/emscripten-forge/torch-wasm/jupyterlite
+    apps:            
+    sourcemaps:      True
+    unused packages: True
+.  status:archive:archive
+.  status:contents:contents
+    contents: 1 files
+.  status:icons:icons
+    favicon files: 0 files
+.  status:lite:jupyter-lite.json
+.  status:mimetypes:jupyter-lite.json
+    filetypes:         36 
+.  status:serve:contents
+    url: http://127.0.0.1:8000/
+    server: tornado
+    headers:
+.  status:settings:overrides
+    overrides.json: 0
+.  status:translation:translation
+    translation files: 0 files
+.  status:workspaces:workspaces:files
+    workspaces: 
+.  pre_init:static:output_dir
+.  init:static:unpack
+.  pre_build:federated_extensions:copy:ext:jupyterlab_pygments
+.  pre_build:federated_extensions:copy:ext:@jupyterlite/xeus-extension
+.  build:contents:copy:torch_mlp_demo.ipynb
+.  build:icons:copy
+.  build:translation:copy
+.  post_build:contents:contents:.
+.  post_build:contents:patch:contentsAllJsonFile
+.  post_build:federated_extensions:patch
+.  post_build:federated_extensions:settings
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-32x32.png
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-64x64.png
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-svg.svg
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:libxeus.so
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:binaries
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:kernel.json
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:libxeus.so
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:prompt-toolkit-3.0.53-pyha770c72_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pexpect-4.9.0-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:nlohmann_json-abi-3.12.0-h0f90c79_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:typing_extensions-4.16.0-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:decorator-5.3.1-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python_abi-3.13.1-1_cp313.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-inline-0.2.2-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ipython-9.12.0-py313hd355c7d_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:torch-2.8.0-0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-lite-0.6.6-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyjs-rt-3.2.0-py313h7595f35_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pure_eval-0.2.4-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-0.17.8-py313h027658c_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:packaging-26.3-pyhc364b38_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:traitlets-5.16.1-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-5.2.8-h2072262_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:stack_data-0.6.3-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pygments-2.21.0-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:numpy-2.4.4-py313h6394566_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:asttokens-3.0.2-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:emscripten-abi-3.1.73-h267e887_12.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-0.6.6-pyh332efcf_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyodide-http-0.2.2-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:executing-2.2.1-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pickleshare-0.7.5-pyhd8ed1ab_1004.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python-3.13.1-h_c8de616_6_cp313.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:backcall-0.2.0-pyh9f0ad1d_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:wcwidth-0.8.4-pyh5ded981_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ptyprocess-0.7.0-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-raw-0.6.6-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:update_env_file:empack_env_meta.json
+.  post_build:jupyterlite-xeus:patch:xeus:/tmp/tmpv4i6u31o/_env/envs/xeus-torch-wasm
+.  post_build:jupyterlite-xeus:patch:xeus:federated_settings:/tmp/tmpv4i6u31o/_env/envs/xeus-torch-wasm
+.  post_build:jupyterlite-xeus:copy:/tmp/tmpv4i6u31o/kernels.json
+.  post_build:mimetypes:patch
+JLITE_BUILD_EXIT=0

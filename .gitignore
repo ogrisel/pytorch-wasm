@@ -41,3 +41,10 @@ prototypes/emscripten-forge/jupyterlite-torch-wasm/.jupyterlite.doit.db
 
 # torch package staging (large wasm artifacts, not committed)
 .torch-stage/
+
+# local conda channel hosting the wasm torch package (large tarball)
+.torch-channel/
+
+# jupyterlite build scratch for the emscripten-forge torch-wasm prototype
+prototypes/emscripten-forge/torch-wasm/jupyterlite/_site/
+prototypes/emscripten-forge/torch-wasm/jupyterlite/.jupyterlite.doit.db
