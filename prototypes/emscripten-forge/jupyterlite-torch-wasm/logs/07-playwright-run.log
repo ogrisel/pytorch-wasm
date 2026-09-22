@@ -1,0 +1,26 @@
+goto http://localhost:8000/lab/index.html?path=mlp_training_demo.ipynb
+notebook cells rendered
+kernel idle: True after 4s
+issued select-all + Shift+Enter
+re-issued run-all
+re-issued run-all
+re-issued run-all
+re-issued run-all
+training outputs detected
+screenshot -> /opt/cursor/artifacts/jupyterlite_mlp_demo.png
+OUT: print(f'\nfinal loss {losses[-1]:.5f}  (started at {losses[0]:.5f}, '
+OUT: print(f'pred/target correlation: {corr:.4f}')
+OUT: epoch 199  loss = 0.00867
+
+--- last 20 console logs ---
+[info] Registering new JupyterLite ServiceWorker http://localhost:8000/service-worker.js?enableCache=false
+[info] JupyterLite ServiceWorker was sucessfully registered
+[warning] Disabling terminals plugin because they are not available on the server
+[info] xpython contents will be synced with Jupyter Contents
+[debug] Starting WebSocket: ws://localhost:8000/api/kernels/60641c4c-58c4-4f1f-93a9-cd24d1070e38
+[debug] Starting WebSocket: ws://localhost:8000/api/kernels/60641c4c-58c4-4f1f-93a9-cd24d1070e38
+[debug] Starting WebSocket: ws://localhost:8000/api/kernels/60641c4c-58c4-4f1f-93a9-cd24d1070e38
+[warning] Trying to send message on removed socket for kernel 60641c4c-58c4-4f1f-93a9-cd24d1070e38
+[warning] Trying to send message on removed socket for kernel 60641c4c-58c4-4f1f-93a9-cd24d1070e38
+
+RESULT: OK - notebook trained an MLP in the WASM kernel
