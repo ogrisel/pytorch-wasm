@@ -123,6 +123,12 @@ build:
     # wasm32 needs the same treatment, so extend the guard to Emscripten.
     perl -0pi -e 's/#if defined\(__APPLE__\)\nDECLARE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T\nDECLARE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.h
     grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t patch not applied"
+    # PROBE WORKAROUND (blocker #6): c10/util/Enumerate.h uses the POSIX type `ssize_t`
+    # (from <sys/types.h>) which is not transitively available under Emscripten musl in
+    # the torch/nativert translation units. `std::ptrdiff_t` is the portable, standard
+    # equivalent (already pulled in via <iterator>/<cstddef>).
+    perl -0pi -e 's/using difference_type = ssize_t;/using difference_type = std::ptrdiff_t;  \/\/ PYODIDE_PROBE_SSIZE_T/' c10/util/Enumerate.h
+    grep -n "PYODIDE_PROBE_SSIZE_T" c10/util/Enumerate.h || echo "WARN: ssize_t patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
