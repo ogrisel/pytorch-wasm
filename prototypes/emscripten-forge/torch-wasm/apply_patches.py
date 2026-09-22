@@ -56,4 +56,17 @@ patch(
     "  if(FALSE)  # emscripten probe: skip Caffe2Targets export\n    install(\n      EXPORT Caffe2Targets",
 )
 
+# 5) Blocker #8: wasm cross-CPython has no shared libpython, so
+#    find_package(Python COMPONENTS Development.Module) leaves
+#    Python_Development.Module_FOUND false and cmake/Dependencies.cmake then
+#    force-disables BUILD_PYTHON (so libtorch_python / torch._C never build).
+#    We inject header-only Python::Module/Python::Python targets (see
+#    emscripten_fixups.cmake) and provide WASM_PYTHON_INCLUDE_DIR; keep
+#    BUILD_PYTHON on in that case. Python symbols resolve at side-module load.
+patch(
+    "cmake/Dependencies.cmake",
+    "  if(Python_Development.Module_FOUND)\n    if(USE_NUMPY)",
+    "  if(Python_Development.Module_FOUND OR DEFINED WASM_PYTHON_INCLUDE_DIR)\n    if(USE_NUMPY)",
+)
+
 print("done")

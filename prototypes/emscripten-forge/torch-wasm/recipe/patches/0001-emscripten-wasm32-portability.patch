@@ -45,3 +45,14 @@ wasm32 (ILP32) + Emscripten musl portability + reduced-build fixes for PyTorch 2
      install(
        EXPORT Caffe2Targets
        DESTINATION share/cmake/Caffe2
+--- a/cmake/Dependencies.cmake	2025-08-06 17:08:00.000000000 +0000
++++ b/cmake/Dependencies.cmake	2026-09-22 21:53:49.195847943 +0000
+@@ -835,7 +835,7 @@
+ 
+ # ---[ Python + Numpy
+ if(BUILD_PYTHON)
+-  if(Python_Development.Module_FOUND)
++  if(Python_Development.Module_FOUND OR DEFINED WASM_PYTHON_INCLUDE_DIR)
+     if(USE_NUMPY)
+       if(NOT Python_NumPy_FOUND)
+         message(WARNING "NumPy could not be found. Not building with NumPy. Suppress this warning with -DUSE_NUMPY=OFF")

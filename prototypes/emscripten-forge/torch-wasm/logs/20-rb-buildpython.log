@@ -1,0 +1,1332 @@
+ Processing recipe at path: /workspace/.ef-recipes/recipes/recipes_emscripten/py
+ torch/recipe.yaml
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config from: /workspace/prototypes/emscripten-forge/torch-was
+ │ m/recipe/variant-3173.yaml
+ │ ⚠ warning Found 'pin_run_as_build' in variant config - this is not supported a
+ │ ⚠ warning nd will be ignored
+ │ Found 1 variants
+ │ 
+ │ Build variant: pytorch-2.8.0-py313h8f367bf_0
+ │ 
+ │ ╭────────────────────────────────┬────────────────────╮
+ │ │ Variant                        ┆ Version            │
+ │ ╞════════════════════════════════╪════════════════════╡
+ │ │ c_compiler                     ┆ "emscripten"       │
+ │ │ c_compiler_version             ┆ "3.1.73"           │
+ │ │ channel_targets                ┆ "conda-forge main" │
+ │ │ cmake                          ┆ "4.3"              │
+ │ │ cross_python_emscripten_wasm32 ┆ "3.13.1"           │
+ │ │ cxx_compiler                   ┆ "emscripten"       │
+ │ │ cxx_compiler_version           ┆ "3.1.73"           │
+ │ │ python                         ┆ "3.13.* *_cp313"   │
+ │ ╰────────────────────────────────┴────────────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+ Starting build of 1 outputs
+
+ ╭─ Running build for recipe: pytorch-2.8.0-py313h8f367bf_0
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from path: /workspace/.ef-recipes/recipes/recipes_emscripte
+ │ │ n/pytorch/stub
+ │ │ Copied 1 files into isolated environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Resolving build environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.12.94=0, __glibc=2.39=0, __arch
+ │ │ spec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///workspace/.ef-recipes/output/
+ │ │    - https://prefix.dev/emscripten-forge-dev/
+ │ │    - conda-forge
+ │ │    - microsoft
+ │ │   Specs:
+ │ │    - emscripten_emscripten-wasm32 3.1.73.*
+ │ │    - emscripten_emscripten-wasm32 3.1.73.*
+ │ │    - cross-python_emscripten-wasm32 3.13.1.*
+ │ │    - python 3.13.* *_cp313
+ │ │    - cmake 4.3.*
+ │ │    - ninja
+ │ │    - pyyaml
+ │ │    - setuptools
+ │ │    - typing_extensions
+ │ │    - six
+ │ │ 
+ │ │ ╭────────────────────────────────┬──────────────┬──────────────────────┬───
+ │ │ ───────────────────┬────────────╮
+ │ │ │ Package                        ┆ Version      ┆ Build                ┆ Ch
+ │ │ annel              ┆       Size │
+ │ │ ╞════════════════════════════════╪══════════════╪══════════════════════╪═══
+ │ │ ═══════════════════╪════════════╡
+ │ │ │ __unix                         ┆ 1.0.0        ┆ ha770c72_0           ┆ em
+ │ │ scripten-forge-dev ┆   1.18 KiB │
+ │ │ │ _openmp_mutex                  ┆ 4.5          ┆ 20_gnu               ┆ co
+ │ │ nda-forge          ┆  28.27 KiB │
+ │ │ │ bzip2                          ┆ 1.0.8        ┆ hda65f42_10          ┆ co
+ │ │ nda-forge          ┆ 251.77 KiB │
+ │ │ │ c-ares                         ┆ 1.34.8       ┆ hebe6cf0_2           ┆ co
+ │ │ nda-forge          ┆ 223.34 KiB │
+ │ │ │ ca-certificates                ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ co
+ │ │ nda-forge          ┆ 128.69 KiB │
+ │ │ │ cmake                          ┆ 4.3.4        ┆ hc85cc9f_0           ┆ co
+ │ │ nda-forge          ┆  22.09 MiB │
+ │ │ │ coreutils                      ┆ 9.12         ┆ hebe6cf0_0           ┆ co
+ │ │ nda-forge          ┆   3.33 MiB │
+ │ │ │ cross-python_emscripten-wasm32 ┆ 3.13.1       ┆ ha770c72_15          ┆ em
+ │ │ scripten-forge-dev ┆   5.07 KiB │
+ │ │ │ crossenv                       ┆ 1.6.1        ┆ pyh5ded981_1         ┆ co
+ │ │ nda-forge          ┆  36.41 KiB │
+ │ │ │ emscripten_emscripten-wasm32   ┆ 3.1.73       ┆ h099e90b_12          ┆ em
+ │ │ scripten-forge-dev ┆ 368.20 MiB │
+ │ │ │ icu                            ┆ 75.1         ┆ he02047a_0           ┆ co
+ │ │ nda-forge          ┆  11.57 MiB │
+ │ │ │ keyutils                       ┆ 1.6.3        ┆ h7cc23a3_1           ┆ co
+ │ │ nda-forge          ┆ 132.12 KiB │
+ │ │ │ krb5                           ┆ 1.22.2       ┆ hbc21106_2           ┆ co
+ │ │ nda-forge          ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64               ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ co
+ │ │ nda-forge          ┆ 727.83 KiB │
+ │ │ │ libcurl                        ┆ 8.21.0       ┆ hcf29cc6_1           ┆ co
+ │ │ nda-forge          ┆ 467.69 KiB │
+ │ │ │ libedit                        ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ co
+ │ │ nda-forge          ┆ 131.93 KiB │
+ │ │ │ libev                          ┆ 4.33         ┆ h280c20c_3           ┆ co
+ │ │ nda-forge          ┆  42.21 KiB │
+ │ │ │ libexpat                       ┆ 2.8.4        ┆ hd2095e1_0           ┆ co
+ │ │ nda-forge          ┆  75.78 KiB │
+ │ │ │ libffi                         ┆ 3.7.0        ┆ h81df57d_1           ┆ co
+ │ │ nda-forge          ┆  66.41 KiB │
+ │ │ │ libgcc                         ┆ 16.2.0       ┆ ha9f2e26_5           ┆ co
+ │ │ nda-forge          ┆   1.01 MiB │
+ │ │ │ libgcc-ng                      ┆ 16.2.0       ┆ h69a702a_5           ┆ co
+ │ │ nda-forge          ┆  27.87 KiB │
+ │ │ │ libgomp                        ┆ 16.2.0       ┆ he0feb66_5           ┆ co
+ │ │ nda-forge          ┆ 626.61 KiB │
+ │ │ │ libiconv                       ┆ 1.18         ┆ h0cb94f2_3           ┆ co
+ │ │ nda-forge          ┆ 770.97 KiB │
+ │ │ │ liblzma                        ┆ 5.8.3        ┆ hb03c661_1           ┆ co
+ │ │ nda-forge          ┆ 110.35 KiB │
+ │ │ │ libmpdec                       ┆ 4.0.0        ┆ hb03c661_2           ┆ co
+ │ │ nda-forge          ┆  90.58 KiB │
+ │ │ │ libnghttp2                     ┆ 1.68.1       ┆ h74cf4be_1           ┆ co
+ │ │ nda-forge          ┆ 634.74 KiB │
+ │ │ │ libpython                      ┆ 3.13.15      ┆ hdc7f604_103_cp313   ┆ co
+ │ │ nda-forge          ┆   9.26 MiB │
+ │ │ │ libsqlite                      ┆ 3.53.4       ┆ h0737f62_1           ┆ co
+ │ │ nda-forge          ┆ 946.18 KiB │
+ │ │ │ libssh2                        ┆ 1.11.1       ┆ h6154650_1           ┆ co
+ │ │ nda-forge          ┆ 298.87 KiB │
+ │ │ │ libstdcxx                      ┆ 16.2.0       ┆ h934c35e_5           ┆ co
+ │ │ nda-forge          ┆   6.31 MiB │
+ │ │ │ libstdcxx-ng                   ┆ 16.2.0       ┆ hdf11a46_5           ┆ co
+ │ │ nda-forge          ┆  27.89 KiB │
+ │ │ │ libuuid                        ┆ 2.42.3       ┆ hcfc3c73_0           ┆ co
+ │ │ nda-forge          ┆  39.06 KiB │
+ │ │ │ libuv                          ┆ 1.52.1       ┆ h280c20c_1           ┆ co
+ │ │ nda-forge          ┆ 410.20 KiB │
+ │ │ │ libzlib                        ┆ 1.3.2        ┆ h25fd6f3_3           ┆ co
+ │ │ nda-forge          ┆  62.22 KiB │
+ │ │ │ lz4-c                          ┆ 1.10.0       ┆ hee9eb32_2           ┆ co
+ │ │ nda-forge          ┆ 177.55 KiB │
+ │ │ │ ncurses                        ┆ 6.6          ┆ hdb14827_1           ┆ co
+ │ │ nda-forge          ┆ 889.84 KiB │
+ │ │ │ ninja                          ┆ 1.13.2       ┆ h171cf75_1           ┆ co
+ │ │ nda-forge          ┆ 182.39 KiB │
+ │ │ │ nodejs                         ┆ 16.20.2      ┆ hc19f0b3_3           ┆ co
+ │ │ nda-forge          ┆  13.64 MiB │
+ │ │ │ openssl                        ┆ 3.6.4        ┆ h781a0a9_0           ┆ co
+ │ │ nda-forge          ┆   3.05 MiB │
+ │ │ │ pip                            ┆ 26.2.1       ┆ pyh145f28c_0         ┆ co
+ │ │ nda-forge          ┆   1.14 MiB │
+ │ │ │ popt                           ┆ 1.19         ┆ hcfc3c73_2           ┆ co
+ │ │ nda-forge          ┆  74.18 KiB │
+ │ │ │ python                         ┆ 3.13.15      ┆ hf47f18c_103_cp313   ┆ co
+ │ │ nda-forge          ┆  23.24 MiB │
+ │ │ │ python_abi                     ┆ 3.13         ┆ 9_cp313              ┆ co
+ │ │ nda-forge          ┆   6.61 KiB │
+ │ │ │ pyyaml                         ┆ 6.0.3        ┆ py313h3dea7bd_1      ┆ co
+ │ │ nda-forge          ┆ 196.89 KiB │
+ │ │ │ readline                       ┆ 8.3          ┆ hd6e31c0_1           ┆ co
+ │ │ nda-forge          ┆ 340.72 KiB │
+ │ │ │ rhash                          ┆ 1.4.6        ┆ hb03c661_2           ┆ co
+ │ │ nda-forge          ┆ 190.42 KiB │
+ │ │ │ rsync                          ┆ 3.4.4        ┆ hffd6c76_1           ┆ co
+ │ │ nda-forge          ┆ 369.48 KiB │
+ │ │ │ sed                            ┆ 4.10         ┆ h19d0853_0           ┆ co
+ │ │ nda-forge          ┆ 262.19 KiB │
+ │ │ │ setuptools                     ┆ 84.0.0       ┆ pyh332efcf_0         ┆ co
+ │ │ nda-forge          ┆ 512.20 KiB │
+ │ │ │ six                            ┆ 1.17.0       ┆ pyhe01879c_1         ┆ co
+ │ │ nda-forge          ┆  18.02 KiB │
+ │ │ │ tk                             ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ co
+ │ │ nda-forge          ┆   3.40 MiB │
+ │ │ │ typing_extensions              ┆ 4.16.0       ┆ pyhcf101f3_0         ┆ co
+ │ │ nda-forge          ┆  51.40 KiB │
+ │ │ │ tzdata                         ┆ 2026c        ┆ h151e31d_0           ┆ co
+ │ │ nda-forge          ┆ 116.06 KiB │
+ │ │ │ xxhash                         ┆ 0.8.3        ┆ hec8ed23_1           ┆ co
+ │ │ nda-forge          ┆ 106.80 KiB │
+ │ │ │ yaml                           ┆ 0.2.5        ┆ hebe6cf0_3           ┆ co
+ │ │ nda-forge          ┆  82.95 KiB │
+ │ │ │ zlib                           ┆ 1.3.2        ┆ h25fd6f3_3           ┆ co
+ │ │ nda-forge          ┆  93.88 KiB │
+ │ │ │ zstd                           ┆ 1.5.7        ┆ hb78ec9c_7           ┆ co
+ │ │ nda-forge          ┆ 587.21 KiB │
+ │ │ ╰────────────────────────────────┴──────────────┴──────────────────────┴───
+ │ │ ───────────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving host environment
+ │ │   Platform: emscripten-wasm32 [__unix=0=0]
+ │ │   Channels: 
+ │ │    - file:///workspace/.ef-recipes/output/
+ │ │    - https://prefix.dev/emscripten-forge-dev/
+ │ │    - conda-forge
+ │ │    - microsoft
+ │ │   Specs:
+ │ │    - python 3.13.* *_cp313
+ │ │    - pybind11
+ │ │    - emscripten-abi >=3.1.73,<3.1.74.0a0
+ │ │    - emscripten-abi >=3.1.73,<3.1.74.0a0
+ │ │ 
+ │ │ ╭────────────────┬─────────┬───────────────────┬──────────────────────┬────
+ │ │ ────────╮
+ │ │ │ Package        ┆ Version ┆ Build             ┆ Channel              ┆    
+ │ │    Size │
+ │ │ ╞════════════════╪═════════╪═══════════════════╪══════════════════════╪════
+ │ │ ════════╡
+ │ │ │ __unix         ┆ 1.0.0   ┆ hc286ada_0        ┆ emscripten-forge-dev ┆   1
+ │ │ .18 KiB │
+ │ │ │ emscripten-abi ┆ 3.1.73  ┆ h267e887_12       ┆ emscripten-forge-dev ┆  11
+ │ │ .28 KiB │
+ │ │ │ pybind11       ┆ 3.0.1   ┆ py313h179546c_1   ┆ emscripten-forge-dev ┆ 227
+ │ │ .91 KiB │
+ │ │ │ python         ┆ 3.13.1  ┆ h_c8de616_6_cp313 ┆ emscripten-forge-dev ┆   5
+ │ │ .42 MiB │
+ │ │ │ python_abi     ┆ 3.13.1  ┆ 1_cp313           ┆ emscripten-forge-dev ┆   2
+ │ │ .54 KiB │
+ │ │ ╰────────────────┴─────────┴───────────────────┴──────────────────────┴────
+ │ │ ────────╯
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │ 
+ │ Finalized run dependencies (pytorch-2.8.0-py313h8f367bf_0):
+ │ ╭──────────────────┬─────────────────────────────────────────────────────────
+ │ ─────────────╮
+ │ │ Name             ┆ Spec                                                    
+ │              │
+ │ ╞══════════════════╪═════════════════════════════════════════════════════════
+ │ ═════════════╡
+ │ │ Run dependencies ┆                                                         
+ │              │
+ │ │ emscripten-abi   ┆ >=3.1.73,<3.1.74.0a0 (RE of [build: cross-python_emscrip
+ │ ten-wasm32]) │
+ │ │                  ┆ >=3.1.73,<3.1.74.0a0 (RE of [build: emscripten_emscripte
+ │ n-wasm32])   │
+ │ │ python_abi       ┆ 3.13.* *_cp313 (RE of [host: python])                   
+ │              │
+ │ ╰──────────────────┴─────────────────────────────────────────────────────────
+ │ ─────────────╯
+ │
+ │ ╭─ Installing build environment
+ │ │ ✔ Successfully updated the build environment
+ │ │
+ │ ╰─────────────────── (took 35 seconds)
+ │
+ │ ╭─ Installing host environment
+ │ │ ✔ Successfully updated the host environment
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Running build script
+ │ │ Setting up cross-python environment
+ │ │ + SRC=/workspace/.src/pytorch
+ │ │ + BUILD=/workspace/.torch-build
+ │ │ + STAGE=/workspace/.torch-stage
+ │ │ + LOG=/workspace/prototypes/emscripten-forge/torch-wasm/logs
+ │ │ + mkdir -p /workspace/.torch-build /workspace/prototypes/emscripten-forge/t
+ │ │ orch-wasm/logs /workspace/.torch-stage
+ │ │ + echo '=== probe ==='
+ │ │ === probe ===
+ │ │ + emcc --version
+ │ │ + head -1
+ │ │ emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.
+ │ │ 73 (ac676d5e437525d15df5fd46bc2c208ec6d376a3)
+ │ │ EMSDK_PYTHON=$BUILD_PREFIX/bin/python3 PREFIX=$PREFIX BUILD_PREFIX=$BUILD_P
+ │ │ REFIX
+ │ │ + echo 'EMSDK_PYTHON=$BUILD_PREFIX/bin/python3 PREFIX=$PREFIX BUILD_PREFIX=
+ │ │ $BUILD_PREFIX'
+ │ │ + export USE_CUDA=0 USE_ROCM=0 USE_XPU=0
+ │ │ + USE_CUDA=0
+ │ │ + USE_ROCM=0
+ │ │ + USE_XPU=0
+ │ │ + export USE_MKLDNN=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 USE_PYTORCH_Q
+ │ │ NNPACK=0 USE_XNNPACK=0
+ │ │ + USE_MKLDNN=0
+ │ │ + USE_FBGEMM=0
+ │ │ + USE_NNPACK=0
+ │ │ + USE_QNNPACK=0
+ │ │ + USE_PYTORCH_QNNPACK=0
+ │ │ + USE_XNNPACK=0
+ │ │ + export USE_KINETO=0 USE_DISTRIBUTED=0 USE_TENSORPIPE=0 USE_GLOO=0 USE_MPI
+ │ │ =0
+ │ │ + USE_KINETO=0
+ │ │ + USE_DISTRIBUTED=0
+ │ │ + USE_TENSORPIPE=0
+ │ │ + USE_GLOO=0
+ │ │ + USE_MPI=0
+ │ │ + export USE_OPENMP=0 USE_NUMA=0 USE_NUMPY=0 USE_MAGMA=0 USE_ITT=0 USE_MIMA
+ │ │ LLOC=0
+ │ │ + USE_OPENMP=0
+ │ │ + USE_NUMA=0
+ │ │ + USE_NUMPY=0
+ │ │ + USE_MAGMA=0
+ │ │ + USE_ITT=0
+ │ │ + USE_MIMALLOC=0
+ │ │ + export USE_OBSERVERS=0 USE_LITE_PROTO=1 USE_ONNX=0
+ │ │ + USE_OBSERVERS=0
+ │ │ + USE_LITE_PROTO=1
+ │ │ + USE_ONNX=0
+ │ │ + export BUILD_TEST=0 BUILD_CAFFE2=0 BUILD_CAFFE2_OPS=0 BUILD_BINARY=0
+ │ │ + BUILD_TEST=0
+ │ │ + BUILD_CAFFE2=0
+ │ │ + BUILD_CAFFE2_OPS=0
+ │ │ + BUILD_BINARY=0
+ │ │ + export ATEN_THREADING=NATIVE
+ │ │ + ATEN_THREADING=NATIVE
+ │ │ + export MAX_JOBS=4
+ │ │ + MAX_JOBS=4
+ │ │ + export PYTORCH_BUILD_VERSION=2.8.0 PYTORCH_BUILD_NUMBER=0
+ │ │ + PYTORCH_BUILD_VERSION=2.8.0
+ │ │ + PYTORCH_BUILD_NUMBER=0
+ │ │ + EH=-fexceptions
+ │ │ + export 'CFLAGS=-O2 -g0 -fPIC -I$PREFIX/include -O2 -g0 -fPIC -I$PREFIX/in
+ │ │ clude -fexceptions'
+ │ │ + CFLAGS='-O2 -g0 -fPIC -I$PREFIX/include -O2 -g0 -fPIC -I$PREFIX/include -
+ │ │ fexceptions'
+ │ │ + export 'CXXFLAGS= -O2 -g0 -fPIC -I$PREFIX/include -fexceptions'
+ │ │ + CXXFLAGS=' -O2 -g0 -fPIC -I$PREFIX/include -fexceptions'
+ │ │ + export 'LDFLAGS=-O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MOD
+ │ │ ULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -fexce
+ │ │ ptions'
+ │ │ + LDFLAGS='-O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -
+ │ │ O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -fexceptions'
+ │ │ + PYEXE=$BUILD_PREFIX/bin/python3
+ │ │ + PYINC=$PREFIX/include/python3.13
+ │ │ + tee /workspace/prototypes/emscripten-forge/torch-wasm/logs/10-configure.l
+ │ │ og
+ │ │ + emcmake cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNin
+ │ │ ja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_BI
+ │ │ NARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_ROC
+ │ │ M=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DUS
+ │ │ E_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF 
+ │ │ -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -DU
+ │ │ SE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF 
+ │ │ -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF -
+ │ │ DATEN_THREADING=NATIVE -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DPYTH
+ │ │ ON_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace/
+ │ │ prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWAS
+ │ │ M_PYTHON_INCLUDE_DIR=$PREFIX/include/python3.13 -DCAFFE2_CUSTOM_PROTOC_EXEC
+ │ │ UTABLE=/workspace/.hostprotoc/protoc -DCMAKE_TOOLCHAIN_FILE=$BUILD_PREFIX/o
+ │ │ pt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAK
+ │ │ E_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIND_ROOT_PATH
+ │ │ _MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true
+ │ │ configure: cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNi
+ │ │ nja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_B
+ │ │ INARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_RO
+ │ │ CM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DU
+ │ │ SE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF
+ │ │  -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -D
+ │ │ USE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF
+ │ │  -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF 
+ │ │ -DATEN_THREADING=NATIVE -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DPYT
+ │ │ HON_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace
+ │ │ /prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWA
+ │ │ SM_PYTHON_INCLUDE_DIR=$PREFIX/include/python3.13 -DCAFFE2_CUSTOM_PROTOC_EXE
+ │ │ CUTABLE=/workspace/.hostprotoc/protoc -DCMAKE_TOOLCHAIN_FILE=$BUILD_PREFIX/
+ │ │ opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMA
+ │ │ KE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIND_ROOT_PAT
+ │ │ H_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -DCMAKE_CROSS
+ │ │ COMPILING_EMULATOR=$BUILD_PREFIX/bin/node
+ │ │ CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
+ │ │   The OLD behavior for policy CMP0126 will be removed from a future version
+ │ │   of CMake.
+ │ │   The cmake-policies(7) manual explains that the OLD behaviors of all
+ │ │   policies are deprecated and that a policy should be set to OLD only under
+ │ │   specific short-term circumstances.  Projects should be ported to the NEW
+ │ │   behavior and not rely on setting a policy to OLD.
+ │ │ CMake Deprecation Warning at CMakeLists.txt:21 (cmake_policy):
+ │ │   The OLD behavior for policy CMP0146 will be removed from a future version
+ │ │   of CMake.
+ │ │   The cmake-policies(7) manual explains that the OLD behaviors of all
+ │ │   policies are deprecated and that a policy should be set to OLD only under
+ │ │   specific short-term circumstances.  Projects should be ported to the NEW
+ │ │   behavior and not rely on setting a policy to OLD.
+ │ │ -- Not forcing any particular BLAS to be found
+ │ │ -- Could not find ccache. Consider installing ccache to speed up compilatio
+ │ │ n.
+ │ │ -- Performing Test C_HAS_AVX_1
+ │ │ -- Performing Test C_HAS_AVX_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX_2
+ │ │ -- Performing Test C_HAS_AVX_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX_3
+ │ │ -- Performing Test C_HAS_AVX_3 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_1
+ │ │ -- Performing Test C_HAS_AVX2_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_2
+ │ │ -- Performing Test C_HAS_AVX2_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_3
+ │ │ -- Performing Test C_HAS_AVX2_3 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_1
+ │ │ -- Performing Test C_HAS_AVX512_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_2
+ │ │ -- Performing Test C_HAS_AVX512_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_3
+ │ │ -- Performing Test C_HAS_AVX512_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_1
+ │ │ -- Performing Test CXX_HAS_AVX_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_2
+ │ │ -- Performing Test CXX_HAS_AVX_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_3
+ │ │ -- Performing Test CXX_HAS_AVX_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_1
+ │ │ -- Performing Test CXX_HAS_AVX2_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_2
+ │ │ -- Performing Test CXX_HAS_AVX2_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_3
+ │ │ -- Performing Test CXX_HAS_AVX2_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_1
+ │ │ -- Performing Test CXX_HAS_AVX512_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_2
+ │ │ -- Performing Test CXX_HAS_AVX512_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_3
+ │ │ -- Performing Test CXX_HAS_AVX512_3 - Failed
+ │ │ -- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS
+ │ │ -- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS - Failed
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY - Success
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY - Success
+ │ │ -- Performing Test COMPILER_SUPPORTS_RDYNAMIC
+ │ │ -- Performing Test COMPILER_SUPPORTS_RDYNAMIC - Success
+ │ │ -- Could not find hardware support for NEON on this machine.
+ │ │ -- No OMAP3 processor on this machine.
+ │ │ -- No OMAP4 processor on this machine.
+ │ │ -- Compiler does not support SVE extension. Will not build perfkernels.
+ │ │ -- Building using own protobuf under third_party per request.
+ │ │ -- Use custom protobuf build.
+ │ │ CMake Warning at cmake/ProtoBuf.cmake:37 (message):
+ │ │   Ancient protobuf forces CMake compatibility
+ │ │ Call Stack (most recent call first):
+ │ │   cmake/ProtoBuf.cmake:87 (custom_protobuf_find)
+ │ │   cmake/Dependencies.cmake:107 (include)
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Deprecation Warning at third_party/protobuf/cmake/CMakeLists.txt:2 (c
+ │ │ make_minimum_required):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- 
+ │ │ -- 3.13.0.0
+ │ │ -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+ │ │ -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+ │ │ -- Found Threads: TRUE
+ │ │ -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+ │ │ -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+ │ │ -- Caffe2 protobuf include directory: $<BUILD_INTERFACE:/workspace/.src/pyt
+ │ │ orch/third_party/protobuf/src>$<INSTALL_INTERFACE:include>
+ │ │ -- Trying to find preferred BLAS backend of choice: MKL
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Looking for sys/types.h
+ │ │ -- Looking for sys/types.h - found
+ │ │ -- Looking for stdint.h
+ │ │ -- Looking for stdint.h - found
+ │ │ -- Looking for stddef.h
+ │ │ -- Looking for stddef.h - found
+ │ │ -- Check size of void*
+ │ │ -- Check size of void* - done
+ │ │ -- MKL_THREADING = OMP
+ │ │ CMake Warning at cmake/Dependencies.cmake:208 (message):
+ │ │   MKL could not be found.  Defaulting to Eigen
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Warning at cmake/Dependencies.cmake:256 (message):
+ │ │   Preferred BLAS (MKL) cannot be found, now searching for a general BLAS
+ │ │   library
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl - guide - pthread - m]
+ │ │ --   Library mkl: not found
+ │ │ -- MKL library not found
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Checking for [Accelerate]
+ │ │ --   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+ │ │ -- Checking for [vecLib]
+ │ │ --   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+ │ │ -- Checking for [flexiblas]
+ │ │ --   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m - gomp]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran - pthread]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [acml - gfortran]
+ │ │ --   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INC
+ │ │ LUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+ │ │ -- Checking for [ptf77blas - atlas - gfortran]
+ │ │ --   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+ │ │ -- Checking for []
+ │ │ -- Looking for sgemm_
+ │ │ -- Looking for sgemm_ - found
+ │ │ -- Cannot find a library with BLAS API. Not using BLAS.
+ │ │ -- Using pocketfft in directory: /workspace/.src/pytorch/third_party/pocket
+ │ │ fft/
+ │ │ CMake Deprecation Warning at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MI
+ │ │ NIMUM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ CMake Warning at third_party/cpuinfo/CMakeLists.txt:113 (MESSAGE):
+ │ │   Target operating system "Emscripten" is not supported in cpuinfo.  cpuinf
+ │ │ o
+ │ │   will compile, but cpuinfo_initialize() will always fail.
+ │ │ CMake Warning at cmake/Dependencies.cmake:711 (message):
+ │ │   Turning USE_FAKELOWP off as it depends on USE_FBGEMM.
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Warning at cmake/Dependencies.cmake:764 (message):
+ │ │   FP16 is only cmake-2.8 compatible
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Deprecation Warning at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIM
+ │ │ UM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ CMake Deprecation Warning at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINI
+ │ │ MUM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- Using third party subdirectory Eigen.
+ │ │ -- Found Python: $BUILD_PREFIX/bin/python3 (found version "3.13.15") found 
+ │ │ components: Interpreter missing components: Development.Module
+ │ │ -- Using third_party/pybind11.
+ │ │ -- pybind11 include dirs: /workspace/.src/pytorch/cmake/../third_party/pybi
+ │ │ nd11/include
+ │ │ -- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS)
+ │ │  
+ │ │ -- Using third_party/opentelemetry-cpp.
+ │ │ -- opentelemetry api include dirs: /workspace/.src/pytorch/cmake/../third_p
+ │ │ arty/opentelemetry-cpp/api/include
+ │ │ -- Found Python3: $BUILD_PREFIX/bin/python3 (found version "3.13.15") found
+ │ │  components: Interpreter
+ │ │ -- Using custom protoc executable
+ │ │ -- ONNX_PROTOC_EXECUTABLE: /workspace/.hostprotoc/protoc
+ │ │ -- Protobuf_VERSION: Protobuf_VERSION_NOTFOUND
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml
+ │ │ .proto
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-operators_onn
+ │ │ x_torch-ml.proto
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-data_onnx_tor
+ │ │ ch.proto
+ │ │ -- 
+ │ │ -- ******** Summary ********
+ │ │ --   CMake version                     : 4.3.4
+ │ │ --   CMake command                     : $BUILD_PREFIX/bin/cmake
+ │ │ --   System                            : Emscripten
+ │ │ --   C++ compiler                      : $BUILD_PREFIX/opt/emsdk/upstream/e
+ │ │ mscripten/em++
+ │ │ --   C++ compiler version              : 20.0.0
+ │ │ --   CXX flags                         : -O2 -g0 -fPIC -I$PREFIX/include -f
+ │ │ exceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor
+ │ │ --   Build type                        : Release
+ │ │ --   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
+ │ │ --   CMAKE_PREFIX_PATH                 : $PREFIX
+ │ │ --   CMAKE_INSTALL_PREFIX              : $PREFIX
+ │ │ --   CMAKE_MODULE_PATH                 : $BUILD_PREFIX/opt/emsdk/upstream/e
+ │ │ mscripten/cmake/Modules;$BUILD_PREFIX/opt/emsdk/upstream/emscripten/cmake/M
+ │ │ odules;$BUILD_PREFIX/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace
+ │ │ /.src/pytorch/cmake/Modules
+ │ │ -- 
+ │ │ --   ONNX version                      : 1.18.0
+ │ │ --   ONNX NAMESPACE                    : onnx_torch
+ │ │ --   ONNX_USE_LITE_PROTO               : 1
+ │ │ --   USE_PROTOBUF_SHARED_LIBS          : OFF
+ │ │ --   ONNX_DISABLE_EXCEPTIONS           : OFF
+ │ │ --   ONNX_DISABLE_STATIC_REGISTRATION  : OFF
+ │ │ --   ONNX_WERROR                       : OFF
+ │ │ --   ONNX_BUILD_TESTS                  : OFF
+ │ │ --   BUILD_SHARED_LIBS                 : OFF
+ │ │ -- 
+ │ │ --   Protobuf compiler                 : /workspace/.hostprotoc/protoc
+ │ │ --   Protobuf includes                 : 
+ │ │ --   Protobuf libraries                : 
+ │ │ --   ONNX_BUILD_PYTHON                 : OFF
+ │ │ -- Found CUDA with FP16 support, compiling with torch.cuda.HalfTensor
+ │ │ -- Adding -DNDEBUG to compile flags
+ │ │ -- Could not find hardware support for NEON on this machine.
+ │ │ -- No OMAP3 processor on this machine.
+ │ │ -- No OMAP4 processor on this machine.
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl - guide - pthread - m]
+ │ │ --   Library mkl: not found
+ │ │ -- MKL library not found
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Checking for [Accelerate]
+ │ │ --   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+ │ │ -- Checking for [vecLib]
+ │ │ --   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+ │ │ -- Checking for [flexiblas]
+ │ │ --   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m - gomp]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran - pthread]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [acml - gfortran]
+ │ │ --   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INC
+ │ │ LUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+ │ │ -- Checking for [ptf77blas - atlas - gfortran]
+ │ │ --   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+ │ │ -- Checking for []
+ │ │ -- Cannot find a library with BLAS API. Not using BLAS.
+ │ │ -- LAPACK requires BLAS
+ │ │ -- Cannot find a library with LAPACK API. Not using LAPACK.
+ │ │ disabling CUDA because NOT USE_CUDA is set
+ │ │ disabling ROCM because NOT USE_ROCM is set
+ │ │ -- MIOpen not found. Compiling without MIOpen support
+ │ │ disabling MKLDNN because USE_MKLDNN is not set
+ │ │ -- Looking for clock_gettime in rt
+ │ │ -- Looking for clock_gettime in rt - found
+ │ │ -- Looking for mmap
+ │ │ -- Looking for mmap - found
+ │ │ -- Looking for shm_open
+ │ │ -- Looking for shm_open - found
+ │ │ -- Looking for shm_unlink
+ │ │ -- Looking for shm_unlink - found
+ │ │ -- Looking for malloc_usable_size
+ │ │ -- Looking for malloc_usable_size - found
+ │ │ -- {fmt} version: 11.2.0
+ │ │ -- Build type: Release
+ │ │ -- Performing Test HAS_NULLPTR_WARNING
+ │ │ -- Performing Test HAS_NULLPTR_WARNING - Success
+ │ │ -- Performing Test HAS_WERROR_RETURN_TYPE
+ │ │ -- Performing Test HAS_WERROR_RETURN_TYPE - Success
+ │ │ -- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR
+ │ │ -- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR - Success
+ │ │ -- Performing Test HAS_WERROR_BRACED_SCALAR_INIT
+ │ │ -- Performing Test HAS_WERROR_BRACED_SCALAR_INIT - Success
+ │ │ -- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT
+ │ │ -- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT - Success
+ │ │ -- Performing Test HAS_WERROR_BOOL_OPERATION
+ │ │ -- Performing Test HAS_WERROR_BOOL_OPERATION - Success
+ │ │ -- Performing Test HAS_WNARROWING
+ │ │ -- Performing Test HAS_WNARROWING - Success
+ │ │ -- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS
+ │ │ -- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS - Success
+ │ │ -- Performing Test HAS_WNO_UNKNOWN_PRAGMAS
+ │ │ -- Performing Test HAS_WNO_UNKNOWN_PRAGMAS - Success
+ │ │ -- Performing Test HAS_WNO_UNUSED_PARAMETER
+ │ │ -- Performing Test HAS_WNO_UNUSED_PARAMETER - Success
+ │ │ -- Performing Test HAS_WNO_STRICT_OVERFLOW
+ │ │ -- Performing Test HAS_WNO_STRICT_OVERFLOW - Success
+ │ │ -- Performing Test HAS_WNO_STRICT_ALIASING
+ │ │ -- Performing Test HAS_WNO_STRICT_ALIASING - Success
+ │ │ -- Performing Test HAS_WNO_STRINGOP_OVERFLOW
+ │ │ -- Performing Test HAS_WNO_STRINGOP_OVERFLOW - Failed
+ │ │ -- Performing Test HAS_WVLA_EXTENSION
+ │ │ -- Performing Test HAS_WVLA_EXTENSION - Success
+ │ │ -- Performing Test HAS_WSUGGEST_OVERRIDE
+ │ │ -- Performing Test HAS_WSUGGEST_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WNEWLINE_EOF
+ │ │ -- Performing Test HAS_WNEWLINE_EOF - Success
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST
+ │ │ -- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST - Success
+ │ │ -- Performing Test HAS_WCONSTANT_CONVERSION
+ │ │ -- Performing Test HAS_WCONSTANT_CONVERSION - Success
+ │ │ -- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE
+ │ │ -- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE - Failed
+ │ │ -- Performing Test HAS_QUNUSED_ARGUMENTS
+ │ │ -- Performing Test HAS_QUNUSED_ARGUMENTS - Success
+ │ │ -- Performing Test HAS_FALIGNED_NEW
+ │ │ -- Performing Test HAS_FALIGNED_NEW - Success
+ │ │ -- Performing Test HAS_WNO_MAYBE_UNINITIALIZED
+ │ │ -- Performing Test HAS_WNO_MAYBE_UNINITIALIZED - Failed
+ │ │ -- Performing Test HAS_FSTANDALONE_DEBUG
+ │ │ -- Performing Test HAS_FSTANDALONE_DEBUG - Success
+ │ │ -- Performing Test HAS_FNO_MATH_ERRNO
+ │ │ -- Performing Test HAS_FNO_MATH_ERRNO - Success
+ │ │ -- Performing Test HAS_FNO_TRAPPING_MATH
+ │ │ -- Performing Test HAS_FNO_TRAPPING_MATH - Success
+ │ │ -- Performing Test HAS_WERROR_FORMAT
+ │ │ -- Performing Test HAS_WERROR_FORMAT - Success
+ │ │ CMake Warning (dev) at c10/CMakeLists.txt:52 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- don't use NUMA
+ │ │ -- Looking for backtrace
+ │ │ -- Looking for backtrace - not found
+ │ │ -- Could NOT find Backtrace (missing: Backtrace_LIBRARY Backtrace_INCLUDE_D
+ │ │ IR) 
+ │ │ -- headers outputs: 
+ │ │ -- sources outputs: 
+ │ │ -- declarations_yaml outputs: 
+ │ │ -- Using ATen parallel backend: NATIVE
+ │ │ disabling CUDA because USE_CUDA is set false
+ │ │ AT_INSTALL_INCLUDE_DIR include/ATen/core
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/TensorBody.
+ │ │ h
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/aten_intern
+ │ │ ed_strings.h
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/enum_tag.h
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:792 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Performing Test HAS_WMISSING_PROTOTYPES
+ │ │ -- Performing Test HAS_WMISSING_PROTOTYPES - Success
+ │ │ -- Performing Test HAS_WERROR_MISSING_PROTOTYPES
+ │ │ -- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Success
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:919 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning (dev) at torch/lib/libshm/CMakeLists.txt:10 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning (dev) at torch/CMakeLists.txt:316 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning (dev) at torch/CMakeLists.txt:492 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:1709 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning at CMakeLists.txt:1266 (message):
+ │ │   Generated cmake files are only fully tested if one builds with system glo
+ │ │ g,
+ │ │   gflags, and protobuf.  Other settings may generate files that are not wel
+ │ │ l
+ │ │   tested.
+ │ │ -- 
+ │ │ -- ******** Summary ********
+ │ │ -- General:
+ │ │ --   CMake version         : 4.3.4
+ │ │ --   CMake command         : $BUILD_PREFIX/bin/cmake
+ │ │ --   System                : Emscripten
+ │ │ --   C++ compiler          : $BUILD_PREFIX/opt/emsdk/upstream/emscripten/em
+ │ │ ++
+ │ │ --   C++ compiler id       : Clang
+ │ │ --   C++ compiler version  : 20.0.0
+ │ │ --   Using ccache if found : ON
+ │ │ --   Found ccache          : CCACHE_PROGRAM-NOTFOUND
+ │ │ --   CXX flags             : -O2 -g0 -fPIC -I$PREFIX/include -fexceptions -
+ │ │ fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -
+ │ │ fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtu
+ │ │ al-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=boo
+ │ │ l-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragma
+ │ │ s -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-ext
+ │ │ ension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Wi
+ │ │ nconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-sty
+ │ │ le-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-er
+ │ │ rno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -D
+ │ │ EMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
+ │ │ --   Shared LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib 
+ │ │ -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODU
+ │ │ LE=1 -fexceptions -rdynamic
+ │ │ --   Static LD flags       : 
+ │ │ --   Module LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib 
+ │ │ -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODU
+ │ │ LE=1 -fexceptions
+ │ │ --   Build type            : Release
+ │ │ --   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=
+ │ │ onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK
+ │ │ =1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CR
+ │ │ C32_CHECKS
+ │ │ --   CMAKE_PREFIX_PATH     : $PREFIX
+ │ │ --   CMAKE_INSTALL_PREFIX  : $PREFIX
+ │ │ --   USE_GOLD_LINKER       : OFF
+ │ │ -- 
+ │ │ --   TORCH_VERSION         : 2.8.0
+ │ │ --   BUILD_STATIC_RUNTIME_BENCHMARK: OFF
+ │ │ --   BUILD_BINARY          : OFF
+ │ │ --   BUILD_CUSTOM_PROTOBUF : ON
+ │ │ --     Link local protobuf : ON
+ │ │ --   BUILD_PYTHON          : ON
+ │ │ --     Python version      : 3.13.15
+ │ │ --     Python executable   : $BUILD_PREFIX/bin/python3
+ │ │ --     Python library      : 
+ │ │ --     Python includes     : _Python_INCLUDE_DIR-NOTFOUND
+ │ │ --     Python site-package : $PREFIX/lib/python3.13/site-packages
+ │ │ --   BUILD_SHARED_LIBS     : ON
+ │ │ --   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
+ │ │ --   BUILD_TEST            : OFF
+ │ │ --   BUILD_JNI             : OFF
+ │ │ --   BUILD_MOBILE_AUTOGRAD : OFF
+ │ │ --   BUILD_LITE_INTERPRETER: OFF
+ │ │ --   INTERN_BUILD_MOBILE   : 
+ │ │ --   TRACING_BASED         : OFF
+ │ │ --   USE_BLAS              : 0
+ │ │ --   USE_LAPACK            : 0
+ │ │ --   USE_ASAN              : OFF
+ │ │ --   USE_TSAN              : OFF
+ │ │ --   USE_CPP_CODE_COVERAGE : OFF
+ │ │ --   USE_CUDA              : OFF
+ │ │ --   USE_XPU               : OFF
+ │ │ --   USE_ROCM              : OFF
+ │ │ --   BUILD_NVFUSER         : 
+ │ │ --   USE_EIGEN_FOR_BLAS    : ON
+ │ │ --   USE_FBGEMM            : OFF
+ │ │ --     USE_FAKELOWP          : OFF
+ │ │ --   USE_KINETO            : OFF
+ │ │ --   USE_GFLAGS            : OFF
+ │ │ --   USE_GLOG              : OFF
+ │ │ --   USE_LITE_PROTO        : ON
+ │ │ --   USE_PYTORCH_METAL     : OFF
+ │ │ --   USE_PYTORCH_METAL_EXPORT     : OFF
+ │ │ --   USE_MPS               : OFF
+ │ │ --   CAN_COMPILE_METAL     : 
+ │ │ --   USE_MKL               : OFF
+ │ │ --   USE_MKLDNN            : OFF
+ │ │ --   USE_UCC               : OFF
+ │ │ --   USE_ITT               : OFF
+ │ │ --   USE_XCCL              : OFF
+ │ │ --   USE_NCCL              : OFF
+ │ │ --   USE_NNPACK            : OFF
+ │ │ --   USE_NUMPY             : OFF
+ │ │ --   USE_OBSERVERS         : ON
+ │ │ --   USE_OPENCL            : OFF
+ │ │ --   USE_OPENMP            : OFF
+ │ │ --   USE_MIMALLOC          : OFF
+ │ │ --   USE_VULKAN            : OFF
+ │ │ --   USE_PROF              : OFF
+ │ │ --   USE_PYTORCH_QNNPACK   : OFF
+ │ │ --   USE_XNNPACK           : OFF
+ │ │ --   USE_DISTRIBUTED       : OFF
+ │ │ --   Public Dependencies  : 
+ │ │ --   Private Dependencies : Threads::Threads;cpuinfo;fp16;rt;fmt::fmt-heade
+ │ │ r-only;dl
+ │ │ --   Public CUDA Deps.    : 
+ │ │ --   Private CUDA Deps.   : 
+ │ │ --   USE_COREML_DELEGATE     : OFF
+ │ │ --   BUILD_LAZY_TS_BACKEND   : ON
+ │ │ --   USE_ROCM_KERNEL_ASSERT : OFF
+ │ │ CMake Warning (dev) at functorch/CMakeLists.txt:11 (add_library):
+ │ │   ADD_LIBRARY called with MODULE option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Configuring done (30.3s)
+ │ │ -- Generating done (0.4s)
+ │ │ CMake Warning:
+ │ │   Manually-specified variables were not used by the project:
+ │ │     BUILD_CAFFE2
+ │ │     BUILD_CAFFE2_OPS
+ │ │     PYTHON_EXECUTABLE
+ │ │     USE_ONNX
+ │ │     USE_QNNPACK
+ │ │ -- Build files have been written to: /workspace/.torch-build
+ │ │ + cfg=0
+ │ │ + echo CONFIGURE_RC=0
+ │ │ + tee -a /workspace/prototypes/emscripten-forge/torch-wasm/logs/10-configur
+ │ │ e.log
+ │ │ CONFIGURE_RC=0
+ │ │ + '[' 0 = 0 ']'
+ │ │ + grep -E BUILD_PYTHON /workspace/prototypes/emscripten-forge/torch-wasm/lo
+ │ │ gs/10-configure.log
+ │ │ + tail -3
+ │ │ + emmake cmake --build /workspace/.torch-build --target torch_python -j 4
+ │ │ + tee /workspace/prototypes/emscripten-forge/torch-wasm/logs/14-build-torch
+ │ │ _python.log
+ │ │ configure: cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNi
+ │ │ nja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_B
+ │ │ INARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_RO
+ │ │ CM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DU
+ │ │ SE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF
+ │ │  -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -D
+ │ │ USE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF
+ │ │  -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF 
+ │ │ -DATEN_THREADING=NATIVE -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DPYT
+ │ │ HON_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace
+ │ │ /prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWA
+ │ │ SM_PYTHON_INCLUDE_DIR=$PREFIX/include/python3.13 -DCAFFE2_CUSTOM_PROTOC_EXE
+ │ │ CUTABLE=/workspace/.hostprotoc/protoc -DCMAKE_TOOLCHAIN_FILE=$BUILD_PREFIX/
+ │ │ opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMA
+ │ │ KE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIND_ROOT_PAT
+ │ │ H_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -DCMAKE_CROSS
+ │ │ COMPILING_EMULATOR=$BUILD_PREFIX/bin/node
+ │ │ --   ONNX_BUILD_PYTHON                 : OFF
+ │ │ --   BUILD_PYTHON          : ON
+ │ │ make: cmake --build /workspace/.torch-build --target torch_python -j 4
+ │ │ [1/4] Generating ATen declarations_yaml
+ │ │ [2/4] Generating ATen headers
+ │ │ [3/4] Generating ATen sources
+ │ │ [1/1431] Running gen_proto.py on onnx/onnx.in.proto
+ │ │ Processing /workspace/.src/pytorch/third_party/onnx/onnx/onnx.in.proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml.pr
+ │ │ oto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml.pr
+ │ │ oto3
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-ml.pb.h
+ │ │ generating /workspace/.torch-build/third_party/onnx/onnx/onnx_pb.py
+ │ │ [2/1431] Running C++ protocol buffer compiler on /workspace/.torch-build/th
+ │ │ ird_party/onnx/onnx/onnx_onnx_torch-ml.proto
+ │ │ [3/1431] Running gen_proto.py on onnx/onnx-operators.in.proto
+ │ │ Processing /workspace/.src/pytorch/third_party/onnx/onnx/onnx-operators.in.
+ │ │ proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-operators_onnx_t
+ │ │ orch-ml.proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-operators_onnx_t
+ │ │ orch-ml.proto3
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-operators-ml.pb.
+ │ │ h
+ │ │ generating /workspace/.torch-build/third_party/onnx/onnx/onnx_operators_pb.
+ │ │ py
+ │ │ [4/1431] Running gen_proto.py on onnx/onnx-data.in.proto
+ │ │ Processing /workspace/.src/pytorch/third_party/onnx/onnx/onnx-data.in.proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-data_onnx_torch.
+ │ │ proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-data_onnx_torch.
+ │ │ proto3
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-data.pb.h
+ │ │ generating /workspace/.torch-build/third_party/onnx/onnx/onnx_data_pb.py
+ │ │ [5/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf-lite.dir/__/src/google/protobuf/arena.cc.o
+ │ │ [6/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf-lite.dir/__/src/google/protobuf/any_lite.cc.o
+ │ │ [7/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf-lite.dir/__/src/google/protobuf/generated_enum_util.cc.o
+ │ │ [8/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf-lite.dir/__/src/google/protobuf/implicit_weak_message.cc.o
+ │ │ [9/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf-lite.dir/__/src/google/protobuf/extension_set.cc.o
+ │ │ [10/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/io_win32.cc.o
+ │ │ [11/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/generated_message_table_driven_lite.cc
+ │ │ .o
+ │ │ [12/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/generated_message_util.cc.o
+ │ │ [13/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/strtod.cc.o
+ │ │ [14/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/coded_stream.cc.o
+ │ │ [15/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o
+ │ │ [16/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+ │ │ [17/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+ │ │ [18/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/message_lite.cc.o
+ │ │ [19/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/parse_context.cc.o
+ │ │ [20/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+ │ │ [21/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/common.cc.o
+ │ │ [22/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/repeated_field.cc.o
+ │ │ [23/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/int128.cc.o
+ │ │ [24/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/status.cc.o
+ │ │ [25/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/statusor.cc.o
+ │ │ [26/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/stringpiece.cc.o
+ │ │ [27/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/stringprintf.cc.o
+ │ │ [28/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o
+ │ │ [29/1431] Running C++ protocol buffer compiler on /workspace/.torch-build/t
+ │ │ hird_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+ │ │ [30/1431] Running C++ protocol buffer compiler on /workspace/.torch-build/t
+ │ │ hird_party/onnx/onnx/onnx-data_onnx_torch.proto
+ │ │ [31/1431] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/a
+ │ │ pi.c.o
+ │ │ [32/1431] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/c
+ │ │ ache.c.o
+ │ │ [33/1431] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/i
+ │ │ nit.c.o
+ │ │ [34/1431] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/l
+ │ │ og.c.o
+ │ │ [35/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/time.cc.o
+ │ │ [36/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/stubs/strutil.cc.o
+ │ │ [37/1431] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf-lite.dir/__/src/google/protobuf/wire_format_lite.cc.o
+ │ │ [38/1431] Linking CXX static library lib/libprotobuf-lite.a
+ │ │ [39/1431] Linking C static library lib/libcpuinfo.a
+ │ │ [40/1431] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/on
+ │ │ nx/onnx-operators_onnx_torch-ml.pb.cc.o
+ │ │ [41/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/assertions.cc.o
+ │ │ [42/1431] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/on
+ │ │ nx/onnx-data_onnx_torch.pb.cc.o
+ │ │ [43/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/interned_strings.cc.o
+ │ │ [44/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/che
+ │ │ cker.cc.o
+ │ │ [45/1431] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/on
+ │ │ nx/onnx_onnx_torch-ml.pb.cc.o
+ │ │ [46/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/model_helpers.cc.o
+ │ │ [47/1431] Linking CXX static library lib/libonnx_proto.a
+ │ │ [48/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/path.cc.o
+ │ │ [49/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/status.cc.o
+ │ │ [50/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/attr_proto_util.cc.o
+ │ │ [51/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/com
+ │ │ mon/ir_pb_converter.cc.o
+ │ │ [52/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/controlflow/defs.cc.o
+ │ │ [53/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/controlflow/utils.cc.o
+ │ │ [54/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/data_type_utils.cc.o
+ │ │ [55/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/controlflow/old.cc.o
+ │ │ [56/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/function.cc.o
+ │ │ [57/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/generator/utils.cc.o
+ │ │ [58/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/generator/defs.cc.o
+ │ │ [59/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/generator/old.cc.o
+ │ │ [60/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/image/defs.cc.o
+ │ │ [61/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/logical/defs.cc.o
+ │ │ [62/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/logical/old.cc.o
+ │ │ [63/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/math/utils.cc.o
+ │ │ [64/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/math/defs.cc.o
+ │ │ [65/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/math/old.cc.o
+ │ │ [66/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/object_detection/defs.cc.o
+ │ │ [67/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/nn/defs.cc.o
+ │ │ [68/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/object_detection/old.cc.o
+ │ │ [69/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/nn/old.cc.o
+ │ │ [70/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/optional/defs.cc.o
+ │ │ [71/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/optional/old.cc.o
+ │ │ [72/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/printer.cc.o
+ │ │ [73/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/parser.cc.o
+ │ │ [74/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/quantization/defs.cc.o
+ │ │ [75/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/quantization/old.cc.o
+ │ │ [76/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/reduction/defs.cc.o
+ │ │ [77/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/reduction/old.cc.o
+ │ │ [78/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/reduction/utils.cc.o
+ │ │ [79/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/rnn/defs.cc.o
+ │ │ [80/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/rnn/old.cc.o
+ │ │ [81/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/shape_inference.cc.o
+ │ │ [82/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/sequence/defs.cc.o
+ │ │ [83/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/schema.cc.o
+ │ │ [84/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/tensor/utils.cc.o
+ │ │ [85/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/tensor_proto_util.cc.o
+ │ │ [86/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/tensor/defs.cc.o
+ │ │ [87/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/tensor_util.cc.o
+ │ │ [88/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/text/defs.cc.o
+ │ │ [89/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/traditionalml/old.cc.o
+ │ │ [90/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/traditionalml/defs.cc.o
+ │ │ [91/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/training/defs.cc.o
+ │ │ [92/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/def
+ │ │ s/tensor/old.cc.o
+ │ │ [93/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/sha
+ │ │ pe_inference/implementation.cc.o
+ │ │ [94/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/ver
+ │ │ sion_converter/helper.cc.o
+ │ │ [95/1431] Building CXX object c10/CMakeFiles/c10.dir/core/AutogradState.cpp
+ │ │ .o
+ │ │ [96/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/inl
+ │ │ iner/inliner.cc.o
+ │ │ [97/1431] Building CXX object c10/CMakeFiles/c10.dir/core/Allocator.cpp.o
+ │ │ [98/1431] Building CXX object c10/CMakeFiles/c10.dir/core/ConstantSymNodeIm
+ │ │ pl.cpp.o
+ │ │ [99/1431] Building CXX object c10/CMakeFiles/c10.dir/core/CPUAllocator.cpp.
+ │ │ o
+ │ │ [100/1431] Building CXX object c10/CMakeFiles/c10.dir/core/CopyBytes.cpp.o
+ │ │ [101/1431] Building CXX object c10/CMakeFiles/c10.dir/core/DefaultDtype.cpp
+ │ │ .o
+ │ │ [102/1431] Building CXX object c10/CMakeFiles/c10.dir/core/Device.cpp.o
+ │ │ [103/1431] Building CXX object c10/CMakeFiles/c10.dir/core/DeviceType.cpp.o
+ │ │ [104/1431] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKeySet.c
+ │ │ pp.o
+ │ │ [105/1431] Building CXX object c10/CMakeFiles/c10.dir/core/GradMode.cpp.o
+ │ │ [106/1431] Building CXX object c10/CMakeFiles/c10.dir/core/GeneratorImpl.cp
+ │ │ p.o
+ │ │ [107/1431] Building CXX object c10/CMakeFiles/c10.dir/core/InferenceMode.cp
+ │ │ p.o
+ │ │ [108/1431] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKey.cpp.
+ │ │ o
+ │ │ [109/1431] Building CXX object c10/CMakeFiles/c10.dir/core/RefcountedDelete
+ │ │ r.cpp.o
+ │ │ [110/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SafePyObject.cpp
+ │ │ .o
+ │ │ [111/1431] Building CXX object c10/CMakeFiles/c10.dir/core/Scalar.cpp.o
+ │ │ [112/1431] Building CXX object c10/CMakeFiles/c10.dir/core/ScalarType.cpp.o
+ │ │ [113/1431] Building CXX object c10/CMakeFiles/c10.dir/core/Storage.cpp.o
+ │ │ [114/1431] Building CXX object c10/CMakeFiles/c10.dir/core/Stream.cpp.o
+ │ │ [115/1431] Building CXX object c10/CMakeFiles/c10.dir/core/StorageImpl.cpp.
+ │ │ o
+ │ │ [116/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymBool.cpp.o
+ │ │ [117/1431] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/ve
+ │ │ rsion_converter/convert.cc.o
+ │ │ [118/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymFloat.cpp.o
+ │ │ [119/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymIntArrayRef.c
+ │ │ pp.o
+ │ │ [120/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymNodeImpl.cpp.
+ │ │ o
+ │ │ [121/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymInt.cpp.o
+ │ │ [122/1431] Building CXX object c10/CMakeFiles/c10.dir/core/SymbolicShapeMet
+ │ │ a.cpp.o
+ │ │ [123/1431] Building CXX object c10/CMakeFiles/c10.dir/core/TensorOptions.cp
+ │ │ p.o
+ │ │ [124/1431] Building CXX object c10/CMakeFiles/c10.dir/core/UndefinedTensorI
+ │ │ mpl.cpp.o
+ │ │ [125/1431] Building CXX object c10/CMakeFiles/c10.dir/core/WrapDimMinimal.c
+ │ │ pp.o
+ │ │ [126/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COW.cpp.o
+ │ │ [127/1431] Building CXX object c10/CMakeFiles/c10.dir/core/TensorImpl.cpp.o
+ │ │ [128/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COWDeleter.
+ │ │ cpp.o
+ │ │ [129/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/HermeticPyO
+ │ │ bjectTLS.cpp.o
+ │ │ [130/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/DeviceGuard
+ │ │ ImplInterface.cpp.o
+ │ │ [131/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/GPUTrace.cp
+ │ │ p.o
+ │ │ [132/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/LocalDispat
+ │ │ chKeySet.cpp.o
+ │ │ [133/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyObjectSlo
+ │ │ t.cpp.o
+ │ │ [134/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyInterpret
+ │ │ er.cpp.o
+ │ │ [135/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PythonDispa
+ │ │ tcherTLS.cpp.o
+ │ │ [136/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/SizesAndStr
+ │ │ ides.cpp.o
+ │ │ [137/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/TorchDispat
+ │ │ chModeTLS.cpp.o
+ │ │ [138/1431] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUCachingAllo
+ │ │ cator.cpp.o
+ │ │ [139/1431] Building CXX object c10/CMakeFiles/c10.dir/core/impl/alloc_cpu.c
+ │ │ pp.o
+ │ │ [140/1431] Building CXX object c10/CMakeFiles/c10.dir/core/thread_pool.cpp.
+ │ │ o
+ │ │ [141/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Backtrace.cpp.o
+ │ │ [142/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Bfloat16.cpp.o
+ │ │ [143/1431] Building CXX object c10/CMakeFiles/c10.dir/util/ApproximateClock
+ │ │ .cpp.o
+ │ │ [144/1431] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUProfilingAl
+ │ │ locator.cpp.o
+ │ │ [145/1431] Building CXX object c10/CMakeFiles/c10.dir/util/C++17.cpp.o
+ │ │ [146/1431] Building CXX object c10/CMakeFiles/c10.dir/util/DeadlockDetectio
+ │ │ n.cpp.o
+ │ │ [147/1431] Building CXX object c10/CMakeFiles/c10.dir/util/DynamicCounter.c
+ │ │ pp.o
+ │ │ [148/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fn.cp
+ │ │ p.o
+ │ │ [149/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fnuz.
+ │ │ cpp.o
+ │ │ [150/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Exception.cpp.o
+ │ │ [151/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2.cpp.
+ │ │ o
+ │ │ [152/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2fnuz.
+ │ │ cpp.o
+ │ │ [153/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e8m0fnu.c
+ │ │ pp.o
+ │ │ [154/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Gauge.cpp.o
+ │ │ [155/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Half.cpp.o
+ │ │ [156/1431] Building CXX object c10/CMakeFiles/c10.dir/util/LeftRight.cpp.o
+ │ │ [157/1431] Building CXX object c10/CMakeFiles/c10.dir/util/MathConstants.cp
+ │ │ p.o
+ │ │ [158/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Metaprogramming.
+ │ │ cpp.o
+ │ │ [159/1431] Building CXX object c10/CMakeFiles/c10.dir/util/ParallelGuard.cp
+ │ │ p.o
+ │ │ [160/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Optional.cpp.o
+ │ │ [161/1431] Building CXX object c10/CMakeFiles/c10.dir/util/Logging.cpp.o
+ │ │ [162/1431] Building CXX object c10/CMakeFiles/c10.dir/util/SmallVector.cpp.
+ │ │ o
+ │ │ [163/1431] Building CXX object c10/CMakeFiles/c10.dir/util/NetworkFlow.cpp.
+ │ │ o
+ │ │ [164/1431] Building CXX object c10/CMakeFiles/c10.dir/util/StringUtil.cpp.o
+ │ │ In file included from /workspace/.src/pytorch/c10/util/StringUtil.cpp:1:
+ │ │ In file included from /workspace/.src/pytorch/c10/util/StringUtil.h:9:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/ostream:189:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/format:195:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/__format/container_adaptor.h:20:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/__format/range_default_formatter.h:23:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/__format/range_formatter.h:23:
+ │ │ In file included from $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sys
+ │ │ root/include/c++/v1/__format/format_context.h:30:
+ │ │ $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/lo
+ │ │ cale:3257:1: warning: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' i
+ │ │ s deprecated [-Wdeprecated-declarations]
+ │ │  3257 | wstring_convert<_Codecvt, _Elem, _WideAlloc, _ByteAlloc>::to_bytes(
+ │ │ const _Elem* __frm, const _Elem* __frm_end) {
+ │ │       | ^
+ │ │ $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/lo
+ │ │ cale:3161:12: note: in instantiation of member function 'std::wstring_conve
+ │ │ rt<std::codecvt_utf8_utf16<wchar_t>>::to_bytes' requested here
+ │ │  3161 |     return to_bytes(__wstr.data(), __wstr.data() + __wstr.size());
+ │ │       |            ^
+ │ │ /workspace/.src/pytorch/c10/util/StringUtil.cpp:53:29: note: in instantiati
+ │ │ on of member function 'std::wstring_convert<std::codecvt_utf8_utf16<wchar_t
+ │ │ >>::to_bytes' requested here
+ │ │    53 |   return _str(ss, converter.to_bytes(wString));
+ │ │       |                             ^
+ │ │ $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/lo
+ │ │ cale:3114:28: note: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' has
+ │ │  been explicitly marked deprecated here
+ │ │  3114 | class _LIBCPP_TEMPLATE_VIS _LIBCPP_DEPRECATED_IN_CXX17 wstring_conv
+ │ │ ert {
+ │ │       |                            ^
+ │ │ $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__
+ │ │ config:1002:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+ │ │  1002 | #    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+ │ │       |                                         ^
+ │ │ $BUILD_PREFIX/opt/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__
+ │ │ config:975:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+ │ │   975 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+ │ │       |                                                 ^
+ │ │ 1 warning generated.
+ │ │ [165/1431] Building CXX object c10/CMakeFiles/c10.dir/util/ThreadLocalDebug
+ │ │ Info.cpp.o
+ │ │ [166/1431] Building CXX object c10/CMakeFiles/c10.dir/util/TypeCast.cpp.o
+ │ │ [167/1431] Building CXX object c10/CMakeFiles/c10.dir/util/TypeList.cpp.o

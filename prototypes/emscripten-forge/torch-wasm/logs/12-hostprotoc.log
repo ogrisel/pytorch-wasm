@@ -26,13 +26,13 @@ CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
 -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
 -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
 -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
--- Configuring done (0.8s)
+-- Configuring done (0.7s)
 -- Generating done (0.0s)
 -- Build files have been written to: /workspace/.hostprotoc
-[  0%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/any_lite.cc.o
 [  1%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/arena.cc.o
+[  1%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/extension_set.cc.o
+[  1%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/any_lite.cc.o
 [  2%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/generated_enum_util.cc.o
-[  2%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/extension_set.cc.o
 [  2%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/generated_message_table_driven_lite.cc.o
 [  3%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/generated_message_util.cc.o
 [  3%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/implicit_weak_message.cc.o
@@ -47,6 +47,22 @@ CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
 [  9%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.cc.o
 [  9%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/bytestream.cc.o
 [ 10%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/common.cc.o
+In file included from /usr/include/string.h:548,
+                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/port.h:39,
+                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/macros.h:34,
+                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/common.h:46,
+                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.h:45,
+                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.cc:36:
+In function ‘void* memcpy(void*, const void*, size_t)’,
+    inlined from ‘google::protobuf::uint8* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, google::protobuf::uint8*)’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/io/coded_stream.h:699:16,
+    inlined from ‘virtual google::protobuf::uint8* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(google::protobuf::uint8*, google::protobuf::io::EpsCopyOutputStream*) const’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/implicit_weak_message.h:85:28,
+    inlined from ‘bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.cc:419:30:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: ‘void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)’ specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 10%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/int128.cc.o
 In file included from /usr/include/string.h:548,
                  from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/port.h:39,
                  from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/macros.h:34,
@@ -66,21 +82,7 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = bool]’:
 cc1plus: note: source object is likely at address zero
-In file included from /usr/include/string.h:548,
-                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/port.h:39,
-                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/macros.h:34,
-                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/common.h:46,
-                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.h:45,
-                 from /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.cc:36:
-In function ‘void* memcpy(void*, const void*, size_t)’,
-    inlined from ‘google::protobuf::uint8* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, google::protobuf::uint8*)’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/io/coded_stream.h:699:16,
-    inlined from ‘virtual google::protobuf::uint8* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(google::protobuf::uint8*, google::protobuf::io::EpsCopyOutputStream*) const’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/implicit_weak_message.h:85:28,
-    inlined from ‘bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/message_lite.cc:419:30:
-/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: ‘void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)’ specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
-   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
-      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
-   30 |                                  __glibc_objsize0 (__dest));
-      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 11%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/status.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -94,8 +96,7 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = int]’:
 cc1plus: note: source object is likely at address zero
-[ 10%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/int128.cc.o
-[ 11%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/status.cc.o
+[ 11%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/statusor.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = unsigned int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = unsigned int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -109,7 +110,6 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = unsigned int]’:
 cc1plus: note: source object is likely at address zero
-[ 11%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/statusor.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -123,6 +123,7 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long int]’:
 cc1plus: note: source object is likely at address zero
+[ 12%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/stringpiece.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long unsigned int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long unsigned int]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -136,7 +137,8 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long unsigned int]’:
 cc1plus: note: source object is likely at address zero
-[ 12%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/stringpiece.cc.o
+[ 12%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/stringprintf.cc.o
+[ 14%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/structurally_valid.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = float]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = float]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -150,8 +152,6 @@ In function ‘void* memcpy(void*, const void*, size_t)’,
       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
 In copy constructor ‘google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = float]’:
 cc1plus: note: source object is likely at address zero
-[ 12%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/stringprintf.cc.o
-[ 14%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/stubs/structurally_valid.cc.o
 In function ‘void* memcpy(void*, const void*, size_t)’,
     inlined from ‘void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = double]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
     inlined from ‘void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = double]’ at /workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
@@ -215,17 +215,17 @@ cc1plus: note: source object is likely at address zero
 [ 43%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/internal/type_info_test_helper.cc.o
 [ 44%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/internal/utility.cc.o
 [ 44%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/json_util.cc.o
-[ 45%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/message_differencer.cc.o
 [ 45%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/time_util.cc.o
+[ 45%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/message_differencer.cc.o
 [ 47%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/util/type_resolver_util.cc.o
 [ 47%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/wire_format.cc.o
 [ 48%] Building CXX object CMakeFiles/libprotobuf.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/wrappers.pb.cc.o
 [ 48%] Linking CXX static library libprotobuf.a
 [ 48%] Built target libprotobuf
-[ 48%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/code_generator.cc.o
 [ 49%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/command_line_interface.cc.o
+[ 49%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_enum.cc.o
+[ 49%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/code_generator.cc.o
 [ 50%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o
-[ 50%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_enum.cc.o
 [ 50%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_extension.cc.o
 [ 51%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_field.cc.o
 [ 51%] Building CXX object CMakeFiles/libprotoc.dir/workspace/.src/pytorch/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_file.cc.o
