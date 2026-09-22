@@ -45,13 +45,21 @@ fi
 # shellcheck disable=SC1091
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install "pyodide-build==${PYODIDE_BUILD_VERSION}"
+# resolvelib>=1.1.0: pyodide-build 0.39.0 subscripts resolvelib's AbstractProvider,
+# which the transitively-pinned 1.0.1 does not support ("type 'AbstractProvider' is
+# not subscriptable"). pyyaml is a host build dependency of the from-source torch
+# wasm recipe probe.
+python -m pip install "pyodide-build==${PYODIDE_BUILD_VERSION}" "resolvelib>=1.1.0" pyyaml
 
-echo "==> Installing Pyodide cross-build environment (emsdk + target CPython)"
+echo "==> Installing Pyodide cross-build environment (xbuildenv + emsdk)"
 # xbuildenv version is pinned by pyodide-build; only install if not present yet.
 if ! pyodide config get emscripten_version >/dev/null 2>&1; then
     pyodide xbuildenv install
 fi
+# `pyodide xbuildenv install` does NOT install emsdk; install it INTO the xbuildenv
+# so `pyodide build-recipes` is self-contained and does not require a separately
+# sourced ./.emsdk on PATH. Idempotent.
+pyodide xbuildenv install-emscripten
 
 echo "==> Installing standalone Emscripten SDK for the tensor-kernel PoC"
 ./scripts/install-emsdk.sh
