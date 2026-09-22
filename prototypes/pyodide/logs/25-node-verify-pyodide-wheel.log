@@ -1,0 +1,18 @@
+[verify] pyodide loaded
+Loading micropip, packaging
+Loaded micropip, packaging
+[verify] micropip loaded
+INSTALL FAILED: PythonError: Traceback (most recent call last):
+  File "/lib/python3.12/site-packages/micropip/package_manager.py", line 146, in install
+    return await install(
+           ^^^^^^^^^^^^^^
+  File "/lib/python3.12/site-packages/micropip/install.py", line 52, in install
+    await transaction.gather_requirements(requirements)
+  File "/lib/python3.12/site-packages/micropip/transaction.py", line 71, in gather_requirements
+    await asyncio.gather(*requirement_promises)
+  File "/lib/python3.12/site-packages/micropip/transaction.py", line 91, in add_requirement
+    check_compatible(wheel.filename)
+  File "/lib/python3.12/site-packages/micropip/_utils.py", line 182, in check_compatible
+    raise ValueError(
+ValueError: Wheel was built with Emscripten vpyemscripten.2024.0 but Pyodide was built with Emscripten v3.1.58
+

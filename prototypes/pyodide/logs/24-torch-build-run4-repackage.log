@@ -1,0 +1,117 @@
+[2026-09-22 18:25:35] Building package torch...                                 
+Running build script in                                                         
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0                   
+875:  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB
+377:#if defined(NDEBUG) && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT
+libprotoc 3.13.0
+123:set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc")  # PYODIDE_PROBE_HOST_PROTOC
+364:#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  // PYODIDE_PROBE_EMSCRIPTEN_SIZE_T
+72:    using difference_type = std::ptrdiff_t;  // PYODIDE_PROBE_SSIZE_T
+390:        build_args += ["--", "-k", "0"]  # PYODIDE_PROBE_KEEPGOING
+178:          "-Wl,--whole-archive,\"$<TARGET_FILE:${SRC}>\",--no-whole-archive")
+850:    message(WARNING "PYODIDE_PROBE_FORCE_BUILD_PYTHON: keeping BUILD_PYTHON ON")
+Creating isolated environment: venv+pip...
+Installing packages in isolated environment:
+- astunparse
+- cmake
+- ninja
+- numpy==2.0.2
+- pyyaml
+- requests
+- setuptools>=62.3.0,<80.0
+- typing-extensions>=4.10.0
+- wheel
+Getting build dependencies for wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+Building wheel torch-2.8.0a0+gitUnknown
+running egg_info
+writing torch.egg-info/PKG-INFO
+writing dependency_links to torch.egg-info/dependency_links.txt
+writing entry points to torch.egg-info/entry_points.txt
+writing requirements to torch.egg-info/requires.txt
+writing top-level names to torch.egg-info/top_level.txt
+reading manifest file 'torch.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '.gitmodules'
+warning: no files found matching '*.*' under directory 'ios'
+warning: no files found matching '*.*' under directory 'modules'
+warning: no previously-included files matching '*.o' found anywhere in distribution
+warning: no previously-included files matching '*.dylib' found anywhere in distribution
+warning: no previously-included files matching '.git' found anywhere in distribution
+warning: no previously-included files matching '*.swp' found anywhere in distribution
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'torch.egg-info/SOURCES.txt'
+/tmp/build-env-hbrwdj19/lib/python3.12/site-packages/setuptools/dist.py:334: BuildBackendWarning: Normalizing '2.8.0a0+gitUnknown' to '2.8.0a0+gitunknown'
+  self.metadata.version = self._normalize_version(self.metadata.version)
+/tmp/build-env-hbrwdj19/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/tmp/build-env-hbrwdj19/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/tmp/build-env-hbrwdj19/lib/python3.12/site-packages/setuptools/dist.py:759: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+Building wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+no such file or directory
+CMake Error: Generator: execution of make failed. Make command was: /tmp/build-env-uxzvr32m/bin/ninja -j 4 -k 0 install
+Building wheel torch-2.8.0
+-- Building version 2.8.0
+cmake --build . --target install --config Release -j 4 -- -k 0
+
+[2mTraceback (most recent call last):
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/vendor/_pypabuild.py", line 113, in _handle_build_error
+    yield
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 562, in build
+    built = _build_in_isolated_env(
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 349, in _build_in_isolated_env
+    return builder.build(
+           ^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 329, in build
+    return self._call_backend(f'build_{distribution}', output_directory, config_settings, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 375, in _call_backend
+    with self._handle_backend(hook_name):
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 391, in _handle_backend
+    raise BuildBackendException(exception, f'Backend subprocess exited when trying to invoke {hook}') from None
+build._exceptions.BuildBackendException: Backend subprocess exited when trying to invoke build_wheel[0m
+
+[91mERROR[0m Backend subprocess exited when trying to invoke build_wheel
+[1m[2026-09-22 18:25:45] Failed building package torch in 10.0 seconds.[0m            
+BUILD_EXIT=1

@@ -164,6 +164,18 @@ build:
     # BUILD_PYTHON ON (mirroring the found-branch by enabling USE_OBSERVERS).
     perl -0pi -e 's/message\(WARNING "Python dependencies not met\. Not compiling with python\. Suppress this warning with -DBUILD_PYTHON=OFF"\)\n    caffe2_update_option\(BUILD_PYTHON OFF\)/message(WARNING "PYODIDE_PROBE_FORCE_BUILD_PYTHON: Development.Module missing under Emscripten; keeping BUILD_PYTHON ON (SIDE_MODULE resolves Python symbols at load)")\n    caffe2_update_option(USE_OBSERVERS ON)/ if !/PYODIDE_PROBE_FORCE_BUILD_PYTHON/' cmake/Dependencies.cmake
     grep -n "PYODIDE_PROBE_FORCE_BUILD_PYTHON" cmake/Dependencies.cmake || echo "WARN: BUILD_PYTHON patch not applied"
+    # PROBE WORKAROUND (blocker #10): the wheel builds and imports up to the point of
+    # loading the wasm shared libraries, then fails at runtime with
+    #   Dynamic linking error: cannot resolve symbol
+    #   _ZN3c1024getRuntimeDispatchKeySetENS_11DispatchKeyE (c10::getRuntimeDispatchKeySet)
+    # torch compiles every lib with `-fvisibility=hidden` (c10/CMakeLists.txt and, for
+    # torch_cpu/torch_python, cmake/public/utils.cmake's torch_compile_options). On
+    # native ELF the *_API attributes re-export the boundary symbols, but under the
+    # Emscripten SIDE_MODULE + wasm-ld pipeline the hidden symbols get dead-stripped, so
+    # libtorch_cpu cannot resolve c10 symbols across the .so boundary. Force default
+    # visibility so all symbols are exported from each side module.
+    perl -0pi -e 's/-fvisibility=hidden/-fvisibility=default/g' c10/CMakeLists.txt cmake/public/utils.cmake
+    grep -n "fvisibility=default" cmake/public/utils.cmake || echo "WARN: visibility patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
