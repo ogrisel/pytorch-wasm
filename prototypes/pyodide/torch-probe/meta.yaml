@@ -129,6 +129,23 @@ build:
     # equivalent (already pulled in via <iterator>/<cstddef>).
     perl -0pi -e 's/using difference_type = ssize_t;/using difference_type = std::ptrdiff_t;  \/\/ PYODIDE_PROBE_SSIZE_T/' c10/util/Enumerate.h
     grep -n "PYODIDE_PROBE_SSIZE_T" c10/util/Enumerate.h || echo "WARN: ssize_t patch not applied"
+    # PROBE AID: make the underlying ninja invocation keep going after the first error
+    # (`cmake --build ... -- -k 0`) so one pass surfaces ALL remaining wasm portability
+    # errors across torch_cpu, instead of one-error-per-20-minute-build.
+    perl -0pi -e 's/        self.run\(build_args, my_env\)/        build_args += ["--", "-k", "0"]  # PYODIDE_PROBE_KEEPGOING\n        self.run(build_args, my_env)/ if !/PYODIDE_PROBE_KEEPGOING/' tools/setup_helpers/cmake.py
+    grep -n "PYODIDE_PROBE_KEEPGOING" tools/setup_helpers/cmake.py || echo "WARN: keepgoing patch not applied"
+    # PROBE WORKAROUND (blocker #7): linking lib/libtorch_cpu.so fails with
+    #   llvm-nm: error: : unknown argument '-,'
+    # caffe2_interface_library (cmake/public/utils.cmake) wraps static libs (e.g.
+    # libonnx.a) as a single token `-Wl,--whole-archive,"PATH" -Wl,--no-whole-archive`.
+    # pyodide's pywasmcross.filter_objects() collects any arg ending in `.a` to feed to
+    # `emnm --export-symbols`, so it grabs the combined `-Wl,--whole-archive,<...>.a`
+    # token and passes it to llvm-nm, which errors. Fold `--no-whole-archive` INTO the
+    # same -Wl group so the token ends in `--no-whole-archive` (not `.a`) and is skipped
+    # by filter_objects — the exact form torch already uses at caffe2/CMakeLists.txt for
+    # torch_xpu_ops. Verified to still force-include the archive's symbols.
+    perl -0pi -e 's/\\" -Wl,--no-whole-archive/\\",--no-whole-archive/' cmake/public/utils.cmake
+    grep -n -- '--whole-archive,\\"$<TARGET_FILE:${SRC}>\\",--no-whole-archive' cmake/public/utils.cmake || echo "WARN: whole-archive patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
