@@ -1,0 +1,14 @@
+# Conda/pip environment solved by jupyterlite-xeus into a WebAssembly (emscripten)
+# prefix and packed into the JupyterLite site. xeus-python + numpy come from the
+# emscripten-forge channel (prebuilt wasm32 packages); microtorch is our pure-Python
+# reduced-torch package, installed from the local source tree (pip --no-deps).
+name: xeus-torch-wasm
+channels:
+  - https://repo.prefix.dev/emscripten-forge-dev
+  - https://repo.prefix.dev/conda-forge
+dependencies:
+  - xeus-python
+  - numpy
+  - matplotlib
+  - pip:
+      - ./microtorch

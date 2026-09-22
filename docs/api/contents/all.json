@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-09-22T17:00:35.106143Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-09-22T16:59:45.485891Z",
+      "mimetype": null,
+      "name": "mlp_training_demo.ipynb",
+      "path": "mlp_training_demo.ipynb",
+      "size": 5598,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-09-22T17:00:35.106143Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-09-22T17:00:35.106143Z",
+  "mimetype": null,
+  "name": "",
+  "path": "",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

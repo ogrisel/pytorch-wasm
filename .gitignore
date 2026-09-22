@@ -9,7 +9,19 @@ prototypes/**/cmake-out/
 prototypes/**/.et-work/
 prototypes/**/build/
 
+# The built JupyterLite site under docs/ is committed intact (it is the reviewer
+# artifact), so do NOT apply the global *.wasm / *.mjs ignores to it.
+!docs/**/*.wasm
+!docs/**/*.mjs
+
 # Python
 __pycache__/
 *.pyc
 .venv/
+.venv-jlite/
+# microtorch local build artifacts (the packed wheel lives inside docs/)
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/build/
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/src/*.egg-info/
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/**/*.egg-info/
+# jupyterlite build cache
+prototypes/emscripten-forge/jupyterlite-torch-wasm/.jupyterlite.doit.db

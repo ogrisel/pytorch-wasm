@@ -1,0 +1,446 @@
+==> Building JupyterLite site into: /workspace/docs
+[LiteBuildApp] No archive (yet): jupyterlite-torch-wasm-jupyterlite.tgz
+[LiteBuildApp]     jupyter-lite.(json|ipynb): 0 files
+/workspace/.venv-jlite/lib/python3.12/site-packages/jupyterlite_core/addons/base.py:297: UserWarning: install libarchive-c for better performance when working with archives: No module named 'libarchive'
+  return has_optional_dependency(
+/workspace/.venv-jlite/lib/python3.12/site-packages/jupyterlite_core/addons/translation.py:89: UserWarning: [lite] [translation] install `jupyterlab_server` to load translations: No module named 'jupyterlab_server'
+  if not self.is_sys_prefix_ignored() and has_optional_dependency(
+Fetch Shard Index for https://repo.prefix.dev/emscripten-forge-dev/emscripten-wasm32            ⧖ Starting
+Fetch Shard Index for https://repo.prefix.dev/emscripten-forge-dev/emscripten-wasm32      ✔ Done (0.4 sec)
+Fetch Shard Index for https://repo.prefix.dev/emscripten-forge-dev/noarch                       ⧖ Starting
+Fetch Shard Index for https://repo.prefix.dev/emscripten-forge-dev/noarch                 ✔ Done (0.4 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.2 sec)
+Fetch Shard Index for https://repo.prefix.dev/conda-forge/noarch                                ⧖ Starting
+Fetch Shard Index for https://repo.prefix.dev/conda-forge/noarch                          ✔ Done (0.4 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for https://repo.prefix.dev/emscripten-forge-dev/emscript...               ✔ Done
+Using Cached Shard Index for https://repo.prefix.dev/emscripten-forge-dev/noarch                    ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for https://repo.prefix.dev/conda-forge/noarch                             ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.0 sec)
+
+Transaction
+
+  Prefix: /tmp/tmprhidsw5g/_env/envs/xeus-torch-wasm
+
+  Updating specs:
+
+   - xeus-python
+   - numpy
+   - matplotlib
+
+
+  Package                        Version  Build                Channel                                   Size
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + asttokens                      3.0.2  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               35kB
+  + backcall                       0.2.0  pyh9f0ad1d_0         repo.prefix.dev/conda-forge               14kB
+  + contourpy                      1.3.3  py313h3a67976_2      repo.prefix.dev/emscripten-forge-dev     113kB
+  + cycler                        0.12.1  pyhcf101f3_2         repo.prefix.dev/conda-forge               15kB
+  + decorator                      5.3.1  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               16kB
+  + emscripten-abi                3.1.73  h267e887_12          repo.prefix.dev/emscripten-forge-dev      12kB
+  + executing                      2.2.1  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               31kB
+  + fonttools                     4.39.4  py313hd355c7d_2      repo.prefix.dev/emscripten-forge-dev       2MB
+  + ipython                       9.12.0  py313hd355c7d_0      repo.prefix.dev/emscripten-forge-dev     444kB
+  + kiwisolver                     1.4.9  py313ha0aad71_1      repo.prefix.dev/emscripten-forge-dev      43kB
+  + matplotlib                    3.10.8  py313h0122bc0_1      repo.prefix.dev/emscripten-forge-dev       2MB
+  + matplotlib-base               3.10.8  np22py313h4202e73_1  repo.prefix.dev/emscripten-forge-dev       9MB
+  + matplotlib-inline              0.2.2  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               16kB
+  + nlohmann_json-abi             3.12.0  h0f90c79_2           repo.prefix.dev/conda-forge                4kB
+  + numpy                          2.4.4  py313h6394566_0      repo.prefix.dev/emscripten-forge-dev       3MB
+  + packaging                       26.3  pyhc364b38_0         repo.prefix.dev/conda-forge              116kB
+  + pexpect                        4.9.0  pyhd8ed1ab_1         repo.prefix.dev/conda-forge               54kB
+  + pickleshare                    0.7.5  pyhd8ed1ab_1004      repo.prefix.dev/conda-forge               12kB
+  + pillow                        12.2.0  py313hafe190e_0      repo.prefix.dev/emscripten-forge-dev     752kB
+  + prompt-toolkit                3.0.53  pyha770c72_0         repo.prefix.dev/conda-forge              276kB
+  + ptyprocess                     0.7.0  pyhd8ed1ab_1         repo.prefix.dev/conda-forge               19kB
+  + pure_eval                      0.2.4  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               18kB
+  + pygments                      2.21.0  pyhcf101f3_0         repo.prefix.dev/conda-forge              959kB
+  + pyjs-rt                        3.2.0  py313h7595f35_0      repo.prefix.dev/emscripten-forge-dev      46kB
+  + pyodide-http                   0.2.2  pyhcf101f3_0         repo.prefix.dev/conda-forge               17kB
+  + pyparsing                      3.3.3  pyh5ded981_0         repo.prefix.dev/conda-forge              114kB
+  + python                        3.13.1  h_c8de616_6_cp313    repo.prefix.dev/emscripten-forge-dev       6MB
+  + python-dateutil          2.9.0.post0  pyhe01879c_2         repo.prefix.dev/conda-forge              233kB
+  + python_abi                    3.13.1  1_cp313              repo.prefix.dev/emscripten-forge-dev       3kB
+  + pytz                    2026.3.post1  pyhcf101f3_0         repo.prefix.dev/conda-forge              201kB
+  + qhull                         2020.2  h7223423_0           repo.prefix.dev/emscripten-forge-dev       4MB
+  + six                           1.17.0  pyhe01879c_1         repo.prefix.dev/conda-forge               18kB
+  + stack_data                     0.6.3  pyhd8ed1ab_1         repo.prefix.dev/conda-forge               27kB
+  + traitlets                     5.16.1  pyhcf101f3_0         repo.prefix.dev/conda-forge              117kB
+  + typing_extensions             4.16.0  pyhcf101f3_0         repo.prefix.dev/conda-forge               53kB
+  + wcwidth                        0.8.4  pyh5ded981_0         repo.prefix.dev/conda-forge              142kB
+  + xeus                           5.2.8  h2072262_0           repo.prefix.dev/emscripten-forge-dev     379kB
+  + xeus-python                   0.17.8  py313h027658c_0      repo.prefix.dev/emscripten-forge-dev       5MB
+  + xeus-python-shell              0.6.6  pyh332efcf_0         repo.prefix.dev/conda-forge                7kB
+  + xeus-python-shell-lite         0.6.6  pyhd8ed1ab_0         repo.prefix.dev/conda-forge                7kB
+  + xeus-python-shell-raw          0.6.6  pyhd8ed1ab_0         repo.prefix.dev/conda-forge               13kB
+  + zlib                           1.3.1  h4e94343_2           repo.prefix.dev/emscripten-forge-dev      99kB
+
+  Summary:
+
+  Install: 42 packages
+
+  Total download: 34MB
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking python_abi-3.13.1-1_cp313
+Linking emscripten-abi-3.1.73-h267e887_12
+Linking nlohmann_json-abi-3.12.0-h0f90c79_2
+Linking zlib-1.3.1-h4e94343_2
+Linking kiwisolver-1.4.9-py313ha0aad71_1
+Linking pyjs-rt-3.2.0-py313h7595f35_0
+Linking python-3.13.1-h_c8de616_6_cp313
+Linking numpy-2.4.4-py313h6394566_0
+Linking qhull-2020.2-h7223423_0
+Linking xeus-5.2.8-h2072262_0
+Linking pillow-12.2.0-py313hafe190e_0
+Linking fonttools-4.39.4-py313hd355c7d_2
+Linking contourpy-1.3.3-py313h3a67976_2
+Linking ptyprocess-0.7.0-pyhd8ed1ab_1
+Linking wcwidth-0.8.4-pyh5ded981_0
+Linking pure_eval-0.2.4-pyhd8ed1ab_0
+Linking executing-2.2.1-pyhd8ed1ab_0
+Linking asttokens-3.0.2-pyhd8ed1ab_0
+Linking backcall-0.2.0-pyh9f0ad1d_0
+Linking pickleshare-0.7.5-pyhd8ed1ab_1004
+Linking pygments-2.21.0-pyhcf101f3_0
+Linking typing_extensions-4.16.0-pyhcf101f3_0
+Linking decorator-5.3.1-pyhd8ed1ab_0
+Linking traitlets-5.16.1-pyhcf101f3_0
+Linking six-1.17.0-pyhe01879c_1
+Linking cycler-0.12.1-pyhcf101f3_2
+Linking pyparsing-3.3.3-pyh5ded981_0
+Linking packaging-26.3-pyhc364b38_0
+Linking pytz-2026.3.post1-pyhcf101f3_0
+Linking xeus-python-shell-raw-0.6.6-pyhd8ed1ab_0
+Linking pyodide-http-0.2.2-pyhcf101f3_0
+Linking pexpect-4.9.0-pyhd8ed1ab_1
+Linking prompt-toolkit-3.0.53-pyha770c72_0
+Linking stack_data-0.6.3-pyhd8ed1ab_1
+Linking matplotlib-inline-0.2.2-pyhd8ed1ab_0
+Linking python-dateutil-2.9.0.post0-pyhe01879c_2
+Linking ipython-9.12.0-py313hd355c7d_0
+Linking matplotlib-base-3.10.8-np22py313h4202e73_1
+Linking matplotlib-3.10.8-py313h0122bc0_1
+Linking xeus-python-shell-0.6.6-pyh332efcf_0
+Linking xeus-python-shell-lite-0.6.6-pyhd8ed1ab_0
+Linking xeus-python-0.17.8-py313h027658c_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate xeus-torch-wasm
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n xeus-torch-wasm mycommand
+
+Using pip 26.2.1 from /workspace/.venv-jlite/lib/python3.12/site-packages/pip (python 3.12)
+Processing ./microtorch
+  Installing build dependencies: started
+  Running command installing build dependencies
+  Using pip 26.2.1 from /workspace/.venv-jlite/lib/python3.12/site-packages/pip (python 3.12)
+  Collecting setuptools>=61
+    Obtaining dependency information for setuptools>=61 from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 52.8 MB/s  0:00:00
+
+  Installing collected packages: setuptools
+  Successfully installed setuptools-84.0.0
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  /tmp/pip-build-env-sd005esx/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  running egg_info
+  creating src/microtorch.egg-info
+  writing src/microtorch.egg-info/PKG-INFO
+  writing dependency_links to src/microtorch.egg-info/dependency_links.txt
+  writing requirements to src/microtorch.egg-info/requires.txt
+  writing top-level names to src/microtorch.egg-info/top_level.txt
+  writing manifest file 'src/microtorch.egg-info/SOURCES.txt'
+  reading manifest file 'src/microtorch.egg-info/SOURCES.txt'
+  writing manifest file 'src/microtorch.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  /tmp/pip-build-env-sd005esx/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  running dist_info
+  creating /tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info
+  writing /tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/SOURCES.txt'
+  writing manifest file '/tmp/pip-modern-metadata-lsgnvof5/microtorch.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-lsgnvof5/microtorch-0.1.0.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: microtorch
+  Building wheel for microtorch (pyproject.toml): started
+  Running command Building wheel for microtorch (pyproject.toml)
+  /tmp/pip-build-env-sd005esx/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  running bdist_wheel
+  running build
+  running build_py
+  creating build/lib/microtorch
+  copying src/microtorch/__init__.py -> build/lib/microtorch
+  copying src/microtorch/tensor.py -> build/lib/microtorch
+  copying src/microtorch/optim.py -> build/lib/microtorch
+  copying src/microtorch/nn.py -> build/lib/microtorch
+  running egg_info
+  writing src/microtorch.egg-info/PKG-INFO
+  writing dependency_links to src/microtorch.egg-info/dependency_links.txt
+  writing requirements to src/microtorch.egg-info/requires.txt
+  writing top-level names to src/microtorch.egg-info/top_level.txt
+  reading manifest file 'src/microtorch.egg-info/SOURCES.txt'
+  writing manifest file 'src/microtorch.egg-info/SOURCES.txt'
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/microtorch
+  copying build/lib/microtorch/__init__.py -> build/bdist.linux-x86_64/wheel/./microtorch
+  copying build/lib/microtorch/tensor.py -> build/bdist.linux-x86_64/wheel/./microtorch
+  copying build/lib/microtorch/optim.py -> build/bdist.linux-x86_64/wheel/./microtorch
+  copying build/lib/microtorch/nn.py -> build/bdist.linux-x86_64/wheel/./microtorch
+  running install_egg_info
+  Copying src/microtorch.egg-info to build/bdist.linux-x86_64/wheel/./microtorch-0.1.0-py3.12.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/microtorch-0.1.0.dist-info/WHEEL
+  creating '/tmp/pip-ephem-wheel-cache-kcmapbkk/wheels/4c/be/f0/18938876a01442522ca39593becfe1b25d34c3c202ada8a34c/tmpz14yf2ws/.tmp-6zbb7jnq/microtorch-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'microtorch/__init__.py'
+  adding 'microtorch/nn.py'
+  adding 'microtorch/optim.py'
+  adding 'microtorch/tensor.py'
+  adding 'microtorch-0.1.0.dist-info/METADATA'
+  adding 'microtorch-0.1.0.dist-info/WHEEL'
+  adding 'microtorch-0.1.0.dist-info/top_level.txt'
+  adding 'microtorch-0.1.0.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for microtorch (pyproject.toml): finished with status 'done'
+  Created wheel for microtorch: filename=microtorch-0.1.0-py3-none-any.whl size=6065 sha256=9bdde4d40fc6864c448ac38c5777b8de12c522c9bef2139ee4a3684b6935bd36
+  Stored in directory: /tmp/pip-ephem-wheel-cache-kcmapbkk/wheels/4c/be/f0/18938876a01442522ca39593becfe1b25d34c3c202ada8a34c
+Successfully built microtorch
+Installing collected packages: microtorch
+Successfully installed microtorch-0.1.0
+static:jupyter-lite.json
+.  pre_status:static:jupyter-lite.json
+    tarball:         jupyterlite-app-0.6.4.tgz 15MB
+    output:          /workspace/docs
+    lite dir:        /workspace/prototypes/emscripten-forge/jupyterlite-torch-wasm
+    apps:            
+    sourcemaps:      True
+    unused packages: True
+archive:archive
+contents:contents
+icons:icons
+lite:jupyter-lite.json
+mimetypes:jupyter-lite.json
+serve:contents
+settings:overrides
+translation:translation
+.  status:archive:archive
+.  status:contents:contents
+    contents: 1 files
+.  status:icons:icons
+    favicon files: 0 files
+.  status:lite:jupyter-lite.json
+.  status:mimetypes:jupyter-lite.json
+    filetypes:         26 
+.  status:serve:contents
+    url: http://127.0.0.1:8000/
+    server: tornado
+    headers:
+.  status:settings:overrides
+    overrides.json: 0
+.  status:translation:translation
+    translation files: 0 files
+static:output_dir
+.  pre_init:static:output_dir
+static:unpack
+.  init:static:unpack
+federated_extensions:copy:ext:jupyterlab_pygments
+federated_extensions:copy:ext:@jupyterlite/xeus-extension
+.  pre_build:federated_extensions:copy:ext:jupyterlab_pygments
+.  pre_build:federated_extensions:copy:ext:@jupyterlite/xeus-extension
+contents:copy:mlp_training_demo.ipynb
+icons:copy
+translation:copy
+.  build:contents:copy:mlp_training_demo.ipynb
+.  build:icons:copy
+.  build:translation:copy
+contents:contents:.
+federated_extensions:patch
+federated_extensions:settings
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-32x32.png
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-64x64.png
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-svg.svg
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:libxeus.so
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:binaries
+jupyterlite-xeus:copy:xeus-torch-wasm:xpython:kernel.json
+jupyterlite-xeus:copy:xeus-torch-wasm:libxeus.so
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:prompt-toolkit-3.0.53-pyha770c72_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pexpect-4.9.0-pyhd8ed1ab_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:nlohmann_json-abi-3.12.0-h0f90c79_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:typing_extensions-4.16.0-pyhcf101f3_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:qhull-2020.2-h7223423_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:decorator-5.3.1-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python_abi-3.13.1-1_cp313.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-inline-0.2.2-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:kiwisolver-1.4.9-py313ha0aad71_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ipython-9.12.0-py313hd355c7d_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-lite-0.6.6-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyparsing-3.3.3-pyh5ded981_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyjs-rt-3.2.0-py313h7595f35_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pure_eval-0.2.4-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:zlib-1.3.1-h4e94343_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-0.17.8-py313h027658c_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:packaging-26.3-pyhc364b38_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-3.10.8-py313h0122bc0_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:fonttools-4.39.4-py313hd355c7d_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:microtorch-0.1.0-pip.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pytz-2026.3.post1-pyhcf101f3_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:traitlets-5.16.1-pyhcf101f3_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-5.2.8-h2072262_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:six-1.17.0-pyhe01879c_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:stack_data-0.6.3-pyhd8ed1ab_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:contourpy-1.3.3-py313h3a67976_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-base-3.10.8-np22py313h4202e73_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pygments-2.21.0-pyhcf101f3_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:numpy-2.4.4-py313h6394566_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:cycler-0.12.1-pyhcf101f3_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pillow-12.2.0-py313hafe190e_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:asttokens-3.0.2-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:emscripten-abi-3.1.73-h267e887_12.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-0.6.6-pyh332efcf_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyodide-http-0.2.2-pyhcf101f3_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:executing-2.2.1-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pickleshare-0.7.5-pyhd8ed1ab_1004.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python-3.13.1-h_c8de616_6_cp313.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:backcall-0.2.0-pyh9f0ad1d_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:wcwidth-0.8.4-pyh5ded981_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ptyprocess-0.7.0-pyhd8ed1ab_1.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python-dateutil-2.9.0.post0-pyhe01879c_2.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-raw-0.6.6-pyhd8ed1ab_0.tar.gz
+jupyterlite-xeus:xeus:xeus-torch-wasm:update_env_file:empack_env_meta.json
+jupyterlite-xeus:patch:xeus:/tmp/tmprhidsw5g/_env/envs/xeus-torch-wasm
+jupyterlite-xeus:patch:xeus:federated_settings:/tmp/tmprhidsw5g/_env/envs/xeus-torch-wasm
+jupyterlite-xeus:copy:/tmp/tmprhidsw5g/kernels.json
+mimetypes:patch
+.  post_build:contents:contents:.
+.  post_build:federated_extensions:patch
+.  post_build:federated_extensions:settings
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-32x32.png
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-64x64.png
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:logo-svg.svg
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:libxeus.so
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:binaries
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:xpython:kernel.json
+.  post_build:jupyterlite-xeus:copy:xeus-torch-wasm:libxeus.so
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:prompt-toolkit-3.0.53-pyha770c72_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pexpect-4.9.0-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:nlohmann_json-abi-3.12.0-h0f90c79_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:typing_extensions-4.16.0-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:qhull-2020.2-h7223423_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:decorator-5.3.1-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python_abi-3.13.1-1_cp313.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-inline-0.2.2-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:kiwisolver-1.4.9-py313ha0aad71_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ipython-9.12.0-py313hd355c7d_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-lite-0.6.6-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyparsing-3.3.3-pyh5ded981_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyjs-rt-3.2.0-py313h7595f35_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pure_eval-0.2.4-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:zlib-1.3.1-h4e94343_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-0.17.8-py313h027658c_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:packaging-26.3-pyhc364b38_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-3.10.8-py313h0122bc0_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:fonttools-4.39.4-py313hd355c7d_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:microtorch-0.1.0-pip.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pytz-2026.3.post1-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:traitlets-5.16.1-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-5.2.8-h2072262_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:six-1.17.0-pyhe01879c_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:stack_data-0.6.3-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:contourpy-1.3.3-py313h3a67976_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:matplotlib-base-3.10.8-np22py313h4202e73_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pygments-2.21.0-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:numpy-2.4.4-py313h6394566_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:cycler-0.12.1-pyhcf101f3_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pillow-12.2.0-py313hafe190e_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:asttokens-3.0.2-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:emscripten-abi-3.1.73-h267e887_12.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-0.6.6-pyh332efcf_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pyodide-http-0.2.2-pyhcf101f3_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:executing-2.2.1-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:pickleshare-0.7.5-pyhd8ed1ab_1004.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python-3.13.1-h_c8de616_6_cp313.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:backcall-0.2.0-pyh9f0ad1d_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:wcwidth-0.8.4-pyh5ded981_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:ptyprocess-0.7.0-pyhd8ed1ab_1.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:python-dateutil-2.9.0.post0-pyhe01879c_2.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:copy:xeus-python-shell-raw-0.6.6-pyhd8ed1ab_0.tar.gz
+.  post_build:jupyterlite-xeus:xeus:xeus-torch-wasm:update_env_file:empack_env_meta.json
+.  post_build:jupyterlite-xeus:patch:xeus:/tmp/tmprhidsw5g/_env/envs/xeus-torch-wasm
+.  post_build:jupyterlite-xeus:patch:xeus:federated_settings:/tmp/tmprhidsw5g/_env/envs/xeus-torch-wasm
+.  post_build:jupyterlite-xeus:copy:/tmp/tmprhidsw5g/kernels.json
+.  post_build:mimetypes:patch
+==> Done. Site at /workspace/docs
+    Local preview:  python3 -m http.server -d '/workspace/docs' 8000
+    Then open:      http://localhost:8000/lab/index.html?path=mlp_training_demo.ipynb
