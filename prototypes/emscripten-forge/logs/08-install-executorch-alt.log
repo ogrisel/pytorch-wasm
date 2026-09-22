@@ -1,0 +1,404 @@
+2026-09-22 13:23:57,010 [ExecuTorch] INFO: All required submodules are present.
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/test/cpu, https://download.pytorch.org/whl/nightly/cpu
+Requirement already satisfied: torch==2.14.0 in /home/ubuntu/.local/lib/python3.12/site-packages (2.14.0+cpu)
+Requirement already satisfied: torchao==0.18.0.dev20260729 in /home/ubuntu/.local/lib/python3.12/site-packages (0.18.0.dev20260729+cpu)
+Requirement already satisfied: cmake<4.0.0,>=3.26 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (3.31.10)
+Requirement already satisfied: packaging>=24.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (26.3)
+Requirement already satisfied: patchelf in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (0.19.1.0)
+Requirement already satisfied: pip>=23 in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 6)) (24.0)
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 7)) (6.0.1)
+Requirement already satisfied: setuptools>=77.0.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 8)) (84.0.0)
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 9)) (0.42.0)
+Requirement already satisfied: zstd in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 10)) (1.5.7.2)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from -r requirements-dev.txt (line 11)) (2026.4.22)
+Requirement already satisfied: lintrunner==0.12.7 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 12)) (0.12.7)
+Requirement already satisfied: lintrunner-adapters==0.14.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 13)) (0.14.1)
+Requirement already satisfied: ruff==0.15.4 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 14)) (0.15.4)
+Requirement already satisfied: pytest<9.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 16)) (8.4.2)
+Requirement already satisfied: pytest-xdist in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 17)) (3.8.0)
+Requirement already satisfied: pytest-rerunfailures==15.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 18)) (15.1)
+Requirement already satisfied: pytest-json-report in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 19)) (1.5.0)
+Requirement already satisfied: gguf in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 20)) (0.19.0)
+Requirement already satisfied: filelock in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (4.0.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from torch==2.14.0) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (3.7)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch==2.14.0) (3.1.2)
+Requirement already satisfied: fsspec>=0.8.5 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (2026.9.0)
+Requirement already satisfied: click>=8.1.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from lintrunner-adapters==0.14.1->-r requirements-dev.txt (line 13)) (8.5.0)
+Requirement already satisfied: iniconfig>=1 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (2.21.0)
+Requirement already satisfied: execnet>=2.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest-xdist->-r requirements-dev.txt (line 17)) (2.1.2)
+Requirement already satisfied: pytest-metadata in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest-json-report->-r requirements-dev.txt (line 19)) (3.1.1)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.12/dist-packages (from gguf->-r requirements-dev.txt (line 20)) (2.4.4)
+Requirement already satisfied: requests>=2.25 in /usr/local/lib/python3.12/dist-packages (from gguf->-r requirements-dev.txt (line 20)) (2.33.1)
+Requirement already satisfied: tqdm>=4.27 in /home/ubuntu/.local/lib/python3.12/site-packages (from gguf->-r requirements-dev.txt (line 20)) (4.70.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (2.6.3)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from sympy>=1.13.3->torch==2.14.0) (1.3.0)
+Defaulting to user installation because normal site-packages is not writeable
+Processing ./extension/llm/tokenizers
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tiktoken (from pytorch_tokenizers==1.3.0)
+  Using cached tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.7 kB)
+Collecting tokenizers (from pytorch_tokenizers==1.3.0)
+  Using cached tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting sentencepiece (from pytorch_tokenizers==1.3.0)
+  Using cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting regex (from tiktoken->pytorch_tokenizers==1.3.0)
+  Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from tiktoken->pytorch_tokenizers==1.3.0) (2.33.1)
+Collecting huggingface-hub<2.0,>=0.16.4 (from tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached huggingface_hub-1.32.0-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (8.5.0)
+Requirement already satisfied: filelock>=3.10.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.0.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (2026.9.0)
+Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: packaging>=20.9 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (6.0.1)
+Requirement already satisfied: tqdm>=4.42.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.70.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.15.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (2026.4.22)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Using cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+Using cached tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
+Using cached tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+Using cached huggingface_hub-1.32.0-py3-none-any.whl (842 kB)
+Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Building wheels for collected packages: pytorch_tokenizers
+  Building wheel for pytorch_tokenizers (pyproject.toml): started
+  Building wheel for pytorch_tokenizers (pyproject.toml): finished with status 'error'
+  [1;31merror[0m: [1msubprocess-exited-with-error[0m
+  
+  [31m×[0m [32mBuilding wheel for pytorch_tokenizers [0m[1;32m([0m[32mpyproject.toml[0m[1;32m)[0m did not run successfully.
+  [31m│[0m exit code: [1;36m1[0m
+  [31m╰─>[0m [31m[285 lines of output][0m
+  [31m   [0m /home/ubuntu/.local/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  [31m   [0m !!
+  [31m   [0m 
+  [31m   [0m         ********************************************************************************
+  [31m   [0m         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  [31m   [0m 
+  [31m   [0m         By 2027-Feb-18, you need to update your project and remove deprecated calls
+  [31m   [0m         or your builds will no longer be supported.
+  [31m   [0m 
+  [31m   [0m         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+  [31m   [0m         ********************************************************************************
+  [31m   [0m 
+  [31m   [0m !!
+  [31m   [0m   corresp(dist, value, root_dir)
+  [31m   [0m /home/ubuntu/.local/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+  [31m   [0m   corresp(dist, value, root_dir)
+  [31m   [0m /home/ubuntu/.local/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  [31m   [0m !!
+  [31m   [0m 
+  [31m   [0m         ********************************************************************************
+  [31m   [0m         Please consider removing the following classifiers in favor of a SPDX license expression:
+  [31m   [0m 
+  [31m   [0m         License :: OSI Approved :: BSD License
+  [31m   [0m 
+  [31m   [0m         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+  [31m   [0m         ********************************************************************************
+  [31m   [0m 
+  [31m   [0m !!
+  [31m   [0m   dist._finalize_license_expression()
+  [31m   [0m /home/ubuntu/.local/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  [31m   [0m !!
+  [31m   [0m 
+  [31m   [0m         ********************************************************************************
+  [31m   [0m         Please consider removing the following classifiers in favor of a SPDX license expression:
+  [31m   [0m 
+  [31m   [0m         License :: OSI Approved :: BSD License
+  [31m   [0m 
+  [31m   [0m         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+  [31m   [0m         ********************************************************************************
+  [31m   [0m 
+  [31m   [0m !!
+  [31m   [0m   self._finalize_license_expression()
+  [31m   [0m running bdist_wheel
+  [31m   [0m running build
+  [31m   [0m running build_py
+  [31m   [0m running egg_info
+  [31m   [0m writing pytorch_tokenizers.egg-info/PKG-INFO
+  [31m   [0m writing dependency_links to pytorch_tokenizers.egg-info/dependency_links.txt
+  [31m   [0m writing requirements to pytorch_tokenizers.egg-info/requires.txt
+  [31m   [0m writing top-level names to pytorch_tokenizers.egg-info/top_level.txt
+  [31m   [0m reading manifest file 'pytorch_tokenizers.egg-info/SOURCES.txt'
+  [31m   [0m reading manifest template 'MANIFEST.in'
+  [31m   [0m warning: no files found matching '*.h' under directory 'src'
+  [31m   [0m warning: no files found matching '*.hpp' under directory 'src'
+  [31m   [0m warning: no files found matching '*.hpp' under directory 'include'
+  [31m   [0m warning: no files found matching '*.h' under directory 'test'
+  [31m   [0m warning: no files found matching 'TARGETS'
+  [31m   [0m warning: no files found matching 'targets.bzl'
+  [31m   [0m warning: no previously-included files matching '*.pyc' found anywhere in distribution
+  [31m   [0m warning: no previously-included files matching '*.pyo' found anywhere in distribution
+  [31m   [0m warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  [31m   [0m warning: no previously-included files matching '.DS_Store' found anywhere in distribution
+  [31m   [0m no previously-included directories found matching 'build'
+  [31m   [0m no previously-included directories found matching 'dist'
+  [31m   [0m adding license file 'LICENSE'
+  [31m   [0m writing manifest file 'pytorch_tokenizers.egg-info/SOURCES.txt'
+  [31m   [0m running build_ext
+  [31m   [0m -- The CXX compiler identification is GNU 13.3.0
+  [31m   [0m -- Detecting CXX compiler ABI info
+  [31m   [0m -- Detecting CXX compiler ABI info - done
+  [31m   [0m -- Check for working CXX compiler: /usr/bin/c++ - skipped
+  [31m   [0m -- Detecting CXX compile features
+  [31m   [0m -- Detecting CXX compile features - done
+  [31m   [0m -- Performing Test ABSL_INTERNAL_AT_LEAST_CXX17
+  [31m   [0m -- Performing Test ABSL_INTERNAL_AT_LEAST_CXX17 - Success
+  [31m   [0m -- Performing Test ABSL_INTERNAL_AT_LEAST_CXX20
+  [31m   [0m -- Performing Test ABSL_INTERNAL_AT_LEAST_CXX20 - Success
+  [31m   [0m -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+  [31m   [0m -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+  [31m   [0m -- Found Threads: TRUE
+  [31m   [0m CMake Warning at third-party/abseil-cpp/CMakeLists.txt:177 (message):
+  [31m   [0m     The default and system-level install directories are unsupported except in LTS   releases of Abseil.  Please set CMAKE_INSTALL_PREFIX to install Abseil in your   source or build tree directly.
+  [31m   [0m 
+  [31m   [0m 
+  [31m   [0m CMake Deprecation Warning at third-party/sentencepiece/CMakeLists.txt:15 (cmake_minimum_required):
+  [31m   [0m   Compatibility with CMake < 3.10 will be removed from a future version of
+  [31m   [0m   CMake.
+  [31m   [0m 
+  [31m   [0m   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  [31m   [0m   to tell CMake that the project requires at least <min> but has been updated
+  [31m   [0m   to work with policies introduced by <max> or earlier.
+  [31m   [0m 
+  [31m   [0m 
+  [31m   [0m -- VERSION: 0.2.1
+  [31m   [0m -- Not Found TCMalloc: TCMALLOC_LIB-NOTFOUND
+  [31m   [0m -- Could NOT find BZip2 (missing: BZIP2_LIBRARIES BZIP2_INCLUDE_DIR)
+  [31m   [0m -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")
+  [31m   [0m -- Could NOT find Readline (missing: READLINE_INCLUDE_DIR READLINE_LIBRARY)
+  [31m   [0m -- Could NOT find Editline (missing: EDITLINE_INCLUDE_DIR EDITLINE_LIBRARY)
+  [31m   [0m -- Looking for assert.h
+  [31m   [0m -- Looking for assert.h - found
+  [31m   [0m -- Looking for dirent.h
+  [31m   [0m -- Looking for dirent.h - found
+  [31m   [0m -- Looking for sys/stat.h
+  [31m   [0m -- Looking for sys/stat.h - found
+  [31m   [0m -- Looking for sys/types.h
+  [31m   [0m -- Looking for sys/types.h - found
+  [31m   [0m -- Looking for unistd.h
+  [31m   [0m -- Looking for unistd.h - found
+  [31m   [0m -- Looking for windows.h
+  [31m   [0m -- Looking for windows.h - not found
+  [31m   [0m -- Looking for bcopy
+  [31m   [0m -- Looking for bcopy - found
+  [31m   [0m -- Looking for memfd_create
+  [31m   [0m -- Looking for memfd_create - not found
+  [31m   [0m -- Looking for memmove
+  [31m   [0m -- Looking for memmove - found
+  [31m   [0m -- Looking for secure_getenv
+  [31m   [0m -- Looking for secure_getenv - not found
+  [31m   [0m -- Looking for strerror
+  [31m   [0m -- Looking for strerror - found
+  [31m   [0m -- Performing Test HAVE_REALPATH
+  [31m   [0m -- Performing Test HAVE_REALPATH - Success
+  [31m   [0m -- Performing Test HAVE_ATTRIBUTE_UNINITIALIZED
+  [31m   [0m -- Performing Test HAVE_ATTRIBUTE_UNINITIALIZED - Success
+  [31m   [0m -- Performing Test HAVE_VISIBILITY
+  [31m   [0m -- Performing Test HAVE_VISIBILITY - Success
+  [31m   [0m -- Performing Test HAVE_BUILTIN_ASSUME
+  [31m   [0m -- Performing Test HAVE_BUILTIN_ASSUME - Failed
+  [31m   [0m -- Performing Test HAVE_BUILTIN_MUL_OVERFLOW
+  [31m   [0m -- Performing Test HAVE_BUILTIN_MUL_OVERFLOW - Success
+  [31m   [0m -- Performing Test HAVE_BUILTIN_UNREACHABLE
+  [31m   [0m -- Performing Test HAVE_BUILTIN_UNREACHABLE - Success
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_GNU
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_GNU - Success
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_SUN
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_SUN - Failed
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_BROKEN
+  [31m   [0m -- Performing Test HAVE_VSCRIPT_BROKEN - Failed
+  [31m   [0m -- Performing Test INTEL_CET_ENABLED
+  [31m   [0m -- Performing Test INTEL_CET_ENABLED - Success
+  [31m   [0m --
+  [31m   [0m --
+  [31m   [0m -- PCRE2-10.46 configuration summary:
+  [31m   [0m --
+  [31m   [0m --   Install prefix .................... : /usr/local
+  [31m   [0m --   C compiler ........................ : /usr/bin/cc
+  [31m   [0m --   C compiler flags .................. :  -mshstk -O3 -DNDEBUG
+  [31m   [0m --
+  [31m   [0m --   Build type ........................ : Release
+  [31m   [0m --   Build 8 bit pcre2 library ......... : ON
+  [31m   [0m --   Build 16 bit pcre2 library ........ : OFF
+  [31m   [0m --   Build 32 bit pcre2 library ........ : OFF
+  [31m   [0m --   Include debugging code ............ : IfDebugBuild
+  [31m   [0m --   Enable JIT compiling support ...... : OFF
+  [31m   [0m --   Use SELinux allocator in JIT ...... : OFF
+  [31m   [0m --   Enable Unicode support ............ : ON
+  [31m   [0m --   Newline char/sequence ............. : LF
+  [31m   [0m --   \R matches only ANYCRLF ........... : OFF
+  [31m   [0m --   \C is disabled .................... : OFF
+  [31m   [0m --   EBCDIC coding ..................... : OFF
+  [31m   [0m --   EBCDIC code for NL ................ : n/a
+  [31m   [0m --   EBCDIC coding ignoring compiler ... : OFF
+  [31m   [0m --   Rebuild char tables ............... : OFF
+  [31m   [0m --   Internal link size ................ : 2
+  [31m   [0m --   Maximum variable lookbehind ....... : 255
+  [31m   [0m --   Nested parentheses limit .......... : 250
+  [31m   [0m --   Heap limit ........................ : 20000000
+  [31m   [0m --   Match limit ....................... : 10000000
+  [31m   [0m --   Match depth limit ................. : MATCH_LIMIT
+  [31m   [0m --   Build shared libs ................. : OFF
+  [31m   [0m --       with symbol versioning ........ : ON
+  [31m   [0m --   Build static libs ................. : ON
+  [31m   [0m --       with PIC enabled .............. : ON
+  [31m   [0m --   Build pcre2grep ................... : OFF
+  [31m   [0m --   Enable JIT in pcre2grep ........... : ON
+  [31m   [0m --   Enable callouts in pcre2grep ...... : ON
+  [31m   [0m --   Enable callout fork in pcre2grep .. : ON
+  [31m   [0m --   Initial buffer size for pcre2grep . : 20480
+  [31m   [0m --   Maximum buffer size for pcre2grep . : 1048576
+  [31m   [0m --   Build tests (implies pcre2test .... : OFF
+  [31m   [0m --                and pcre2grep)
+  [31m   [0m --   Link pcre2grep with libz .......... : ON
+  [31m   [0m --   Link pcre2grep with libbz2 ........ : Library not found
+  [31m   [0m --   Link pcre2test with libeditline ... : Library not found
+  [31m   [0m --   Link pcre2test with libreadline ... : Library not found
+  [31m   [0m --   Enable Valgrind support ........... : OFF
+  [31m   [0m --   Use %zu and %td ................... : AUTO
+  [31m   [0m --
+  [31m   [0m CMake Deprecation Warning at build/temp.linux-x86_64-cpython-312/pytorch_tokenizers.pytorch_tokenizers_cpp/_deps/pybind11-src/CMakeLists.txt:13 (cmake_minimum_required):
+  [31m   [0m   Compatibility with CMake < 3.10 will be removed from a future version of
+  [31m   [0m   CMake.
+  [31m   [0m 
+  [31m   [0m   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  [31m   [0m   to tell CMake that the project requires at least <min> but has been updated
+  [31m   [0m   to work with policies introduced by <max> or earlier.
+  [31m   [0m 
+  [31m   [0m 
+  [31m   [0m -- pybind11 v2.13.6
+  [31m   [0m -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.12.3", minimum required is "3.7")
+  [31m   [0m -- Found PythonLibs: python3.12
+  [31m   [0m -- Performing Test HAS_FLTO
+  [31m   [0m -- Performing Test HAS_FLTO - Success
+  [31m   [0m -- Configuring done (2.5s)
+  [31m   [0m CMake Error in CMakeLists.txt:
+  [31m   [0m   Imported target "pybind11::module" includes non-existent path
+  [31m   [0m 
+  [31m   [0m     "/usr/include/python3.12"
+  [31m   [0m 
+  [31m   [0m   in its INTERFACE_INCLUDE_DIRECTORIES.  Possible reasons include:
+  [31m   [0m 
+  [31m   [0m   * The path was deleted, renamed, or moved to another location.
+  [31m   [0m 
+  [31m   [0m   * An install or uninstall procedure did not complete successfully.
+  [31m   [0m 
+  [31m   [0m   * The installation package was faulty and references files it does not
+  [31m   [0m   provide.
+  [31m   [0m 
+  [31m   [0m 
+  [31m   [0m 
+  [31m   [0m -- Generating done (0.1s)
+  [31m   [0m CMake Generate step failed.  Build files cannot be regenerated correctly.
+  [31m   [0m Traceback (most recent call last):
+  [31m   [0m   File "/usr/lib/python3/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
+  [31m   [0m     main()
+  [31m   [0m   File "/usr/lib/python3/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
+  [31m   [0m     json_out['return_val'] = hook(**hook_input['kwargs'])
+  [31m   [0m                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/usr/lib/python3/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 251, in build_wheel
+  [31m   [0m     return _build_backend().build_wheel(wheel_directory, config_settings,
+  [31m   [0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/build_meta.py", line 441, in build_wheel
+  [31m   [0m     return _build(['bdist_wheel', '--dist-info-dir', str(metadata_directory)])
+  [31m   [0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/build_meta.py", line 429, in _build
+  [31m   [0m     return self._build_with_temp_dir(
+  [31m   [0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/build_meta.py", line 410, in _build_with_temp_dir
+  [31m   [0m     self.run_setup()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/build_meta.py", line 317, in run_setup
+  [31m   [0m     exec(code, locals())  # noqa: S102 # exec is intentional here
+  [31m   [0m     ^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "<string>", line 152, in <module>
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/__init__.py", line 117, in setup
+  [31m   [0m     return distutils.core.setup(**attrs)  # type: ignore[return-value]
+  [31m   [0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/core.py", line 168, in setup
+  [31m   [0m     return run_commands(dist)
+  [31m   [0m            ^^^^^^^^^^^^^^^^^^
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/core.py", line 184, in run_commands
+  [31m   [0m     dist.run_commands()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/dist.py", line 1028, in run_commands
+  [31m   [0m     self.run_command(cmd)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/dist.py", line 1106, in run_command
+  [31m   [0m     super().run_command(command)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+  [31m   [0m     cmd_obj.run()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py", line 385, in run
+  [31m   [0m     self.run_command("build")
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+  [31m   [0m     self.distribution.run_command(command)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/dist.py", line 1106, in run_command
+  [31m   [0m     super().run_command(command)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+  [31m   [0m     cmd_obj.run()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/command/build.py", line 137, in run
+  [31m   [0m     self.run_command(cmd_name)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+  [31m   [0m     self.distribution.run_command(command)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/dist.py", line 1106, in run_command
+  [31m   [0m     super().run_command(command)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+  [31m   [0m     cmd_obj.run()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/command/build_ext.py", line 95, in run
+  [31m   [0m     _build_ext.run(self)
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 382, in run
+  [31m   [0m     self.build_extensions()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 498, in build_extensions
+  [31m   [0m     self._build_extensions_serial()
+  [31m   [0m   File "/home/ubuntu/.local/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 524, in _build_extensions_serial
+  [31m   [0m     self.build_extension(ext)
+  [31m   [0m   File "<string>", line 125, in build_extension
+  [31m   [0m   File "/usr/lib/python3.12/subprocess.py", line 571, in run
+  [31m   [0m     raise CalledProcessError(retcode, process.args,
+  [31m   [0m subprocess.CalledProcessError: Command '['cmake', '/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/extension/llm/tokenizers', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/extension/llm/tokenizers/build/lib.linux-x86_64-cpython-312/pytorch_tokenizers/', '-DPYTHON_EXECUTABLE=/usr/bin/python3', '-DCMAKE_BUILD_TYPE=Release', '-DSUPPORT_REGEX_LOOKAHEAD=ON', '-DTOKENIZERS_BUILD_PYTHON=ON', '-DCMAKE_POSITION_INDEPENDENT_CODE=ON', '-GNinja', '-DCMAKE_MAKE_PROGRAM:FILEPATH=/home/ubuntu/.local/bin/ninja']' returned non-zero exit status 1.
+  [31m   [0m [31m[end of output][0m
+  
+  [1;35mnote[0m: This error originates from a subprocess, and is likely not a problem with pip.
+[31m  ERROR: Failed building wheel for pytorch_tokenizers[0m[31m
+[0mFailed to build pytorch_tokenizers
+[31mERROR: Could not build wheels for pytorch_tokenizers, which is required to install pyproject.toml-based projects[0m[31m
+[0mAttempting to detect CUDA via nvcc...
+CUDA detection failed (nvcc (CUDA compiler) is not found in PATH. Install the CUDA toolkit.), using CPU-only PyTorch
+Attempting to detect CUDA via nvcc...
+CUDA detection failed (nvcc (CUDA compiler) is not found in PATH. Install the CUDA toolkit.), using CPU-only PyTorch
+Traceback (most recent call last):
+  File "/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/./install_executorch.py", line 264, in <module>
+    main(sys.argv[1:])
+  File "/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/./install_executorch.py", line 232, in main
+    install_requirements(use_pytorch_nightly)
+  File "/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/install_requirements.py", line 147, in install_requirements
+    subprocess.run(
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'pip', 'install', '--no-build-isolation', 'extension/llm/tokenizers']' returned non-zero exit status 1.
+INSTALL3_EXIT=1
