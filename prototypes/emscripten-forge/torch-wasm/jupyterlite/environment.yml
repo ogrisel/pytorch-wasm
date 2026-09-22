@@ -7,4 +7,5 @@ channels:
 dependencies:
   - xeus-python
   - numpy
+  - sympy
   - torch

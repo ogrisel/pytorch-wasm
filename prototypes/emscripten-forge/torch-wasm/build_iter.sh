@@ -76,8 +76,23 @@ while IFS= read -r a; do
 done < <(find "$BUILD" -name '*.a' | sort -u)
 
 set +e
+# stub.c defines PyInit__C -> initModule(). It must be compiled as C so the
+# reference to initModule keeps C linkage (`initModule`), matching the
+# extern "C" definition in Module.cpp. Compiling it with em++ (C++) mangles the
+# reference to _Z10initModulev, which then has no definition and becomes an
+# unresolvable SIDE_MODULE import at load time.
+emcc -sSIDE_MODULE=1 -fexceptions -O2 -I"$PYINC" \
+  -c "$SRC/torch/csrc/stub.c" -o "$BUILD/stub.o" 2>&1 | tee -a "$LOG/15-link-_C.log"
+# cpuinfo's dispatcher references cpuinfo_emscripten_init(), whose definition
+# lives in third_party/cpuinfo/src/emscripten/init.c but is not compiled by the
+# vendored cpuinfo CMake for this target. Compile it explicitly so the symbol
+# resolves at load time instead of becoming an unresolvable SIDE_MODULE import.
+CPUINFO="$SRC/third_party/cpuinfo"
+emcc -sSIDE_MODULE=1 -fexceptions -O2 -DCPUINFO_LOG_LEVEL=2 -DCPUINFO_LOG_TO_STDIO=1 \
+  -I"$CPUINFO/include" -I"$CPUINFO/src" \
+  -c "$CPUINFO/src/emscripten/init.c" -o "$BUILD/cpuinfo_emscripten_init.o" 2>&1 | tee -a "$LOG/15-link-_C.log"
 em++ -sSIDE_MODULE=1 -sWASM_BIGINT $EH -O2 -I"$PYINC" \
-  "$SRC/torch/csrc/stub.c" \
+  "$BUILD/stub.o" "$BUILD/cpuinfo_emscripten_init.o" \
   -Wl,--whole-archive "${WHOLE[@]}" -Wl,--no-whole-archive \
   -Wl,--start-group "${OTHER[@]}" -Wl,--end-group \
   -o "$STAGE/_C.so" 2>&1 | tee -a "$LOG/15-link-_C.log"

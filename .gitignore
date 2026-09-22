@@ -48,3 +48,7 @@ prototypes/emscripten-forge/jupyterlite-torch-wasm/.jupyterlite.doit.db
 # jupyterlite build scratch for the emscripten-forge torch-wasm prototype
 prototypes/emscripten-forge/torch-wasm/jupyterlite/_site/
 prototypes/emscripten-forge/torch-wasm/jupyterlite/.jupyterlite.doit.db
+
+# in-browser test scratch (playwright harness runtime + minimal baseline site)
+.jlite-test/node_modules/
+.jlite-base/
