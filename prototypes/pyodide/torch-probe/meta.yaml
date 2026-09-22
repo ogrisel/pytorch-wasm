@@ -146,6 +146,17 @@ build:
     # torch_xpu_ops. Verified to still force-include the archive's symbols.
     perl -0pi -e 's/\\" -Wl,--no-whole-archive/\\",--no-whole-archive/' cmake/public/utils.cmake
     grep -n -- '--whole-archive,\\"$<TARGET_FILE:${SRC}>\\",--no-whole-archive' cmake/public/utils.cmake || echo "WARN: whole-archive patch not applied"
+    # PROBE WORKAROUND (blocker #8): torch_cpu links, but no importable module is
+    # produced. cmake/Dependencies.cmake runs find_package(Python COMPONENTS
+    # Development.Module); for wasm32-emscripten this reports "missing components:
+    # Development.Module" (pyodide's CPython is statically linked, no libpython for the
+    # target), so torch force-disables BUILD_PYTHON and never builds libtorch_python or
+    # the torch._C bindings -> `import torch` is impossible. Pyodide extension modules
+    # are SIDE_MODULEs that resolve CPython C-API symbols at load (import-dynamic), and
+    # pywasmcross injects the target Python headers on every compile, so keep
+    # BUILD_PYTHON ON (mirroring the found-branch by enabling USE_OBSERVERS).
+    perl -0pi -e 's/message\(WARNING "Python dependencies not met\. Not compiling with python\. Suppress this warning with -DBUILD_PYTHON=OFF"\)\n    caffe2_update_option\(BUILD_PYTHON OFF\)/message(WARNING "PYODIDE_PROBE_FORCE_BUILD_PYTHON: Development.Module missing under Emscripten; keeping BUILD_PYTHON ON (SIDE_MODULE resolves Python symbols at load)")\n    caffe2_update_option(USE_OBSERVERS ON)/ if !/PYODIDE_PROBE_FORCE_BUILD_PYTHON/' cmake/Dependencies.cmake
+    grep -n "PYODIDE_PROBE_FORCE_BUILD_PYTHON" cmake/Dependencies.cmake || echo "WARN: BUILD_PYTHON patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
