@@ -1,0 +1,60 @@
+context:
+  name: pytorch
+  version: "2.8.0"
+  # emscripten-forge target platform; matches the pinned toolchain
+  # (emscripten 4.0.9, cross-python 3.13) in the recipes/variant.yaml.
+  target_platform: emscripten-wasm32
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  # PyTorch publishes no PyPI sdist; the GitHub *release* tarball bundles all
+  # third_party/* submodules (sleef, pybind11, fmt, cpuinfo, protobuf, ...).
+  url: https://github.com/pytorch/pytorch/releases/download/v${{ version }}/pytorch-v${{ version }}.tar.gz
+  sha256: c70a2c9488f6f6e8af5982a10d1cc2c37b7df5e6506d839daa5d5e250953d7b5
+  patches:
+    # wasm32 (ILP32) + Emscripten musl portability fixes (see build.sh notes).
+    - patches/0001-emscripten-wasm32-portability.patch
+
+build:
+  number: 0
+  script: build.sh
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - cross-python_${{ target_platform }}
+    - python
+    - cmake
+    - ninja
+    - pyyaml
+    - setuptools
+    - typing_extensions
+    - six
+  host:
+    - python
+    - pybind11
+
+about:
+  homepage: https://pytorch.org
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: PyTorch (reduced, CPU-only, single-threaded) for emscripten-wasm32
+  description: |
+    A reduced, CPU-only, single-threaded build of upstream PyTorch 2.8.0 for
+    the emscripten-wasm32 platform, intended to let a basic eager-mode PyTorch
+    program (e.g. training a small MLP with nn.Linear + ReLU + SGD) run inside
+    the emscripten-forge xeus-python kernel in JupyterLite.
+
+    Disabled: CUDA/ROCm/XPU, MKLDNN, FBGEMM, NNPACK, QNNPACK, PYTORCH_QNNPACK,
+    XNNPACK, KINETO, distributed/TensorPipe/Gloo/MPI, OpenMP (single-threaded,
+    ATEN_THREADING=NATIVE), NUMA, NUMPY, MAGMA, ITT, ONNX, Caffe2, tests.
+    Kept: eager ATen CPU ops, autograd, torch.nn, torch.optim.
+  repository: https://github.com/pytorch/pytorch
+
+extra:
+  recipe-maintainers:
+    - pytorch-wasm-prototype

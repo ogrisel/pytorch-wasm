@@ -1,6 +1,16 @@
 # Emscripten SDK (installed locally by scripts/install-emsdk.sh)
 .emsdk/
 
+# emscripten-forge torch-wasm build scratch (toolchain envs, source tree,
+# rattler-build output, cmake build dir). The canonical recipe + driver live
+# under prototypes/emscripten-forge/torch-wasm/recipe/.
+.src/
+.torch-build/
+.mmroot/
+.host-wasm/
+.ef-recipes/
+.tools/
+
 # WASM build outputs
 *.wasm
 *.mjs

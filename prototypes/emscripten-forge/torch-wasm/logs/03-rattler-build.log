@@ -1,0 +1,1363 @@
+ Processing recipe at path: /workspace/.ef-recipes/recipes/recipes_emscripten/py
+ torch/recipe.yaml
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config from: /workspace/prototypes/emscripten-forge/torch-was
+ │ m/recipe/variant-3173.yaml
+ │ ⚠ warning Found 'pin_run_as_build' in variant config - this is not supported a
+ │ ⚠ warning nd will be ignored
+ │ Found 1 variants
+ │ 
+ │ Build variant: pytorch-2.8.0-py313h8f367bf_0
+ │ 
+ │ ╭────────────────────────────────┬────────────────────╮
+ │ │ Variant                        ┆ Version            │
+ │ ╞════════════════════════════════╪════════════════════╡
+ │ │ c_compiler                     ┆ "emscripten"       │
+ │ │ c_compiler_version             ┆ "3.1.73"           │
+ │ │ channel_targets                ┆ "conda-forge main" │
+ │ │ cmake                          ┆ "4.3"              │
+ │ │ cross_python_emscripten_wasm32 ┆ "3.13.1"           │
+ │ │ cxx_compiler                   ┆ "emscripten"       │
+ │ │ cxx_compiler_version           ┆ "3.1.73"           │
+ │ │ python                         ┆ "3.13.* *_cp313"   │
+ │ ╰────────────────────────────────┴────────────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+ Starting build of 1 outputs
+
+ ╭─ Running build for recipe: pytorch-2.8.0-py313h8f367bf_0
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from path: /workspace/.ef-recipes/recipes/recipes_emscripte
+ │ │ n/pytorch/stub
+ │ │ Copied 1 files into isolated environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Resolving build environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.12.94=0, __glibc=2.39=0, __arch
+ │ │ spec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///workspace/.ef-recipes/output/
+ │ │    - https://prefix.dev/emscripten-forge-dev/
+ │ │    - conda-forge
+ │ │    - microsoft
+ │ │   Specs:
+ │ │    - emscripten_emscripten-wasm32 3.1.73.*
+ │ │    - emscripten_emscripten-wasm32 3.1.73.*
+ │ │    - cross-python_emscripten-wasm32 3.13.1.*
+ │ │    - python 3.13.* *_cp313
+ │ │    - cmake 4.3.*
+ │ │    - ninja
+ │ │    - pyyaml
+ │ │    - setuptools
+ │ │    - typing_extensions
+ │ │    - six
+ │ │ 
+ │ │ ╭────────────────────────────────┬──────────────┬──────────────────────┬───
+ │ │ ───────────────────┬────────────╮
+ │ │ │ Package                        ┆ Version      ┆ Build                ┆ Ch
+ │ │ annel              ┆       Size │
+ │ │ ╞════════════════════════════════╪══════════════╪══════════════════════╪═══
+ │ │ ═══════════════════╪════════════╡
+ │ │ │ __unix                         ┆ 1.0.0        ┆ ha770c72_0           ┆ em
+ │ │ scripten-forge-dev ┆   1.18 KiB │
+ │ │ │ _openmp_mutex                  ┆ 4.5          ┆ 20_gnu               ┆ co
+ │ │ nda-forge          ┆  28.27 KiB │
+ │ │ │ bzip2                          ┆ 1.0.8        ┆ hda65f42_10          ┆ co
+ │ │ nda-forge          ┆ 251.77 KiB │
+ │ │ │ c-ares                         ┆ 1.34.8       ┆ hebe6cf0_2           ┆ co
+ │ │ nda-forge          ┆ 223.34 KiB │
+ │ │ │ ca-certificates                ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ co
+ │ │ nda-forge          ┆ 128.69 KiB │
+ │ │ │ cmake                          ┆ 4.3.4        ┆ hc85cc9f_0           ┆ co
+ │ │ nda-forge          ┆  22.09 MiB │
+ │ │ │ coreutils                      ┆ 9.12         ┆ hebe6cf0_0           ┆ co
+ │ │ nda-forge          ┆   3.33 MiB │
+ │ │ │ cross-python_emscripten-wasm32 ┆ 3.13.1       ┆ ha770c72_15          ┆ em
+ │ │ scripten-forge-dev ┆   5.07 KiB │
+ │ │ │ crossenv                       ┆ 1.6.1        ┆ pyh5ded981_1         ┆ co
+ │ │ nda-forge          ┆  36.41 KiB │
+ │ │ │ emscripten_emscripten-wasm32   ┆ 3.1.73       ┆ h099e90b_12          ┆ em
+ │ │ scripten-forge-dev ┆ 368.20 MiB │
+ │ │ │ icu                            ┆ 75.1         ┆ he02047a_0           ┆ co
+ │ │ nda-forge          ┆  11.57 MiB │
+ │ │ │ keyutils                       ┆ 1.6.3        ┆ h7cc23a3_1           ┆ co
+ │ │ nda-forge          ┆ 132.12 KiB │
+ │ │ │ krb5                           ┆ 1.22.2       ┆ hbc21106_2           ┆ co
+ │ │ nda-forge          ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64               ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ co
+ │ │ nda-forge          ┆ 727.83 KiB │
+ │ │ │ libcurl                        ┆ 8.21.0       ┆ hcf29cc6_1           ┆ co
+ │ │ nda-forge          ┆ 467.69 KiB │
+ │ │ │ libedit                        ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ co
+ │ │ nda-forge          ┆ 131.93 KiB │
+ │ │ │ libev                          ┆ 4.33         ┆ h280c20c_3           ┆ co
+ │ │ nda-forge          ┆  42.21 KiB │
+ │ │ │ libexpat                       ┆ 2.8.4        ┆ hd2095e1_0           ┆ co
+ │ │ nda-forge          ┆  75.78 KiB │
+ │ │ │ libffi                         ┆ 3.7.0        ┆ h81df57d_1           ┆ co
+ │ │ nda-forge          ┆  66.41 KiB │
+ │ │ │ libgcc                         ┆ 16.2.0       ┆ ha9f2e26_5           ┆ co
+ │ │ nda-forge          ┆   1.01 MiB │
+ │ │ │ libgcc-ng                      ┆ 16.2.0       ┆ h69a702a_5           ┆ co
+ │ │ nda-forge          ┆  27.87 KiB │
+ │ │ │ libgomp                        ┆ 16.2.0       ┆ he0feb66_5           ┆ co
+ │ │ nda-forge          ┆ 626.61 KiB │
+ │ │ │ libiconv                       ┆ 1.18         ┆ h0cb94f2_3           ┆ co
+ │ │ nda-forge          ┆ 770.97 KiB │
+ │ │ │ liblzma                        ┆ 5.8.3        ┆ hb03c661_1           ┆ co
+ │ │ nda-forge          ┆ 110.35 KiB │
+ │ │ │ libmpdec                       ┆ 4.0.0        ┆ hb03c661_2           ┆ co
+ │ │ nda-forge          ┆  90.58 KiB │
+ │ │ │ libnghttp2                     ┆ 1.68.1       ┆ h74cf4be_1           ┆ co
+ │ │ nda-forge          ┆ 634.74 KiB │
+ │ │ │ libpython                      ┆ 3.13.15      ┆ hdc7f604_103_cp313   ┆ co
+ │ │ nda-forge          ┆   9.26 MiB │
+ │ │ │ libsqlite                      ┆ 3.53.4       ┆ h0737f62_1           ┆ co
+ │ │ nda-forge          ┆ 946.18 KiB │
+ │ │ │ libssh2                        ┆ 1.11.1       ┆ h6154650_1           ┆ co
+ │ │ nda-forge          ┆ 298.87 KiB │
+ │ │ │ libstdcxx                      ┆ 16.2.0       ┆ h934c35e_5           ┆ co
+ │ │ nda-forge          ┆   6.31 MiB │
+ │ │ │ libstdcxx-ng                   ┆ 16.2.0       ┆ hdf11a46_5           ┆ co
+ │ │ nda-forge          ┆  27.89 KiB │
+ │ │ │ libuuid                        ┆ 2.42.3       ┆ hcfc3c73_0           ┆ co
+ │ │ nda-forge          ┆  39.06 KiB │
+ │ │ │ libuv                          ┆ 1.52.1       ┆ h280c20c_1           ┆ co
+ │ │ nda-forge          ┆ 410.20 KiB │
+ │ │ │ libzlib                        ┆ 1.3.2        ┆ h25fd6f3_3           ┆ co
+ │ │ nda-forge          ┆  62.22 KiB │
+ │ │ │ lz4-c                          ┆ 1.10.0       ┆ hee9eb32_2           ┆ co
+ │ │ nda-forge          ┆ 177.55 KiB │
+ │ │ │ ncurses                        ┆ 6.6          ┆ hdb14827_1           ┆ co
+ │ │ nda-forge          ┆ 889.84 KiB │
+ │ │ │ ninja                          ┆ 1.13.2       ┆ h171cf75_1           ┆ co
+ │ │ nda-forge          ┆ 182.39 KiB │
+ │ │ │ nodejs                         ┆ 16.20.2      ┆ hc19f0b3_3           ┆ co
+ │ │ nda-forge          ┆  13.64 MiB │
+ │ │ │ openssl                        ┆ 3.6.4        ┆ h781a0a9_0           ┆ co
+ │ │ nda-forge          ┆   3.05 MiB │
+ │ │ │ pip                            ┆ 26.2.1       ┆ pyh145f28c_0         ┆ co
+ │ │ nda-forge          ┆   1.14 MiB │
+ │ │ │ popt                           ┆ 1.19         ┆ hcfc3c73_2           ┆ co
+ │ │ nda-forge          ┆  74.18 KiB │
+ │ │ │ python                         ┆ 3.13.15      ┆ hf47f18c_103_cp313   ┆ co
+ │ │ nda-forge          ┆  23.24 MiB │
+ │ │ │ python_abi                     ┆ 3.13         ┆ 9_cp313              ┆ co
+ │ │ nda-forge          ┆   6.61 KiB │
+ │ │ │ pyyaml                         ┆ 6.0.3        ┆ py313h3dea7bd_1      ┆ co
+ │ │ nda-forge          ┆ 196.89 KiB │
+ │ │ │ readline                       ┆ 8.3          ┆ hd6e31c0_1           ┆ co
+ │ │ nda-forge          ┆ 340.72 KiB │
+ │ │ │ rhash                          ┆ 1.4.6        ┆ hb03c661_2           ┆ co
+ │ │ nda-forge          ┆ 190.42 KiB │
+ │ │ │ rsync                          ┆ 3.4.4        ┆ hffd6c76_1           ┆ co
+ │ │ nda-forge          ┆ 369.48 KiB │
+ │ │ │ sed                            ┆ 4.10         ┆ h19d0853_0           ┆ co
+ │ │ nda-forge          ┆ 262.19 KiB │
+ │ │ │ setuptools                     ┆ 84.0.0       ┆ pyh332efcf_0         ┆ co
+ │ │ nda-forge          ┆ 512.20 KiB │
+ │ │ │ six                            ┆ 1.17.0       ┆ pyhe01879c_1         ┆ co
+ │ │ nda-forge          ┆  18.02 KiB │
+ │ │ │ tk                             ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ co
+ │ │ nda-forge          ┆   3.40 MiB │
+ │ │ │ typing_extensions              ┆ 4.16.0       ┆ pyhcf101f3_0         ┆ co
+ │ │ nda-forge          ┆  51.40 KiB │
+ │ │ │ tzdata                         ┆ 2026c        ┆ h151e31d_0           ┆ co
+ │ │ nda-forge          ┆ 116.06 KiB │
+ │ │ │ xxhash                         ┆ 0.8.3        ┆ hec8ed23_1           ┆ co
+ │ │ nda-forge          ┆ 106.80 KiB │
+ │ │ │ yaml                           ┆ 0.2.5        ┆ hebe6cf0_3           ┆ co
+ │ │ nda-forge          ┆  82.95 KiB │
+ │ │ │ zlib                           ┆ 1.3.2        ┆ h25fd6f3_3           ┆ co
+ │ │ nda-forge          ┆  93.88 KiB │
+ │ │ │ zstd                           ┆ 1.5.7        ┆ hb78ec9c_7           ┆ co
+ │ │ nda-forge          ┆ 587.21 KiB │
+ │ │ ╰────────────────────────────────┴──────────────┴──────────────────────┴───
+ │ │ ───────────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving host environment
+ │ │   Platform: emscripten-wasm32 [__unix=0=0]
+ │ │   Channels: 
+ │ │    - file:///workspace/.ef-recipes/output/
+ │ │    - https://prefix.dev/emscripten-forge-dev/
+ │ │    - conda-forge
+ │ │    - microsoft
+ │ │   Specs:
+ │ │    - python 3.13.* *_cp313
+ │ │    - pybind11
+ │ │    - emscripten-abi >=3.1.73,<3.1.74.0a0
+ │ │    - emscripten-abi >=3.1.73,<3.1.74.0a0
+ │ │ 
+ │ │ ╭────────────────┬─────────┬───────────────────┬──────────────────────┬────
+ │ │ ────────╮
+ │ │ │ Package        ┆ Version ┆ Build             ┆ Channel              ┆    
+ │ │    Size │
+ │ │ ╞════════════════╪═════════╪═══════════════════╪══════════════════════╪════
+ │ │ ════════╡
+ │ │ │ __unix         ┆ 1.0.0   ┆ hc286ada_0        ┆ emscripten-forge-dev ┆   1
+ │ │ .18 KiB │
+ │ │ │ emscripten-abi ┆ 3.1.73  ┆ h267e887_12       ┆ emscripten-forge-dev ┆  11
+ │ │ .28 KiB │
+ │ │ │ pybind11       ┆ 3.0.1   ┆ py313h179546c_1   ┆ emscripten-forge-dev ┆ 227
+ │ │ .91 KiB │
+ │ │ │ python         ┆ 3.13.1  ┆ h_c8de616_6_cp313 ┆ emscripten-forge-dev ┆   5
+ │ │ .42 MiB │
+ │ │ │ python_abi     ┆ 3.13.1  ┆ 1_cp313           ┆ emscripten-forge-dev ┆   2
+ │ │ .54 KiB │
+ │ │ ╰────────────────┴─────────┴───────────────────┴──────────────────────┴────
+ │ │ ────────╯
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │ 
+ │ Finalized run dependencies (pytorch-2.8.0-py313h8f367bf_0):
+ │ ╭──────────────────┬─────────────────────────────────────────────────────────
+ │ ─────────────╮
+ │ │ Name             ┆ Spec                                                    
+ │              │
+ │ ╞══════════════════╪═════════════════════════════════════════════════════════
+ │ ═════════════╡
+ │ │ Run dependencies ┆                                                         
+ │              │
+ │ │ emscripten-abi   ┆ >=3.1.73,<3.1.74.0a0 (RE of [build: cross-python_emscrip
+ │ ten-wasm32]) │
+ │ │                  ┆ >=3.1.73,<3.1.74.0a0 (RE of [build: emscripten_emscripte
+ │ n-wasm32])   │
+ │ │ python_abi       ┆ 3.13.* *_cp313 (RE of [host: python])                   
+ │              │
+ │ ╰──────────────────┴─────────────────────────────────────────────────────────
+ │ ─────────────╯
+ │
+ │ ╭─ Installing build environment
+ │ │ ✔ Successfully updated the build environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Installing host environment
+ │ │ ✔ Successfully updated the host environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Running build script
+ │ │ Setting up cross-python environment
+ │ │ + SRC=/workspace/.src/pytorch
+ │ │ + BUILD=/workspace/.torch-build
+ │ │ + LOG=/workspace/prototypes/emscripten-forge/torch-wasm/logs
+ │ │ + mkdir -p /workspace/.torch-build /workspace/prototypes/emscripten-forge/t
+ │ │ orch-wasm/logs
+ │ │ + echo '=== emcc / python probe ==='
+ │ │ === emcc / python probe ===
+ │ │ + emcc --version
+ │ │ + head -1
+ │ │ emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.
+ │ │ 73 (ac676d5e437525d15df5fd46bc2c208ec6d376a3)
+ │ │ + echo 'EMSDK_PYTHON=$BUILD_PREFIX/bin/python3 PYTHON=$PREFIX/bin/python'
+ │ │ + echo BUILD_PREFIX=$BUILD_PREFIX
+ │ │ + echo PREFIX=$PREFIX
+ │ │ EMSDK_PYTHON=$BUILD_PREFIX/bin/python3 PYTHON=$PREFIX/bin/python
+ │ │ BUILD_PREFIX=$BUILD_PREFIX
+ │ │ PREFIX=$PREFIX
+ │ │ + echo 'CMAKE_ARGS= -DCMAKE_TOOLCHAIN_FILE=$BUILD_PREFIX/opt/emsdk/upstream
+ │ │ /emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_PREFIX_PATH=$PR
+ │ │ EFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON 
+ │ │ -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true'
+ │ │ + export USE_CUDA=0 USE_ROCM=0 USE_XPU=0
+ │ │ + USE_CUDA=0
+ │ │ + USE_ROCM=0
+ │ │ + USE_XPU=0
+ │ │ + export USE_MKLDNN=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 USE_PYTORCH_Q
+ │ │ NNPACK=0 USE_XNNPACK=0
+ │ │ + USE_MKLDNN=0
+ │ │ CMAKE_ARGS= -DCMAKE_TOOLCHAIN_FILE=$BUILD_PREFIX/opt/emsdk/upstream/emscrip
+ │ │ ten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_PREFIX_PATH=$PREFIX -DC
+ │ │ MAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON -DCMAKE_
+ │ │ POSITION_INDEPENDENT_CODE:BOOL=true
+ │ │ + USE_FBGEMM=0
+ │ │ + USE_NNPACK=0
+ │ │ + USE_QNNPACK=0
+ │ │ + USE_PYTORCH_QNNPACK=0
+ │ │ + USE_XNNPACK=0
+ │ │ + export USE_KINETO=0 USE_DISTRIBUTED=0 USE_TENSORPIPE=0 USE_GLOO=0 USE_MPI
+ │ │ =0
+ │ │ + USE_KINETO=0
+ │ │ + USE_DISTRIBUTED=0
+ │ │ + USE_TENSORPIPE=0
+ │ │ + USE_GLOO=0
+ │ │ + USE_MPI=0
+ │ │ + export USE_OPENMP=0 USE_NUMA=0 USE_NUMPY=0 USE_MAGMA=0 USE_ITT=0 USE_MIMA
+ │ │ LLOC=0
+ │ │ + USE_OPENMP=0
+ │ │ + USE_NUMA=0
+ │ │ + USE_NUMPY=0
+ │ │ + USE_MAGMA=0
+ │ │ + USE_ITT=0
+ │ │ + USE_MIMALLOC=0
+ │ │ + export USE_OBSERVERS=0 USE_LITE_PROTO=1 USE_ONNX=0
+ │ │ + USE_OBSERVERS=0
+ │ │ + USE_LITE_PROTO=1
+ │ │ + USE_ONNX=0
+ │ │ + export BUILD_TEST=0 BUILD_CAFFE2=0 BUILD_CAFFE2_OPS=0 BUILD_BINARY=0
+ │ │ + BUILD_TEST=0
+ │ │ + BUILD_CAFFE2=0
+ │ │ + BUILD_CAFFE2_OPS=0
+ │ │ + BUILD_BINARY=0
+ │ │ + export ATEN_THREADING=NATIVE
+ │ │ + ATEN_THREADING=NATIVE
+ │ │ + export MAX_JOBS=4
+ │ │ + MAX_JOBS=4
+ │ │ + EH=-fexceptions
+ │ │ + export 'CFLAGS=-O2 -g0 -fPIC -I$PREFIX/include -O2 -g0 -fPIC -I$PREFIX/in
+ │ │ clude -fexceptions'
+ │ │ + CFLAGS='-O2 -g0 -fPIC -I$PREFIX/include -O2 -g0 -fPIC -I$PREFIX/include -
+ │ │ fexceptions'
+ │ │ + export 'CXXFLAGS= -O2 -g0 -fPIC -I$PREFIX/include -fexceptions'
+ │ │ + CXXFLAGS=' -O2 -g0 -fPIC -I$PREFIX/include -fexceptions'
+ │ │ + export 'LDFLAGS=-O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MOD
+ │ │ ULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -fexce
+ │ │ ptions'
+ │ │ + LDFLAGS='-O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -
+ │ │ O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODULE=1 -fexceptions'
+ │ │ + PYEXE=$BUILD_PREFIX/bin/python3
+ │ │ + CFG_ARGS=(-GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TE
+ │ │ ST=OFF -DBUILD_BINARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_C
+ │ │ UDA=OFF -DUSE_ROCM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUS
+ │ │ E_NNPACK=OFF -DUSE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF 
+ │ │ -DUSE_KINETO=OFF -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF 
+ │ │ -DUSE_MPI=OFF -DUSE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=O
+ │ │ FF -DUSE_ITT=OFF -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON
+ │ │  -DUSE_ONNX=OFF -DATEN_THREADING=NATIVE -DPython_EXECUTABLE="${PYEXE}" -DPY
+ │ │ THON_EXECUTABLE="${PYEXE}" -DCMAKE_PROJECT_INCLUDE=/workspace/prototypes/em
+ │ │ scripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWASM_PYTHON_INCL
+ │ │ UDE_DIR="${PREFIX}/include/python3.13")
+ │ │ + tee /workspace/prototypes/emscripten-forge/torch-wasm/logs/10-configure.l
+ │ │ og
+ │ │ + emcmake cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNin
+ │ │ ja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_BI
+ │ │ NARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_ROC
+ │ │ M=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DUS
+ │ │ E_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF 
+ │ │ -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -DU
+ │ │ SE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF 
+ │ │ -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF -
+ │ │ DATEN_THREADING=NATIVE -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DPYTH
+ │ │ ON_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace/
+ │ │ prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWAS
+ │ │ M_PYTHON_INCLUDE_DIR=$PREFIX/include/python3.13 -DCMAKE_TOOLCHAIN_FILE=$BUI
+ │ │ LD_PREFIX/opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.c
+ │ │ make -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FIN
+ │ │ D_ROOT_PATH_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true
+ │ │ configure: cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNi
+ │ │ nja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_B
+ │ │ INARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_RO
+ │ │ CM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DU
+ │ │ SE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF
+ │ │  -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -D
+ │ │ USE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF
+ │ │  -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF 
+ │ │ -DATEN_THREADING=NATIVE -DPython_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DPYT
+ │ │ HON_EXECUTABLE=$BUILD_PREFIX/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace
+ │ │ /prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWA
+ │ │ SM_PYTHON_INCLUDE_DIR=$PREFIX/include/python3.13 -DCMAKE_TOOLCHAIN_FILE=$BU
+ │ │ ILD_PREFIX/opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.
+ │ │ cmake -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_FI
+ │ │ ND_ROOT_PATH_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -D
+ │ │ CMAKE_CROSSCOMPILING_EMULATOR=$BUILD_PREFIX/bin/node
+ │ │ CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
+ │ │   The OLD behavior for policy CMP0126 will be removed from a future version
+ │ │   of CMake.
+ │ │   The cmake-policies(7) manual explains that the OLD behaviors of all
+ │ │   policies are deprecated and that a policy should be set to OLD only under
+ │ │   specific short-term circumstances.  Projects should be ported to the NEW
+ │ │   behavior and not rely on setting a policy to OLD.
+ │ │ CMake Deprecation Warning at CMakeLists.txt:21 (cmake_policy):
+ │ │   The OLD behavior for policy CMP0146 will be removed from a future version
+ │ │   of CMake.
+ │ │   The cmake-policies(7) manual explains that the OLD behaviors of all
+ │ │   policies are deprecated and that a policy should be set to OLD only under
+ │ │   specific short-term circumstances.  Projects should be ported to the NEW
+ │ │   behavior and not rely on setting a policy to OLD.
+ │ │ -- Not forcing any particular BLAS to be found
+ │ │ -- Could not find ccache. Consider installing ccache to speed up compilatio
+ │ │ n.
+ │ │ -- Performing Test C_HAS_AVX_1
+ │ │ -- Performing Test C_HAS_AVX_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX_2
+ │ │ -- Performing Test C_HAS_AVX_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX_3
+ │ │ -- Performing Test C_HAS_AVX_3 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_1
+ │ │ -- Performing Test C_HAS_AVX2_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_2
+ │ │ -- Performing Test C_HAS_AVX2_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX2_3
+ │ │ -- Performing Test C_HAS_AVX2_3 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_1
+ │ │ -- Performing Test C_HAS_AVX512_1 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_2
+ │ │ -- Performing Test C_HAS_AVX512_2 - Failed
+ │ │ -- Performing Test C_HAS_AVX512_3
+ │ │ -- Performing Test C_HAS_AVX512_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_1
+ │ │ -- Performing Test CXX_HAS_AVX_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_2
+ │ │ -- Performing Test CXX_HAS_AVX_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX_3
+ │ │ -- Performing Test CXX_HAS_AVX_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_1
+ │ │ -- Performing Test CXX_HAS_AVX2_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_2
+ │ │ -- Performing Test CXX_HAS_AVX2_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX2_3
+ │ │ -- Performing Test CXX_HAS_AVX2_3 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_1
+ │ │ -- Performing Test CXX_HAS_AVX512_1 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_2
+ │ │ -- Performing Test CXX_HAS_AVX512_2 - Failed
+ │ │ -- Performing Test CXX_HAS_AVX512_3
+ │ │ -- Performing Test CXX_HAS_AVX512_3 - Failed
+ │ │ -- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS
+ │ │ -- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS - Failed
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY - Success
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY
+ │ │ -- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY - Success
+ │ │ -- Performing Test COMPILER_SUPPORTS_RDYNAMIC
+ │ │ -- Performing Test COMPILER_SUPPORTS_RDYNAMIC - Success
+ │ │ -- Could not find hardware support for NEON on this machine.
+ │ │ -- No OMAP3 processor on this machine.
+ │ │ -- No OMAP4 processor on this machine.
+ │ │ -- Compiler does not support SVE extension. Will not build perfkernels.
+ │ │ -- Building using own protobuf under third_party per request.
+ │ │ -- Use custom protobuf build.
+ │ │ CMake Warning at cmake/ProtoBuf.cmake:37 (message):
+ │ │   Ancient protobuf forces CMake compatibility
+ │ │ Call Stack (most recent call first):
+ │ │   cmake/ProtoBuf.cmake:87 (custom_protobuf_find)
+ │ │   cmake/Dependencies.cmake:107 (include)
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Deprecation Warning at third_party/protobuf/cmake/CMakeLists.txt:2 (c
+ │ │ make_minimum_required):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- 
+ │ │ -- 3.13.0.0
+ │ │ -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+ │ │ -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+ │ │ -- Found Threads: TRUE
+ │ │ -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+ │ │ -- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+ │ │ -- Caffe2 protobuf include directory: $<BUILD_INTERFACE:/workspace/.src/pyt
+ │ │ orch/third_party/protobuf/src>$<INSTALL_INTERFACE:include>
+ │ │ -- Trying to find preferred BLAS backend of choice: MKL
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Looking for sys/types.h
+ │ │ -- Looking for sys/types.h - found
+ │ │ -- Looking for stdint.h
+ │ │ -- Looking for stdint.h - found
+ │ │ -- Looking for stddef.h
+ │ │ -- Looking for stddef.h - found
+ │ │ -- Check size of void*
+ │ │ -- Check size of void* - done
+ │ │ -- MKL_THREADING = OMP
+ │ │ CMake Warning at cmake/Dependencies.cmake:208 (message):
+ │ │   MKL could not be found.  Defaulting to Eigen
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Warning at cmake/Dependencies.cmake:256 (message):
+ │ │   Preferred BLAS (MKL) cannot be found, now searching for a general BLAS
+ │ │   library
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl - guide - pthread - m]
+ │ │ --   Library mkl: not found
+ │ │ -- MKL library not found
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Checking for [Accelerate]
+ │ │ --   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+ │ │ -- Checking for [vecLib]
+ │ │ --   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+ │ │ -- Checking for [flexiblas]
+ │ │ --   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m - gomp]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran - pthread]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [acml - gfortran]
+ │ │ --   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INC
+ │ │ LUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+ │ │ -- Checking for [ptf77blas - atlas - gfortran]
+ │ │ --   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+ │ │ -- Checking for []
+ │ │ -- Looking for sgemm_
+ │ │ -- Looking for sgemm_ - found
+ │ │ -- Cannot find a library with BLAS API. Not using BLAS.
+ │ │ -- Using pocketfft in directory: /workspace/.src/pytorch/third_party/pocket
+ │ │ fft/
+ │ │ CMake Deprecation Warning at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MI
+ │ │ NIMUM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ CMake Warning at third_party/cpuinfo/CMakeLists.txt:113 (MESSAGE):
+ │ │   Target operating system "Emscripten" is not supported in cpuinfo.  cpuinf
+ │ │ o
+ │ │   will compile, but cpuinfo_initialize() will always fail.
+ │ │ CMake Warning at cmake/Dependencies.cmake:711 (message):
+ │ │   Turning USE_FAKELOWP off as it depends on USE_FBGEMM.
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Warning at cmake/Dependencies.cmake:764 (message):
+ │ │   FP16 is only cmake-2.8 compatible
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ CMake Deprecation Warning at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIM
+ │ │ UM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ CMake Deprecation Warning at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINI
+ │ │ MUM_REQUIRED):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> synta
+ │ │ x
+ │ │   to tell CMake that the project requires at least <min> but has been updat
+ │ │ ed
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- Using third party subdirectory Eigen.
+ │ │ -- Found Python: $BUILD_PREFIX/bin/python3 (found version "3.13.15") found 
+ │ │ components: Interpreter missing components: Development.Module
+ │ │ CMake Warning at cmake/Dependencies.cmake:850 (message):
+ │ │   Python dependencies not met.  Not compiling with python.  Suppress this
+ │ │   warning with -DBUILD_PYTHON=OFF
+ │ │ Call Stack (most recent call first):
+ │ │   CMakeLists.txt:863 (include)
+ │ │ -- Using third_party/pybind11.
+ │ │ -- pybind11 include dirs: /workspace/.src/pytorch/cmake/../third_party/pybi
+ │ │ nd11/include
+ │ │ -- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS)
+ │ │  
+ │ │ -- Using third_party/opentelemetry-cpp.
+ │ │ -- opentelemetry api include dirs: /workspace/.src/pytorch/cmake/../third_p
+ │ │ arty/opentelemetry-cpp/api/include
+ │ │ -- Found Python3: $BUILD_PREFIX/bin/python3 (found version "3.13.15") found
+ │ │  components: Interpreter
+ │ │ -- ONNX_PROTOC_EXECUTABLE: $<TARGET_FILE:protobuf::protoc>
+ │ │ -- Protobuf_VERSION: Protobuf_VERSION_NOTFOUND
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml
+ │ │ .proto
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-operators_onn
+ │ │ x_torch-ml.proto
+ │ │ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-data_onnx_tor
+ │ │ ch.proto
+ │ │ -- 
+ │ │ -- ******** Summary ********
+ │ │ --   CMake version                     : 4.3.4
+ │ │ --   CMake command                     : $BUILD_PREFIX/bin/cmake
+ │ │ --   System                            : Emscripten
+ │ │ --   C++ compiler                      : $BUILD_PREFIX/opt/emsdk/upstream/e
+ │ │ mscripten/em++
+ │ │ --   C++ compiler version              : 20.0.0
+ │ │ --   CXX flags                         : -O2 -g0 -fPIC -I$PREFIX/include -f
+ │ │ exceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor
+ │ │ --   Build type                        : Release
+ │ │ --   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
+ │ │ --   CMAKE_PREFIX_PATH                 : $PREFIX
+ │ │ --   CMAKE_INSTALL_PREFIX              : $PREFIX
+ │ │ --   CMAKE_MODULE_PATH                 : $BUILD_PREFIX/opt/emsdk/upstream/e
+ │ │ mscripten/cmake/Modules;$BUILD_PREFIX/opt/emsdk/upstream/emscripten/cmake/M
+ │ │ odules;$BUILD_PREFIX/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace
+ │ │ /.src/pytorch/cmake/Modules
+ │ │ -- 
+ │ │ --   ONNX version                      : 1.18.0
+ │ │ --   ONNX NAMESPACE                    : onnx_torch
+ │ │ --   ONNX_USE_LITE_PROTO               : 1
+ │ │ --   USE_PROTOBUF_SHARED_LIBS          : OFF
+ │ │ --   ONNX_DISABLE_EXCEPTIONS           : OFF
+ │ │ --   ONNX_DISABLE_STATIC_REGISTRATION  : OFF
+ │ │ --   ONNX_WERROR                       : OFF
+ │ │ --   ONNX_BUILD_TESTS                  : OFF
+ │ │ --   BUILD_SHARED_LIBS                 : OFF
+ │ │ -- 
+ │ │ --   Protobuf compiler                 : $<TARGET_FILE:protobuf::protoc>
+ │ │ --   Protobuf includes                 : 
+ │ │ --   Protobuf libraries                : 
+ │ │ --   ONNX_BUILD_PYTHON                 : OFF
+ │ │ -- Found CUDA with FP16 support, compiling with torch.cuda.HalfTensor
+ │ │ -- Adding -DNDEBUG to compile flags
+ │ │ -- Could not find hardware support for NEON on this machine.
+ │ │ -- No OMAP3 processor on this machine.
+ │ │ -- No OMAP4 processor on this machine.
+ │ │ -- MKL_THREADING = OMP
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread 
+ │ │ - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl_intel - mkl_core - pthread - m]
+ │ │ --   Library mkl_intel: not found
+ │ │ -- Checking for [mkl - guide - pthread - m]
+ │ │ --   Library mkl: not found
+ │ │ -- MKL library not found
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Checking for [Accelerate]
+ │ │ --   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+ │ │ -- Checking for [vecLib]
+ │ │ --   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+ │ │ -- Checking for [flexiblas]
+ │ │ --   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [openblas - pthread - m - gomp]
+ │ │ --   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [goto2 - gfortran - pthread]
+ │ │ --   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+ │ │ -- Checking for [acml - gfortran]
+ │ │ --   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+ │ │ -- Checking for [blis]
+ │ │ --   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+ │ │ -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INC
+ │ │ LUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+ │ │ -- Checking for [ptf77blas - atlas - gfortran]
+ │ │ --   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+ │ │ -- Checking for []
+ │ │ -- Cannot find a library with BLAS API. Not using BLAS.
+ │ │ -- LAPACK requires BLAS
+ │ │ -- Cannot find a library with LAPACK API. Not using LAPACK.
+ │ │ disabling CUDA because NOT USE_CUDA is set
+ │ │ disabling ROCM because NOT USE_ROCM is set
+ │ │ -- MIOpen not found. Compiling without MIOpen support
+ │ │ disabling MKLDNN because USE_MKLDNN is not set
+ │ │ -- Looking for clock_gettime in rt
+ │ │ -- Looking for clock_gettime in rt - found
+ │ │ -- Looking for mmap
+ │ │ -- Looking for mmap - found
+ │ │ -- Looking for shm_open
+ │ │ -- Looking for shm_open - found
+ │ │ -- Looking for shm_unlink
+ │ │ -- Looking for shm_unlink - found
+ │ │ -- Looking for malloc_usable_size
+ │ │ -- Looking for malloc_usable_size - found
+ │ │ -- {fmt} version: 11.2.0
+ │ │ -- Build type: Release
+ │ │ -- Performing Test HAS_NULLPTR_WARNING
+ │ │ -- Performing Test HAS_NULLPTR_WARNING - Success
+ │ │ -- Performing Test HAS_WERROR_RETURN_TYPE
+ │ │ -- Performing Test HAS_WERROR_RETURN_TYPE - Success
+ │ │ -- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR
+ │ │ -- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR - Success
+ │ │ -- Performing Test HAS_WERROR_BRACED_SCALAR_INIT
+ │ │ -- Performing Test HAS_WERROR_BRACED_SCALAR_INIT - Success
+ │ │ -- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT
+ │ │ -- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT - Success
+ │ │ -- Performing Test HAS_WERROR_BOOL_OPERATION
+ │ │ -- Performing Test HAS_WERROR_BOOL_OPERATION - Success
+ │ │ -- Performing Test HAS_WNARROWING
+ │ │ -- Performing Test HAS_WNARROWING - Success
+ │ │ -- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS
+ │ │ -- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS - Success
+ │ │ -- Performing Test HAS_WNO_UNKNOWN_PRAGMAS
+ │ │ -- Performing Test HAS_WNO_UNKNOWN_PRAGMAS - Success
+ │ │ -- Performing Test HAS_WNO_UNUSED_PARAMETER
+ │ │ -- Performing Test HAS_WNO_UNUSED_PARAMETER - Success
+ │ │ -- Performing Test HAS_WNO_STRICT_OVERFLOW
+ │ │ -- Performing Test HAS_WNO_STRICT_OVERFLOW - Success
+ │ │ -- Performing Test HAS_WNO_STRICT_ALIASING
+ │ │ -- Performing Test HAS_WNO_STRICT_ALIASING - Success
+ │ │ -- Performing Test HAS_WNO_STRINGOP_OVERFLOW
+ │ │ -- Performing Test HAS_WNO_STRINGOP_OVERFLOW - Failed
+ │ │ -- Performing Test HAS_WVLA_EXTENSION
+ │ │ -- Performing Test HAS_WVLA_EXTENSION - Success
+ │ │ -- Performing Test HAS_WSUGGEST_OVERRIDE
+ │ │ -- Performing Test HAS_WSUGGEST_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WNEWLINE_EOF
+ │ │ -- Performing Test HAS_WNEWLINE_EOF - Success
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+ │ │ -- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Success
+ │ │ -- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST
+ │ │ -- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST - Success
+ │ │ -- Performing Test HAS_WCONSTANT_CONVERSION
+ │ │ -- Performing Test HAS_WCONSTANT_CONVERSION - Success
+ │ │ -- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE
+ │ │ -- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE - Failed
+ │ │ -- Performing Test HAS_QUNUSED_ARGUMENTS
+ │ │ -- Performing Test HAS_QUNUSED_ARGUMENTS - Success
+ │ │ -- Performing Test HAS_FALIGNED_NEW
+ │ │ -- Performing Test HAS_FALIGNED_NEW - Success
+ │ │ -- Performing Test HAS_WNO_MAYBE_UNINITIALIZED
+ │ │ -- Performing Test HAS_WNO_MAYBE_UNINITIALIZED - Failed
+ │ │ -- Performing Test HAS_FSTANDALONE_DEBUG
+ │ │ -- Performing Test HAS_FSTANDALONE_DEBUG - Success
+ │ │ -- Performing Test HAS_FNO_MATH_ERRNO
+ │ │ -- Performing Test HAS_FNO_MATH_ERRNO - Success
+ │ │ -- Performing Test HAS_FNO_TRAPPING_MATH
+ │ │ -- Performing Test HAS_FNO_TRAPPING_MATH - Success
+ │ │ -- Performing Test HAS_WERROR_FORMAT
+ │ │ -- Performing Test HAS_WERROR_FORMAT - Success
+ │ │ CMake Warning (dev) at c10/CMakeLists.txt:52 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- don't use NUMA
+ │ │ -- Looking for backtrace
+ │ │ -- Looking for backtrace - not found
+ │ │ -- Could NOT find Backtrace (missing: Backtrace_LIBRARY Backtrace_INCLUDE_D
+ │ │ IR) 
+ │ │ -- headers outputs: 
+ │ │ -- sources outputs: 
+ │ │ -- declarations_yaml outputs: 
+ │ │ -- Using ATen parallel backend: NATIVE
+ │ │ disabling CUDA because USE_CUDA is set false
+ │ │ AT_INSTALL_INCLUDE_DIR include/ATen/core
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/TensorBody.
+ │ │ h
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/aten_intern
+ │ │ ed_strings.h
+ │ │ core header install: /workspace/.torch-build/aten/src/ATen/core/enum_tag.h
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:792 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Performing Test HAS_WMISSING_PROTOTYPES
+ │ │ -- Performing Test HAS_WMISSING_PROTOTYPES - Success
+ │ │ -- Performing Test HAS_WERROR_MISSING_PROTOTYPES
+ │ │ -- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Success
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:919 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning (dev) at caffe2/CMakeLists.txt:1709 (add_library):
+ │ │   ADD_LIBRARY called with SHARED option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ CMake Warning at CMakeLists.txt:1266 (message):
+ │ │   Generated cmake files are only fully tested if one builds with system glo
+ │ │ g,
+ │ │   gflags, and protobuf.  Other settings may generate files that are not wel
+ │ │ l
+ │ │   tested.
+ │ │ -- 
+ │ │ -- ******** Summary ********
+ │ │ -- General:
+ │ │ --   CMake version         : 4.3.4
+ │ │ --   CMake command         : $BUILD_PREFIX/bin/cmake
+ │ │ --   System                : Emscripten
+ │ │ --   C++ compiler          : $BUILD_PREFIX/opt/emsdk/upstream/emscripten/em
+ │ │ ++
+ │ │ --   C++ compiler id       : Clang
+ │ │ --   C++ compiler version  : 20.0.0
+ │ │ --   Using ccache if found : ON
+ │ │ --   Found ccache          : CCACHE_PROGRAM-NOTFOUND
+ │ │ --   CXX flags             : -O2 -g0 -fPIC -I$PREFIX/include -fexceptions -
+ │ │ fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -
+ │ │ fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtu
+ │ │ al-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=boo
+ │ │ l-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragma
+ │ │ s -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-ext
+ │ │ ension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Wi
+ │ │ nconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-sty
+ │ │ le-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-er
+ │ │ rno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -D
+ │ │ EMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
+ │ │ --   Shared LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib 
+ │ │ -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODU
+ │ │ LE=1 -fexceptions -rdynamic
+ │ │ --   Static LD flags       : 
+ │ │ --   Module LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib 
+ │ │ -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L$PREFIX/lib -s SIDE_MODU
+ │ │ LE=1 -fexceptions
+ │ │ --   Build type            : Release
+ │ │ --   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=
+ │ │ onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK
+ │ │ =1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CR
+ │ │ C32_CHECKS
+ │ │ --   CMAKE_PREFIX_PATH     : $PREFIX
+ │ │ --   CMAKE_INSTALL_PREFIX  : $PREFIX
+ │ │ --   USE_GOLD_LINKER       : OFF
+ │ │ -- 
+ │ │ --   TORCH_VERSION         : 2.8.0
+ │ │ --   BUILD_STATIC_RUNTIME_BENCHMARK: OFF
+ │ │ --   BUILD_BINARY          : OFF
+ │ │ --   BUILD_CUSTOM_PROTOBUF : ON
+ │ │ --     Link local protobuf : ON
+ │ │ --   BUILD_PYTHON          : OFF
+ │ │ --   BUILD_SHARED_LIBS     : ON
+ │ │ --   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
+ │ │ --   BUILD_TEST            : OFF
+ │ │ --   BUILD_JNI             : OFF
+ │ │ --   BUILD_MOBILE_AUTOGRAD : OFF
+ │ │ --   BUILD_LITE_INTERPRETER: OFF
+ │ │ --   INTERN_BUILD_MOBILE   : 
+ │ │ --   TRACING_BASED         : OFF
+ │ │ --   USE_BLAS              : 0
+ │ │ --   USE_LAPACK            : 0
+ │ │ --   USE_ASAN              : OFF
+ │ │ --   USE_TSAN              : OFF
+ │ │ --   USE_CPP_CODE_COVERAGE : OFF
+ │ │ --   USE_CUDA              : OFF
+ │ │ --   USE_XPU               : OFF
+ │ │ --   USE_ROCM              : OFF
+ │ │ --   BUILD_NVFUSER         : 
+ │ │ --   USE_EIGEN_FOR_BLAS    : ON
+ │ │ --   USE_FBGEMM            : OFF
+ │ │ --     USE_FAKELOWP          : OFF
+ │ │ --   USE_KINETO            : OFF
+ │ │ --   USE_GFLAGS            : OFF
+ │ │ --   USE_GLOG              : OFF
+ │ │ --   USE_LITE_PROTO        : ON
+ │ │ --   USE_PYTORCH_METAL     : OFF
+ │ │ --   USE_PYTORCH_METAL_EXPORT     : OFF
+ │ │ --   USE_MPS               : OFF
+ │ │ --   CAN_COMPILE_METAL     : 
+ │ │ --   USE_MKL               : OFF
+ │ │ --   USE_MKLDNN            : OFF
+ │ │ --   USE_UCC               : OFF
+ │ │ --   USE_ITT               : OFF
+ │ │ --   USE_XCCL              : OFF
+ │ │ --   USE_NCCL              : OFF
+ │ │ --   USE_NNPACK            : OFF
+ │ │ --   USE_NUMPY             : OFF
+ │ │ --   USE_OBSERVERS         : OFF
+ │ │ --   USE_OPENCL            : OFF
+ │ │ --   USE_OPENMP            : OFF
+ │ │ --   USE_MIMALLOC          : OFF
+ │ │ --   USE_VULKAN            : OFF
+ │ │ --   USE_PROF              : OFF
+ │ │ --   USE_PYTORCH_QNNPACK   : OFF
+ │ │ --   USE_XNNPACK           : OFF
+ │ │ --   USE_DISTRIBUTED       : OFF
+ │ │ --   Public Dependencies  : 
+ │ │ --   Private Dependencies : Threads::Threads;cpuinfo;fp16;rt;fmt::fmt-heade
+ │ │ r-only;dl
+ │ │ --   Public CUDA Deps.    : 
+ │ │ --   Private CUDA Deps.   : 
+ │ │ --   USE_COREML_DELEGATE     : OFF
+ │ │ --   BUILD_LAZY_TS_BACKEND   : ON
+ │ │ --   USE_ROCM_KERNEL_ASSERT : OFF
+ │ │ CMake Warning (dev) at functorch/CMakeLists.txt:11 (add_library):
+ │ │   ADD_LIBRARY called with MODULE option but the target platform does not
+ │ │   support dynamic linking.  Building a STATIC library instead.  This may le
+ │ │ ad
+ │ │   to problems.
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Configuring done (30.4s)
+ │ │ -- Generating done (0.4s)
+ │ │ CMake Warning:
+ │ │   Manually-specified variables were not used by the project:
+ │ │     BUILD_CAFFE2
+ │ │     BUILD_CAFFE2_OPS
+ │ │     PYTHON_EXECUTABLE
+ │ │     USE_ONNX
+ │ │     USE_QNNPACK
+ │ │ -- Build files have been written to: /workspace/.torch-build
+ │ │ + cfg_rc=0
+ │ │ + echo CONFIGURE_RC=0
+ │ │ + tee -a /workspace/prototypes/emscripten-forge/torch-wasm/logs/10-configur
+ │ │ e.log
+ │ │ CONFIGURE_RC=0
+ │ │ + '[' 0 '!=' 0 ']'
+ │ │ + emmake cmake --build /workspace/.torch-build --target torch_cpu -j 4
+ │ │ + tee /workspace/prototypes/emscripten-forge/torch-wasm/logs/11-build-torch
+ │ │ _cpu.log
+ │ │ make: cmake --build /workspace/.torch-build --target torch_cpu -j 4
+ │ │ [1/4] Generating ATen declarations_yaml
+ │ │ [2/4] Generating ATen headers
+ │ │ [3/4] Generating ATen sources
+ │ │ [1/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/arena.cc.o
+ │ │ [2/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/generated_enum_util.cc.o
+ │ │ [3/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/any_lite.cc.o
+ │ │ [4/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/implicit_weak_message.cc.o
+ │ │ [5/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/extension_set.cc.o
+ │ │ [6/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/io/io_win32.cc.o
+ │ │ [7/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/generated_message_util.cc.o
+ │ │ [8/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/generated_message_table_driven_lite.cc.o
+ │ │ [9/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libproto
+ │ │ buf.dir/__/src/google/protobuf/io/coded_stream.cc.o
+ │ │ [10/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/strtod.cc.o
+ │ │ [11/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o
+ │ │ [12/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+ │ │ [13/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+ │ │ [14/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/message_lite.cc.o
+ │ │ [15/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+ │ │ [16/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/parse_context.cc.o
+ │ │ [17/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/common.cc.o
+ │ │ [18/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/repeated_field.cc.o
+ │ │ [19/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/int128.cc.o
+ │ │ [20/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/status.cc.o
+ │ │ [21/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/statusor.cc.o
+ │ │ [22/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/stringpiece.cc.o
+ │ │ [23/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/stringprintf.cc.o
+ │ │ [24/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o
+ │ │ [25/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/time.cc.o
+ │ │ [26/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/strutil.cc.o
+ │ │ [27/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/wire_format_lite.cc.o
+ │ │ [28/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/any.cc.o
+ │ │ [29/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/any.pb.cc.o
+ │ │ [30/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/api.pb.cc.o
+ │ │ [31/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/compiler/importer.cc.o
+ │ │ [32/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/compiler/parser.cc.o
+ │ │ [33/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/duration.pb.cc.o
+ │ │ [34/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/descriptor_database.cc.o
+ │ │ [35/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/dynamic_message.cc.o
+ │ │ [36/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/descriptor.pb.cc.o
+ │ │ [37/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/empty.pb.cc.o
+ │ │ [38/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/field_mask.pb.cc.o
+ │ │ [39/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/extension_set_heavy.cc.o
+ │ │ [40/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/gzip_stream.cc.o
+ │ │ [41/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/generated_message_reflection.cc.o
+ │ │ [42/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/printer.cc.o
+ │ │ [43/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/descriptor.cc.o
+ │ │ [44/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/generated_message_table_driven.cc.o
+ │ │ [45/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/io/tokenizer.cc.o
+ │ │ [46/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/map_field.cc.o
+ │ │ [47/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/service.cc.o
+ │ │ [48/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/message.cc.o
+ │ │ [49/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/reflection_ops.cc.o
+ │ │ [50/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/source_context.pb.cc.o
+ │ │ [51/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/stubs/substitute.cc.o
+ │ │ [52/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/struct.pb.cc.o
+ │ │ [53/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/timestamp.pb.cc.o
+ │ │ [54/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/type.pb.cc.o
+ │ │ [55/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/delimited_message_util.cc.o
+ │ │ [56/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/text_format.cc.o
+ │ │ [57/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/unknown_field_set.cc.o
+ │ │ [58/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/field_comparator.cc.o
+ │ │ [59/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/field_mask_util.cc.o
+ │ │ [60/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/error_listener.cc.o
+ │ │ [61/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/datapiece.cc.o
+ │ │ [62/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/default_value_objectwriter.cc
+ │ │ .o
+ │ │ [63/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/json_escaping.cc.o
+ │ │ [64/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/field_mask_utility.cc.o
+ │ │ [65/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/json_objectwriter.cc.o
+ │ │ [66/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/json_stream_parser.cc.o
+ │ │ [67/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/object_writer.cc.o
+ │ │ [68/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/proto_writer.cc.o
+ │ │ [69/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/protostream_objectsource.cc.o
+ │ │ [70/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/type_info.cc.o
+ │ │ [71/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/protostream_objectwriter.cc.o
+ │ │ [72/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/type_info_test_helper.cc.o
+ │ │ [73/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/json_util.cc.o
+ │ │ [74/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/internal/utility.cc.o
+ │ │ [75/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/time_util.cc.o
+ │ │ [76/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/type_resolver_util.cc.o
+ │ │ [77/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/wrappers.pb.cc.o
+ │ │ [78/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/util/message_differencer.cc.o
+ │ │ [79/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ obuf.dir/__/src/google/protobuf/wire_format.cc.o
+ │ │ [80/1357] Linking CXX static library lib/libprotobuf.a
+ │ │ [81/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/code_generator.cc.o
+ │ │ [82/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o
+ │ │ [83/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum.cc.o
+ │ │ [84/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_extension.cc.o
+ │ │ [85/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/command_line_interface.cc.o
+ │ │ [86/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_field.cc.o
+ │ │ [87/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_generator.cc.o
+ │ │ [88/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_map_field.cc.o
+ │ │ [89/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_file.cc.o
+ │ │ [90/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_helpers.cc.o
+ │ │ [91/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_message_field.cc.o
+ │ │ [92/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_padding_optimizer.cc.o
+ │ │ [93/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_primitive_field.cc.o
+ │ │ [94/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_service.cc.o
+ │ │ [95/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_message.cc.o
+ │ │ [96/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o
+ │ │ [97/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/cpp/cpp_string_field.cc.o
+ │ │ [98/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum.cc.o
+ │ │ [99/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprot
+ │ │ oc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o
+ │ │ [100/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o
+ │ │ [101/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_generator.cc.o
+ │ │ [102/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o
+ │ │ [103/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o
+ │ │ [104/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o
+ │ │ [105/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o
+ │ │ [106/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_message.cc.o
+ │ │ [107/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o
+ │ │ [108/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.c
+ │ │ c.o
+ │ │ [109/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_fi
+ │ │ eld.cc.o
+ │ │ [110/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_message_fiel
+ │ │ d.cc.o
+ │ │ [111/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_source_generator_base
+ │ │ .cc.o
+ │ │ [112/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o
+ │ │ [113/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_doc_comment.cc.o
+ │ │ [114/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_context.cc.o
+ │ │ [115/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_enum.cc.o
+ │ │ [116/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_enum_field.cc.o
+ │ │ [117/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_enum_field_lite.cc.o
+ │ │ [118/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_extension.cc.o
+ │ │ [119/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_enum_lite.cc.o
+ │ │ [120/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_extension_lite.cc.o
+ │ │ [121/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_field.cc.o
+ │ │ [122/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_generator.cc.o
+ │ │ [123/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_generator_factory.cc.o
+ │ │ [124/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_file.cc.o
+ │ │ [125/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_helpers.cc.o
+ │ │ [126/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_map_field.cc.o
+ │ │ [127/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_map_field_lite.cc.o
+ │ │ [128/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message.cc.o
+ │ │ [129/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message_builder_lite.cc.o
+ │ │ [130/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message_builder.cc.o
+ │ │ [131/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message_field.cc.o
+ │ │ [132/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message_field_lite.cc.o
+ │ │ [133/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_name_resolver.cc.o
+ │ │ [134/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_message_lite.cc.o
+ │ │ [135/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_primitive_field.cc.o
+ │ │ [136/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_primitive_field_lite.cc.o
+ │ │ [137/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_service.cc.o
+ │ │ [138/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_shared_code_generator.cc.
+ │ │ o
+ │ │ [139/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/js/well_known_types_embed.cc.o
+ │ │ [140/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_string_field.cc.o
+ │ │ [141/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/java/java_string_field_lite.cc.o
+ │ │ [142/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc
+ │ │ .o
+ │ │ [143/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o
+ │ │ [144/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.
+ │ │ o
+ │ │ [145/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o
+ │ │ [146/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o
+ │ │ [147/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.
+ │ │ o
+ │ │ [148/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/js/js_generator.cc.o
+ │ │ [149/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.
+ │ │ o
+ │ │ [150/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o
+ │ │ [151/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message_field
+ │ │ .cc.o
+ │ │ [152/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o
+ │ │ [153/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o
+ │ │ [154/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_primitive_fie
+ │ │ ld.cc.o
+ │ │ [155/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/plugin.cc.o
+ │ │ [156/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/plugin.pb.cc.o
+ │ │ [157/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/php/php_generator.cc.o
+ │ │ [158/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/ruby/ruby_generator.cc.o
+ │ │ [159/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/zip_writer.cc.o
+ │ │ [160/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/subprocess.cc.o
+ │ │ [161/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ toc.dir/__/src/google/protobuf/compiler/python/python_generator.cc.o
+ │ │ [162/1357] Linking CXX static library lib/libprotoc.a
+ │ │ [163/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/protoc
+ │ │ .dir/__/src/google/protobuf/compiler/main.cc.o
+ │ │ [164/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/arena.cc.o
+ │ │ [165/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/any_lite.cc.o
+ │ │ [166/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/generated_enum_util.cc.o
+ │ │ [167/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/extension_set.cc.o
+ │ │ [168/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/generated_message_table_driven_lite.c
+ │ │ c.o
+ │ │ [169/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/generated_message_util.cc.o
+ │ │ [170/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/io_win32.cc.o
+ │ │ [171/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/implicit_weak_message.cc.o
+ │ │ [172/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/coded_stream.cc.o
+ │ │ [173/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/strtod.cc.o
+ │ │ [174/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o
+ │ │ [175/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+ │ │ [176/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+ │ │ [177/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/message_lite.cc.o
+ │ │ [178/1357] Linking CXX executable bin/protoc.js-3.13.0.0
+ │ │ [179/1357] Creating executable symlink bin/protoc.js
+ │ │ [180/1357] Running gen_proto.py on onnx/onnx.in.proto
+ │ │ Processing /workspace/.src/pytorch/third_party/onnx/onnx/onnx.in.proto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml.pr
+ │ │ oto
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml.pr
+ │ │ oto3
+ │ │ Writing /workspace/.torch-build/third_party/onnx/onnx/onnx-ml.pb.h
+ │ │ generating /workspace/.torch-build/third_party/onnx/onnx/onnx_pb.py
+ │ │ [181/1357] Running C++ protocol buffer compiler on /workspace/.torch-build/
+ │ │ third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+ │ │ FAILED: [code=126] third_party/onnx/onnx/onnx_onnx_torch-ml.pb.cc third_par
+ │ │ ty/onnx/onnx/onnx_onnx_torch-ml.pb.h /workspace/.torch-build/third_party/on
+ │ │ nx/onnx/onnx_onnx_torch-ml.pb.cc /workspace/.torch-build/third_party/onnx/o
+ │ │ nnx/onnx_onnx_torch-ml.pb.h 
+ │ │ cd /workspace/.torch-build/third_party/onnx && /workspace/.torch-build/bin/
+ │ │ protoc.js-3.13.0.0 /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_
+ │ │ torch-ml.proto -I /workspace/.torch-build/third_party/onnx --cpp_out dllexp
+ │ │ ort_decl=ONNX_API:/workspace/.torch-build/third_party/onnx && $BUILD_PREFIX
+ │ │ /bin/cmake -DFILENAME=/workspace/.torch-build/third_party/onnx/onnx/onnx_on
+ │ │ nx_torch-ml.pb.h -DNAMESPACES=onnx_torch -P /workspace/.src/pytorch/cmake/P
+ │ │ rotoBufPatch.cmake && $BUILD_PREFIX/bin/cmake -DFILENAME=/workspace/.torch-
+ │ │ build/third_party/onnx/onnx/onnx_onnx_torch-ml.pb.cc -DNAMESPACES=onnx_torc
+ │ │ h -P /workspace/.src/pytorch/cmake/ProtoBufPatch.cmake
+ │ │ /bin/sh: 1: /workspace/.torch-build/bin/protoc.js-3.13.0.0: Exec format err
+ │ │ or
+ │ │ [182/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+ │ │ [183/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/parse_context.cc.o
+ │ │ [184/1357] Building CXX object third_party/protobuf/cmake/CMakeFiles/libpro
+ │ │ tobuf-lite.dir/__/src/google/protobuf/repeated_field.cc.o
+ │ │ ninja: build stopped: subcommand failed.
+ │ │ emmake: error: 'cmake --build /workspace/.torch-build --target torch_cpu -j
+ │ │  4' failed (returned 126)
+ │ │ × error Script failed with status 1
+ │ │ × error 
+ │ │ × error Script execution failed.
+ │ │ × error 
+ │ │ × error   Work directory: /workspace/.ef-recipes/output/bld/rattler-build_py
+ │ │ × error torch_1790110990/work
+ │ │ × error   Prefix: /workspace/.ef-recipes/output/bld/rattler-build_pytorch_17
+ │ │ × error 90110990/host_env_placehold_placehold_placehold_placehold_placehold_
+ │ │ × error placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ × error d_placehold_placehold_placehold_placehold_placehold_placehold
+ │ │ × error   Build prefix: /workspace/.ef-recipes/output/bld/rattler-build_pyto
+ │ │ × error rch_1790110990/build_env
+ │ │ × error 
+ │ │ × error To run the script manually, use the following command:
+ │ │ × error 
+ │ │ × error   cd "/workspace/.ef-recipes/output/bld/rattler-build_pytorch_179011
+ │ │ × error 0990/work" && ./conda_build.sh
+ │ │ × error 
+ │ │ × error To run commands interactively in the build environment:
+ │ │ × error 
+ │ │ × error   cd "/workspace/.ef-recipes/output/bld/rattler-build_pytorch_179011
+ │ │ × error 0990/work" && source build_env.sh
+ │ │
+ │ ╰─────────────────── (took 83 seconds)
+ │
+ ╰─────────────────── (took 84 seconds)
+Error:   × Script failed to execute
+
+RB_EXIT=1
