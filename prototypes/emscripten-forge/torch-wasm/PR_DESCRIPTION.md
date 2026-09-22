@@ -1,62 +1,69 @@
-# emscripten-forge target: build **real upstream PyTorch** for `wasm32-emscripten`
+# emscripten-forge target: **real upstream PyTorch** imports & trains an MLP in `wasm32-emscripten`
 
 Base: `main` · Branch: `cursor/emscripten-forge-torch-wasm-6b2e`
 
-This PR owns the **emscripten-forge / xeus-python (WASM Jupyter)** target. The goal is
-the *real* upstream PyTorch codebase (`github.com/pytorch/pytorch`) built as an
-emscripten-forge package for `wasm32-emscripten`, so that `import torch` can eventually
-run a basic program (fit a small MLP) under the emscripten-forge `xeus-python` kernel in
-JupyterLite. **This is not the pure-Python `microtorch` placeholder** — that earlier
-artifact is retained only as a clearly-labelled throwaway and is *not* the deliverable.
+This PR owns the **emscripten-forge / xeus-python (WASM Jupyter)** target: the *real*
+upstream PyTorch codebase (`github.com/pytorch/pytorch`) built as an emscripten-forge
+package for `wasm32-emscripten`, so that `import torch` runs a basic program (fit a small
+MLP) under the emscripten-forge `xeus-python` kernel in JupyterLite. **This is not the
+pure-Python `microtorch` placeholder** — that earlier artifact is retained only as a
+clearly-labelled throwaway and is *not* the deliverable.
 
-## What actually works (executed, not aspirational)
+## What works (executed in a real headless-Chrome browser run)
 
-Using the emscripten-forge build flow (`rattler-build` + the emscripten-forge channel),
-pinned to the **published** toolchain **emscripten 3.1.73 / cross-python 3.13.1** (so the
-side-module ABI matches the published `xeus-python`):
+Reduced, CPU-only, single-threaded **upstream `torch` 2.8.0** built from source with the
+emscripten-forge toolchain (**emscripten 3.1.73 / cross-python 3.13.1**, matching the
+published `xeus-python` side-module ABI) **imports and trains a small MLP entirely
+client-side in the xeus-python WASM kernel**:
 
-- ✅ **The complete reduced `torch_cpu` compiles _and_ links to `wasm32-emscripten`.**
-  All 1175 steps of the `torch_cpu` target succeed →
-  **`libtorch_cpu.a`, a 368 MB WebAssembly static archive** (object files verified as
-  `WebAssembly (wasm) binary module version 0x1`). It contains eager **ATen CPU** ops,
-  **autograd** (`VariableType_*`), the **JIT** runtime, **`torch::nn`** modules, and
-  **`torch::optim`** (`sgd.cpp`) — the full C++ surface an `nn.Linear + ReLU + MSELoss +
-  SGD` MLP needs.
-- ✅ Also cross-built to wasm: `libc10.a`, `libonnx.a`, `libprotobuf-lite.a`,
-  `libcpuinfo.a`.
-- ✅ A real **emscripten-forge recipe** (`recipe/recipe.yaml` + `build.sh` + a portability
-  patch + a CMake fixups file + a `variant-3173.yaml` toolchain pin).
-- ✅ **Six build blockers** identified and fixed on the emscripten-forge toolchain
-  (toolchain-version mismatch, `Python::Module` stub, `Caffe2Targets` export, `SymInt *
-  size_t` ILP32, `__assert_fail` EH spec, `ssize_t`, host `protoc`).
+```
+python 3.13.1 | platform Emscripten
+torch 2.8.0a0
+epoch   0  loss 18.7851
+epoch 199  loss 0.0354
+OK: real torch trained an MLP in WASM; loss decreased 530.2x
+```
 
-## Honest boundary (not reached within the ~3h budget)
+`import torch`, tensor creation + `@` matmul, `nn.Sequential(Linear, ReLU, Linear)`,
+`MSELoss`, autograd `loss.backward()`, and `torch.optim.SGD.step()` all execute in
+WebAssembly; the loss drops ~530×.
 
-- ⚠️ **`BUILD_PYTHON` is auto-disabled** because wasm CPython exposes no
-  `Development.Module`, so `libtorch_python` / the `torch._C` side module — the
-  *importable* surface — are not yet built (configure log: `BUILD_PYTHON : OFF`). This is
-  the Pyodide sibling's **blocker #8**.
-- ⚠️ Consequently there is **no working in-browser `import torch` training demo yet**;
-  presenting one would be dishonest. Beyond #8 lie the large `torch._C` side-module link,
-  conda packaging into a local channel referenced from `environment.yml`, and the runtime
-  dynamic-load wall the Pyodide sibling documented as **blocker #11** (an unresolved
-  `GOT.func` function-pointer relocation in the huge module).
+Pipeline:
+
+- ✅ Reduced **`torch_cpu` + `torch` + `torch_python`** compile and link to wasm32.
+- ✅ **`BUILD_PYTHON` forced on** despite wasm CPython having no shared `libpython`.
+- ✅ **Single `torch/_C.*.so` SIDE_MODULE** (~143 MB) statically links
+  `libtorch_python` + `libtorch` + `libtorch_cpu` + deps via `--whole-archive`,
+  side-stepping the cross-`.so` `GOT.func` relocation wall.
+- ✅ Packaged as an **emscripten-wasm32 conda package** in a local channel, referenced
+  from `environment.yml`, packed into a JupyterLite site by `jupyterlite-xeus`, executed
+  in-browser.
 
 ## Evidence
 
-- `prototypes/emscripten-forge/torch-wasm/RESULTS.md` — full write-up, versions, blockers,
-  artifact sizes.
-- `prototypes/emscripten-forge/torch-wasm/logs/` — raw logs: `10-configure.log`
-  (`CONFIGURE_RC=0`), `11-build-torch_cpu.log` (`BUILD_TORCH_CPU_RC=0`),
-  `12-hostprotoc.log`, `03*-rattler-build*.log`.
-- Recipe + driver: `recipe/`, `build_iter.sh`, `apply_patches.py`.
+- Video: `torch_wasm_mlp_training_in_jupyterlite.webm`
+- Screenshot: `torch_wasm_mlp_training_output.png`
+- `prototypes/emscripten-forge/torch-wasm/RESULTS.md` — full write-up + all 13 blockers.
+- `prototypes/emscripten-forge/torch-wasm/logs/44-torch-run.log` — per-cell in-browser
+  output with the `TORCH SUCCESS` marker.
+
+## Key fixes beyond the initial `torch_cpu` compile
+
+- **#8 BUILD_PYTHON on** (`WASM_PYTHON_INCLUDE_DIR` + `Python::Module` stub); bypass the
+  `.pyi` stub codegen that needs host `_opcode`.
+- **#10 single SIDE_MODULE** whole-archive link (keeps ATen op-registration static
+  initializers; resolves cross-module C++ symbols internally).
+- **#11 conda `paths.json`** needs `sha256` + `size_in_bytes` or libmamba won't extract.
+- **#12 kernel boot**: no-op `pyodide-http` override (channel `pyjs-rt` `to_js` lacks the
+  `dict_converter` kwarg `pyodide_http._streaming` passes).
+- **#13 import chain**: compile `stub.c` as C (unmangled `initModule`); compile
+  `cpuinfo_emscripten_init`; Emscripten guards for `_manager_path`,
+  `multiprocessing.resource_tracker`, `_load_global_deps`; ship `torchgen`; restore the
+  real `torch_version.py`; add `sympy`.
 
 ## Reproduce
 
-```bash
-micromamba create -n ef -f recipes/ci_env.yml
-rattler-build build --recipe recipes/recipes_emscripten/pytorch/recipe.yaml \
-  --target-platform=emscripten-wasm32 \
-  -c https://prefix.dev/emscripten-forge-dev -c conda-forge -c microsoft \
-  -m prototypes/emscripten-forge/torch-wasm/recipe/variant-3173.yaml --keep-build
-```
+See `RESULTS.md` → "How to reproduce": `build_iter.sh` (build + link `_C.so`) →
+`assemble_payload.py` (payload guards) → `make_conda_pkg.py` + `make_pyodide_http_stub.py`
+(package + channel) → `jupyter lite build` with `jupyterlite/environment.yml` → run
+`jupyterlite/content/torch_mlp_demo.ipynb` (verify with `jupyterlite/test/run_torch.js`).
