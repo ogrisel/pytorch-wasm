@@ -1,4 +1,10 @@
-# emscripten-forge / xeus-python (JupyterLite) — results
+> **⚠️ SUPERSEDED / THROWAWAY PLACEHOLDER — NOT THE DELIVERABLE.**
+> This describes a pure-Python `microtorch` reimplementation. The real
+> deliverable is the upstream-PyTorch `wasm32-emscripten` build documented in
+> [`../torch-wasm/RESULTS.md`](../torch-wasm/RESULTS.md). `microtorch` is kept
+> only as a labelled placeholder.
+
+# (superseded) emscripten-forge / xeus-python (JupyterLite) — microtorch placeholder results
 
 _Follow-up target: **emscripten-forge ecosystem only**. Goal: a working packaging that
 lets a basic PyTorch program run in the browser, with a JupyterLite reviewer demo that

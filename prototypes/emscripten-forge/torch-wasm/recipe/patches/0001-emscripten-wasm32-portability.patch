@@ -1,4 +1,4 @@
-wasm32 (ILP32) + Emscripten musl portability fixes for PyTorch 2.8.0.
+wasm32 (ILP32) + Emscripten musl portability + reduced-build fixes for PyTorch 2.8.0.
 
 --- a/c10/core/SymInt.h	2025-08-06 17:08:00.000000000 +0000
 +++ b/c10/core/SymInt.h	2026-09-22 20:56:29.257351093 +0000
@@ -34,3 +34,14 @@ wasm32 (ILP32) + Emscripten musl portability fixes for PyTorch 2.8.0.
  
  #include <c10/macros/Macros.h>
  
+--- a/CMakeLists.txt	2026-09-22 21:38:58.906672215 +0000
++++ b/CMakeLists.txt	2026-09-22 21:02:51.545304722 +0000
+@@ -1319,7 +1319,7 @@
+     FILES ${PROJECT_SOURCE_DIR}/cmake/Modules/FindSYCLToolkit.cmake
+     DESTINATION share/cmake/Caffe2/
+     COMPONENT dev)
+-  if(NOT BUILD_LIBTORCHLESS)
++  if(FALSE)  # emscripten probe: skip Caffe2Targets export
+     install(
+       EXPORT Caffe2Targets
+       DESTINATION share/cmake/Caffe2

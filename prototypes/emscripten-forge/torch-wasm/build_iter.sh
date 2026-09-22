@@ -53,6 +53,9 @@ CFG_ARGS=(
   -DPYTHON_EXECUTABLE="${PYEXE}"
   -DCMAKE_PROJECT_INCLUDE=/workspace/prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake
   -DWASM_PYTHON_INCLUDE_DIR="${PREFIX}/include/python3.13"
+  # The vendored protoc cross-compiles to a wasm binary that cannot run as a
+  # host tool (exit 126). Use a version-matched host protoc (protobuf 3.13.0).
+  -DCAFFE2_CUSTOM_PROTOC_EXECUTABLE=/workspace/.hostprotoc/protoc
 )
 
 # Configure (idempotent; reuses cache on re-runs).
@@ -66,4 +69,11 @@ fi
 
 # Build the core CPU library first (surfaces the bulk of compile blockers).
 emmake cmake --build "$BUILD" --target torch_cpu -j "$MAX_JOBS" 2>&1 | tee "$LOG/11-build-torch_cpu.log"
-echo "BUILD_TORCH_CPU_RC=${PIPESTATUS[0]}" | tee -a "$LOG/11-build-torch_cpu.log"
+tc_rc=${PIPESTATUS[0]}
+echo "BUILD_TORCH_CPU_RC=$tc_rc" | tee -a "$LOG/11-build-torch_cpu.log"
+[ "$tc_rc" = "0" ] || exit "$tc_rc"
+
+# Continue to the remaining targets: libtorch, libtorch_python and the
+# torch._C python extension side module (the importable surface).
+emmake cmake --build "$BUILD" -j "$MAX_JOBS" 2>&1 | tee "$LOG/13-build-all.log"
+echo "BUILD_ALL_RC=${PIPESTATUS[0]}" | tee -a "$LOG/13-build-all.log"

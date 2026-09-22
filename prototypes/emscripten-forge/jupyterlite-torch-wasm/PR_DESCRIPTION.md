@@ -1,4 +1,12 @@
-# emscripten-forge target: PyTorch-style MLP training in the browser (JupyterLite + xeus-python)
+> **⚠️ SUPERSEDED / THROWAWAY PLACEHOLDER — NOT THE DELIVERABLE.**
+> This document describes a pure-Python `microtorch` reimplementation. Per the
+> corrected task, the deliverable is the **real upstream PyTorch** build for
+> `wasm32-emscripten`. See
+> [`../torch-wasm/PR_DESCRIPTION.md`](../torch-wasm/PR_DESCRIPTION.md) and
+> [`../torch-wasm/RESULTS.md`](../torch-wasm/RESULTS.md). `microtorch` is kept
+> only as a labelled placeholder and does **not** represent the achievement.
+
+# (superseded) emscripten-forge: PyTorch-style MLP training in the browser (JupyterLite + xeus-python)
 
 Base: `main` · Branch: `cursor/emscripten-forge-torch-wasm-6b2e`
 

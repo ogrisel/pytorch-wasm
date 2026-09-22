@@ -1,0 +1,10 @@
+/workspace/.hostprotoc/CMakeFiles/libprotobuf-lite.dir
+/workspace/.hostprotoc/CMakeFiles/libprotobuf.dir
+/workspace/.hostprotoc/CMakeFiles/libprotoc.dir
+/workspace/.hostprotoc/CMakeFiles/protoc.dir
+/workspace/.hostprotoc/CMakeFiles/edit_cache.dir
+/workspace/.hostprotoc/CMakeFiles/rebuild_cache.dir
+/workspace/.hostprotoc/CMakeFiles/list_install_components.dir
+/workspace/.hostprotoc/CMakeFiles/install.dir
+/workspace/.hostprotoc/CMakeFiles/install/local.dir
+/workspace/.hostprotoc/CMakeFiles/install/strip.dir
