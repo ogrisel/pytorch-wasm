@@ -52,10 +52,26 @@ build:
     export USE_OPENMP=0
     export USE_NUMA=0
     export USE_PYTORCH_QNNPACK=0
+    # No wasm numpy in the build env (NumPy component is not found), so disable the
+    # numpy bridge to reduce noise while probing.
+    export USE_NUMPY=0
     export BUILD_TEST=0
     export BUILD_CAFFE2=0
     export ATEN_THREADING=NATIVE
     export MAX_JOBS=${MAX_JOBS:-4}
+    # PROBE WORKAROUND (blocker #2): the wasm32-emscripten cross-build finds only the
+    # host Python *interpreter*; the target `Development.Module` component is missing
+    # because CPython is statically linked into pyodide.asm.wasm (STATIC_LIBPYTHON=1,
+    # Py_ENABLE_SHARED=0) and no standalone libpython3.12.a exists. Consequently
+    # find_package(Python COMPONENTS Development.Module) fails and the `Python::Module`
+    # target is never created, so cmake/Dependencies.cmake:878
+    #   target_link_libraries(pybind::pybind11 INTERFACE Python::Module)
+    # aborts the CMake *generate* step. Define a header-only stub target so generation
+    # can proceed and the *next* (compile/link) blockers can be surfaced. Extension
+    # modules in Pyodide are SIDE_MODULEs that resolve Python symbols at load time, so
+    # a link-time libpython is intentionally absent.
+    perl -0pi -e 's/target_link_libraries\(pybind::pybind11 INTERFACE Python::Module\)/if(NOT TARGET Python::Module)\n  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB\nendif()\ntarget_link_libraries(pybind::pybind11 INTERFACE Python::Module)/ if !/PYODIDE_PROBE_PYTHON_MODULE_STUB/' cmake/Dependencies.cmake
+    grep -n "PYODIDE_PROBE_PYTHON_MODULE_STUB" cmake/Dependencies.cmake || echo "WARN: stub patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
