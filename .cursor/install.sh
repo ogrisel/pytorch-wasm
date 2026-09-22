@@ -17,12 +17,25 @@ cd "$ROOT_DIR"
 PYODIDE_BUILD_VERSION="0.39.0"
 
 echo "==> Ensuring required system packages"
+# build-essential + ninja-build cover the native C++ builds (tensor-kernel PoC
+# uses emcc, but the ExecuTorch host build needs a full GNU toolchain + ninja).
 if ! dpkg -s python3-venv >/dev/null 2>&1 \
     || ! dpkg -s python3-dev >/dev/null 2>&1 \
-    || ! dpkg -s build-essential >/dev/null 2>&1; then
+    || ! dpkg -s build-essential >/dev/null 2>&1 \
+    || ! dpkg -s ninja-build >/dev/null 2>&1; then
     sudo apt-get update -qq
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        python3-venv python3-dev build-essential
+        python3-venv python3-dev build-essential ninja-build
+fi
+
+# The default image points the c++/cc alternatives at clang, which auto-selects an
+# incomplete gcc-14 and fails native C++ links with "cannot find -lstdc++" (this
+# blocks the ExecuTorch host build). Prefer the working GNU toolchain.
+if command -v g++ >/dev/null 2>&1; then
+    sudo update-alternatives --set c++ "$(command -v g++)" >/dev/null 2>&1 || true
+fi
+if command -v gcc >/dev/null 2>&1; then
+    sudo update-alternatives --set cc "$(command -v gcc)" >/dev/null 2>&1 || true
 fi
 
 echo "==> Setting up Python virtual environment (.venv)"
