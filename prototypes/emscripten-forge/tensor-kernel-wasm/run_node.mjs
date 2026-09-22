@@ -27,13 +27,11 @@ const Module = await createModule();
 const got = Module.linearRelu(x, w, b, rows, inF, outF);
 const want = refLinearRelu(x, w, b, rows, inF, outF);
 
-const gotArr = [];
-for (let i = 0; i < got.size ? got.size() : got.length; i++) {
-  gotArr.push(got.get ? got.get(i) : got[i]);
-}
-// convertJSArrayToNumberVector round-trips as a JS array via push(), so `got`
-// is already a plain array here; normalize just in case of embind vector return.
-const result = Array.isArray(got) ? got : gotArr;
+// linearRelu returns a plain JS array (built with val::array()+push in C++).
+// Fall back to embind-vector accessors only if that ever changes.
+const result = Array.isArray(got)
+  ? got
+  : Array.from({ length: got.size() }, (_, i) => got.get(i));
 
 console.log("wasm linearRelu ->", result);
 console.log("js   reference  ->", want);
