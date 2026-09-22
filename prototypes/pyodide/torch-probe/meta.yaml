@@ -97,6 +97,15 @@ build:
     "$PYODIDE_HOST_PROTOC" --version || echo "WARN: host protoc not runnable"
     perl -0pi -e 's/# Figure out which protoc to use\./set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "$ENV{PYODIDE_HOST_PROTOC}")  # PYODIDE_PROBE_HOST_PROTOC\n# Figure out which protoc to use./ if !/PYODIDE_PROBE_HOST_PROTOC/' cmake/ProtoBuf.cmake
     grep -n "PYODIDE_PROBE_HOST_PROTOC" cmake/ProtoBuf.cmake || echo "WARN: protoc patch not applied"
+    # PROBE WORKAROUND (blocker #5): 32-bit/ILP32 portability in ATen. On wasm32
+    # `size_t` is `unsigned long` (32-bit), a distinct type from the int32/uint32/
+    # int64/uint64 operands for which c10 declares SymInt `operator*` etc. So
+    #   aten/src/ATen/core/TensorBase.h: return impl_->sym_numel() * impl_->itemsize();
+    # is an "ambiguous overload" ('c10::SymInt' * 'size_t'). Upstream already special-
+    # cases exactly this for Apple (`#if defined(__APPLE__)` declares size_t ops);
+    # wasm32 needs the same treatment, so extend the guard to Emscripten.
+    perl -0pi -e 's/#if defined\(__APPLE__\)\nDECLARE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T\nDECLARE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
