@@ -43,7 +43,8 @@ throws a `c10::Error`. Runtime evidence gathered on the Pyodide 0.27.8 Node runt
   guard around the **declarations** in `c10/core/SymInt.h`, but the matching **definitions**
   in `c10/core/SymInt.cpp` stayed Apple-only, so on wasm32 (`size_t` = `unsigned long`,
   distinct from `uint32_t`) they were declared+referenced but never defined. This PR adds
-  the `SymInt.cpp` guard extension (blocker #5 part 2), so a rebuilt wheel defines them.
+  the `SymInt.cpp` guard extension (blocker #5 part 2); the clean rebuild **verifies** it —
+  unresolved `GOT.func` drops **6 → 2** (only `exit`, `cpuinfo_emscripten_init` remain).
 - **The abort itself is pointer corruption, not the unresolved symbols.** Wrapping
   `torchInternalAssertFail` to read its raw `const char*` args shows they point a few bytes
   *into* otherwise-correct rodata strings, by **non-uniform** offsets (memory windows
@@ -60,20 +61,37 @@ throws a `c10::Error`. Runtime evidence gathered on the Pyodide 0.27.8 Node runt
   *separate*, deeper **data-relocation/addressing defect** in the huge from-source module
   (data section is only ~13 MB, so not a memory-size truncation).
 
-**Conclusion:** #11 is now precisely characterised (exact throw site, exact symbols, and
-direct evidence of mis-offset rodata pointers). The pointer-corruption abort needs a
-**relink/rebuild of `libtorch_cpu`** to fix; the build tree/emsdk were not available in
-this session's budget, so it is documented rather than fully resolved. The MLP training
-notebook + Node harness are ready to run end-to-end once the wheel loads.
+**Clean from-scratch rebuild — hypothesis disproven, defect is inherent
+(`logs/32-blocker11-clean-build.log`).** A full clean build with the current recipe
+(`exports: requested` applied *from the start*, `SymInt.cpp` fix included) compiled and
+linked all 1536 targets in one consistent pass and produced a wheel with
+`libtorch_cpu.so` = 82.68 MB (essentially identical to the previously-relinked 82.72 MB).
+Re-running the harness on the fresh wheel shows:
 
-**Leading hypothesis / recommended next step.** The committed `.so` came from a *post-hoc*
-`exports: requested` **relink** of already-built objects (the #10 fix) — precisely the kind
-of step that can introduce mis-offset `MEMORY_ADDR` relocations. The recommended next
-action is a **clean, from-scratch build** with the current recipe (now including the
-`SymInt.cpp` fix) and `exports: requested` applied from the start, then re-run
-`verify_wheel_node.mjs`. If the mis-offset pointers persist, relink `libtorch_cpu` with EH/
-relocation settings matching the Pyodide 0.27.8 runtime, or split it into smaller side
-modules.
+- ✅ **The `SymInt.cpp` fix works:** unresolved `GOT.func` dropped **6 → 2** — only
+  `exit` and `cpuinfo_emscripten_init` remain; the four `SymInt`×`size_t` operators now
+  resolve at build time.
+- ❌ **The `torchInternalAssertFail` abort is unchanged** — same throw stack, same
+  mis-offset `const char*` pointers. So the post-hoc-relink hypothesis is **wrong**: the
+  defect is inherent to the from-source wasm32 build, not the relink.
+
+**Precise nature of the abort.** The assert is `lexer.h:143` `AT_ASSERT(kind == 0)` inside
+`torch::jit::TokenTrie::insert` (building the JIT keyword trie at static-init). The captured
+`line = 143` **matches `lexer.h:143` exactly** — the `__LINE__` *immediate* argument is
+correct — but the `__func__`/`__FILE__`/`condMsg` **pointer** arguments point into
+*unrelated* rodata (a different assert's precompiled message). So integer immediates
+relocate correctly while `MEMORY_ADDR` (pointer-to-rodata) relocations are mis-applied in
+this 82 MB module, corrupting the token strings the trie reads and tripping `kind == 0`.
+This is a wasm-ld/Emscripten **data-relocation defect that scales with module size**
+(`libc10` is fine; `libtorch_cpu` is not), not a source bug.
+
+**Conclusion:** #11 is now precisely characterised (exact throw site `lexer.h:143`, exact
+symbols, direct evidence of mis-offset rodata pointers) and the leading hypothesis has been
+tested and ruled out with a clean rebuild. Remaining fallbacks (out of budget): relink
+`libtorch_cpu` with Emscripten relocation/EH settings matching the Pyodide 0.27.8 runtime,
+or **split `libtorch_cpu` into smaller side modules** so no single module hits the
+relocation-scale defect. The MLP training notebook + Node harness are ready to run
+end-to-end once the wheel loads.
 
 ## How to reproduce
 

@@ -218,17 +218,32 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
       [`verify_wheel_node.mjs`](jupyterlite-demo/verify_wheel_node.mjs) reproduces the load
       up to this abort.
 
-    - **Recommended next step (leading hypothesis).** The committed `.so` were produced by a
-      *post-hoc* `exports: requested` **relink** of already-built objects (the #10 fix:
-      `libc10` 153 KB→615 KB, `libtorch_cpu` 59 MB→83 MB). Mis-offset `MEMORY_ADDR`
-      relocations are exactly the kind of defect such a re-link can introduce. The
-      highest-value next action is therefore a **clean, from-scratch build** with the
-      current recipe (which now also carries the blocker #5 part-2 `SymInt.cpp` fix, so the
-      4 `SymInt`×`size_t` operators are defined at build time) and `build.exports: requested`
-      applied from the start — then re-run `verify_wheel_node.mjs`. If the mis-offset
-      pointers persist on a clean build, the next step is to relink `libtorch_cpu` with
-      Emscripten EH/relocation settings matching the Pyodide 0.27.8 runtime, or to split it
-      into smaller side modules.
+    - **Clean from-scratch rebuild — hypothesis DISPROVEN, defect is inherent
+      ([`logs/32`](logs/32-blocker11-clean-build.log)).** A full clean build with the
+      current recipe (`exports: requested` applied *from the start*, blocker #5 part-2
+      `SymInt.cpp` fix included) compiled and linked all 1536 targets in one consistent
+      pass and produced a wheel (`libtorch_cpu.so` = 82.68 MB, essentially identical to the
+      previously-relinked 82.72 MB). Re-running the harness shows:
+        - ✅ **The `SymInt.cpp` fix works:** unresolved `GOT.func` dropped **6 → 2** — only
+          `exit` and `cpuinfo_emscripten_init` remain; the 4 `SymInt`×`size_t` operators now
+          resolve.
+        - ❌ **The `torchInternalAssertFail` abort is unchanged** — same throw stack
+          (`torch::jit::sharedParserData()` internals → `torchInternalAssertFail`), same
+          mis-offset `const char*` pointers. So the post-hoc-relink hypothesis is **wrong**:
+          the defect is inherent to the from-source wasm32 build, not the relink.
+    - **Precise nature of the abort.** The assert is `lexer.h:143` `AT_ASSERT(kind == 0)`
+      inside `torch::jit::TokenTrie::insert` (building the JIT keyword trie at static-init).
+      The captured `line = 143` **matches `lexer.h:143` exactly**, i.e. the `__LINE__`
+      *immediate* argument is correct — but the `__func__`/`__FILE__`/`condMsg`
+      **pointer** arguments point into *unrelated* rodata (a different assert's
+      precompiled message, e.g. `.../c10/core/TensorImpl.h":1733,...`). So integer
+      immediates relocate correctly while `MEMORY_ADDR` (pointer-to-rodata) relocations are
+      mis-applied in this 82 MB module — corrupting the token strings the trie reads, which
+      trips `kind == 0`. This is a wasm-ld/Emscripten **data-relocation defect that scales
+      with module size** (`libc10` is fine; `libtorch_cpu` is not), not a source bug.
+    - **Remaining fallbacks (out of budget):** relink `libtorch_cpu` with Emscripten
+      relocation/EH settings matching the Pyodide 0.27.8 runtime, or **split `libtorch_cpu`
+      into smaller side modules** so no single module hits the relocation-scale defect.
 
 ## How the wheel is loaded / tested
 

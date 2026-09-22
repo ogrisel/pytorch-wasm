@@ -1,0 +1,105 @@
+### CURATED clean from-scratch build log (full 37637-line raw log trimmed to key milestones).
+### Command: pyodide build-recipes-no-deps torch --recipe-dir=packages --force-rebuild
+### exports: requested applied from the start; blocker-#5 part-2 SymInt.cpp fix included.
+
+===== [head] build configuration =====
+[2026-09-22 21:28:24] Building package torch...                                 
+Running build script in /workspace/build_torch/packages/torch/build/torch-2.8.0 
+875:  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB
+377:#if defined(NDEBUG) && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT
+CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- 3.13.0.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+-- Configuring done (0.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/build_torch/packages/torch/build/torch-2.8.0/build_host_protoc/build
+[1/165] Building CXX object CMakeFiles/libprotobuf.dir/workspace/build_torch/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_enum_util.cc.o
+[2/165] Building CXX object CMakeFiles/libprotobuf.dir/workspace/build_torch/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/arena.cc.o
+[3/165] Building CXX object CMakeFiles/libprotobuf.dir/workspace/build_torch/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/any_lite.cc.o
+[4/165] Building CXX object CMakeFiles/libprotobuf.dir/workspace/build_torch/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/implicit_weak_message.cc.o
+[5/165] Building CXX object CMakeFiles/libprotobuf.dir/workspace/build_torch/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/coded_stream.cc.o
+
+===== [compile+link] all 1536 targets built in one consistent pass; key .so links =====
+[241/1536] Linking CXX shared library lib/libc10.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[242/1536] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/command_line_interface.cc.o
+[1418/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/function_substitution.cpp.o
+[1419/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/fixup_onnx_controlflow.cpp.o
+[1420/1536] Linking CXX shared library lib/libtorch_cpu.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1421/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/helper.cpp.o
+[1422/1536] Linking CXX shared library lib/libtorch.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1423/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/peephole.cpp.o
+[1424/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/preprocess_for_onnx.cpp.o
+[1425/1536] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/prepare_division_for_onnx.cpp.o
+[1485/1536] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/generated_message_util.cc.o
+[1486/1536] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/implicit_weak_message.cc.o
+[1487/1536] Linking CXX shared library lib/libshm.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1488/1536] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/io/io_win32.cc.o
+em++: warning: output suffix .js requested, but wasm side modules are just wasm files; emitting only a .wasm, no .js [-Wemcc]
+[1529/1536] Building CXX object functorch/CMakeFiles/functorch.dir/csrc/init_dim_only.cpp.o
+[1530/1536] Linking CXX shared library lib/libtorch_python.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1531/1536] Linking CXX shared module functorch/functorch.so
+[1532/1536] Linking CXX shared library lib/libnnapi_backend.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+
+===== [wheel] setup.py bdist_wheel assembled the .so into the wheel =====
+adding 'torch/jit/_passes/_property_propagation.py'
+adding 'torch/jit/mobile/__init__.py'
+adding 'torch/lib/libc10.so'
+adding 'torch/lib/libshm.so'
+adding 'torch/lib/libtorch.so'
+adding 'torch/lib/libtorch_cpu.so'
+adding 'torch/lib/libtorch_global_deps.so'
+adding 'torch/lib/libtorch_python.so'
+adding 'torch/lib/libshm/alloc_info.h'
+
+===== [tail] pyodide auditwheel_emscripten repair post-step failed (raw dist/ wheel used instead) =====
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/cli/build_recipes.py", line 184, in build_recipes_no_deps
+    return build_recipes_no_deps_impl(list(packages), args, continue_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/cli/build_recipes.py", line 210, in build_recipes_no_deps_impl
+    builder.build()
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/recipe/builder.py", line 270, in build
+    self._build()
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/recipe/builder.py", line 322, in _build
+    self._build_package(bash_runner)
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/recipe/builder.py", line 650, in _build_package
+    self._package_wheel(bash_runner)
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/recipe/builder.py", line 701, in _package_wheel
+    copy_sharedlibs(
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/recipe/builder.py", line 866, in copy_sharedlibs
+    dep_map: dict[str, Path] = resolve_sharedlib(
+                               ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/auditwheel_emscripten/repair.py", line 45, in resolve_sharedlib
+    raise RuntimeError(f"Cannot find a library: {dep} (required by {lib})")
+RuntimeError: Cannot find a library: libtorch_python.so (required by functorch/_C.cpython-312-wasm32-emscripten.so)
+BUILD_DONE_0

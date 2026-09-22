@@ -1,0 +1,25 @@
+# Blocker #11 on CLEAN from-scratch build (exports:requested from the start; blocker-#5 part-2 SymInt.cpp fix included)
+# wheel: torch-2.8.0-cp312-cp312-pyemscripten_2024_0_wasm32.whl  |  libtorch_cpu.so = 82683488 bytes
+
+loaded torch/lib/libc10.so
+### torchInternalAssertFail RAW ARGS ###
+  func = "n::count.int(int[] self,                                                                       int el) -> int"
+  file = "ce/build_torch/packages/torch/build/torch-2.8.0/c10/core/SymBool.h"
+  line = 143
+  cond = "_torch/packages/torch/build/torch-2.8.0/c10/core/TensorImpl.h\":1733, please report a bug to PyTorch. "
+### MEMORY WINDOW around each pointer ([]=pointer target) ###
+  file@32212023: /workspa[c]e/build_torch/packages/torch/build/torch-2.8.0/c10/
+  cond@33662903: ce/build[_]torch/packages/torch/build/torch-2.8.0/c10/core/Ten
+  func@31794187:  int.ate[n]::count.int(int[] self,                            
+### THROW STACK (first c10 throw during libtorch_cpu load) ###
+    at wasm://wasm/002583aa:wasm-function[2461]:0x8222e
+    at wasm://wasm/002583aa:wasm-function[1828]:0x69101
+    at wasm://wasm/002583aa:wasm-function[548]:0x39159
+    at wasm://wasm/13b69982:wasm-function[23537]:0x18f1a04
+    at wasm://wasm/13b69982:wasm-function[23535]:0x18f186f
+FAILED to load torch/lib/libtorch_cpu.so
+  exception type: c10::Error
+### GOT.mem (data symbols): requested=23538 unresolved=0 ###
+### GOT.func (function pointers): requested=22503 unresolved=2 ###
+exit
+cpuinfo_emscripten_init
