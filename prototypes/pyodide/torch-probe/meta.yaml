@@ -81,6 +81,22 @@ build:
     # Exclude Emscripten from c10's forward declaration and use the system one.
     perl -0pi -e 's/#else \/\/ __APPLE__, _MSC_VER\n#if defined\(NDEBUG\)/#else \/\/ __APPLE__, _MSC_VER\n#if defined(NDEBUG) \&\& !defined(__EMSCRIPTEN__) \/\/ PYODIDE_PROBE_EMSCRIPTEN_ASSERT/' c10/macros/Macros.h
     grep -n "PYODIDE_PROBE_EMSCRIPTEN_ASSERT" c10/macros/Macros.h || echo "WARN: assert patch not applied"
+    # PROBE WORKAROUND (blocker #4): cross-compiling protobuf. PyTorch compiles its
+    # own protoc from third_party/protobuf, but under the Emscripten toolchain that
+    # protoc is a wasm/Node artifact (bin/protoc.js + .wasm) that cannot run as a host
+    # build tool (exit 126, "/bin/sh: protoc.js: Permission denied") to generate the
+    # onnx/caffe2 *.pb.cc/.h sources. As cmake/ProtoBuf.cmake states, a cross build
+    # needs a HOST protoc version-matched to the vendored libprotobuf (3.13.0). Build
+    # it here with the host compiler in a clean env (so emcc/pywasmcross is not used),
+    # then point PyTorch and ONNX at it via CAFFE2_CUSTOM_PROTOC_EXECUTABLE.
+    mkdir -p build_host_protoc/bin
+    if [ ! -x build_host_protoc/bin/protoc ]; then
+      env -i HOME="$HOME" PATH="$HOME/.local/bin:/usr/bin:/bin" CC=gcc CXX=g++ MAX_JOBS="${MAX_JOBS:-4}" bash -c 'set -e; mkdir -p build_host_protoc/build; cd build_host_protoc/build; cmake ../../third_party/protobuf/cmake -DCMAKE_INSTALL_PREFIX="$(cd ..; pwd)" -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -GNinja; cmake --build . --target protoc -j "${MAX_JOBS:-4}"; cp -f protoc ../bin/protoc; chmod +x ../bin/protoc'
+    fi
+    export PYODIDE_HOST_PROTOC="$PWD/build_host_protoc/bin/protoc"
+    "$PYODIDE_HOST_PROTOC" --version || echo "WARN: host protoc not runnable"
+    perl -0pi -e 's/# Figure out which protoc to use\./set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "$ENV{PYODIDE_HOST_PROTOC}")  # PYODIDE_PROBE_HOST_PROTOC\n# Figure out which protoc to use./ if !/PYODIDE_PROBE_HOST_PROTOC/' cmake/ProtoBuf.cmake
+    grep -n "PYODIDE_PROBE_HOST_PROTOC" cmake/ProtoBuf.cmake || echo "WARN: protoc patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
