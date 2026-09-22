@@ -241,9 +241,29 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
       mis-applied in this 82 MB module — corrupting the token strings the trie reads, which
       trips `kind == 0`. This is a wasm-ld/Emscripten **data-relocation defect that scales
       with module size** (`libc10` is fine; `libtorch_cpu` is not), not a source bug.
-    - **Remaining fallbacks (out of budget):** relink `libtorch_cpu` with Emscripten
-      relocation/EH settings matching the Pyodide 0.27.8 runtime, or **split `libtorch_cpu`
-      into smaller side modules** so no single module hits the relocation-scale defect.
+    - **Fallback tried — `wasm-opt`/Binaryen RULED OUT
+      ([`logs/33`](logs/33-blocker11-noopt-relink.log)).** Relinked `libtorch_cpu` from the
+      same `.o` objects with Emscripten's optimizer fully disabled (stripped every
+      `-O2/-Oz` from both the CMake link line *and* the pywasmcross-injected `ldflags`, so
+      only `-O0` remained). This produced the raw **273 MB unoptimized** side module
+      (vs 82.68 MB with `-Oz` — proof `wasm-opt` was actually skipped; the three prior
+      relinks that kept `-Oz` came out byte-identical, sha256 `a45912cb…`). Loading it in
+      the harness reproduces the **identical** abort with the **same mis-offset pointers**
+      (`file`→`SymBool.h`, `func`→`aten::count.int` schema, `cond`→`TensorImpl.h:1733`,
+      `line = 143`). Two conclusions:
+        - ❌ **Binaryen/`wasm-opt` is not the cause** — the mis-relocation is present in the
+          pre-optimizer wasm, so the defect lives in **wasm-ld's `MEMORY_ADDR` relocation
+          emission** (or Pyodide's load-time `__wasm_apply_data_relocs`), not the optimizer.
+        - ✅ **Throw site independently confirmed by symbol names.** The `-O0`/`-g0` binary
+          keeps the wasm name section, so the stack now reads literally
+          `torch::jit::TokenTrie::insert(char const*, int)` ←
+          `torch::jit::SharedParserData::SharedParserData()` — exactly the `lexer.h:143`
+          static-init site inferred above.
+    - **Remaining fallback (out of budget):** **split `libtorch_cpu` into smaller side
+      modules** so no single module hits the relocation-scale defect. This is now the only
+      untried avenue (optimizer, EH mode, and post-hoc-relink are all ruled out), but it is
+      invasive CMake surgery (partitioning ~1.5k sources across multiple shared libs with
+      correct inter-lib symbol exports) and was not attempted within budget.
 
 ## How the wheel is loaded / tested
 

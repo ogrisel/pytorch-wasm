@@ -85,13 +85,25 @@ this 82 MB module, corrupting the token strings the trie reads and tripping `kin
 This is a wasm-ld/Emscripten **data-relocation defect that scales with module size**
 (`libc10` is fine; `libtorch_cpu` is not), not a source bug.
 
-**Conclusion:** #11 is now precisely characterised (exact throw site `lexer.h:143`, exact
-symbols, direct evidence of mis-offset rodata pointers) and the leading hypothesis has been
-tested and ruled out with a clean rebuild. Remaining fallbacks (out of budget): relink
-`libtorch_cpu` with Emscripten relocation/EH settings matching the Pyodide 0.27.8 runtime,
-or **split `libtorch_cpu` into smaller side modules** so no single module hits the
-relocation-scale defect. The MLP training notebook + Node harness are ready to run
-end-to-end once the wheel loads.
+**Fallback tried — `wasm-opt`/Binaryen ruled out (`logs/33-blocker11-noopt-relink.log`).**
+Relinked `libtorch_cpu` from the same `.o` with the optimizer fully disabled (stripped every
+`-O2/-Oz` from both the CMake link line and the pywasmcross-injected `ldflags`, leaving only
+`-O0`). This produced the raw **273 MB unoptimized** side module (vs 82.68 MB with `-Oz`,
+proving `wasm-opt` was actually skipped). It reproduces the **identical** abort with the
+**same mis-offset pointers** — so Binaryen is not the cause; the defect is in **wasm-ld's
+`MEMORY_ADDR` relocation emission** (or Pyodide's load-time `__wasm_apply_data_relocs`). As a
+bonus, the unstripped binary keeps the wasm name section, so the stack now reads literally
+`torch::jit::TokenTrie::insert(char const*, int)` ←
+`torch::jit::SharedParserData::SharedParserData()`, independently confirming the `lexer.h:143`
+static-init throw site.
+
+**Conclusion:** #11 is now precisely characterised (exact throw site `lexer.h:143`, confirmed
+by symbol names; exact symbols; direct evidence of mis-offset rodata pointers) and three
+hypotheses are tested and ruled out: post-hoc relink (clean rebuild reproduces it), optimizer
+(`-O0` reproduces it), and EH mode (JS-based EH matches the runtime). The one untried avenue
+is **splitting `libtorch_cpu` into smaller side modules** so no single module hits the
+relocation-scale defect — invasive CMake surgery not attempted within budget. The MLP
+training notebook + Node harness are ready to run end-to-end once the wheel loads.
 
 ## How to reproduce
 
