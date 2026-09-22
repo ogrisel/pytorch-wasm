@@ -1,0 +1,65 @@
+# Pyodide recipe SCAFFOLD for a minimal from-source torch build (a probe).
+#
+# This is intentionally a starting point, not a working recipe. It exists so a cloud
+# subagent can iterate on it inside a pyodide-build checkout and record exactly where
+# the build breaks. Disable everything that is x86-only or needs a real threadpool,
+# and force single-threaded / CPU-only.
+#
+# Drop this file into a pyodide/pyodide-recipes checkout as packages/torch/meta.yaml
+# and run: pyodide build-recipes torch --recipe-dir=packages
+package:
+  name: torch
+  version: 2.8.0
+  top-level:
+    - torch
+
+source:
+  url: https://files.pythonhosted.org/packages/source/t/torch/torch-2.8.0.tar.gz
+  # sha256 must be filled in by the subagent for the exact chosen version.
+  sha256: PLACEHOLDER_FILL_IN
+
+requirements:
+  run:
+    - numpy
+    - typing-extensions
+    - sympy
+    - networkx
+    - jinja2
+    - fsspec
+    - cffi
+
+build:
+  # torch's setup.py honors a large set of env toggles; disable everything that is
+  # x86-only, needs CUDA, or needs a real threadpool. This is the "probe" config.
+  script: |
+    export USE_CUDA=0
+    export USE_ROCM=0
+    export USE_XPU=0
+    export USE_MKLDNN=0
+    export USE_FBGEMM=0
+    export USE_NNPACK=0
+    export USE_QNNPACK=0
+    export USE_XNNPACK=0
+    export USE_KINETO=0
+    export USE_DISTRIBUTED=0
+    export USE_TENSORPIPE=0
+    export USE_GLOO=0
+    export USE_MPI=0
+    export USE_OPENMP=0
+    export USE_NUMA=0
+    export USE_PYTORCH_QNNPACK=0
+    export BUILD_TEST=0
+    export BUILD_CAFFE2=0
+    export ATEN_THREADING=NATIVE
+    export MAX_JOBS=${MAX_JOBS:-4}
+  cflags: |
+    -pthread -matomics -mbulk-memory
+  cxxflags: |
+    -pthread -matomics -mbulk-memory
+  cross-build-env: true
+
+about:
+  home: https://pytorch.org
+  PyPI: https://pypi.org/project/torch
+  summary: "PROBE recipe: minimal CPU-only torch for wasm32-emscripten (expected to fail; used to enumerate blockers)."
+  license: BSD-3-Clause
