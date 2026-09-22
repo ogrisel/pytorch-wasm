@@ -66,6 +66,15 @@ direct evidence of mis-offset rodata pointers). The pointer-corruption abort nee
 this session's budget, so it is documented rather than fully resolved. The MLP training
 notebook + Node harness are ready to run end-to-end once the wheel loads.
 
+**Leading hypothesis / recommended next step.** The committed `.so` came from a *post-hoc*
+`exports: requested` **relink** of already-built objects (the #10 fix) — precisely the kind
+of step that can introduce mis-offset `MEMORY_ADDR` relocations. The recommended next
+action is a **clean, from-scratch build** with the current recipe (now including the
+`SymInt.cpp` fix) and `exports: requested` applied from the start, then re-run
+`verify_wheel_node.mjs`. If the mis-offset pointers persist, relink `libtorch_cpu` with EH/
+relocation settings matching the Pyodide 0.27.8 runtime, or split it into smaller side
+modules.
+
 ## How to reproduce
 
 ```bash

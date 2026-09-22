@@ -218,6 +218,18 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
       [`verify_wheel_node.mjs`](jupyterlite-demo/verify_wheel_node.mjs) reproduces the load
       up to this abort.
 
+    - **Recommended next step (leading hypothesis).** The committed `.so` were produced by a
+      *post-hoc* `exports: requested` **relink** of already-built objects (the #10 fix:
+      `libc10` 153 KB→615 KB, `libtorch_cpu` 59 MB→83 MB). Mis-offset `MEMORY_ADDR`
+      relocations are exactly the kind of defect such a re-link can introduce. The
+      highest-value next action is therefore a **clean, from-scratch build** with the
+      current recipe (which now also carries the blocker #5 part-2 `SymInt.cpp` fix, so the
+      4 `SymInt`×`size_t` operators are defined at build time) and `build.exports: requested`
+      applied from the start — then re-run `verify_wheel_node.mjs`. If the mis-offset
+      pointers persist on a clean build, the next step is to relink `libtorch_cpu` with
+      Emscripten EH/relocation settings matching the Pyodide 0.27.8 runtime, or to split it
+      into smaller side modules.
+
 ## How the wheel is loaded / tested
 
 The wheel bundles **eight** `.so` side modules with correct dylink `NEEDED` metadata
