@@ -69,4 +69,14 @@ patch(
     "  if(Python_Development.Module_FOUND OR DEFINED WASM_PYTHON_INCLUDE_DIR)\n    if(USE_NUMPY)",
 )
 
+# 6) The torch_python_stubs target generates .pyi type-hint files by importing
+#    `torch`/`dis` under the cross-python interpreter, which uses the target
+#    (wasm) stdlib and lacks host C builtins (e.g. _opcode) -> ModuleNotFound.
+#    The .pyi stubs are type hints only, unneeded at runtime; drop the dep.
+patch(
+    "torch/CMakeLists.txt",
+    "add_dependencies(torch_python torch_python_stubs)",
+    "# add_dependencies(torch_python torch_python_stubs)  # emscripten: pyi stubs need host py",
+)
+
 print("done")

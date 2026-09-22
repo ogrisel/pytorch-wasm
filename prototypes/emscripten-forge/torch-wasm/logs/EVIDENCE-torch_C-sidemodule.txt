@@ -1,0 +1,22 @@
+# torch/_C.so single SIDE_MODULE linked for emscripten-wasm32
+# Tue Sep 22 10:35:14 PM UTC 2026
+
+## libtorch_python link:
+RESUME2_RC=0
+## static libs:
+2221510 .torch-build/lib/libc10.a
+12958 .torch-build/lib/libcpuinfo.a
+12378296 .torch-build/lib/libonnx.a
+587746 .torch-build/lib/libonnx_proto.a
+4759182 .torch-build/lib/libprotobuf.a
+855388 .torch-build/lib/libprotobuf-lite.a
+38490 .torch-build/lib/libshm.a
+394 .torch-build/lib/libtorch.a
+368703184 .torch-build/lib/libtorch_cpu.a
+83828548 .torch-build/lib/libtorch_python.a
+
+## _C.so:
+142919486 .torch-stage/_C.so
+.torch-stage/_C.so: WebAssembly (wasm) binary module version 0x1 (MVP)
+EXT_SUFFIX=.cpython-313-wasm32-emscripten.so ; exports PyInit__C (emnm)
+LINK_C_RC=0

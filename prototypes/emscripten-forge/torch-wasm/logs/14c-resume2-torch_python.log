@@ -1,0 +1,173 @@
+RECONF_RC=0
+make: cmake --build /workspace/.torch-build --target torch_python -j4
+[1/156] Building CXX object caffe2/CMakeFiles/torch.dir/__/empty.cpp.o
+[2/156] Linking CXX static library lib/libshm.a
+[3/156] Regenerating version file...
+[4/156] Linking CXX static library lib/libtorch.a
+[5/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_functions_3.cpp.o
+[6/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_functions_2.cpp.o
+[7/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_functions_0.cpp.o
+[8/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_functions_1.cpp.o
+[9/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_functions_4.cpp.o
+[10/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_torch_functions_1.cpp.o
+[11/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_torch_functions_0.cpp.o
+[12/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_variable_methods.cpp.o
+[13/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_fft_functions.cpp.o
+[14/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_linalg_functions.cpp.o
+[15/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_nn_functions.cpp.o
+[16/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_torch_functions_2.cpp.o
+[17/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_nested_functions.cpp.o
+[18/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_sparse_functions.cpp.o
+[19/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_return_types.cpp.o
+[20/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_special_functions.cpp.o
+[21/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/DeviceAccelerator.cpp.o
+[22/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/generated/python_enum_tag.cpp.o
+[23/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/DataLoader.cpp.o
+[24/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Device.cpp.o
+[25/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Dtype.cpp.o
+[26/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/DynamicTypes.cpp.o
+[27/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Layout.cpp.o
+[28/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Exceptions.cpp.o
+[29/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/MemoryFormat.cpp.o
+[30/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/QScheme.cpp.o
+[31/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Generator.cpp.o
+[32/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/python_dimname.cpp.o
+[33/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Size.cpp.o
+[34/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/PyInterpreter.cpp.o
+[35/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Storage.cpp.o
+[36/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Module.cpp.o
+[37/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/StorageMethods.cpp.o
+[38/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/StorageSharing.cpp.o
+[39/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Stream.cpp.o
+[40/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/TypeInfo.cpp.o
+[41/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/Event.cpp.o
+[42/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/api/src/python/init.cpp.o
+[43/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/functions/init.cpp.o
+[44/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/profiler_python.cpp.o
+[45/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_anomaly_mode.cpp.o
+[46/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_saved_variable_hooks.cpp.o
+[47/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_cpp_function.cpp.o
+/workspace/.src/pytorch/torch/csrc/autograd/python_cpp_function.cpp:37:18: warning: comparison of integers of different signs: 'Py_ssize_t' (aka 'long') and 'uint32_t' (aka 'unsigned int') [-Wsign-compare]
+   37 |   if (num_inputs != num_inputs_required) {
+      |       ~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[48/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/init.cpp.o
+[49/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_engine.cpp.o
+[50/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_hook.cpp.o
+[51/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_legacy_variable.cpp.o
+[52/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_nested_functions_manual.cpp.o
+[53/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_function.cpp.o
+[54/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_torch_functions_manual.cpp.o
+[55/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_variable.cpp.o
+In file included from /workspace/.src/pytorch/torch/csrc/autograd/python_variable.cpp:21:
+/workspace/.src/pytorch/torch/csrc/autograd/python_variable_indexing.h:25:13: warning: result of comparison of constant -4611686018427387904 with expression of type 'Py_ssize_t' (aka 'long') is always false [-Wtautological-constant-out-of-range-compare]
+   25 |     if (val < c10::SymInt::min_representable_int()) {
+      |         ~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[56/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/cache_entry.cpp.o
+[57/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/autograd/python_variable_indexing.cpp.o
+In file included from /workspace/.src/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:1:
+/workspace/.src/pytorch/torch/csrc/autograd/python_variable_indexing.h:25:13: warning: result of comparison of constant -4611686018427387904 with expression of type 'Py_ssize_t' (aka 'long') is always false [-Wtautological-constant-out-of-range-compare]
+   25 |     if (val < c10::SymInt::min_representable_int()) {
+      |         ~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[58/156] Building C object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/cpython_defs.c.o
+[59/156] Building C object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/eval_frame.c.o
+[60/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/cpp_shim.cpp.o
+[61/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/eval_frame_cpp.cpp.o
+[62/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/extra_state.cpp.o
+[63/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/python_compiled_autograd.cpp.o
+[64/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/framelocals_mapping.cpp.o
+[65/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/utils.cpp.o
+[66/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/fx/node.cpp.o
+[67/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/init.cpp.o
+[68/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/mps/Module.cpp.o
+[69/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/mtia/Module.cpp.o
+[70/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/functorch/init.cpp.o
+[71/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/aoti_package/pybind.cpp.o
+[72/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/aoti_runner/pybind.cpp.o
+[73/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/dynamo/guards.cpp.o
+[74/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/export/pybind.cpp.o
+[75/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/static_cuda_launcher.cpp.o
+[76/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/resize_storage_bytes.cpp.o
+[77/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/aoti_eager/kernel_meta_info.cpp.o
+[78/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/inductor/aoti_eager/kernel_holder.cpp.o
+[79/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/cast_all_constant_to_floating.cpp.o
+[80/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/deduplicate_initializers.cpp.o
+[81/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/backends/backend_init.cpp.o
+[82/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx.cpp.o
+[83/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/constant_fold.cpp.o
+[84/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/eval_peephole.cpp.o
+[85/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/constant_map.cpp.o
+[86/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/eliminate_unused_items.cpp.o
+[87/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/function_substitution.cpp.o
+[88/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/list_model_parameters.cpp.o
+[89/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/fixup_onnx_controlflow.cpp.o
+[90/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/helper.cpp.o
+[91/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/peephole.cpp.o
+[92/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/prepare_division_for_onnx.cpp.o
+[93/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/preprocess_for_onnx.cpp.o
+[94/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/init.cpp.o
+[95/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/scalar_type_analysis.cpp.o
+[96/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/remove_inplace_ops_for_onnx.cpp.o
+[97/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/onnx_log.cpp.o
+[98/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/unpack_quantized_weights.cpp.o
+[99/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/function_extraction.cpp.o
+[100/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/naming.cpp.o
+[101/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/pattern_conversion/autograd_function_process.cpp.o
+[102/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/pattern_conversion/common.cpp.o
+[103/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/shape_type_inference.cpp.o
+[104/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/pattern_conversion/pattern_encapsulation.cpp.o
+[105/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/pybind_utils.cpp.o
+[106/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/passes/onnx/pattern_conversion/pattern_conversion.cpp.o
+[107/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_arg_flatten.cpp.o
+[108/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_dict.cpp.o
+[109/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_custom_class.cpp.o
+[110/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_interpreter.cpp.o
+[111/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_list.cpp.o
+[112/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_tracer.cpp.o
+[113/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/frontend/tree_views.cpp.o
+[114/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/frontend/concrete_module_type.cpp.o
+[115/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_ir.cpp.o
+[116/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_sugared_value.cpp.o
+[117/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/python_tree_views.cpp.o
+[118/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/runtime/static/init.cpp.o
+[119/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/python/script_init.cpp.o
+[120/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/monitor/python_init.cpp.o
+[121/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/multiprocessing/init.cpp.o
+[122/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/profiler/python/combined_traceback.cpp.o
+[123/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/profiler/python/init.cpp.o
+[124/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/jit/tensorexpr/tensorexpr_init.cpp.o
+[125/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/onnx/init.cpp.o
+[126/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/serialization.cpp.o
+[127/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/tensor/python_tensor.cpp.o
+[128/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/device_lazy_init.cpp.o
+[129/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/init.cpp.o
+[130/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/throughput_benchmark.cpp.o
+[131/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/object_ptr.cpp.o
+[132/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils.cpp.o
+[133/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/invalid_arguments.cpp.o
+[134/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/python_symnode.cpp.o
+[135/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/python_arg_parser.cpp.o
+[136/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/pyobject_preservation.cpp.o
+[137/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/nested.cpp.o
+[138/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/pybind.cpp.o
+[139/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/structseq.cpp.o
+[140/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_dtypes.cpp.o
+[141/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/python_dispatch.cpp.o
+[142/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_layouts.cpp.o
+[143/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_apply.cpp.o
+[144/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_memoryformats.cpp.o
+[145/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_qschemes.cpp.o
+[146/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_types.cpp.o
+[147/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_list.cpp.o
+[148/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_numpy.cpp.o
+[149/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/verbose.cpp.o
+[150/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/tensor_new.cpp.o
+[151/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/utils/disable_torch_function.cpp.o
+[152/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/cpu/Module.cpp.o
+[153/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/instruction_counter/Module.cpp.o
+[154/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/lazy/python/python_util.cpp.o
+[155/156] Building CXX object caffe2/torch/CMakeFiles/torch_python.dir/csrc/lazy/python/init.cpp.o
+[156/156] Linking CXX static library lib/libtorch_python.a
+RESUME2_RC=0

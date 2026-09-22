@@ -1,0 +1,24 @@
+SRCED=0
+/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/emcc
+make: cmake --build /workspace/.torch-build --target torch_python -j4
+[1/158] Generating /workspace/.src/pytorch/torch/utils/data/datapipes/datapipe.pyi
+FAILED: [code=1] /workspace/.src/pytorch/torch/utils/data/datapipes/datapipe.pyi 
+cd /workspace/.src/pytorch && /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/cmake -E env PYTHONPATH="/workspace/.src/pytorch/torch/.." /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3 /workspace/.src/pytorch/torch/utils/data/datapipes/gen_pyi.py
+Traceback (most recent call last):
+  File "/workspace/.src/pytorch/torch/utils/data/datapipes/gen_pyi.py", line 6, in <module>
+    from typing_extensions import deprecated
+  File "/workspace/.src/pytorch/typing_extensions.py", line 8, in <module>
+    import inspect
+  File "/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib/python3.13/inspect.py", line 146, in <module>
+    import dis
+  File "/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib/python3.13/dis.py", line 8, in <module>
+    from opcode import *
+  File "/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib/python3.13/opcode.py", line 12, in <module>
+    import _opcode
+ModuleNotFoundError: No module named '_opcode'
+[2/158] Regenerating version file...
+[3/158] Building CXX object caffe2/torch/lib/libshm/CMakeFiles/shm.dir/core.cpp.o
+[4/158] Linking CXX static library lib/libtorch_cpu.a
+ninja: build stopped: subcommand failed.
+emmake: error: 'cmake --build /workspace/.torch-build --target torch_python -j4' failed (returned 1)
+RESUME_RC=1
