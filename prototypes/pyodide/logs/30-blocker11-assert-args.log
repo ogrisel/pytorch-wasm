@@ -1,0 +1,35 @@
+# Blocker #11 diagnostic — Pyodide 0.27.8 (Node harness)
+# command: node _dbg11.mjs <wheel>  (instrumentation applied by _patch.mjs)
+
+loaded torch/lib/libc10.so
+### torchInternalAssertFail RAW ARGS ###
+  func = "n::count.int(int[] self,                                                                       int el) -> int"
+  file = "uild/torch-2.8.0/aten/src/ATen/core/NestedIntSymNodeImpl.h"
+  line = 143
+  cond = "ositeExplicitAutogradNonFunctional_0.cpp\":12733, please report a bug to PyTorch. "
+### MEMORY WINDOW around each pointer ([]=pointer target) ###
+  file@32450203: /torch/b[u]ild/torch-2.8.0/aten/src/ATen/core/NestedIntSymNode
+  cond@33919923: sterComp[o]siteExplicitAutogradNonFunctional_0.cpp":12733, ple
+  func@32027435:  int.ate[n]::count.int(int[] self,                            
+### THROW STACK (first c10 throw during libtorch_cpu load) ###
+Error
+    at ___cxa_throw (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:165274)
+    at invoke_viii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1249102)
+    at wasm://wasm/002585c6:wasm-function[2461]:0x81fd5
+    at wasm://wasm/002585c6:wasm-function[1828]:0x68ea7
+    at wasm://wasm/002585c6:wasm-function[548]:0x38ef1
+    at wasmImports.<computed> (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:152721)
+    at wasm://wasm/13b89bfa:wasm-function[23537]:0x18f1a0e
+    at invoke_viii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1249102)
+    at wasm://wasm/13b89bfa:wasm-function[23535]:0x18f1879
+    at invoke_ii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1247544)
+FAILED to load torch/lib/libtorch_cpu.so
+  exception type: c10::Error
+### GOT.mem (data symbols): requested=23538 unresolved=0 ###
+### GOT.func (function pointers): requested=22503 unresolved=6 ###
+exit
+cpuinfo_emscripten_init
+_ZN3c10dvERKNS_6SymIntEm
+_ZN3c10mlERKNS_6SymIntEm
+_ZN3c10miERKNS_6SymIntEm
+_ZN3c10rmERKNS_6SymIntEm

@@ -129,7 +129,21 @@ build:
     # cases exactly this for Apple (`#if defined(__APPLE__)` declares size_t ops);
     # wasm32 needs the same treatment, so extend the guard to Emscripten.
     perl -0pi -e 's/#if defined\(__APPLE__\)\nDECLARE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T\nDECLARE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.h
-    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t patch not applied"
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t DECL patch not applied"
+    # PROBE WORKAROUND (blocker #5, part 2 — the DEFINITION side, found while solving
+    # blocker #11): the SymInt.h change above only extends the *declaration* guard.
+    # The matching *definitions* live in c10/core/SymInt.cpp behind the SAME
+    # `#if defined(__APPLE__)` guard (DEFINE_SYMINT_OP_INTONLY/DEFINE_SYMINT_OP for
+    # size_t). Without extending that too, the (SymInt, size_t) operators
+    #   _ZN3c10{ml,dv,mi,rm}ERKNS_6SymIntEm   (operator *, /, -, % with unsigned long)
+    # are DECLARED + referenced by libtorch_cpu but never DEFINED anywhere -> they end
+    # up as unresolved GOT.func entries (value 0) in the loaded side module. Empirically
+    # confirmed via the Node harness: after exports=requested (#10), libtorch_cpu has
+    # exactly 6 unresolved GOT.func symbols, 4 of which are these SymInt size_t operators
+    # (the other two are `exit` and `cpuinfo_emscripten_init`). Extend the definition
+    # guard to Emscripten so the wheel is self-contained.
+    perl -0pi -e 's/#if defined\(__APPLE__\)\nDEFINE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T_DEF\nDEFINE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.cpp
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T_DEF" c10/core/SymInt.cpp || echo "WARN: SymInt size_t DEF patch not applied"
     # PROBE WORKAROUND (blocker #6): c10/util/Enumerate.h uses the POSIX type `ssize_t`
     # (from <sys/types.h>) which is not transitively available under Emscripten musl in
     # the torch/nativert translation units. `std::ptrdiff_t` is the portable, standard
@@ -193,18 +207,24 @@ build:
   # cross-module symbol resolution succeeds and loading proceeds into libtorch_cpu's
   # static initializers. See ../RESULTS.md and logs/28.
   #
-  # REMAINING blocker #11 (documented, not solved in budget): once symbols resolve,
-  # `import torch` gets strictly further — libc10.so now loads and runs its C++ static
-  # initializers cleanly — but loading the 82 MB libtorch_cpu.so aborts inside one of
-  # its static initializers, in the Emscripten exception-handling trampoline
-  # `invoke_viii`, with
-  #   TypeError: getWasmTableEntry(...) is not a function   (funcPtr == 0)
-  # i.e. a GOT.func (function-address) relocation that libtorch_cpu's ctor invokes is
-  # left unresolved (0) by Pyodide's PIC dynamic loader. NOTE: the core C++ EH runtime
-  # (__cxa_end_catch/__cxa_rethrow/abort) DOES resolve at base and libc10's EH works —
-  # so this is a specific missing function-pointer symbol in the huge module, not a
-  # wholesale EH-ABI mismatch. Pinpointing and exporting it (or a relink with matching
-  # EH flags) is the remaining work; out of the hard time budget. See logs/28, logs/29.
+  # REMAINING blocker #11 (precisely characterised, needs a relink to fix): once symbols
+  # resolve (#10), libc10.so loads and runs its ctors cleanly, but loading the 82 MB
+  # libtorch_cpu.so runs its static initializers and then throws a c10::Error from
+  # c10::detail::torchInternalAssertFail (a TORCH_INTERNAL_ASSERT), from a libtorch_cpu
+  # ctor near torch::jit::sharedParserData() (operator-schema registration). Reading the
+  # RAW const char* args handed to torchInternalAssertFail shows they point a FEW BYTES
+  # INTO otherwise-correct rodata strings, by NON-UNIFORM offsets, e.g.:
+  #   file @ +1  ...pytorch/b[u]ild/torch-2.8.0/.../NestedIntSymNodeImpl.h
+  #   cond @ +12 ...RegisterComp[o]siteExplicitAutogradNonFunctional_0.cpp":12733,...
+  #   func @ +3  ate[n]::count.int(int[] self, <run of spaces> int el) -> int
+  # The surrounding memory holds the intact strings, so this is a data-relocation /
+  # pointer-addressing defect in the huge from-source module (its data section is only
+  # ~13 MB, so it is NOT a memory-size truncation). Separately, exactly 6 GOT.func
+  # symbols are unresolved: `exit`, `cpuinfo_emscripten_init`, and the 4 SymInt×size_t
+  # operators fixed by the blocker #5 part-2 patch above; aliasing those 4 to their
+  # ABI-identical uint32_t variants resolves them but does NOT stop the assert — the
+  # pointer-corruption abort is a distinct, deeper defect that needs a libtorch_cpu
+  # relink/rebuild to fix; out of the hard time budget. See ../RESULTS.md and logs/30.
   exports: requested
   cflags: |
     -pthread -matomics -mbulk-memory

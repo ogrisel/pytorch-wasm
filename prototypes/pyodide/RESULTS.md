@@ -25,20 +25,39 @@ installable `torch` wheel**:
   `c10::getRuntimeDispatchKeySet`; cross-`.so` symbol resolution succeeds and
   `import torch` gets strictly further — `libc10.so` loads and runs its C++ static
   initializers cleanly ([`logs/28`](logs/28-node-verify-exportfix.log)).
-- ⚠️ **Blocker #11 (new, remaining): an unresolved `GOT.func` function pointer aborts a
-  `libtorch_cpu` static initializer.** Loading the 82 MB `libtorch_cpu.so` now fails
-  inside a C++ static initializer in Emscripten's exception-handling trampoline with
-  `TypeError: getWasmTableEntry(...) is not a function` (the invoked function pointer is
-  `0`). The **core C++ EH runtime resolves fine** (`__cxa_end_catch`, `__cxa_rethrow`,
-  `abort` are addressable at base and `libc10`'s EH works), so this is a **specific
-  missing function-pointer symbol** in the huge module, not a wholesale EH-ABI mismatch.
-  Pinpointing/exporting it (or a relink with matching EH flags) is the remaining work,
-  left **on the hard time budget** ([`logs/29`](logs/29-got-unresolved-eh-funcptrs.log)).
+- ⚠️ **Blocker #11 (remaining): a `c10::Error` / `TORCH_INTERNAL_ASSERT` aborts a
+  `libtorch_cpu` static initializer, driven by mis-offset `const char*` pointers in the
+  from-source 82 MB module.** Loading `libtorch_cpu.so` runs its ctors and then throws a
+  `c10::Error` from `c10::detail::torchInternalAssertFail` (throw stack: a `libtorch_cpu`
+  static initializer near `torch::jit::sharedParserData()` → `torchInternalAssertFail` in
+  `libc10`). Reading the raw arguments passed to `torchInternalAssertFail` shows the
+  `file`/`cond`/`func` `const char*` **point a few bytes *into* otherwise-correct rodata
+  strings** (`file` at `+1` inside `.../pytorch/build/torch-2.8.0/.../NestedIntSymNodeImpl.h`,
+  `cond` at `+12` inside `RegisterCompositeExplicitAutogradNonFunctional_0.cpp:12733`,
+  `func` at `+3` inside `aten::count.int(...)`). The string bytes in memory are intact and
+  contiguous, but the pointer *values* are shifted by small, **non-uniform** amounts — a
+  data-relocation/addressing defect in this huge side module (not a memory-size issue: its
+  data section is only ~13 MB). See [`logs/30`](logs/30-blocker11-assert-args.log).
+- ✅ **Sub-finding #11a (root-caused + recipe-fixed): 4 of the 6 unresolved `GOT.func`
+  symbols are the `SymInt`×`size_t` operators from an *incomplete* blocker #5 patch.**
+  Enumerating `GOT.func`/`GOT.mem` at load time shows **all data (`GOT.mem`) symbols
+  resolve** and exactly **6 function pointers are unresolved**:
+  `_ZN3c10{ml,dv,mi,rm}ERKNS_6SymIntEm` (`operator *,/,-,%` on `(SymInt const&, size_t)`),
+  plus `exit` and `cpuinfo_emscripten_init`. The blocker #5 patch had only extended the
+  `#if defined(__APPLE__)` guard around the **declarations** in `c10/core/SymInt.h`; the
+  matching **definitions** in `c10/core/SymInt.cpp` stayed Apple-only, so on wasm32 these
+  `size_t` operators were declared+referenced but never defined → `GOT.func == 0`.
+  `meta.yaml` now also extends the `SymInt.cpp` guard (blocker #5 part 2). A runtime
+  experiment aliasing the missing `...Em` (size_t) symbols to the ABI-identical defined
+  `...Ej` (uint32_t) implementations confirmed the aliases resolve, but the
+  `TORCH_INTERNAL_ASSERT` above **still fires** — so #11a is a real but *separate*
+  defect from the pointer-corruption abort ([`logs/30`](logs/30-blocker11-assert-args.log)).
 
 Net: the *build/packaging* pipeline for a reduced CPU-only `torch` on Pyodide is solved
-end-to-end, **and the long-standing cross-module symbol-export wall is now solved**; the
-remaining runtime gap is a single unresolved function-pointer relocation in the largest
-module, not a compilation problem.
+end-to-end, **and the cross-module symbol-export wall (#10) is solved**. Blocker #11 is now
+**precisely characterised** (exact throw site, exact unresolved symbols, and direct
+evidence of mis-offset rodata pointers), but the pointer-corruption abort needs a
+**relink/rebuild of `libtorch_cpu`** to fix and is out of the hard time budget.
 
 ## Environment / versions
 
@@ -155,23 +174,49 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
 
     With this, `libc10.so` loads and runs its static initializers; cross-`.so`
     resolution succeeds ([`logs/28`](logs/28-node-verify-exportfix.log)).
-11. **Unresolved `GOT.func` pointer in a `libtorch_cpu` static initializer (remaining).**
-    After #10, loading `libtorch_cpu.so` aborts inside a C++ static initializer, in
-    Emscripten's exception-handling trampoline `invoke_viii`, with
+11. **`libtorch_cpu` static-initializer abort — precisely characterised (remaining).**
+    After #10, loading `libtorch_cpu.so` runs its ctors and then aborts. Attacking it with
+    the Node harness on Pyodide 0.27.8 produced the following runtime evidence
+    ([`logs/30`](logs/30-blocker11-assert-args.log)):
 
-    ```
-    TypeError: getWasmTableEntry(...) is not a function      (funcPtr == 0)
-    ```
+    - **Exact throw site.** Hooking `___cxa_throw` prints the throw stack. It is a
+      `c10::Error` thrown by `c10::detail::torchInternalAssertFail` (a
+      `TORCH_INTERNAL_ASSERT`), called from a `libtorch_cpu` static initializer whose
+      nearest exported symbol is `torch::jit::sharedParserData()` (JIT frontend / operator
+      schema registration). Mapping the wasm stack frame indices to the `.so` **export
+      tables** (no name section is present, but exports suffice) gave the names:
+      `libc10` `func[548] = c10::detail::torchInternalAssertFail`,
+      `func[1828] = c10::detail::torchCheckFail`; `libtorch_cpu`
+      `func[23534] = torch::jit::sharedParserData()`.
 
-    i.e. a function-address (`GOT.func`) relocation the ctor invokes is left **0** by
-    Pyodide's PIC dynamic loader. Instrumenting `getWasmTableEntry`/`GOT` confirmed the
-    bad pointer is `0` and dumped the unresolved-symbol set
-    ([`logs/29`](logs/29-got-unresolved-eh-funcptrs.log)). Crucially the **core C++ EH
-    runtime resolves fine** (`__cxa_end_catch`=11749, `__cxa_rethrow`=11750,
-    `abort`=11751 at base; and `libc10`'s own EH works), so this is a **specific missing
-    function-pointer symbol** in the 82 MB module — not a wholesale EH-ABI mismatch.
-    Pinpointing and exporting it (or a relink with EH flags matching the Pyodide runtime)
-    is the remaining work, out of the hard time budget.
+    - **Exact unresolved symbols.** Recording every `GOT.mem`/`GOT.func` access shows
+      **0 unresolved data symbols** and **exactly 6 unresolved function pointers**:
+      `_ZN3c10dvERKNS_6SymIntEm`, `_ZN3c10mlERKNS_6SymIntEm`, `_ZN3c10miERKNS_6SymIntEm`,
+      `_ZN3c10rmERKNS_6SymIntEm` (the `SymInt`×`size_t` `/ * - %` operators — see
+      sub-finding #11a and the blocker #5 part-2 recipe fix), plus `exit` and
+      `cpuinfo_emscripten_init`.
+
+    - **The abort is pointer corruption, not the unresolved symbols.** Wrapping
+      `torchInternalAssertFail` at symbol-resolution time to read its raw arguments shows
+      the `file`/`cond`/`func` `const char*` **point a few bytes *into* correct rodata
+      strings**, by *non-uniform* offsets. A memory window around each pointer confirms the
+      surrounding bytes are the intact strings:
+
+      ```
+      file @ +1  ...pytorch/b[u]ild/torch-2.8.0/.../NestedIntSymNodeImpl.h
+      cond @ +12 ...RegisterComp[o]siteExplicitAutogradNonFunctional_0.cpp":12733,...
+      func @ +3  ate[n]::count.int(int[] self, <run of spaces> int el) -> int
+      ```
+
+      So `libtorch_cpu`'s static initializers hand `c10` **mis-offset pointers**, which
+      trips the internal assert. Aliasing the 4 missing `SymInt` operators to their
+      ABI-identical `uint32_t` implementations (`...Em → ...Ej`) resolves them but **does
+      not** stop this abort — confirming it is a *separate*, deeper data-relocation defect
+      in the from-source 82 MB module (its data section is only ~13 MB, so it is not a
+      memory-size truncation). Fixing it requires a relink/rebuild of `libtorch_cpu`
+      (out of the hard time budget). The Node harness
+      [`verify_wheel_node.mjs`](jupyterlite-demo/verify_wheel_node.mjs) reproduces the load
+      up to this abort.
 
 ## How the wheel is loaded / tested
 
