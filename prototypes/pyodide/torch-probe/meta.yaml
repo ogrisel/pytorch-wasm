@@ -176,6 +176,36 @@ build:
     # visibility so all symbols are exported from each side module.
     perl -0pi -e 's/-fvisibility=hidden/-fvisibility=default/g' c10/CMakeLists.txt cmake/public/utils.cmake
     grep -n "fvisibility=default" cmake/public/utils.cmake || echo "WARN: visibility patch not applied"
+  # PROBE WORKAROUND (blocker #10 — SOLVED): even with default visibility the wheel
+  # failed at runtime with
+  #   Dynamic linking error: cannot resolve symbol
+  #   _ZN3c1024getRuntimeDispatchKeySetENS_11DispatchKeyE  (c10::getRuntimeDispatchKeySet)
+  # ROOT CAUSE (found empirically): pyodide-build's pywasmcross defaults to
+  # `exports: pyinit`, which links every SIDE_MODULE with
+  #   -sSIDE_MODULE=2 -sEXPORTED_FUNCTIONS=@<only PyInit_* symbols>
+  # so a non-extension shared lib like libc10.so (which has NO PyInit symbol) exports
+  # essentially nothing and wasm-ld GC-strips its entire C++ surface. libtorch_cpu then
+  # cannot resolve c10 symbols across the .so boundary. Setting `exports: requested`
+  # keeps SIDE_MODULE=2 (normal static-archive dedup — avoids the duplicate-symbol
+  # blowups that plain SIDE_MODULE=1/whole_archive causes with the doubled libcpuinfo.a)
+  # but exports ALL public symbols of each object, so cross-.so C++ symbols resolve.
+  # Verified: relinked libc10.so 153 KB -> 615 KB and now exports getRuntimeDispatchKeySet;
+  # cross-module symbol resolution succeeds and loading proceeds into libtorch_cpu's
+  # static initializers. See ../RESULTS.md and logs/28.
+  #
+  # REMAINING blocker #11 (documented, not solved in budget): once symbols resolve,
+  # `import torch` gets strictly further — libc10.so now loads and runs its C++ static
+  # initializers cleanly — but loading the 82 MB libtorch_cpu.so aborts inside one of
+  # its static initializers, in the Emscripten exception-handling trampoline
+  # `invoke_viii`, with
+  #   TypeError: getWasmTableEntry(...) is not a function   (funcPtr == 0)
+  # i.e. a GOT.func (function-address) relocation that libtorch_cpu's ctor invokes is
+  # left unresolved (0) by Pyodide's PIC dynamic loader. NOTE: the core C++ EH runtime
+  # (__cxa_end_catch/__cxa_rethrow/abort) DOES resolve at base and libc10's EH works —
+  # so this is a specific missing function-pointer symbol in the huge module, not a
+  # wholesale EH-ABI mismatch. Pinpointing and exporting it (or a relink with matching
+  # EH flags) is the remaining work; out of the hard time budget. See logs/28, logs/29.
+  exports: requested
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
