@@ -1,0 +1,10 @@
+torch 2.8.0: NO sdist (only wheels)
+torch 2.7.1: NO sdist (only wheels)
+torch 2.6.0: NO sdist (only wheels)
+torch 2.5.1: NO sdist (only wheels)
+torch 2.4.1: NO sdist (only wheels)
+torch versions WITH an sdist on PyPI: NONE
+total torch releases: 50
+HTTP/2 404 
+server: Python/3.12 aiohttp/3.14.3
+content-length: 0

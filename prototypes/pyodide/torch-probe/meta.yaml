@@ -14,9 +14,13 @@ package:
     - torch
 
 source:
-  url: https://files.pythonhosted.org/packages/source/t/torch/torch-2.8.0.tar.gz
-  # sha256 must be filled in by the subagent for the exact chosen version.
-  sha256: PLACEHOLDER_FILL_IN
+  # NOTE: PyTorch publishes NO sdist on PyPI (all 50 releases are binary wheels
+  # only), so the classic files.pythonhosted.org/.../torch-<v>.tar.gz URL 404s.
+  # The only from-source option is the GitHub release tarball, which (unlike the
+  # auto-generated GitHub archive) bundles the third_party/* submodules
+  # (XNNPACK, sleef, protobuf, cpuinfo, pthreadpool, fmt, FP16, FXdiv, onnx, ...).
+  url: https://github.com/pytorch/pytorch/releases/download/v2.8.0/pytorch-v2.8.0.tar.gz
+  sha256: c70a2c9488f6f6e8af5982a10d1cc2c37b7df5e6506d839daa5d5e250953d7b5
 
 requirements:
   run:
@@ -48,10 +52,60 @@ build:
     export USE_OPENMP=0
     export USE_NUMA=0
     export USE_PYTORCH_QNNPACK=0
+    # No wasm numpy in the build env (NumPy component is not found), so disable the
+    # numpy bridge to reduce noise while probing.
+    export USE_NUMPY=0
     export BUILD_TEST=0
     export BUILD_CAFFE2=0
     export ATEN_THREADING=NATIVE
     export MAX_JOBS=${MAX_JOBS:-4}
+    # PROBE WORKAROUND (blocker #2): the wasm32-emscripten cross-build finds only the
+    # host Python *interpreter*; the target `Development.Module` component is missing
+    # because CPython is statically linked into pyodide.asm.wasm (STATIC_LIBPYTHON=1,
+    # Py_ENABLE_SHARED=0) and no standalone libpython3.12.a exists. Consequently
+    # find_package(Python COMPONENTS Development.Module) fails and the `Python::Module`
+    # target is never created, so cmake/Dependencies.cmake:878
+    #   target_link_libraries(pybind::pybind11 INTERFACE Python::Module)
+    # aborts the CMake *generate* step. Define a header-only stub target so generation
+    # can proceed and the *next* (compile/link) blockers can be surfaced. Extension
+    # modules in Pyodide are SIDE_MODULEs that resolve Python symbols at load time, so
+    # a link-time libpython is intentionally absent.
+    perl -0pi -e 's/target_link_libraries\(pybind::pybind11 INTERFACE Python::Module\)/if(NOT TARGET Python::Module)\n  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB\nendif()\ntarget_link_libraries(pybind::pybind11 INTERFACE Python::Module)/ if !/PYODIDE_PROBE_PYTHON_MODULE_STUB/' cmake/Dependencies.cmake
+    grep -n "PYODIDE_PROBE_PYTHON_MODULE_STUB" cmake/Dependencies.cmake || echo "WARN: stub patch not applied"
+    # PROBE WORKAROUND (blocker #3): c10/macros/Macros.h forward-declares glibc's
+    #   void __assert_fail(const char*, const char*, unsigned int, const char*) noexcept
+    # under `#if defined(NDEBUG)`. Emscripten's musl declares it as
+    #   _Noreturn void __assert_fail(const char*, const char*, int, const char*)
+    # (no C++ exception spec, `int` line), so clang errors with
+    #   "exception specification in declaration does not match previous declaration".
+    # Exclude Emscripten from c10's forward declaration and use the system one.
+    perl -0pi -e 's/#else \/\/ __APPLE__, _MSC_VER\n#if defined\(NDEBUG\)/#else \/\/ __APPLE__, _MSC_VER\n#if defined(NDEBUG) \&\& !defined(__EMSCRIPTEN__) \/\/ PYODIDE_PROBE_EMSCRIPTEN_ASSERT/' c10/macros/Macros.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_ASSERT" c10/macros/Macros.h || echo "WARN: assert patch not applied"
+    # PROBE WORKAROUND (blocker #4): cross-compiling protobuf. PyTorch compiles its
+    # own protoc from third_party/protobuf, but under the Emscripten toolchain that
+    # protoc is a wasm/Node artifact (bin/protoc.js + .wasm) that cannot run as a host
+    # build tool (exit 126, "/bin/sh: protoc.js: Permission denied") to generate the
+    # onnx/caffe2 *.pb.cc/.h sources. As cmake/ProtoBuf.cmake states, a cross build
+    # needs a HOST protoc version-matched to the vendored libprotobuf (3.13.0). Build
+    # it here with the host compiler in a clean env (so emcc/pywasmcross is not used),
+    # then point PyTorch and ONNX at it via CAFFE2_CUSTOM_PROTOC_EXECUTABLE.
+    mkdir -p build_host_protoc/bin
+    if [ ! -x build_host_protoc/bin/protoc ]; then
+      env -i HOME="$HOME" PATH="$HOME/.local/bin:/usr/bin:/bin" CC=gcc CXX=g++ MAX_JOBS="${MAX_JOBS:-4}" bash -c 'set -e; mkdir -p build_host_protoc/build; cd build_host_protoc/build; cmake ../../third_party/protobuf/cmake -DCMAKE_INSTALL_PREFIX="$(cd ..; pwd)" -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -GNinja; cmake --build . --target protoc -j "${MAX_JOBS:-4}"; cp -f protoc ../bin/protoc; chmod +x ../bin/protoc'
+    fi
+    export PYODIDE_HOST_PROTOC="$PWD/build_host_protoc/bin/protoc"
+    "$PYODIDE_HOST_PROTOC" --version || echo "WARN: host protoc not runnable"
+    perl -0pi -e 's/# Figure out which protoc to use\./set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "$ENV{PYODIDE_HOST_PROTOC}")  # PYODIDE_PROBE_HOST_PROTOC\n# Figure out which protoc to use./ if !/PYODIDE_PROBE_HOST_PROTOC/' cmake/ProtoBuf.cmake
+    grep -n "PYODIDE_PROBE_HOST_PROTOC" cmake/ProtoBuf.cmake || echo "WARN: protoc patch not applied"
+    # PROBE WORKAROUND (blocker #5): 32-bit/ILP32 portability in ATen. On wasm32
+    # `size_t` is `unsigned long` (32-bit), a distinct type from the int32/uint32/
+    # int64/uint64 operands for which c10 declares SymInt `operator*` etc. So
+    #   aten/src/ATen/core/TensorBase.h: return impl_->sym_numel() * impl_->itemsize();
+    # is an "ambiguous overload" ('c10::SymInt' * 'size_t'). Upstream already special-
+    # cases exactly this for Apple (`#if defined(__APPLE__)` declares size_t ops);
+    # wasm32 needs the same treatment, so extend the guard to Emscripten.
+    perl -0pi -e 's/#if defined\(__APPLE__\)\nDECLARE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T\nDECLARE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
