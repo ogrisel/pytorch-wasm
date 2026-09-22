@@ -1,0 +1,5 @@
+{
+  "name": "pytorch-wasm",
+  "user": "ubuntu",
+  "install": "./.cursor/install.sh"
+}
