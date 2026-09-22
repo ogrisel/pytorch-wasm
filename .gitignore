@@ -35,3 +35,6 @@ prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/src/*.egg-info/
 prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/**/*.egg-info/
 # jupyterlite build cache
 prototypes/emscripten-forge/jupyterlite-torch-wasm/.jupyterlite.doit.db
+
+# host protoc build (native, blocker #4 workaround)
+.hostprotoc/
