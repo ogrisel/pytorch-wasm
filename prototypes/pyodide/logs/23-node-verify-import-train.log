@@ -1,0 +1,20 @@
+[verify] pyodide loaded
+Loading micropip, packaging
+Loaded micropip, packaging
+[verify] micropip loaded
+INSTALL FAILED: PythonError: Traceback (most recent call last):
+  File "/lib/python3.12/site-packages/micropip/package_manager.py", line 146, in install
+    return await install(
+           ^^^^^^^^^^^^^^
+  File "/lib/python312.zip/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/lib/python3.12/site-packages/micropip/logging.py", line 123, in ctx_level
+    yield self.logger
+  File "/lib/python3.12/site-packages/micropip/install.py", line 77, in install
+    await asyncio.gather(*(wheel.install(wheel_base) for wheel in wheels))
+  File "/lib/python3.12/site-packages/micropip/wheelinfo.py", line 138, in install
+    await self._load_libraries(target)
+  File "/lib/python3.12/site-packages/micropip/wheelinfo.py", line 259, in _load_libraries
+    await loadDynlibsFromPackage(pkg, dynlibs)
+pyodide.ffi.JsException: Error: Didn't expect to load any more file_packager files!
+

@@ -76,6 +76,13 @@ build:
     export BUILD_CAFFE2=0
     export ATEN_THREADING=NATIVE
     export MAX_JOBS=${MAX_JOBS:-4}
+    # Pin the version so the wheel is named torch-2.8.0 and matches this recipe's
+    # `version:` (otherwise setup.py derives 2.8.0a0+gitUnknown from a tarball with no
+    # git metadata, and pyodide-build's post-build check_versions_match aborts before
+    # the wheel is retagged to the pyodide platform). Affects only Python version.py +
+    # the wheel name, not compiled objects.
+    export PYTORCH_BUILD_VERSION=2.8.0
+    export PYTORCH_BUILD_NUMBER=1
     # PROBE WORKAROUND (blocker #2): the wasm32-emscripten cross-build finds only the
     # host Python *interpreter*; the target `Development.Module` component is missing
     # because CPython is statically linked into pyodide.asm.wasm (STATIC_LIBPYTHON=1,
