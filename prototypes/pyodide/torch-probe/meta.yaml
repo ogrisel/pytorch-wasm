@@ -72,6 +72,15 @@ build:
     # a link-time libpython is intentionally absent.
     perl -0pi -e 's/target_link_libraries\(pybind::pybind11 INTERFACE Python::Module\)/if(NOT TARGET Python::Module)\n  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB\nendif()\ntarget_link_libraries(pybind::pybind11 INTERFACE Python::Module)/ if !/PYODIDE_PROBE_PYTHON_MODULE_STUB/' cmake/Dependencies.cmake
     grep -n "PYODIDE_PROBE_PYTHON_MODULE_STUB" cmake/Dependencies.cmake || echo "WARN: stub patch not applied"
+    # PROBE WORKAROUND (blocker #3): c10/macros/Macros.h forward-declares glibc's
+    #   void __assert_fail(const char*, const char*, unsigned int, const char*) noexcept
+    # under `#if defined(NDEBUG)`. Emscripten's musl declares it as
+    #   _Noreturn void __assert_fail(const char*, const char*, int, const char*)
+    # (no C++ exception spec, `int` line), so clang errors with
+    #   "exception specification in declaration does not match previous declaration".
+    # Exclude Emscripten from c10's forward declaration and use the system one.
+    perl -0pi -e 's/#else \/\/ __APPLE__, _MSC_VER\n#if defined\(NDEBUG\)/#else \/\/ __APPLE__, _MSC_VER\n#if defined(NDEBUG) \&\& !defined(__EMSCRIPTEN__) \/\/ PYODIDE_PROBE_EMSCRIPTEN_ASSERT/' c10/macros/Macros.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_ASSERT" c10/macros/Macros.h || echo "WARN: assert patch not applied"
   cflags: |
     -pthread -matomics -mbulk-memory
   cxxflags: |
