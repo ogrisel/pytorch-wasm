@@ -1,0 +1,13 @@
+pytorch-v2.8.0/third_party/cpuinfo/
+pytorch-v2.8.0/third_party/eigen/
+pytorch-v2.8.0/third_party/fmt/
+pytorch-v2.8.0/third_party/FP16/
+pytorch-v2.8.0/third_party/FXdiv/
+pytorch-v2.8.0/third_party/kineto/
+pytorch-v2.8.0/third_party/onnx/
+pytorch-v2.8.0/third_party/protobuf/
+pytorch-v2.8.0/third_party/pthreadpool/
+pytorch-v2.8.0/third_party/pybind11/
+pytorch-v2.8.0/third_party/sleef/
+pytorch-v2.8.0/third_party/tensorpipe/
+pytorch-v2.8.0/third_party/XNNPACK/
