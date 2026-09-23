@@ -1,0 +1,73 @@
++ BUILD_DIR=/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0
++ CMBUILD=/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build
++ XBENV=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8
++ EMSDK=/workspace/.emsdk
++ export PATH=/workspace/.emsdk/upstream/emscripten:/workspace/.emsdk/upstream/bin:/workspace/.emsdk:/workspace/.emsdk/upstream/emscripten:/usr/local/cargo/bin:/exec-daemon:/exec-daemon/tools:/home/ubuntu/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ PATH=/workspace/.emsdk/upstream/emscripten:/workspace/.emsdk/upstream/bin:/workspace/.emsdk:/workspace/.emsdk/upstream/emscripten:/usr/local/cargo/bin:/exec-daemon:/exec-daemon/tools:/home/ubuntu/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ PYINC=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/include/python3.12
++ STAGE=/workspace/build_torch/single_module_3173
++ LOGDIR=/tmp
++ mkdir -p /workspace/build_torch/single_module_3173
++ echo '=== emcc version ==='
+=== emcc version ===
++ emcc --version
++ head -1
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.73 (ac676d5e437525d15df5fd46bc2c208ec6d376a3)
+++ command -v llvm-nm
++ NM=/workspace/.emsdk/upstream/bin/llvm-nm
++ echo '=== compile stub.c (C) ==='
+=== compile stub.c (C) ===
++ emcc -c -O2 -g0 -fPIC -I/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/include/python3.12 /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/torch/csrc/stub.c -o /workspace/build_torch/single_module_3173/stub.o
++ /workspace/.emsdk/upstream/bin/llvm-nm /workspace/build_torch/single_module_3173/stub.o
++ grep -i 'initmodule\|PyInit__C'
+00000001 T PyInit__C
+         U initModule
++ CPUINFO=/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo
++ echo '=== compile cpuinfo emscripten init.c ==='
+=== compile cpuinfo emscripten init.c ===
++ emcc -c -O2 -g0 -fPIC -DCPUINFO_LOG_LEVEL=2 -DCPUINFO_LOG_TO_STDIO=1 -I/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/include -I/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/src /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/src/emscripten/init.c -o /workspace/build_torch/single_module_3173/cpuinfo_emscripten_init.o
++ /workspace/.emsdk/upstream/bin/llvm-nm /workspace/build_torch/single_module_3173/cpuinfo_emscripten_init.o
++ grep -i cpuinfo_emscripten_init
+00000001 T cpuinfo_emscripten_init
++ OBJRSP=/workspace/build_torch/single_module_3173/objects.rsp
++ :
++ for tgt in c10.dir torch_cpu.dir torch.dir torch_python.dir
++ find /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build -path '*/c10.dir/*' -name '*.o'
++ for tgt in c10.dir torch_cpu.dir torch.dir torch_python.dir
++ find /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build -path '*/torch_cpu.dir/*' -name '*.o'
++ for tgt in c10.dir torch_cpu.dir torch.dir torch_python.dir
++ find /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build -path '*/torch.dir/*' -name '*.o'
++ for tgt in c10.dir torch_cpu.dir torch.dir torch_python.dir
++ find /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build -path '*/torch_python.dir/*' -name '*.o'
+++ wc -l
++ NOBJ=1241
++ echo '=== gathered 1241 torch objects ==='
+=== gathered 1241 torch objects ===
++ test 1241 -gt 1000
++ ONNX_A=/workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libonnx.a
++ DEP_AS=()
++ for a in libcpuinfo.a libonnx_proto.a libprotobuf.a
++ '[' -f /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libcpuinfo.a ']'
++ DEP_AS+=("$CMBUILD/lib/$a")
++ for a in libcpuinfo.a libonnx_proto.a libprotobuf.a
++ '[' -f /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libonnx_proto.a ']'
++ DEP_AS+=("$CMBUILD/lib/$a")
++ for a in libcpuinfo.a libonnx_proto.a libprotobuf.a
++ '[' -f /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libprotobuf.a ']'
++ DEP_AS+=("$CMBUILD/lib/$a")
++ echo '["_PyInit__C"]'
++ echo '=== link single-module torch/_C.so ==='
+=== link single-module torch/_C.so ===
++ OUT=/workspace/build_torch/single_module_3173/_C.cpython-312-wasm32-emscripten.so
++ tee /tmp/34-single-module-link.log
++ em++ -O2 -g0 -sWASM_BIGINT -sSIDE_MODULE=2 -sEXPORTED_FUNCTIONS=@/workspace/build_torch/single_module_3173/exports.json /workspace/build_torch/single_module_3173/stub.o /workspace/build_torch/single_module_3173/cpuinfo_emscripten_init.o @/workspace/build_torch/single_module_3173/objects.rsp -Wl,--whole-archive /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libonnx.a -Wl,--no-whole-archive -Wl,--start-group /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libcpuinfo.a /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libonnx_proto.a /workspace/build_torch/recipes/packages/torch/build/torch-2.8.0/build/lib/libprotobuf.a -Wl,--end-group -o /workspace/build_torch/single_module_3173/_C.cpython-312-wasm32-emscripten.so
++ echo LINK_RC=0
+LINK_RC=0
++ ls -la /workspace/build_torch/single_module_3173/_C.cpython-312-wasm32-emscripten.so
+-rwxr-xr-x 1 ubuntu ubuntu 101148292 Sep 23 09:07 /workspace/build_torch/single_module_3173/_C.cpython-312-wasm32-emscripten.so
++ echo '=== exported PyInit__C? ==='
+=== exported PyInit__C? ===
++ /workspace/.emsdk/upstream/bin/llvm-nm /workspace/build_torch/single_module_3173/_C.cpython-312-wasm32-emscripten.so
++ grep -i PyInit__C
++ head
+004ae052 T PyInit__C

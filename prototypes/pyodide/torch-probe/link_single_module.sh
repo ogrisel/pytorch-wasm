@@ -22,7 +22,10 @@ set -euxo pipefail
 BUILD_DIR="${BUILD_DIR:-/workspace/build_torch/packages/torch/build/torch-2.8.0}"
 CMBUILD="$BUILD_DIR/build"
 XBENV="/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8"
-EMSDK="$XBENV/emsdk"
+# EMSDK toolchain: default to the Pyodide-0.27.8 xbuildenv emsdk (3.1.58), but
+# allow overriding to a candidate revision (e.g. /workspace/.emsdk activated at
+# 3.1.73) to LINK objects that were RECOMPILED with that same candidate.
+EMSDK="${EMSDK:-$XBENV/emsdk}"
 export PATH="$EMSDK/upstream/emscripten:$EMSDK/upstream/bin:$PATH"
 PYINC="$XBENV/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/include/python3.12"
 STAGE="${STAGE:-/workspace/build_torch/single_module_stage}"

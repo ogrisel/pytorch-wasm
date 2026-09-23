@@ -90,9 +90,45 @@ evidence of mis-offset rodata pointers).
   Pyodide (0.28.3, CPython 3.13) fails earlier on an unrelated `libshm` undefined symbol, so
   that cross-runtime test is inconclusive.
 
-Blocker #11/#12 remains the true wall: a data-relocation defect that scales with a single
-module's data size, which within the **Pyodide-0.27.8 ABI** cannot be fixed by the
-single-module strategy, the linker version, the optimizer, or EH mode.
+- ❌ **OPTION (a) TESTED & DISPROVEN — a full 3.1.73 RECOMPILE does NOT fix the defect
+  ([`logs/37`](logs/37-single-module-3173-RECOMPILE-loadfail-garbled-rodata.log)).** The
+  entire reduced torch tree was **recompiled from source with emsdk/clang 3.1.73** (not a
+  relink — every one of the ~1500 objects rebuilt with the newer clang + its 3.1.73
+  sysroot; the 3.1.58-tuned `meta.yaml` source patches port to 3.1.73 with **zero** source
+  changes), then linked into the single `torch/_C.*.so` with the **3.1.73** toolchain
+  (101,148,292 B, exports `PyInit__C`). Loaded under the **Pyodide 0.27.8** Node runtime it:
+    - ✅ **LOADS with no undefined-symbol / `LinkError`** — the 3.1.73-recompiled objects
+      are **load-ABI-compatible** with the 0.27.8 main module (all libc++/libc imports
+      resolve; static initializers run deep). So the task's worry that "a full 3.1.73 build
+      may not be 0.27.8-loadable" **did not materialise for loading** — the dylink ABI is fine.
+    - ❌ **but hits the SAME mis-relocated-rodata defect**, now surfacing as a `c10::Error`
+      whose `what()` `string_view` has a **corrupted (huge) size** that sweeps across many
+      unrelated rodata constants:
+      `.../ATen/native/sparse/SparseTensor.cpp":633` + `please report a bug to PyTorch.` +
+      `True or False) with` + `got input with sizes` + `.../torch/custom_class_detail.h` +
+      the GRU `weight matrix for backward update, reset, and hidden gates` docstring — one
+      garbled megastring built from disjoint rodata, i.e. the exact #11/#12 signature. The
+      failure **site shifted** (3.1.58 single-module failed early in `aten` Tracer schema
+      registration; 3.1.73 fails later on a corrupted error-message view) because the newer
+      codegen changed the data layout — but the **scale-dependent corruption persists**.
+  **CONCLUSION (this run's key result): the defect follows the RUNTIME, not the compiler.**
+  Compile **and** link are now both 3.1.73; the only remaining 3.1.58 component is the
+  **Pyodide 0.27.8 runtime**, so the mis-application of `MEMORY_ADDR` (pointer/size)
+  relocations lives in **Pyodide 0.27.8's load-time dynamic loader
+  (`__wasm_apply_data_relocs`)**, triggered by module scale — **not** in clang codegen, the
+  linker, the optimizer, or the source. Therefore **option (a) — recompile with a newer
+  clang while keeping the 0.27.8 runtime — is NOT feasible under the 0.27.8 pin.** Bisecting
+  intermediate revisions (3.1.6x) is moot: no *compiler* revision can fix a *runtime*-applied
+  relocation defect. The emscripten-forge sibling succeeded precisely because it also used
+  the **3.1.73 runtime** (compile + link + **runtime** all consistent). The viable paths are
+  now (b) **split `libtorch_cpu`** below the relocation-scale threshold, or **bump the
+  Pyodide runtime** past 0.27.8.
+
+Blocker #11/#12/#13 remains the true wall: a data-relocation defect that scales with a single
+module's data size and is applied by the **Pyodide-0.27.8 load-time relocation machinery**,
+which cannot be fixed by the single-module strategy, the linker version, the optimizer, the
+EH mode, **or a full newer-clang (3.1.73) recompile** — only by shrinking per-module data
+below the threshold (option b) or by bumping the Pyodide runtime.
 
 ## Environment / versions
 
@@ -103,8 +139,10 @@ single-module strategy, the linker version, the optimizer, or EH mode.
 | `pyodide-build` | 0.39.0 |
 | Pyodide xbuildenv / runtime | 0.27.8 |
 | Target CPython | 3.12.7 (`wasm32-emscripten`) |
-| Emscripten (`emcc`) | 3.1.58 |
+| Emscripten (`emcc`), pinned runtime | 3.1.58 (Pyodide 0.27.8 ABI) |
+| Emscripten (`emcc`), option-(a) candidate | 3.1.73 (`/workspace/.emsdk`) |
 | Pyodide (Node test runtime) | 0.27.8 (`pyodide` npm) |
+| ccache | 4.9.1 (`CCACHE_DIR=/workspace/.ccache`, 30 GB) |
 
 Reproducible toolchain: [`.cursor/install.sh`](../../.cursor/install.sh) provisions
 `pyodide-build==0.39.0` + `resolvelib>=1.1.0` + the xbuildenv/emsdk, so
@@ -367,6 +405,86 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
       viable next steps are both large: (a) recompile the whole tree with a clang revision
       that emits correct `MEMORY_ADDR` relocations *and* verify 0.27.8 load-ABI, or (b) split
       `libtorch_cpu` below the relocation-scale threshold.
+
+13. **OPTION (a): full newer-clang (3.1.73) RECOMPILE — the defect follows the RUNTIME,
+    not the compiler (DISPROVES the codegen hypothesis).** The prior runs established the
+    defect is *not* the linker (a 3.1.73 **relink** of 3.1.58 objects reproduces it, #12).
+    The one untested lever was the **compiler**: recompile every object with a newer clang
+    that might emit correct `MEMORY_ADDR` relocations. This run does exactly that.
+
+    - **Build driver:** [`torch-probe/build_torch_candidate.sh`](torch-probe/build_torch_candidate.sh)
+      (`EMSDK_VERSION=3.1.73`). It activates emsdk 3.1.73 in `/workspace/.emsdk`, sets
+      `SKIP_EMSCRIPTEN_VERSION_CHECK=1` so pyodide-build 0.39.0 uses the ambient (non-pinned)
+      `emcc`, wires ccache (below), and runs `pyodide build-recipes-no-deps torch
+      --force-rebuild`. **The 3.1.58-tuned `meta.yaml` source patches port to 3.1.73 with
+      ZERO source changes** — all ~1500 objects compile.
+    - **New 3.1.73 linker strictness (multi-`.so` only).** Linking `lib/libtorch_cpu.so`
+      fails under 3.1.73 with `em++: error: undefined exported symbol: "_cpuinfo_cache"
+      [-Wundefined] [-Werror]` — 3.1.73's wasm-ld promotes an undefined *exported* symbol
+      (from `exports: requested`) to a hard error where 3.1.58 tolerated it. This blocks the
+      multi-`.so` wheel but **not** the single-module link (which exports only `PyInit__C`,
+      so `cpuinfo_cache` is never an export root; the loose `.o` for all 1241 torch objects
+      are produced regardless).
+    - **Single-module link with the 3.1.73 toolchain — clean.**
+      [`link_single_module.sh`](torch-probe/link_single_module.sh) (now honoring an `EMSDK`
+      override) links the 1241 recompiled objects + `stub.o` + `cpuinfo_emscripten_init.o` +
+      whole-archived `libonnx.a` + grouped deps into a **101,148,292 B**
+      `_C.cpython-312-wasm32-emscripten.so` exporting `PyInit__C`
+      ([`logs/38`](logs/38-single-module-3173-recompile-link.log)).
+    - **Load under Pyodide 0.27.8 — loads, then the SAME defect
+      ([`logs/37`](logs/37-single-module-3173-RECOMPILE-loadfail-garbled-rodata.log)).**
+        - ✅ **No undefined-symbol / `LinkError`.** The fully-3.1.73-recompiled module is
+          **load-ABI-compatible with 0.27.8**: `loadDynlib` resolves every libc++/libc import
+          against the 0.27.8 main module and runs static initializers deep. (So the feared
+          "3.1.73 build may not be 0.27.8-loadable" incompatibility **does not exist for
+          loading** — answers task Q3: no dylink field / loader symbol breaks.)
+        - ❌ **Same mis-relocated-rodata abort.** `loadDynlib` throws
+          `c10::Error` whose message is a single garbled `string_view` with a corrupted
+          (huge) size, sweeping disjoint rodata:
+          `SparseTensor.cpp":633` → `please report a bug to PyTorch.` → `True or False) with`
+          → `got input with sizes` → `custom_class_detail.h` → GRU `weight matrix for
+          backward update, reset, and hidden gates`. The **failure site shifted** vs the
+          3.1.58 single-module (early `aten` Tracer `bad_alloc` → later corrupted
+          error-message view), i.e. the newer codegen reshuffled the data section but the
+          **scale-dependent pointer/size corruption is unchanged**.
+    - **Root-cause narrowing (the decisive step).** The defect now reproduces with the
+      compiler = 3.1.73, the linker = 3.1.73, the optimizer ruled out (#11), and the EH mode
+      ruled out (#11). The **only** remaining 3.1.58-era component is the **Pyodide 0.27.8
+      runtime**. So the mis-applied `MEMORY_ADDR` (pointer-to-rodata / `string_view`-size)
+      relocations are applied incorrectly by **Pyodide 0.27.8's load-time
+      `__wasm_apply_data_relocs`** (the dylink data-relocation applier) at this module scale
+      — *not* by clang codegen. The emscripten-forge sibling worked because it used the
+      **3.1.73 runtime** end-to-end (compile + link + runtime), replacing that applier.
+    - **Verdict on option (a):** **infeasible under the Pyodide 0.27.8 pin.** No compiler
+      revision (3.1.6x, 3.1.73, …) can fix a relocation defect that the *runtime* applies;
+      bisecting lower revisions is therefore unnecessary. Remaining feasible options: **(b)
+      split `libtorch_cpu`** below the per-module relocation-scale threshold, or **bump the
+      Pyodide runtime** past 0.27.8 (a coordinated emscripten/CPython upgrade like the
+      sibling's 3.1.73 / CPython 3.13).
+
+## ccache (build accelerator — makes option-(a) rebuilds affordable)
+
+Full from-source recompiles (~1500 objects) are the cost driver for bisecting toolchains, so
+this run wired **ccache** into the emcc compile path and confirmed it end-to-end:
+
+- **Mechanism:** `EM_COMPILER_WRAPPER=<abs path to ccache>` makes `emcc` run the underlying
+  clang through ccache. The path **must be absolute** — `emcc` `execv()`s it directly and does
+  **not** do a `PATH` lookup, so a bare `ccache` fails with `FileNotFoundError` (the bug in
+  the original groundwork; now fixed). `CMAKE_{C,CXX}_COMPILER_LAUNCHER=ccache` is also set as
+  a belt-and-braces measure.
+- **Config:** `CCACHE_DIR=/workspace/.ccache` (persistent disk, git-ignored),
+  `max_size=30G`, `compiler_check=content` (hashes the compiler *contents*, required because
+  emcc wraps clang and the path/mtime differ across emsdk revisions),
+  `sloppiness=locale,time_macros,include_file_ctime,include_file_mtime`.
+- **Confirmed cache hits on the second build (`ccache -s`):**
+
+  | build | cacheable calls | hits | misses | note |
+  | --- | --- | --- | --- | --- |
+  | 1st (cold, 3.1.73) | 1424 | 28 (2.0%) | 1396 | populates cache (~0.2 GB) |
+  | 2nd (warm, 3.1.73) | 1391 | **1347 (96.8%)** | 44 | ~25 min → ~3 min compile |
+
+  The warm rebuild compiled the whole tree from cache in a fraction of the cold time, so each
+  candidate-toolchain iteration after the first is cheap.
 
 ## How the wheel is loaded / tested
 
