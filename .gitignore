@@ -16,3 +16,6 @@ __pycache__/
 
 # from-source torch build tree (single-module experiment; huge, reproducible)
 build_torch/
+
+# ccache (build accelerator; local only)
+.ccache/
