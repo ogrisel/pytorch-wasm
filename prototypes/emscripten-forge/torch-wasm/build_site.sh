@@ -27,6 +27,24 @@ $PY "$PROTO/make_pyodide_http_stub.py"
 echo "=== [4] local channel: tabicl-wasm pure-python bundle (merges repodata) ==="
 $HOSTPY "$PROTO/make_tabicl_pkg.py" --pip "$HOSTPIP"
 
+echo "=== [4b] local channel: PURE-PYTHON scikit-learn override ==="
+# The compiled emscripten-forge scikit-learn wasm .so extensions crash the
+# xeus-python kernel at boot ("XKernel is already registered"). Fetch that
+# package for emscripten-wasm32, strip every .so, and republish it pure-python
+# with a higher build number (TabICL only needs sklearn's pure-python surface).
+"$MM" create -y -r "$MAMBA_ROOT_PREFIX" -n sklfetch --platform emscripten-wasm32 \
+  -c https://prefix.dev/emscripten-forge-dev -c conda-forge \
+  "scikit-learn=1.8.0" 2>&1 | tail -3
+# Keep exactly the compiled extensions in TabICLClassifier's import closure
+# (utils / __check_build / _cyutility / _loss / decomposition / linear_model /
+# metrics / neighbors / preprocessing / svm). This 43-.so subset boots the
+# kernel cleanly; shipping the FULL compiled scikit-learn (~69 .so, incl.
+# ensemble/tree/cluster/manifold/mixture/feature_*) instead triggers the
+# "XKernel is already registered" boot crash.
+$PY "$PROTO/make_sklearn_pure_pkg.py" \
+  --src-site "$MAMBA_ROOT_PREFIX/envs/sklfetch/lib/python3.13/site-packages" \
+  --keep-so "utils,__check_build,_cyutility,_isotonic,_loss,decomposition,linear_model,metrics,neighbors,preprocessing,svm"
+
 echo "=== [5] bundle TabICL checkpoint into site content (git-ignored) ==="
 $HOSTPY "$PROTO/bundle_checkpoint.py" --python "$HOSTPY"
 

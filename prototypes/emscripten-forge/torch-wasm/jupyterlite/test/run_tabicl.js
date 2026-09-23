@@ -10,18 +10,17 @@ const line = (s) => { fs.appendFileSync(LOGF, s + '\n'); process.stdout.write(s 
   const browser = await chromium.launch({ executablePath: '/usr/local/bin/google-chrome', headless: true, args: ['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--js-flags=--max-old-space-size=8192'] });
   const ctx = await browser.newContext({ viewport: { width: 1400, height: 1400 } });
   const page = await ctx.newPage();
-  page.on('console', m => { const t=m.text(); if(/collides|duplicated|Uploader|scratchpad/.test(t))return; line(`[c.${m.type()}] ${t}`); });
+  page.on('console', m => { const t=m.text(); if(/collides|duplicated|Uploader|scratchpad|removed socket/.test(t))return; line(`[c.${m.type()}] ${t}`); });
   page.on('pageerror', e => line(`[pageerror] ${e.message}`));
   page.on('worker', w => line(`[worker] ${w.url()}`));
-  line('first goto');
+  // Single load, NO reload (a reload re-instantiates the xeus kernel in the
+  // persisted SW-controlled worker -> "XKernel is already registered").
+  line('goto (single load, no reload)');
   await page.goto(URL, { waitUntil: 'load', timeout: 120000 });
-  await page.waitForTimeout(8000);
-  line('reload so SW controls');
-  await page.reload({ waitUntil: 'load', timeout: 120000 });
   await page.waitForSelector('.jp-Notebook', { timeout: 120000 });
-  line('UI loaded; polling kernel status');
+  line('UI loaded; polling kernel status (long boot allowed)');
   let ready=false;
-  for (let i=0;i<80;i++){
+  for (let i=0;i<120;i++){
     await page.waitForTimeout(3000);
     const st = await page.evaluate(() => document.querySelector('.jp-Notebook-ExecutionIndicator')?.getAttribute('data-status'));
     if (i%5===0) line(`kstatus[${i}] ind=${st}`);

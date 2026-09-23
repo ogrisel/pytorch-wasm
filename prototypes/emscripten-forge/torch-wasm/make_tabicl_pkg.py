@@ -41,6 +41,33 @@ class Process:
 __version__ = "0.0.0-wasm-stub"
 '''
 
+HF_STUB_INIT = '''"""Minimal huggingface_hub stub for the wasm runtime.
+
+TabICL imports ``hf_hub_download`` at module load but only calls it when no
+local ``model_path`` is provided. The demo bundles the checkpoint locally and
+passes ``model_path=...``, so download is never invoked.
+"""
+__version__ = "0.0.0-wasm-stub"
+
+
+def hf_hub_download(*args, **kwargs):
+    raise RuntimeError(
+        "huggingface_hub is stubbed in the wasm build; pass a local model_path "
+        "and allow_auto_download=False (the checkpoint is bundled)."
+    )
+
+
+def snapshot_download(*args, **kwargs):
+    raise RuntimeError("huggingface_hub is stubbed in the wasm build.")
+'''
+
+HF_STUB_UTILS = '''"""Minimal huggingface_hub.utils stub."""
+
+
+class LocalEntryNotFoundError(Exception):
+    pass
+'''
+
 
 def is_pure(top_dir):
     # exclude packages carrying compiled extensions
@@ -59,16 +86,20 @@ def main():
 
     stage = tempfile.mkdtemp(prefix="tabicl-stage-")
     print("pip target:", stage)
-    # Curated PURE-PYTHON import-time closure for `from tabicl import
-    # TabICLClassifier` (numpy/scipy/scikit-learn/joblib/torch come from the
-    # emscripten-forge channel; psutil is stubbed). --no-deps so we never pull
-    # torch/CUDA/triton wheels.
-    PURE = [
-        "tabicl==2.2.0", "einops", "tqdm",
-        "huggingface_hub", "filelock", "fsspec", "packaging", "pyyaml",
-        "requests", "urllib3", "certifi", "charset_normalizer", "idna",
-        "typing_extensions",
-    ]
+    # Curated MINIMAL import-time closure for `from tabicl import
+    # TabICLClassifier`. numpy/scipy/scikit-learn/joblib/torch come from the
+    # emscripten-forge channel; psutil and huggingface_hub are stubbed (below).
+    #
+    # IMPORTANT: the full huggingface_hub dependency cluster (huggingface_hub +
+    # requests + urllib3 + fsspec + filelock + certifi + idna +
+    # charset_normalizer + pyyaml) CRASHES the xeus-python kernel at boot
+    # ("XKernel is already registered"), even though it is pure Python and is
+    # not imported at boot. Empirically bisected: dropping that cluster and
+    # replacing huggingface_hub with a tiny stub makes the kernel boot. TabICL
+    # only imports `hf_hub_download` / `LocalEntryNotFoundError` from it and
+    # never calls them when a local `model_path` is supplied, so the stub is
+    # sufficient. --no-deps so we never pull torch/CUDA/triton wheels.
+    PURE = ["tabicl==2.2.0", "einops", "tqdm"]
     subprocess.check_call([a.pip, "install", "--quiet", "--no-deps",
                            "--target", stage] + PURE)
 
@@ -109,10 +140,42 @@ def main():
             shutil.copy2(full, os.path.join(site, entry))
             kept.append(entry)
 
+    # Patch tabicl to import ONLY the classifier. The regressor pulls
+    # sklearn.ensemble / sklearn.tree / sklearn.model_selection, whose compiled
+    # wasm extensions crash the xeus-python kernel at boot; the classifier path
+    # needs only sklearn base/utils/preprocessing/neighbors.
+    sk_init = os.path.join(site, "tabicl", "_sklearn", "__init__.py")
+    if os.path.exists(sk_init):
+        with open(sk_init, "w") as f:
+            f.write('"""Classifier-only import for the wasm build (regressor pulls '
+                    'sklearn.ensemble/tree/model_selection whose wasm .so crash '
+                    'the kernel boot)."""\n')
+            f.write("from .classifier import TabICLClassifier\n")
+        print("patched tabicl/_sklearn/__init__.py -> classifier only")
+    top_init = os.path.join(site, "tabicl", "__init__.py")
+    if os.path.exists(top_init):
+        txt = open(top_init).read()
+        txt = txt.replace("from ._sklearn import TabICLClassifier, TabICLRegressor",
+                          "from ._sklearn import TabICLClassifier")
+        open(top_init, "w").write(txt)
+        print("patched tabicl/__init__.py -> drop TabICLRegressor")
+
     # psutil stub (channel/compiled psutil excluded)
     with open(os.path.join(site, "psutil.py"), "w") as f:
         f.write(PSUTIL_STUB)
     kept.append("psutil.py [wasm stub]")
+
+    # huggingface_hub stub: TabICL imports `hf_hub_download` and
+    # `LocalEntryNotFoundError` at module load but never calls them when a local
+    # model_path is supplied. The real package's dependency cluster crashes the
+    # xeus kernel at boot, so ship a tiny stub instead.
+    hf = os.path.join(site, "huggingface_hub")
+    os.makedirs(os.path.join(hf, "utils"), exist_ok=True)
+    with open(os.path.join(hf, "__init__.py"), "w") as f:
+        f.write(HF_STUB_INIT)
+    with open(os.path.join(hf, "utils", "__init__.py"), "w") as f:
+        f.write(HF_STUB_UTILS)
+    kept.append("huggingface_hub/ [wasm stub]")
 
     print("=== kept ===");  [print(" +", k) for k in kept]
     print("=== skipped (channel-provided) ===");  [print(" -", s) for s in skipped]
