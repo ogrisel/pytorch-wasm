@@ -1,0 +1,10 @@
+[verify] pyodide 0.27.8
+Loading micropip, packaging
+Loaded micropip, packaging
+packaging already loaded from default channel
+Loading Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+Loaded Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+[verify] python deps installed
+[verify] wheel unpacked to /lib/python3.12/site-packages
+[verify] loaded torch/lib/libc10.so
+LOADLIB FAILED torch/lib/libtorch_cpu.so Error: Dynamic linking error: cannot resolve symbol _ZN3c1024getRuntimeDispatchKeySetENS_11DispatchKeyE

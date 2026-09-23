@@ -1,0 +1,5 @@
+shared:INFO: (Emscripten: Running sanity checks)
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.58 (a41843e0860e52c948c1fce20307933c6631c800)
+cache:INFO: generating system asset: symbol_lists/269f68a6b884204302a4f72615ae227a87ae4f44.json... (this will be cached in "/workspace/.emsdk/upstream/emscripten/cache/symbol_lists/269f68a6b884204302a4f72615ae227a87ae4f44.json" for subsequent builds)
+cache:INFO:  - ok
+Built: /workspace/prototypes/emscripten-forge/tensor-kernel-wasm/tensor_kernel.mjs + tensor_kernel.wasm

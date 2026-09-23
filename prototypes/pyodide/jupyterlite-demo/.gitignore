@@ -1,0 +1,5 @@
+_site/
+.jlite-venv/
+wheels/
+.cache/
+.jupyterlite.doit.db

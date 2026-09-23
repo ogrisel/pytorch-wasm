@@ -1,0 +1,7 @@
+Downloading Pyodide cross-build environment from                                
+https://github.com/pyodide/pyodide/releases/download/0.27.8/xbuildenv-0.27.8.tar
+.gz                                                                             
+Installing Pyodide cross-build environment to                                   
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8        
+Using Pyodide cross-build environment version: 0.27.8                           
+Pyodide cross-build environment installed at /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0

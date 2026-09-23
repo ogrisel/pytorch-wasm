@@ -1,0 +1,1802 @@
+[2026-09-22 17:26:15] Building package torch...                                 
+Running build script in                                                         
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0                   
+875:  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB
+377:#if defined(NDEBUG) && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT
+libprotoc 3.13.0
+123:set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc")  # PYODIDE_PROBE_HOST_PROTOC
+364:#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  // PYODIDE_PROBE_EMSCRIPTEN_SIZE_T
+72:    using difference_type = std::ptrdiff_t;  // PYODIDE_PROBE_SSIZE_T
+390:        build_args += ["--", "-k", "0"]  # PYODIDE_PROBE_KEEPGOING
+178:          "-Wl,--whole-archive,\"$<TARGET_FILE:${SRC}>\",--no-whole-archive")
+Creating isolated environment: venv+pip...
+Installing packages in isolated environment:
+- astunparse
+- cmake
+- ninja
+- numpy==2.0.2
+- pyyaml
+- requests
+- setuptools>=62.3.0,<80.0
+- typing-extensions>=4.10.0
+- wheel
+Getting build dependencies for wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+Building wheel torch-2.8.0a0+gitUnknown
+running egg_info
+writing torch.egg-info/PKG-INFO
+writing dependency_links to torch.egg-info/dependency_links.txt
+writing entry points to torch.egg-info/entry_points.txt
+writing requirements to torch.egg-info/requires.txt
+writing top-level names to torch.egg-info/top_level.txt
+reading manifest file 'torch.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '.gitmodules'
+warning: no files found matching '*.*' under directory 'ios'
+warning: no files found matching '*.*' under directory 'modules'
+warning: no previously-included files matching '*.o' found anywhere in distribution
+warning: no previously-included files matching '*.so' found anywhere in distribution
+warning: no previously-included files matching '*.dylib' found anywhere in distribution
+warning: no previously-included files matching '*.a' found anywhere in distribution
+warning: no previously-included files matching '.git' found anywhere in distribution
+warning: no previously-included files matching '*.swp' found anywhere in distribution
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'torch.egg-info/SOURCES.txt'
+/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/setuptools/dist.py:334: BuildBackendWarning: Normalizing '2.8.0a0+gitUnknown' to '2.8.0a0+gitunknown'
+  self.metadata.version = self._normalize_version(self.metadata.version)
+/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/setuptools/dist.py:759: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+Building wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -GNinja -DATEN_THREADING=NATIVE -DBUILD_CAFFE2=0 -DBUILD_DEPENDENCY_INDEX_URL=https://pypi.anaconda.org/pyodide/simple -DBUILD_ENV_SCRIPTS_DIR=/tmp/build-env-c9h4zlgz/bin -DBUILD_PYTHON=True -DBUILD_TEST=False -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXECUTABLE=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cmake -DCMAKE_INSTALL_PREFIX=/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch -DCMAKE_PREFIX_PATH=/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages -DCMAKE_TOOLCHAIN_FILE=/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/Emscripten.cmake -DPython_EXECUTABLE=/tmp/build-env-c9h4zlgz/bin/python -DTORCH_BUILD_VERSION=2.8.0a0+gitUnknown -DUSE_CUDA=0 -DUSE_DISTRIBUTED=0 -DUSE_FBGEMM=0 -DUSE_GLOO=0 -DUSE_KINETO=0 -DUSE_LEGACY_PLATFORM=0 -DUSE_MKLDNN=0 -DUSE_MPI=0 -DUSE_NNPACK=0 -DUSE_NUMA=0 -DUSE_NUMPY=False -DUSE_OPENMP=0 -DUSE_PYTORCH_QNNPACK=0 -DUSE_QNNPACK=0 -DUSE_ROCM=0 -DUSE_TENSORPIPE=0 -DUSE_XNNPACK=0 -DUSE_XPU=0 /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0 -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
+  The OLD behavior for policy CMP0126 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Not forcing any particular BLAS to be found
+-- Could not find ccache. Consider installing ccache to speed up compilation.
+-- Performing Test C_HAS_AVX_1
+-- Performing Test C_HAS_AVX_1 - Failed
+-- Performing Test C_HAS_AVX_2
+-- Performing Test C_HAS_AVX_2 - Failed
+-- Performing Test C_HAS_AVX_3
+-- Performing Test C_HAS_AVX_3 - Failed
+-- Performing Test C_HAS_AVX2_1
+-- Performing Test C_HAS_AVX2_1 - Failed
+-- Performing Test C_HAS_AVX2_2
+-- Performing Test C_HAS_AVX2_2 - Failed
+-- Performing Test C_HAS_AVX2_3
+-- Performing Test C_HAS_AVX2_3 - Failed
+-- Performing Test C_HAS_AVX512_1
+-- Performing Test C_HAS_AVX512_1 - Failed
+-- Performing Test C_HAS_AVX512_2
+-- Performing Test C_HAS_AVX512_2 - Failed
+-- Performing Test C_HAS_AVX512_3
+-- Performing Test C_HAS_AVX512_3 - Failed
+-- Performing Test CXX_HAS_AVX_1
+-- Performing Test CXX_HAS_AVX_1 - Failed
+-- Performing Test CXX_HAS_AVX_2
+-- Performing Test CXX_HAS_AVX_2 - Failed
+-- Performing Test CXX_HAS_AVX_3
+-- Performing Test CXX_HAS_AVX_3 - Failed
+-- Performing Test CXX_HAS_AVX2_1
+-- Performing Test CXX_HAS_AVX2_1 - Failed
+-- Performing Test CXX_HAS_AVX2_2
+-- Performing Test CXX_HAS_AVX2_2 - Failed
+-- Performing Test CXX_HAS_AVX2_3
+-- Performing Test CXX_HAS_AVX2_3 - Failed
+-- Performing Test CXX_HAS_AVX512_1
+-- Performing Test CXX_HAS_AVX512_1 - Failed
+-- Performing Test CXX_HAS_AVX512_2
+-- Performing Test CXX_HAS_AVX512_2 - Failed
+-- Performing Test CXX_HAS_AVX512_3
+-- Performing Test CXX_HAS_AVX512_3 - Failed
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS - Failed
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC - Success
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this machine.
+-- No OMAP4 processor on this machine.
+-- Compiler does not support SVE extension. Will not build perfkernels.
+-- Building using own protobuf under third_party per request.
+-- Use custom protobuf build.
+CMake Deprecation Warning at third_party/protobuf/cmake/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- 
+-- 3.13.0.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+-- Caffe2 protobuf include directory: $<BUILD_INTERFACE:/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src>$<INSTALL_INTERFACE:include>
+-- Trying to find preferred BLAS backend of choice: MKL
+-- MKL_THREADING = OMP
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of void*
+-- Check size of void* - done
+-- MKL_THREADING = OMP
+CMake Warning at cmake/Dependencies.cmake:208 (message):
+  MKL could not be found.  Defaulting to Eigen
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+CMake Warning at cmake/Dependencies.cmake:256 (message):
+  Preferred BLAS (MKL) cannot be found, now searching for a general BLAS
+  library
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Looking for sgemm_
+-- Looking for sgemm_ - not found
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- Using pocketfft in directory: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/pocketfft/
+CMake Deprecation Warning at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning at third_party/cpuinfo/CMakeLists.txt:113 (MESSAGE):
+  Target operating system "Emscripten" is not supported in cpuinfo.  cpuinfo
+  will compile, but cpuinfo_initialize() will always fail.
+
+
+CMake Warning at cmake/Dependencies.cmake:711 (message):
+  Turning USE_FAKELOWP off as it depends on USE_FBGEMM.
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+CMake Deprecation Warning at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Using third party subdirectory Eigen.
+-- Found Python: /tmp/build-env-c9h4zlgz/bin/python (found version "3.12.3") found components: Interpreter missing components: Development.Module
+CMake Warning at cmake/Dependencies.cmake:850 (message):
+  Python dependencies not met.  Not compiling with python.  Suppress this
+  warning with -DBUILD_PYTHON=OFF
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- Using third_party/pybind11.
+-- pybind11 include dirs: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/pybind11/include
+-- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS) 
+-- Using third_party/opentelemetry-cpp.
+-- opentelemetry api include dirs: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/opentelemetry-cpp/api/include
+-- Found Python3: /tmp/build-env-c9h4zlgz/bin/python (found version "3.12.3") found components: Interpreter
+-- Using custom protoc executable
+-- ONNX_PROTOC_EXECUTABLE: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc
+-- Protobuf_VERSION: Protobuf_VERSION_NOTFOUND
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+-- 
+-- ******** Summary ********
+--   CMake version                     : 3.31.10
+--   CMake command                     : /tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/cmake/data/bin/cmake
+--   System                            : Emscripten
+--   C++ compiler                      : /home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++
+--   C++ compiler version              : 19.0.0
+--   CXX flags                         :  -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -Wnon-virtual-dtor
+--   Build type                        : Release
+--   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
+--   CMAKE_PREFIX_PATH                 : /tmp/build-env-c9h4zlgz/lib/python3.12/site-packages
+--   CMAKE_INSTALL_PREFIX              : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch
+--   CMAKE_MODULE_PATH                 : /workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/Modules
+-- 
+--   ONNX version                      : 1.18.0
+--   ONNX NAMESPACE                    : onnx_torch
+--   ONNX_USE_LITE_PROTO               : OFF
+--   USE_PROTOBUF_SHARED_LIBS          : OFF
+--   ONNX_DISABLE_EXCEPTIONS           : OFF
+--   ONNX_DISABLE_STATIC_REGISTRATION  : OFF
+--   ONNX_WERROR                       : OFF
+--   ONNX_BUILD_TESTS                  : OFF
+--   BUILD_SHARED_LIBS                 : OFF
+-- 
+--   Protobuf compiler                 : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc
+--   Protobuf includes                 : 
+--   Protobuf libraries                : 
+--   ONNX_BUILD_PYTHON                 : OFF
+-- Found CUDA with FP16 support, compiling with torch.cuda.HalfTensor
+-- Adding -DNDEBUG to compile flags
+CMake Warning at cmake/Dependencies.cmake:1432 (message):
+  Not compiling with MAGMA.  Suppress this warning with -DUSE_MAGMA=OFF.
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this machine.
+-- No OMAP4 processor on this machine.
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- LAPACK requires BLAS
+-- Cannot find a library with LAPACK API. Not using LAPACK.
+disabling CUDA because NOT USE_CUDA is set
+disabling ROCM because NOT USE_ROCM is set
+-- MIOpen not found. Compiling without MIOpen support
+disabling MKLDNN because USE_MKLDNN is not set
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for shm_open
+-- Looking for shm_open - found
+-- Looking for shm_unlink
+-- Looking for shm_unlink - found
+-- Looking for malloc_usable_size
+-- Looking for malloc_usable_size - found
+-- {fmt} version: 11.2.0
+-- Build type: Release
+-- Performing Test HAS_NULLPTR_WARNING
+-- Performing Test HAS_NULLPTR_WARNING - Success
+-- Performing Test HAS_WERROR_RETURN_TYPE
+-- Performing Test HAS_WERROR_RETURN_TYPE - Success
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT - Success
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT - Success
+-- Performing Test HAS_WERROR_BOOL_OPERATION
+-- Performing Test HAS_WERROR_BOOL_OPERATION - Success
+-- Performing Test HAS_WNARROWING
+-- Performing Test HAS_WNARROWING - Success
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS - Success
+-- Performing Test HAS_WNO_UNUSED_PARAMETER
+-- Performing Test HAS_WNO_UNUSED_PARAMETER - Success
+-- Performing Test HAS_WNO_STRICT_OVERFLOW
+-- Performing Test HAS_WNO_STRICT_OVERFLOW - Success
+-- Performing Test HAS_WNO_STRICT_ALIASING
+-- Performing Test HAS_WNO_STRICT_ALIASING - Success
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW - Failed
+-- Performing Test HAS_WVLA_EXTENSION
+-- Performing Test HAS_WVLA_EXTENSION - Success
+-- Performing Test HAS_WSUGGEST_OVERRIDE
+-- Performing Test HAS_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAS_WNEWLINE_EOF
+-- Performing Test HAS_WNEWLINE_EOF - Success
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE - Success
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Success
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST - Success
+-- Performing Test HAS_WCONSTANT_CONVERSION
+-- Performing Test HAS_WCONSTANT_CONVERSION - Success
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE - Failed
+-- Performing Test HAS_QUNUSED_ARGUMENTS
+-- Performing Test HAS_QUNUSED_ARGUMENTS - Success
+-- Performing Test HAS_FALIGNED_NEW
+-- Performing Test HAS_FALIGNED_NEW - Success
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED - Failed
+-- Performing Test HAS_FSTANDALONE_DEBUG
+-- Performing Test HAS_FSTANDALONE_DEBUG - Success
+-- Performing Test HAS_FNO_MATH_ERRNO
+-- Performing Test HAS_FNO_MATH_ERRNO - Success
+-- Performing Test HAS_FNO_TRAPPING_MATH
+-- Performing Test HAS_FNO_TRAPPING_MATH - Success
+-- Performing Test HAS_WERROR_FORMAT
+-- Performing Test HAS_WERROR_FORMAT - Success
+-- don't use NUMA
+-- Looking for backtrace
+-- Looking for backtrace - not found
+-- Could NOT find Backtrace (missing: Backtrace_LIBRARY Backtrace_INCLUDE_DIR) 
+-- headers outputs: 
+-- sources outputs: 
+-- declarations_yaml outputs: 
+-- Using ATen parallel backend: NATIVE
+disabling CUDA because USE_CUDA is set false
+AT_INSTALL_INCLUDE_DIR include/ATen/core
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/TensorBody.h
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/aten_interned_strings.h
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/enum_tag.h
+-- Performing Test HAS_WMISSING_PROTOTYPES
+-- Performing Test HAS_WMISSING_PROTOTYPES - Success
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Success
+CMake Warning at CMakeLists.txt:1266 (message):
+  Generated cmake files are only fully tested if one builds with system glog,
+  gflags, and protobuf.  Other settings may generate files that are not well
+  tested.
+
+
+-- 
+-- ******** Summary ********
+-- General:
+--   CMake version         : 3.31.10
+--   CMake command         : /tmp/build-env-c9h4zlgz/lib/python3.12/site-packages/cmake/data/bin/cmake
+--   System                : Emscripten
+--   C++ compiler          : /home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++
+--   C++ compiler id       : Clang
+--   C++ compiler version  : 19.0.0
+--   Using ccache if found : ON
+--   Found ccache          : CCACHE_PROGRAM-NOTFOUND
+--   CXX flags             :  -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
+--   Shared LD flags       : -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -rdynamic
+--   Static LD flags       : 
+--   Module LD flags       : -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz
+--   Build type            : Release
+--   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK=1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CRC32_CHECKS
+--   CMAKE_PREFIX_PATH     : /tmp/build-env-c9h4zlgz/lib/python3.12/site-packages
+--   CMAKE_INSTALL_PREFIX  : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch
+--   USE_GOLD_LINKER       : OFF
+-- 
+--   TORCH_VERSION         : 2.8.0
+--   BUILD_STATIC_RUNTIME_BENCHMARK: OFF
+--   BUILD_BINARY          : OFF
+--   BUILD_CUSTOM_PROTOBUF : ON
+--     Link local protobuf : ON
+--   BUILD_PYTHON          : OFF
+--   BUILD_SHARED_LIBS     : ON
+--   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
+--   BUILD_TEST            : False
+--   BUILD_JNI             : OFF
+--   BUILD_MOBILE_AUTOGRAD : OFF
+--   BUILD_LITE_INTERPRETER: OFF
+--   INTERN_BUILD_MOBILE   : 
+--   TRACING_BASED         : OFF
+--   USE_BLAS              : 0
+--   USE_LAPACK            : 0
+--   USE_ASAN              : OFF
+--   USE_TSAN              : OFF
+--   USE_CPP_CODE_COVERAGE : OFF
+--   USE_CUDA              : 0
+--   USE_XPU               : 0
+--   USE_ROCM              : OFF
+--   BUILD_NVFUSER         : 
+--   USE_EIGEN_FOR_BLAS    : ON
+--   USE_FBGEMM            : OFF
+--     USE_FAKELOWP          : OFF
+--   USE_KINETO            : 0
+--   USE_GFLAGS            : OFF
+--   USE_GLOG              : OFF
+--   USE_LITE_PROTO        : OFF
+--   USE_PYTORCH_METAL     : OFF
+--   USE_PYTORCH_METAL_EXPORT     : OFF
+--   USE_MPS               : OFF
+--   CAN_COMPILE_METAL     : 
+--   USE_MKL               : OFF
+--   USE_MKLDNN            : OFF
+--   USE_UCC               : OFF
+--   USE_ITT               : OFF
+--   USE_XCCL              : OFF
+--   USE_NCCL              : OFF
+--   USE_NNPACK            : 0
+--   USE_NUMPY             : False
+--   USE_OBSERVERS         : OFF
+--   USE_OPENCL            : OFF
+--   USE_OPENMP            : 0
+--   USE_MIMALLOC          : OFF
+--   USE_VULKAN            : OFF
+--   USE_PROF              : OFF
+--   USE_PYTORCH_QNNPACK   : 0
+--   USE_XNNPACK           : 0
+--   USE_DISTRIBUTED       : 0
+--   Public Dependencies  : 
+--   Private Dependencies : Threads::Threads;cpuinfo;fp16;rt;fmt::fmt-header-only;dl
+--   Public CUDA Deps.    : 
+--   Private CUDA Deps.   : 
+--   USE_COREML_DELEGATE     : OFF
+--   BUILD_LAZY_TS_BACKEND   : ON
+--   USE_ROCM_KERNEL_ASSERT : OFF
+-- Configuring done (60.2s)
+-- Generating done (0.6s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_CAFFE2
+    BUILD_DEPENDENCY_INDEX_URL
+    BUILD_ENV_SCRIPTS_DIR
+    CMAKE_EXECUTABLE
+    USE_LEGACY_PLATFORM
+    USE_QNNPACK
+
+
+-- Build files have been written to: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build
+[1/4] Generating ATen declarations_yaml
+[2/4] Generating ATen headers
+[3/4] Generating ATen sources
+[1/1140] Running gen_proto.py on onnx/onnx.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-ml.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_pb.py
+[2/1140] Linking C static library lib/libcpuinfo.a
+[3/1140] Linking CXX static library lib/libprotobuf.a
+[4/1140] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+[5/1140] Running gen_proto.py on onnx/onnx-operators.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx-operators.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators-ml.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_operators_pb.py
+[6/1140] Running gen_proto.py on onnx/onnx-data.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx-data.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_data_pb.py
+[7/1140] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+[8/1140] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+[9/1140] Building CXX object c10/CMakeFiles/c10.dir/core/Allocator.cpp.o
+[10/1140] Building CXX object c10/CMakeFiles/c10.dir/core/ConstantSymNodeImpl.cpp.o
+[11/1140] Building CXX object c10/CMakeFiles/c10.dir/core/CPUAllocator.cpp.o
+[12/1140] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-operators_onnx_torch-ml.pb.cc.o
+[13/1140] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-data_onnx_torch.pb.cc.o
+[14/1140] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx_onnx_torch-ml.pb.cc.o
+[15/1140] Linking CXX static library lib/libonnx_proto.a
+[16/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/model_helpers.cc.o
+[17/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/checker.cc.o
+[18/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/attr_proto_util.cc.o
+[19/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/ir_pb_converter.cc.o
+[20/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/defs.cc.o
+[21/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/utils.cc.o
+[22/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/old.cc.o
+[23/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/data_type_utils.cc.o
+[24/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/function.cc.o
+[25/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/utils.cc.o
+[26/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/defs.cc.o
+[27/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/image/defs.cc.o
+[28/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/old.cc.o
+[29/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/logical/defs.cc.o
+[30/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/logical/old.cc.o
+[31/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/utils.cc.o
+[32/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/defs.cc.o
+[33/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/old.cc.o
+[34/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/nn/defs.cc.o
+[35/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/object_detection/defs.cc.o
+[36/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/object_detection/old.cc.o
+[37/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/nn/old.cc.o
+[38/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/parser.cc.o
+[39/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/optional/old.cc.o
+[40/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/optional/defs.cc.o
+[41/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/printer.cc.o
+[42/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/quantization/defs.cc.o
+[43/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/defs.cc.o
+[44/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/quantization/old.cc.o
+[45/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/old.cc.o
+[46/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/utils.cc.o
+[47/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/rnn/defs.cc.o
+[48/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/rnn/old.cc.o
+[49/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/shape_inference.cc.o
+[50/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/sequence/defs.cc.o
+[51/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/schema.cc.o
+[52/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/utils.cc.o
+[53/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor_proto_util.cc.o
+[54/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/defs.cc.o
+[55/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor_util.cc.o
+[56/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/text/defs.cc.o
+[57/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/traditionalml/defs.cc.o
+[58/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/traditionalml/old.cc.o
+[59/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/training/defs.cc.o
+[60/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/old.cc.o
+[61/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/version_converter/helper.cc.o
+[62/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/shape_inference/implementation.cc.o
+[63/1140] Building CXX object c10/CMakeFiles/c10.dir/core/CopyBytes.cpp.o
+[64/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/inliner/inliner.cc.o
+[65/1140] Building CXX object c10/CMakeFiles/c10.dir/core/DefaultDtype.cpp.o
+[66/1140] Building CXX object c10/CMakeFiles/c10.dir/core/Device.cpp.o
+[67/1140] Building CXX object c10/CMakeFiles/c10.dir/core/DeviceType.cpp.o
+[68/1140] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKeySet.cpp.o
+[69/1140] Building CXX object c10/CMakeFiles/c10.dir/core/InferenceMode.cpp.o
+[70/1140] Building CXX object c10/CMakeFiles/c10.dir/core/GeneratorImpl.cpp.o
+[71/1140] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKey.cpp.o
+[72/1140] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/version_converter/convert.cc.o
+[73/1140] Building CXX object c10/CMakeFiles/c10.dir/core/RefcountedDeleter.cpp.o
+[74/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SafePyObject.cpp.o
+[75/1140] Building CXX object c10/CMakeFiles/c10.dir/core/Scalar.cpp.o
+[76/1140] Building CXX object c10/CMakeFiles/c10.dir/core/ScalarType.cpp.o
+[77/1140] Building CXX object c10/CMakeFiles/c10.dir/core/Storage.cpp.o
+[78/1140] Building CXX object c10/CMakeFiles/c10.dir/core/StorageImpl.cpp.o
+[79/1140] Building CXX object c10/CMakeFiles/c10.dir/core/Stream.cpp.o
+[80/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymBool.cpp.o
+[81/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymFloat.cpp.o
+[82/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymIntArrayRef.cpp.o
+[83/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymNodeImpl.cpp.o
+[84/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymInt.cpp.o
+[85/1140] Building CXX object c10/CMakeFiles/c10.dir/core/SymbolicShapeMeta.cpp.o
+[86/1140] Building CXX object c10/CMakeFiles/c10.dir/core/TensorOptions.cpp.o
+[87/1140] Building CXX object c10/CMakeFiles/c10.dir/core/UndefinedTensorImpl.cpp.o
+[88/1140] Building CXX object c10/CMakeFiles/c10.dir/core/WrapDimMinimal.cpp.o
+[89/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COW.cpp.o
+[90/1140] Building CXX object c10/CMakeFiles/c10.dir/core/TensorImpl.cpp.o
+[91/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COWDeleter.cpp.o
+[92/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/DeviceGuardImplInterface.cpp.o
+[93/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/LocalDispatchKeySet.cpp.o
+[94/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/GPUTrace.cpp.o
+[95/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyInterpreter.cpp.o
+[96/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyObjectSlot.cpp.o
+[97/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/SizesAndStrides.cpp.o
+[98/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PythonDispatcherTLS.cpp.o
+[99/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/TorchDispatchModeTLS.cpp.o
+[100/1140] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUCachingAllocator.cpp.o
+[101/1140] Building CXX object c10/CMakeFiles/c10.dir/core/impl/alloc_cpu.cpp.o
+[102/1140] Building CXX object c10/CMakeFiles/c10.dir/core/thread_pool.cpp.o
+[103/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Backtrace.cpp.o
+[104/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Bfloat16.cpp.o
+[105/1140] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUProfilingAllocator.cpp.o
+[106/1140] Building CXX object c10/CMakeFiles/c10.dir/util/ApproximateClock.cpp.o
+[107/1140] Building CXX object c10/CMakeFiles/c10.dir/util/C++17.cpp.o
+[108/1140] Building CXX object c10/CMakeFiles/c10.dir/util/DeadlockDetection.cpp.o
+[109/1140] Building CXX object c10/CMakeFiles/c10.dir/util/DynamicCounter.cpp.o
+[110/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Exception.cpp.o
+[111/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fn.cpp.o
+[112/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fnuz.cpp.o
+[113/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2.cpp.o
+[114/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2fnuz.cpp.o
+[115/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e8m0fnu.cpp.o
+[116/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Gauge.cpp.o
+[117/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Half.cpp.o
+[118/1140] Building CXX object c10/CMakeFiles/c10.dir/util/LeftRight.cpp.o
+[119/1140] Building CXX object c10/CMakeFiles/c10.dir/util/ParallelGuard.cpp.o
+[120/1140] Building CXX object c10/CMakeFiles/c10.dir/util/MathConstants.cpp.o
+[121/1140] Building CXX object c10/CMakeFiles/c10.dir/util/SmallVector.cpp.o
+[122/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Logging.cpp.o
+[123/1140] Building CXX object c10/CMakeFiles/c10.dir/util/NetworkFlow.cpp.o
+[124/1140] Building CXX object c10/CMakeFiles/c10.dir/util/StringUtil.cpp.o
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.cpp:1:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.h:9:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ostream:189:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/format:195:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/container_adaptor.h:20:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/range_default_formatter.h:23:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/range_formatter.h:23:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/format_context.h:30:
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3257:1: warning: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' is deprecated [-Wdeprecated-declarations]
+ 3257 | wstring_convert<_Codecvt, _Elem, _WideAlloc, _ByteAlloc>::to_bytes(const _Elem* __frm, const _Elem* __frm_end) {
+      | ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3161:12: note: in instantiation of member function 'std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>::to_bytes' requested here
+ 3161 |     return to_bytes(__wstr.data(), __wstr.data() + __wstr.size());
+      |            ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.cpp:53:29: note: in instantiation of member function 'std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>::to_bytes' requested here
+   53 |   return _str(ss, converter.to_bytes(wString));
+      |                             ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3114:28: note: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' has been explicitly marked deprecated here
+ 3114 | class _LIBCPP_TEMPLATE_VIS _LIBCPP_DEPRECATED_IN_CXX17 wstring_convert {
+      |                            ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:1002:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+ 1002 | #    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+      |                                         ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:975:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  975 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+1 warning generated.
+[125/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Type_demangle.cpp.o
+[126/1140] Building CXX object c10/CMakeFiles/c10.dir/util/ThreadLocalDebugInfo.cpp.o
+[127/1140] Building CXX object c10/CMakeFiles/c10.dir/util/TypeCast.cpp.o
+[128/1140] Building CXX object c10/CMakeFiles/c10.dir/util/UniqueVoidPtr.cpp.o
+[129/1140] Building CXX object c10/CMakeFiles/c10.dir/util/Type_no_demangle.cpp.o
+[130/1140] Building CXX object c10/CMakeFiles/c10.dir/util/flags_use_gflags.cpp.o
+[131/1140] Building CXX object c10/CMakeFiles/c10.dir/util/complex_math.cpp.o
+[132/1140] Building CXX object c10/CMakeFiles/c10.dir/util/WaitCounter.cpp.o
+[133/1140] Building CXX object c10/CMakeFiles/c10.dir/util/env.cpp.o
+[134/1140] Building CXX object c10/CMakeFiles/c10.dir/util/flags_use_no_gflags.cpp.o
+[135/1140] Building CXX object c10/CMakeFiles/c10.dir/util/int128.cpp.o
+[136/1140] Building CXX object c10/CMakeFiles/c10.dir/util/intrusive_ptr.cpp.o
+[137/1140] Building CXX object c10/CMakeFiles/c10.dir/util/signal_handler.cpp.o
+[138/1140] Building CXX object c10/CMakeFiles/c10.dir/util/numa.cpp.o
+[139/1140] Linking CXX static library lib/libonnx.a
+[140/1140] Linking CXX static library lib/libprotoc.a
+[141/1140] Building CXX object c10/CMakeFiles/c10.dir/util/typeid.cpp.o
+[142/1140] Building CXX object c10/CMakeFiles/c10.dir/util/tempfile.cpp.o
+[143/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/parse_context.cc.o
+[144/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+[145/1140] Linking CXX shared library lib/libc10.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[146/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/repeated_field.cc.o
+[147/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/int128.cc.o
+[148/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/common.cc.o
+[149/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/status.cc.o
+[150/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/statusor.cc.o
+[151/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/stringpiece.cc.o
+[152/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/stringprintf.cc.o
+[153/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o
+[154/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/time.cc.o
+[155/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/strutil.cc.o
+[156/1140] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo_internals.dir/src/api.c.o
+[157/1140] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo_internals.dir/src/cache.c.o
+[158/1140] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo_internals.dir/src/init.c.o
+[159/1140] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/wire_format_lite.cc.o
+[160/1140] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo_internals.dir/src/log.c.o
+[161/1140] Generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/Functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ViewFuncs.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ADInplaceOrViewType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ADInplaceOrViewType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/inductor/aoti_torch/generated/c_shim_cpu.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNativeFunctions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/RegisterAutogradLazy.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/RegisterLazy.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/Functions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/variable_factories.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ViewFuncs.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyIr.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNonNativeIr.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNativeFunctions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_variable_methods.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_nn_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_fft_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_linalg_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_nested_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_sparse_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_special_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_return_types.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_enum_tag.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_return_types.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/testing/_internal/generated/annotated_fn_args.py, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/inductor/aoti_torch/generated/c_shim_cuda.cpp
+[162/1140] Building CXX object third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.o
+[163/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/AccumulateType.cpp.o
+[164/1140] Building CXX object third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.o
+[165/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o
+[166/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Context.cpp.o
+[167/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o
+[168/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o
+[169/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/DeviceAccelerator.cpp.o
+[170/1140] Linking CXX executable bin/protoc.js-3.13.0.0
+cache:INFO: generating system asset: symbol_lists/5d721cf87f26344e5a59669a2efa7db0ddf0b85d.json... (this will be cached in "/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/symbol_lists/5d721cf87f26344e5a59669a2efa7db0ddf0b85d.json" for subsequent builds)
+cache:INFO:  - ok
+[171/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Dispatch.cpp.o
+[172/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/DynamicLibrary.cpp.o
+[173/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/EmptyTensor.cpp.o
+[174/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/FuncTorchTLS.cpp.o
+[175/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/DLConvertor.cpp.o
+[176/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ExpandUtils.cpp.o
+[177/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/FunctionalStorageImpl.cpp.o
+[178/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/FunctionalTensorWrapper.cpp.o
+[179/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/FunctionalInverses.cpp.o
+[180/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/FunctionalizeFallbackKernel.cpp.o
+[181/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/LegacyVmapMode.cpp.o
+[182/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/LegacyBatchedTensorImpl.cpp.o
+[183/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/MapAllocator.cpp.o
+[184/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/LegacyBatchedFallback.cpp.o
+[185/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/MemoryOverlap.cpp.o
+[186/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/LegacyVmapTransforms.cpp.o
+[187/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/NamedTensorUtils.cpp.o
+[188/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ParallelCommon.cpp.o
+[189/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/LegacyBatchingRegistrations.cpp.o
+[190/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/NestedTensorImpl.cpp.o
+[191/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ParallelNative.cpp.o
+[192/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ParallelOpenMP.cpp.o
+[193/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/SavedTensorHooks.cpp.o
+[194/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/PythonTorchFunctionTLS.cpp.o
+[195/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ParallelThreadPoolNative.cpp.o
+[196/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ScalarOps.cpp.o
+[197/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorGeometry.cpp.o
+[198/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/SparseCsrTensorImpl.cpp.o
+[199/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/SparseTensorImpl.cpp.o
+[200/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorIndexing.cpp.o
+[201/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/StorageUtils.cpp.o
+[202/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorMeta.cpp.o
+[203/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ThreadLocalPythonObjects.cpp.o
+[204/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorNames.cpp.o
+[205/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorIterator.cpp.o
+[206/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Version.cpp.o
+[207/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/TensorUtils.cpp.o
+[208/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Utils.cpp.o
+[209/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ThreadLocalState.cpp.o
+[210/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/VmapModeRegistrations.cpp.o
+[211/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/CPUGuardImpl.cpp.o
+[212/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/CUDAHooksInterface.cpp.o
+[213/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/HIPHooksInterface.cpp.o
+[214/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/HPUHooksInterface.cpp.o
+[215/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/IPUHooksInterface.cpp.o
+[216/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ZeroTensorFallback.cpp.o
+[217/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/MAIAHooksInterface.cpp.o
+[218/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/MPSHooksInterface.cpp.o
+[219/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/MTIAHooksInterface.cpp.o
+[220/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/MetaGuardImpl.cpp.o
+[221/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/PrivateUse1HooksInterface.cpp.o
+[222/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/detail/XPUHooksInterface.cpp.o
+[223/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/ADInterpreters.cpp.o
+[224/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/autocast_mode.cpp.o
+[225/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesActivation.cpp.o
+[226/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesBinaryOps.cpp.o
+[227/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesConvolution.cpp.o
+[228/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesDecompositions.cpp.o
+[229/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesDynamic.cpp.o
+[230/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesFactory.cpp.o
+[231/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesHelper.cpp.o
+[232/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesIndexing.cpp.o
+[233/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesLinearAlgebra.cpp.o
+[234/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesLoss.cpp.o
+[235/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesModules.cpp.o
+[236/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesNorm.cpp.o
+[237/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesPooling.cpp.o
+[238/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesRandomness.cpp.o
+[239/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesReduceOps.cpp.o
+[240/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesScatterOps.cpp.o
+[241/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchedFallback.cpp.o
+[242/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesUnaryOps.cpp.o
+[243/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchedTensorImpl.cpp.o
+[244/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/BatchRulesViews.cpp.o
+[245/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/FunctionalizeInterpreter.cpp.o
+[246/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/Interpreter.cpp.o
+[247/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/PlumbingHelper.cpp.o
+[248/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/DynamicLayer.cpp.o
+[249/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/LegacyVmapTransforms.cpp.o
+[250/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp.o
+[251/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/TensorWrapper.cpp.o
+[252/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/VmapInterpreter.cpp.o
+[253/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/ATenGeneral.cpp.o
+[254/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/PyTorchOperatorHacks.cpp.o
+[255/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/BackendSelectFallbackKernel.cpp.o
+[256/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/record_function.cpp.o
+[257/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/CachingHostAllocator.cpp.o
+[258/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/functorch/VmapModeRegistrations.cpp.o
+[259/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/DeprecatedTypePropertiesRegistry.cpp.o
+[260/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Dimname.cpp.o
+[261/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/DeprecatedTypeProperties.cpp.o
+[262/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/GeneratorForPrivateuseone.cpp.o
+[263/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Generator.cpp.o
+[264/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Dict.cpp.o
+[265/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Formatting.cpp.o
+[266/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/List.cpp.o
+[267/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/NamedTensor.cpp.o
+[268/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/NestedIntSymNodeImpl.cpp.o
+[269/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/MetaFallbackKernel.cpp.o
+[270/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/NamedRegistrations.cpp.o
+[271/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/PythonFallbackKernel.cpp.o
+[272/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/PythonOpRegistrationTrampoline.cpp.o
+[273/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Tensor.cpp.o
+[274/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/TorchDispatchUtils.cpp.o
+[275/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/Vitals.cpp.o
+[276/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/VariableHooksInterface.cpp.o
+[277/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/blob.cpp.o
+[278/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/VariableFallbackKernel.cpp.o
+[279/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/adaption.cpp.o
+[280/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/boxing/KernelFunction.cpp.o
+[281/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/class_type.cpp.o
+[282/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/dispatch/ObservedOperators.cpp.o
+[283/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/dispatch/DispatchKeyExtractor.cpp.o
+[284/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/custom_class.cpp.o
+[285/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/dispatch/Dispatcher.cpp.o
+[286/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/dynamic_type.cpp.o
+[287/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/dispatch/OperatorEntry.cpp.o
+[288/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/function_schema.cpp.o
+[289/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/interned_strings.cpp.o
+[290/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/op_registration/infer_schema.cpp.o
+[291/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/op_registration/op_registration.cpp.o
+[292/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/library.cpp.o
+[293/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/operator_name.cpp.o
+[294/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/ivalue.cpp.o
+[295/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/register_symbols.cpp.o
+[296/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/tensor_type.cpp.o
+[297/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/type_factory.cpp.o
+[298/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/error_report.cpp.o
+[299/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/union_type.cpp.o
+[300/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/type.cpp.o
+[301/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/strtod.cpp.o
+[302/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/lexer.cpp.o
+[303/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/function_schema_parser.cpp.o
+[304/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Activation.cpp.o
+[305/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/schema_type_parser.cpp.o
+[306/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/source_range.cpp.o
+[307/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AdaptiveMaxPooling2d.cpp.o
+[308/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AdaptiveAveragePooling.cpp.o
+[309/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AdaptiveMaxPooling3d.cpp.o
+[310/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AdaptiveAveragePooling3d.cpp.o
+[311/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AmpKernels.cpp.o
+[312/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AffineGridGenerator.cpp.o
+[313/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AutogradComposite.cpp.o
+[314/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AveragePool2d.cpp.o
+[315/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/AveragePool3d.cpp.o
+[316/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/BatchLinearAlgebraKernel.cpp.o
+[317/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/BatchLinearAlgebra.cpp.o
+[318/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/BinaryOps.cpp.o
+[319/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/BlasKernel.cpp.o
+[320/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Blas.cpp.o
+[321/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/CPUBlas.cpp.o
+[322/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Bucketization.cpp.o
+[323/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/CPUFallback.cpp.o
+[324/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ChanelShuffle.cpp.o
+[325/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ComparisonUtils.cpp.o
+[326/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Col2Im.cpp.o
+[327/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Constraints.cpp.o
+[328/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Convolution.cpp.o
+[329/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ConvolutionMM2d.cpp.o
+[330/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ConvolutionTBC.cpp.o
+[331/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ConvolutionMM3d.cpp.o
+[332/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Correlation.cpp.o
+[333/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Cross.cpp.o
+[334/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Copy.cpp.o
+[335/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/DispatchStub.cpp.o
+[336/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/DilatedMaxPool2d.cpp.o
+[337/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/DilatedMaxPool3d.cpp.o
+[338/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Distance.cpp.o
+[339/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Dropout.cpp.o
+[340/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Distributions.cpp.o
+[341/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Embedding.cpp.o
+[342/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Fill.cpp.o
+[343/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ForeachOpsKernels.cpp.o
+[344/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FractionalMaxPool2d.cpp.o
+[345/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/EmbeddingBag.cpp.o
+[346/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FractionalMaxPool3d.cpp.o
+[347/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FunctionOfAMatrixUtils.cpp.o
+[348/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FusedAdagrad.cpp.o
+[349/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FusedAdam.cpp.o
+[350/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/FusedSGD.cpp.o
+[351/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/GatedLinearUnit.cpp.o
+[352/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Histogram.cpp.o
+[353/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/GridSampler.cpp.o
+[354/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/IndexingUtils.cpp.o
+[355/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Im2Col.cpp.o
+[356/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Integration.cpp.o
+[357/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Itertools.cpp.o
+[358/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Lerp.cpp.o
+[359/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LegacyBatching.cpp.o
+[360/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Linear.cpp.o
+[361/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Loss.cpp.o
+[362/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LossCTC.cpp.o
+[363/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LossMultiLabelMargin.cpp.o
+[364/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LossMultiMargin.cpp.o
+[365/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LinearAlgebra.cpp.o
+[366/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/MaxPooling.cpp.o
+[367/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/MaxUnpooling.cpp.o
+[368/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LossNLL.cpp.o
+[369/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/LossNLL2d.cpp.o
+[370/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/MetaTensor.cpp.o
+[371/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Memory.cpp.o
+[372/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NNPACK.cpp.o
+[373/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NaiveConvolutionTranspose3d.cpp.o
+[374/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NaiveConvolutionTranspose2d.cpp.o
+[375/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NamedTensor.cpp.o
+[376/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NaiveDilatedConvolution.cpp.o
+[377/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/NegateFallback.cpp.o
+[378/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Onehot.cpp.o
+[379/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/PackedSequence.cpp.o
+[380/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/PadNd.cpp.o
+[381/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/PixelShuffle.cpp.o
+[382/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/PointwiseOps.cpp.o
+[383/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Normalization.cpp.o
+[384/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Pooling.cpp.o
+[385/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Pow.cpp.o
+[386/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/QuantizedLinear.cpp.o
+[387/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ReduceAllOps.cpp.o
+[388/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/RangeFactories.cpp.o
+[389/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ReduceOps.cpp.o
+[390/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/RNN.cpp.o
+[391/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ReflectionPad.cpp.o
+[392/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Repeat.cpp.o
+[393/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ReplicationPadding.cpp.o
+[394/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Resize.cpp.o
+[395/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/RowwisePrune.cpp.o
+[396/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Scalar.cpp.o
+[397/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SobolEngineOps.cpp.o
+[398/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SobolEngineOpsUtils.cpp.o
+[399/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SegmentReduce.cpp.o
+[400/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SoftMax.cpp.o
+[401/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SpectralOps.cpp.o
+[402/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SummaryOps.cpp.o
+[403/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Sorting.cpp.o
+[404/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/SparseTensorUtils.cpp.o
+[405/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorCompare.cpp.o
+[406/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorFactories.cpp.o
+[407/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorIteratorReduce.cpp.o
+[408/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorProperties.cpp.o
+[409/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorConversions.cpp.o
+[410/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorAdvancedIndexing.cpp.o
+[411/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorTransformations.cpp.o
+[412/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TestOps.cpp.o
+[413/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TensorShape.cpp.o
+[414/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Unfold2d.cpp.o
+[415/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TypeProperties.cpp.o
+[416/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UnaryOps.cpp.o
+[417/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/TriangularOps.cpp.o
+[418/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UnfoldBackward.cpp.o
+[419/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Unfold3d.cpp.o
+[420/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSample.cpp.o
+[421/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleBicubic2d.cpp.o
+[422/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleBilinear2d.cpp.o
+[423/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleLinear1d.cpp.o
+[424/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/Unique.cpp.o
+[425/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleNearest1d.cpp.o
+[426/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleNearest2d.cpp.o
+[427/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleNearest3d.cpp.o
+[428/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/UpSampleTrilinear3d.cpp.o
+[429/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/VariableMethodStubs.cpp.o
+[430/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/WeightNorm.cpp.o
+[431/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/group_norm.cpp.o
+[432/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/prim_native_functions.cpp.o
+[433/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/layer_norm.cpp.o
+[434/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/library.cpp.o
+[435/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/fbgemm_utils.cpp.o
+[436/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear.cpp.o
+[437/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear_dynamic.cpp.o
+[438/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear_deserialize.cpp.o
+[439/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear_prepack.cpp.o
+[440/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear_serialize.cpp.o
+[441/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/ao_sparse/quantized/cpu/qlinear_unpack.cpp.o
+[442/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/ParamUtils.cpp.o
+[443/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/FlattenIndicesKernel.cpp.o
+[444/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SoftMax.cpp.o
+[445/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseBlas.cpp.o
+[446/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseBinaryOpIntersectionKernel.cpp.o
+[447/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseBlasImpl.cpp.o
+[448/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseCsrTensor.cpp.o
+[449/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseFactories.cpp.o
+[450/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseMatMul.cpp.o
+[451/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseTensor.cpp.o
+[452/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseUnaryOps.cpp.o
+[453/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/ValidateCompressedIndicesKernel.cpp.o
+[454/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseTensorMath.cpp.o
+[455/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/sparse/SparseCsrTensorMath.cpp.o
+[456/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorAliases.cpp.o
+[457/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorBackward.cpp.o
+[458/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorBinaryOps.cpp.o
+[459/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorFactories.cpp.o
+[460/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorMath.cpp.o
+[461/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorMatmul.cpp.o
+[462/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorTransformerFunctions.cpp.o
+[463/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorUnaryOps.cpp.o
+[464/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/AffineQuantizer.cpp.o
+[465/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/nested/NestedTensorUtils.cpp.o
+[466/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/AffineQuantizerBase.cpp.o
+[467/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/Copy.cpp.o
+[468/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/FakeQuantPerTensorAffine.cpp.o
+[469/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/FakeQuantPerChannelAffine.cpp.o
+[470/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/QTensor.cpp.o
+[471/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/AdaptiveAveragePooling.cpp.o
+[472/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/TensorFactories.cpp.o
+[473/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/TensorCompare.cpp.o
+[474/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/TensorAdvancedIndexing.cpp.o
+[475/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/AveragePool2d.cpp.o
+[476/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/ChannelShuffle.cpp.o
+[477/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/AveragePool3d.cpp.o
+[478/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/BinaryOps.cpp.o
+[479/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/IntReprQuant.cpp.o
+[480/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/MakePerTensorQuantizedTensor.cpp.o
+[481/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/LinearUnpackImpl.cpp.o
+[482/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/Normalization.cpp.o
+[483/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/ReduceOps.cpp.o
+[484/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/Sorting.cpp.o
+[485/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/Pooling.cpp.o
+[486/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/TensorOperators.cpp.o
+[487/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/UpSampleBilinear2d.cpp.o
+[488/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/TensorShape.cpp.o
+[489/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/UpSampleNearest2d.cpp.o
+[490/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/UpSampleNearest3d.cpp.o
+[491/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/fused_obs_fake_quant.cpp.o
+[492/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qclamp.cpp.o
+[493/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qconv.cpp.o
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/native/quantized/cpu/qconv.cpp:98:23: warning: function 'compute_deconv_shape' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+   98 | static inline int64_t compute_deconv_shape(int64_t input,
+      |                       ^~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[494/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qconv_dynamic.cpp.o
+[495/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/fbgemm_utils.cpp.o
+[496/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qconv_prepack.cpp.o
+[497/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qelu.cpp.o
+[498/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qconv_unpack_impl.cpp.o
+[499/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qdropout.cpp.o
+[500/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qembeddingbag.cpp.o
+[501/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qembeddingbag_prepack.cpp.o
+[502/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qembeddingbag_unpack.cpp.o
+[503/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qgelu.cpp.o
+[504/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qhardsigmoid.cpp.o
+[505/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qhardswish.cpp.o
+[506/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qlinear.cpp.o
+[507/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qlinear_dynamic.cpp.o
+[508/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qlinear_prepack.cpp.o
+[509/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qnormalization.cpp.o
+[510/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qmul.cpp.o
+[511/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qrelu.cpp.o
+[512/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qmatmul.cpp.o
+[513/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qsigmoid.cpp.o
+[514/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qtanh.cpp.o
+[515/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qthreshold.cpp.o
+[516/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/qsoftmax.cpp.o
+[517/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/library.cpp.o
+[518/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkl/LinearAlgebra.cpp.o
+[519/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/qconv_unpack.cpp.o
+[520/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkl/SparseBlasImpl.cpp.o
+[521/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkl/SparseCsrLinearAlgebra.cpp.o
+[522/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/qlinear_unpack.cpp.o
+[523/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/BinaryOps.cpp.o
+[524/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkl/SpectralOps.cpp.o
+[525/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Conv.cpp.o
+[526/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Copy.cpp.o
+[527/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Gelu.cpp.o
+[528/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/ConvPrepack.cpp.o
+[529/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Linear.cpp.o
+[530/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/MKLDNNCommon.cpp.o
+[531/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/MKLDNNConversions.cpp.o
+[532/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/MkldnnTensorMath.cpp.o
+[533/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Matmul.cpp.o
+[534/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Normalization.cpp.o
+[535/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Pooling.cpp.o
+[536/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Relu.cpp.o
+[537/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/OpContext.cpp.o
+[538/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Prelu.cpp.o
+[539/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/SoftMax.cpp.o
+[540/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/TensorFactories.cpp.o
+[541/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/RNN.cpp.o
+[542/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/TensorShape.cpp.o
+[543/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/UnaryOps.cpp.o
+[544/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/mkldnn/Utils.cpp.o
+[545/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/transformers/attention.cpp.o
+[546/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/transformers/sdp_utils_cpp.cpp.o
+[547/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/transformers/transformer.cpp.o
+[548/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/xnnpack/Shim.cpp.o
+[549/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/utils/Factory.cpp.o
+[550/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CompositeViewCopyKernels.cpp.o
+[551/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Functions.cpp.o
+[552/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Operators_0.cpp.o
+[553/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Operators_1.cpp.o
+[554/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Operators_3.cpp.o
+[555/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterBackendSelect.cpp.o
+[556/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Operators_2.cpp.o
+[557/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCPU_0.cpp.o
+[558/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCPU_2.cpp.o
+[559/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCPU_1.cpp.o
+[560/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Operators_4.cpp.o
+[561/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCompositeImplicitAutogradNestedTensor_0.cpp.o
+[562/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCPU_3.cpp.o
+[563/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCompositeExplicitAutogradNonFunctional_0.cpp.o
+[564/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterFunctionalization_0.cpp.o
+[565/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCompositeExplicitAutograd_0.cpp.o
+[566/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterCompositeImplicitAutograd_0.cpp.o
+[567/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterFunctionalization_1.cpp.o
+[568/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterFunctionalization_2.cpp.o
+[569/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterMkldnnCPU_0.cpp.o
+[570/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterFunctionalization_3.cpp.o
+[571/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterNestedTensorCPU_0.cpp.o
+[572/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterNestedTensorHPU_0.cpp.o
+[573/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterNestedTensorMeta_0.cpp.o
+[574/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterNestedTensorXPU_0.cpp.o
+[575/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterMeta_0.cpp.o
+[576/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterQuantizedMeta_0.cpp.o
+[577/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterQuantizedCPU_0.cpp.o
+[578/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSchema.cpp.o
+[579/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseCPU_0.cpp.o
+[580/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseCsrXPU_0.cpp.o
+[581/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseCsrCPU_0.cpp.o
+[582/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseCsrMeta_0.cpp.o
+[583/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/UfuncCPU_add.cpp.o
+[584/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseXPU_0.cpp.o
+[585/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterZeroTensor_0.cpp.o
+[586/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/RegisterSparseMeta_0.cpp.o
+[587/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/ATenOpList.cpp.o
+[588/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/core/TensorMethods.cpp.o
+[589/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/quantized/QTensorImpl.cpp.o
+[590/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/nnapi/nnapi_model_loader.cpp.o
+[591/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/nnapi/nnapi_wrapper.cpp.o
+[592/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/UfuncCPUKernel_add.cpp.DEFAULT.cpp.o
+[593/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/quantized/Quantizer.cpp.o
+[594/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/nnapi/nnapi_bind.cpp.o
+[595/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/spherical_bessel_j0.cpp.DEFAULT.cpp.o
+[596/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/nnapi/nnapi_register.cpp.o
+[597/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/scaled_modified_bessel_k1.cpp.DEFAULT.cpp.o
+[598/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/scaled_modified_bessel_k0.cpp.DEFAULT.cpp.o
+[599/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/int8mm_kernel.cpp.DEFAULT.cpp.o
+[600/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/int4mm_kernel.cpp.DEFAULT.cpp.o
+[601/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/layer_norm_kernel.cpp.DEFAULT.cpp.o
+[602/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/airy_ai.cpp.DEFAULT.cpp.o
+[603/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/WeightNormKernel.cpp.DEFAULT.cpp.o
+[604/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/group_norm_kernel.cpp.DEFAULT.cpp.o
+[605/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/batch_norm_kernel.cpp.DEFAULT.cpp.o
+[606/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/quantized/cpu/kernels/QuantizedOpKernels.cpp.DEFAULT.cpp.o
+[607/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/UnfoldBackwardKernel.cpp.DEFAULT.cpp.o
+[608/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/Unfold2d.cpp.DEFAULT.cpp.o
+[609/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/UpSampleMoreKernel.cpp.DEFAULT.cpp.o
+[610/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/UpSampleKernel.cpp.DEFAULT.cpp.o
+[611/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/StackKernel.cpp.DEFAULT.cpp.o
+[612/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SumKernel.cpp.DEFAULT.cpp.o
+[613/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SparseFactories.cpp.DEFAULT.cpp.o
+[614/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/TensorCompareKernel.cpp.DEFAULT.cpp.o
+[615/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SoftMaxKernel.cpp.DEFAULT.cpp.o
+[616/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/UnaryOpsKernel.cpp.DEFAULT.cpp.o
+[617/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SampledAddmmKernel.cpp.DEFAULT.cpp.o
+[618/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SpmmReduceKernel.cpp.DEFAULT.cpp.o
+[619/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/RenormKernel.cpp.DEFAULT.cpp.o
+[620/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ReducedPrecisionFloatGemvFastPathKernel.cpp.DEFAULT.cpp.o
+[621/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ScatterGatherKernel.cpp.DEFAULT.cpp.o
+[622/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ReduceAllOpsKernel.cpp.DEFAULT.cpp.o
+[623/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/RangeFactoriesKernel.cpp.DEFAULT.cpp.o
+[624/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/PowKernel.cpp.DEFAULT.cpp.o
+[625/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ReduceOpsKernel.cpp.DEFAULT.cpp.o
+[626/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/PointwiseOpsKernel.cpp.DEFAULT.cpp.o
+[627/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/NativeMultiheadAttnKernel.cpp.DEFAULT.cpp.o
+[628/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/PixelShuffleKernel.cpp.DEFAULT.cpp.o
+[629/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/SortingKernel.cpp.DEFAULT.cpp.o
+[630/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/MultinomialKernel.cpp.DEFAULT.cpp.o
+[631/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/MaxUnpoolKernel.cpp.DEFAULT.cpp.o
+[632/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/MaxPooling.cpp.DEFAULT.cpp.o
+[633/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/LinearAlgebraKernel.cpp.DEFAULT.cpp.o
+[634/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/LerpKernel.cpp.DEFAULT.cpp.o
+[635/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/MaxPoolKernel.cpp.DEFAULT.cpp.o
+[636/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/HistogramKernel.cpp.DEFAULT.cpp.o
+[637/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/PaddingKernel.cpp.DEFAULT.cpp.o
+[638/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FusedSGDKernel.cpp.DEFAULT.cpp.o
+[639/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/IndexKernel.cpp.DEFAULT.cpp.o
+[640/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FusedAdagradKernel.cpp.DEFAULT.cpp.o
+[641/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FusedAdamKernel.cpp.DEFAULT.cpp.o
+[642/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FunctionOfAMatrixUtilsKernel.cpp.DEFAULT.cpp.o
+[643/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FillKernel.cpp.DEFAULT.cpp.o
+[644/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/DistributionKernels.cpp.DEFAULT.cpp.o
+[645/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/DistanceOpsKernel.cpp.DEFAULT.cpp.o
+[646/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/DepthwiseConvKernel.cpp.DEFAULT.cpp.o
+[647/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/CrossKernel.cpp.DEFAULT.cpp.o
+[648/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ComplexKernel.cpp.DEFAULT.cpp.o
+[649/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/ChannelShuffleKernel.cpp.DEFAULT.cpp.o
+[650/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/CatKernel.cpp.DEFAULT.cpp.o
+[651/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/BlasKernel.cpp.DEFAULT.cpp.o
+[652/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/GridSamplerKernel.cpp.DEFAULT.cpp.o
+[653/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/AvgPoolKernel.cpp.DEFAULT.cpp.o
+[654/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/CopyKernel.cpp.DEFAULT.cpp.o
+[655/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/AmpGradScalerKernels.cpp.DEFAULT.cpp.o
+[656/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/AdaptiveMaxPoolKernel.cpp.DEFAULT.cpp.o
+[657/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/AdaptiveAvgPoolKernel.cpp.DEFAULT.cpp.o
+[658/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/vulkan/Context.cpp.o
+[659/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/metal/Context.cpp.o
+[660/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/core/common.cc.o
+[661/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/serialize/inline_container.cc.o
+[662/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/Activation.cpp.DEFAULT.cpp.o
+[663/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/serialize/istream_adapter.cc.o
+[664/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/serialize/read_adapter_interface.cc.o
+[665/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.DEFAULT.cpp.o
+[666/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/serialize/file_adapter.cc.o
+[667/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/utils/threadpool/ThreadPool.cc.o
+[668/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/utils/proto_wrap.cc.o
+[669/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/perfkernels/embedding_lookup_idx.cc.o
+[670/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/FlashAttentionKernel.cpp.DEFAULT.cpp.o
+[671/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/ViewFuncs.cpp.o
+[672/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_0.cpp.o
+[673/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_1.cpp.o
+[674/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/Functions.cpp.o
+[675/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_2.cpp.o
+[676/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_3.cpp.o
+[677/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_4.cpp.o
+[678/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/TraceType_0.cpp.o
+[679/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/TraceType_1.cpp.o
+[680/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/ADInplaceOrViewType_0.cpp.o
+[681/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/TraceType_3.cpp.o
+[682/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/TraceType_4.cpp.o
+[683/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/generated/c_shim_cpu.cpp.o
+[684/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/TraceType_2.cpp.o
+[685/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/generated/RegisterAutogradLazy.cpp.o
+[686/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/ADInplaceOrViewType_1.cpp.o
+[687/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/anomaly_mode.cpp.o
+[688/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/autograd_meta.cpp.o
+[689/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/autograd.cpp.o
+[690/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/generated/RegisterLazy.cpp.o
+[691/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/autograd_not_implemented_fallback.cpp.o
+[692/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/cpp_hook.cpp.o
+[693/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/forward_grad.cpp.o
+[694/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/generated/LazyNativeFunctions.cpp.o
+[695/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/custom_function.cpp.o
+[696/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/engine.cpp.o
+[697/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/function.cpp.o
+[698/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/functions/accumulate_grad.cpp.o
+[699/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/functions/utils.cpp.o
+[700/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/functions/basic_ops.cpp.o
+[701/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/input_metadata.cpp.o
+[702/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/functions/tensor.cpp.o
+[703/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/jit_decomp_interface.cpp.o
+[704/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/input_buffer.cpp.o
+[705/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/saved_variable.cpp.o
+[706/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/profiler_kineto.cpp.o
+[707/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/utils/warnings.cpp.o
+[708/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/record_function_ops.cpp.o
+[709/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/profiler_legacy.cpp.o
+[710/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/variable_info.cpp.o
+[711/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/dynamo/compiled_autograd.cpp.o
+[712/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_package/model_package_loader.cpp.o
+[713/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_runner/model_container_runner_cpu.cpp.o
+[714/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/variable.cpp.o
+[715/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/mkldnn_tensor.cpp.o
+[716/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_runner/model_container_runner.cpp.o
+[717/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/shim_cpu.cpp.o
+[718/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/tensor_converter.cpp.o
+[719/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/shim_common.cpp.o
+[720/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/aoti_torch/oss_proxy_executor.cpp.o
+[721/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/inductor/inductor_ops.cpp.o
+[722/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/api/function_impl.cpp.o
+[723/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/api/object.cpp.o
+[724/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/api/module.cpp.o
+[725/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/backends/backend_debug_handler.cpp.o
+[726/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/backends/backend_debug_info.cpp.o
+[727/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/backends/backend_interface.cpp.o
+[728/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/backends/backend_detail.cpp.o
+[729/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/backends/backend_resolver.cpp.o
+[730/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/codegen.cpp.o
+[731/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/compiler.cpp.o
+[732/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/executor.cpp.o
+[733/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/fallback.cpp.o
+[734/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/interface.cpp.o
+[735/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/builtin_functions.cpp.o
+[736/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/canonicalize_modified_loop.cpp.o
+[737/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/kernel_cache.cpp.o
+[738/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/inline_loop_condition.cpp.o
+[739/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/exit_transforms.cpp.o
+[740/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/convert_to_ssa.cpp.o
+[741/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/name_mangler.cpp.o
+[742/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/parser.cpp.o
+[743/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/schema_matching.cpp.o
+[744/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/script_type_parser.cpp.o
+[745/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/ir_emitter.cpp.o
+[746/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/sugared_value.cpp.o
+[747/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/versioned_symbols.cpp.o
+[748/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/frontend/tracer.cpp.o
+[749/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/attributes.cpp.o
+[750/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/alias_analysis.cpp.o
+[751/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/graph_utils.cpp.o
+[752/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/constants.cpp.o
+[753/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/ir.cpp.o
+[754/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/irparser.cpp.o
+[755/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/node_hashing.cpp.o
+[756/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/scope.cpp.o
+[757/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/type_hashing.cpp.o
+[758/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/jit_log.cpp.o
+[759/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/ir/subgraph_matcher.cpp.o
+[760/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/jit_opt_limit.cpp.o
+[761/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/compatibility/runtime_compatibility.cpp.o
+[762/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/compatibility/model_compatibility.cpp.o
+[763/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/function.cpp.o
+[764/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/interpreter.cpp.o
+[765/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/import.cpp.o
+[766/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/flatbuffer_loader.cpp.o
+[767/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/module.cpp.o
+[768/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/nnc/registry.cpp.o
+[769/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/nnc/backend.cpp.o
+[770/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/parse_bytecode.cpp.o
+[771/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/parse_operators.cpp.o
+[772/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/nnc/context.cpp.o
+[773/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/prim_ops_registery.cpp.o
+[774/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/nnc/aot_compiler.cpp.o
+[775/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/promoted_prim_ops.cpp.o
+[776/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/quantization.cpp.o
+[777/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/register_ops_common_utils.cpp.o
+[778/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/type_parser.cpp.o
+[779/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/upgrader_mobile.cpp.o
+[780/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/operator_upgraders/upgraders.cpp.o
+[781/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/add_if_then_else.cpp.o
+[782/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/operator_upgraders/upgraders_entry.cpp.o
+[783/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/annotate_warns.cpp.o
+[784/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/canonicalize.cpp.o
+[785/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/canonicalize_graph_fuser_ops.cpp.o
+[786/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/bailout_graph.cpp.o
+[787/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/batch_mm.cpp.o
+[788/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/check_strict_fusion.cpp.o
+[789/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/common_subexpression_elimination.cpp.o
+[790/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/clear_undefinedness.cpp.o
+[791/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/clear_profiling.cpp.o
+[792/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/concat_opt.cpp.o
+[793/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/constant_pooling.cpp.o
+[794/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/constant_propagation.cpp.o
+[795/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/create_autodiff_subgraphs.cpp.o
+[796/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/create_functional_graphs.cpp.o
+[797/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/dbr_quantization/remove_redundant_aliases.cpp.o
+[798/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/dead_code_elimination.cpp.o
+[799/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/decompose_ops.cpp.o
+[800/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/device_type_analysis.cpp.o
+[801/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/dtype_analysis.cpp.o
+[802/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/eliminate_no_ops.cpp.o
+[803/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/erase_number_types.cpp.o
+[804/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/fixup_trace_scope_blocks.cpp.o
+[805/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/fold_linear_bn.cpp.o
+[806/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/fold_conv_bn.cpp.o
+[807/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_concat_linear.cpp.o
+[808/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_conv_add_relu_fusion.cpp.o
+[809/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_conv_folding.cpp.o
+[810/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/freeze_module.cpp.o
+[811/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_graph_optimizations.cpp.o
+[812/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_linear_folding.cpp.o
+[813/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_linear_transpose.cpp.o
+[814/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/fuse_linear.cpp.o
+[815/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/fuse_relu.cpp.o
+[816/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/frozen_ops_to_mkldnn.cpp.o
+[817/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/graph_rewrite_helper.cpp.o
+[818/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/graph_fuser.cpp.o
+[819/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/hoist_conv_packed_params.cpp.o
+[820/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/guard_elimination.cpp.o
+[821/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/inline_autodiff_subgraphs.cpp.o
+[822/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/inline_fork_wait.cpp.o
+[823/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/inline_forked_closures.cpp.o
+[824/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/inliner.cpp.o
+[825/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/inplace_check.cpp.o
+[826/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/integer_value_refinement.cpp.o
+[827/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/insert_guards.cpp.o
+[828/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/lift_closures.cpp.o
+[829/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/lower_grad_of.cpp.o
+[830/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/liveness.cpp.o
+[831/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/loop_unrolling.cpp.o
+[832/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/lower_tuples.cpp.o
+[833/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/normalize_ops.cpp.o
+[834/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/pass_manager.cpp.o
+[835/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/metal_rewrite.cpp.o
+[836/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/mkldnn_rewrite.cpp.o
+[837/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/peephole.cpp.o
+[838/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/peephole_alias_sensitive.cpp.o
+[839/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/peephole_dict_idioms.cpp.o
+[840/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/peephole_non_tensor.cpp.o
+[841/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/peephole_list_idioms.cpp.o
+[842/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/prepack_folding.cpp.o
+[843/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/dedup_module_uses.cpp.o
+[844/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/fusion_passes.cpp.o
+[845/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/helper.cpp.o
+[846/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/finalize.cpp.o
+[847/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/insert_quant_dequant.cpp.o
+[848/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/insert_observers.cpp.o
+[849/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/refine_tuple_types.cpp.o
+[850/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/quantization/register_packed_params.cpp.o
+[851/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_exceptions.cpp.o
+[852/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_expands.cpp.o
+[853/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_dropout.cpp.o
+[854/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_mutation.cpp.o
+[855/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_redundant_profiles.cpp.o
+[856/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/replacement_of_old_operators.cpp.o
+[857/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/requires_grad_analysis.cpp.o
+[858/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/restore_mutation.cpp.o
+[859/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/subgraph_rewrite.cpp.o
+[860/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/shape_analysis.cpp.o
+[861/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/specialize_autogradzero.cpp.o
+[862/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/symbolic_shape_analysis.cpp.o
+[863/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/symbolic_shape_cache.cpp.o
+[864/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/update_differentiable_graph_requires_grad.cpp.o
+[865/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/utils/memory_dag.cpp.o
+[866/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/symbolic_shape_runtime_fusion.cpp.o
+[867/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/utils/op_registry.cpp.o
+[868/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/utils/optimization_utils.cpp.o
+[869/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/tensorexpr_fuser.cpp.o
+[870/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/value_refinement_utils.cpp.o
+[871/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/utils/subgraph_utils.cpp.o
+[872/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/variadic_ops.cpp.o
+[873/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/python/update_graph_executor_opt.cpp.o
+[874/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/vulkan_rewrite.cpp.o
+[875/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/argument_spec.cpp.o
+[876/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/autodiff.cpp.o
+[877/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/xnnpack_rewrite.cpp.o
+[878/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/instruction.cpp.o
+[879/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/decomposition_registry_util.cpp.o
+[880/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/decomposition_registry.cpp.o
+[881/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/interpreter/preprocess_graph.cpp.o
+[882/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/interpreter/frame.cpp.o
+[883/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/graph_executor.cpp.o
+[884/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/interpreter.cpp.o
+[885/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/operator.cpp.o
+[886/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/jit_trace.cpp.o
+[887/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/profiling_graph_executor_impl.cpp.o
+[888/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/profiling_record.cpp.o
+[889/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/script_profile.cpp.o
+[890/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/slice_indices_adjust.cpp.o
+[891/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/serialized_shape_function_registry.cpp.o
+[892/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/register_ops_utils.cpp.o
+[893/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/fusion.cpp.o
+[894/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/simple_graph_executor_impl.cpp.o
+[895/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/impl.cpp.o
+[896/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/memory_planner.cpp.o
+[897/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/passes.cpp.o
+[898/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/native_ops.cpp.o
+[899/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/symbolic_script.cpp.o
+[900/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/ops.cpp.o
+[901/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/te_wrapper.cpp.o
+[902/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/static/generated_ops.cpp.o
+[903/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/symbolic_shape_registry_util.cpp.o
+[904/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/vararg_functions.cpp.o
+[905/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/symbolic_shape_registry.cpp.o
+[906/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/callstack_debug_info_serialization.cpp.o
+[907/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/import_export_helpers.cpp.o
+[908/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/import_read.cpp.o
+[909/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/pickle.cpp.o
+[910/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/import_source.cpp.o
+[911/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/import.cpp.o
+[912/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/pickler.cpp.o
+[913/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/type_name_uniquer.cpp.o
+[914/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/source_range_serialization.cpp.o
+[915/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/python_print.cpp.o
+[916/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/block_codegen.cpp.o
+[917/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/bounds_inference.cpp.o
+[918/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/unpickler.cpp.o
+[919/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/bounds_overlap.cpp.o
+[920/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/codegen.cpp.o
+[921/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/cpp_codegen.cpp.o
+[922/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/expr.cpp.o
+[923/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/eval.cpp.o
+[924/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/external_functions_codegen.cpp.o
+[925/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/external_functions_core.cpp.o
+[926/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/external_functions.cpp.o
+[927/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir.cpp.o
+[928/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/hash_provider.cpp.o
+[929/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/graph_opt.cpp.o
+[930/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_cloner.cpp.o
+[931/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_mutator.cpp.o
+[932/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_printer.cpp.o
+[933/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_verifier.cpp.o
+[934/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_visitor.cpp.o
+[935/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/ir_simplifier.cpp.o
+[936/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/kernel.cpp.o
+[937/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/loopnest_randomization.cpp.o
+[938/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/loopnest.cpp.o
+[939/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/conv2d.cpp.o
+[940/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/mem_dependency_checker.cpp.o
+[941/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/matmul.cpp.o
+[942/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/lowerings.cpp.o
+[943/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/norm.cpp.o
+[944/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/misc.cpp.o
+[945/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/pointwise.cpp.o
+[946/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/reduction.cpp.o
+[947/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/quantization.cpp.o
+[948/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/reduction.cpp.o
+[949/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/types.cpp.o
+[950/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/operators/softmax.cpp.o
+[951/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/tensor.cpp.o
+[952/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/unique_name_manager.cpp.o
+[953/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/testing/file_check.cpp.o
+[954/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/tensorexpr/registerizer.cpp.o
+[955/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/testing/hooks_for_testing.cpp.o
+[956/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/backend/backend_device.cpp.o
+[957/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/config.cpp.o
+[958/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/hash.cpp.o
+[959/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/backend/backend_interface.cpp.o
+[960/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/backend/lowering_context.cpp.o
+[961/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/debug_util.cpp.o
+[962/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/helpers.cpp.o
+[963/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ir.cpp.o
+[964/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ir_dump_util.cpp.o
+[965/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ir_metadata.cpp.o
+[966/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ir_util.cpp.o
+[967/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ops/arithmetic_ir_ops.cpp.o
+[968/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/lazy_graph_executor.cpp.o
+[969/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/metrics.cpp.o
+[970/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/permutation_util.cpp.o
+[971/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/ops/utils.cpp.o
+[972/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/shape.cpp.o
+[973/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/tensor.cpp.o
+[974/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/tensor_impl.cpp.o
+[975/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/thread_pool.cpp.o
+[976/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/monitor/counters.cpp.o
+[977/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/monitor/events.cpp.o
+[978/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/shape_inference.cpp.o
+[979/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/tensor_util.cpp.o
+[980/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/core/trie.cpp.o
+[981/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/mtia/profiler/MTIAMemoryProfiler.cpp.o
+[982/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/combined_traceback.cpp.o
+[983/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/data_flow.cpp.o
+[984/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/kineto_shim.cpp.o
+[985/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/orchestration/observer.cpp.o
+[986/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/collection.cpp.o
+[987/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/perf.cpp.o
+[988/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/orchestration/python_tracer.cpp.o
+[989/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/orchestration/vulkan.cpp.o
+[990/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/standalone/itt_observer.cpp.o
+[991/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/standalone/nvtx_observer.cpp.o
+[992/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/standalone/privateuse1_observer.cpp.o
+[993/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/stubs/base.cpp.o
+[994/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/unwind/unwind.cpp.o
+[995/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/standalone/execution_trace_observer.cpp.o
+[996/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/cpp_stacktraces.cpp.o
+[997/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/variadic.cpp.o
+[998/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/schema_info.cpp.o
+[999/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/profiler/util.cpp.o
+[1000/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/tensor_flatten.cpp.o
+[1001/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/lower_graph.cpp.o
+[1002/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/remove_inplace_ops.cpp.o
+[1003/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/autocast.cpp.o
+[1004/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/cuda/interface.cpp.o
+[1005/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/register_c10_ops.cpp.o
+[1006/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/passes/utils/check_alias_annotation.cpp.o
+[1007/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/register_prim_ops_fulljit.cpp.o
+[1008/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/register_special_ops.cpp.o
+[1009/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/runtime/register_prim_ops.cpp.o
+[1010/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/graph/Graph.cpp.o
+[1011/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/graph/GraphSignature.cpp.o
+[1012/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/graph/GraphPasses.cpp.o
+[1013/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/graph/TensorMeta.cpp.o
+[1014/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/Placement.cpp.o
+[1015/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/graph/Serialization.cpp.o
+[1016/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/DelegateExecutor.cpp.o
+[1017/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/ExecutionPlanner.cpp.o
+[1018/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/PlacementUtils.cpp.o
+[1019/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/ExecutionFrame.cpp.o
+[1020/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/GraphExecutorBase.cpp.o
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/nativert/executor/GraphExecutorBase.cpp:16:58: warning: extra ';' outside of a function is incompatible with C++98 [-Wc++98-compat-extra-semi]
+   16 |       execPlan_(ExecutionPlanner{graph_}.createPlan()) {};
+      |                                                          ^
+1 warning generated.
+[1021/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/memory/FunctionSchema.cpp.o
+[1022/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/OpKernel.cpp.o
+[1023/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/common/FileUtil.cpp.o
+[1024/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/SerialGraphExecutor.cpp.o
+[1025/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/Weights.cpp.o
+[1026/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/detail/ITree.cpp.o
+[1027/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/executor/memory/GreedyBySize.cpp.o
+[1028/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/kernels/C10Kernel.cpp.o
+[1029/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/kernels/AutoFunctionalizeKernel.cpp.o
+[1030/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/config.cpp.o
+[1031/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/debug_info.cpp.o
+[1032/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/dynamic_ir.cpp.o
+[1033/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/nativert/kernels/HigherOrderKernel.cpp.o
+[1034/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ops/device_data.cpp.o
+[1035/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ops/generic.cpp.o
+[1036/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_autograd_functions.cpp.o
+[1037/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/tensor_aten_ops.cpp.o
+[1038/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_lowering_context.cpp.o
+[1039/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_backend_impl.cpp.o
+[1040/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_eager_fallback.cpp.o
+[1041/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_node.cpp.o
+[1042/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_native_functions.cpp.o
+[1043/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/lazy/ts_backend/ts_node_lowering.cpp.o
+[1044/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/import_data.cpp.o
+[1045/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/export_data.cpp.o
+[1046/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/optim/sgd.cpp.o
+[1047/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/random.cpp.o
+[1048/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/sequential.cpp.o
+[1049/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/out_types.cpp.o
+[1050/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/flatbuffer_serializer.cpp.o
+[1051/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/TraceTypeManual.cpp.o
+[1052/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/compatibility/backport.cpp.o
+[1053/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/FunctionsManual.cpp.o
+[1054/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/VariableTypeManual.cpp.o
+[1055/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/jit.cpp.o
+[1056/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/onnx.cpp.o
+[1057/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/compatibility/backport_manager.cpp.o
+[1058/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/export_bytecode.cpp.o
+[1059/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/export.cpp.o
+[1060/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/codegen/fuser/cpu/fused_kernel.cpp.o
+[1061/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/utils/byte_order.cpp.o
+[1062/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/api/module_save.cpp.o
+[1063/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/cuda.cpp.o
+[1064/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/serialization/export_module.cpp.o
+[1065/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/data/datasets/mnist.cpp.o
+[1066/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/data/samplers/distributed.cpp.o
+[1067/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/enum.cpp.o
+[1068/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/data/samplers/random.cpp.o
+[1069/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/data/samplers/sequential.cpp.o
+[1070/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/mps.cpp.o
+[1071/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/imethod.cpp.o
+[1072/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/data/samplers/stream.cpp.o
+[1073/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/serialize.cpp.o
+[1074/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/init.cpp.o
+[1075/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/module.cpp.o
+[1076/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/_functions.cpp.o
+[1077/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/adaptive.cpp.o
+[1078/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/activation.cpp.o
+[1079/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/batchnorm.cpp.o
+[1080/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/normalization.cpp.o
+[1081/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/instancenorm.cpp.o
+[1082/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/conv.cpp.o
+[1083/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/dropout.cpp.o
+[1084/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/distance.cpp.o
+[1085/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/embedding.cpp.o
+[1086/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/fold.cpp.o
+[1087/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/linear.cpp.o
+[1088/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/loss.cpp.o
+[1089/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/pixelshuffle.cpp.o
+[1090/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/padding.cpp.o
+[1091/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/pooling.cpp.o
+[1092/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/upsampling.cpp.o
+[1093/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/rnn.cpp.o
+[1094/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/container/functional.cpp.o
+[1095/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/modules/transformer.cpp.o
+[1096/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/activation.cpp.o
+[1097/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/adaptive.cpp.o
+[1098/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/batchnorm.cpp.o
+[1099/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/embedding.cpp.o
+[1100/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/instancenorm.cpp.o
+[1101/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/normalization.cpp.o
+[1102/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/conv.cpp.o
+[1103/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/dropout.cpp.o
+[1104/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/linear.cpp.o
+[1105/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/padding.cpp.o
+[1106/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/pooling.cpp.o
+[1107/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/rnn.cpp.o
+[1108/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/vision.cpp.o
+[1109/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/transformer.cpp.o
+[1110/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/adagrad.cpp.o
+[1111/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/adam.cpp.o
+[1112/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/adamw.cpp.o
+[1113/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/optimizer.cpp.o
+[1114/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/lbfgs.cpp.o
+[1115/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/rmsprop.cpp.o
+[1116/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/schedulers/step_lr.cpp.o
+[1117/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/schedulers/lr_scheduler.cpp.o
+[1118/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/serialize.cpp.o
+[1119/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/schedulers/reduce_on_plateau_scheduler.cpp.o
+[1120/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/xpu.cpp.o
+[1121/1140] Building CXX object caffe2/CMakeFiles/torch.dir/__/empty.cpp.o
+[1122/1140] Building C object caffe2/CMakeFiles/torch_global_deps.dir/__/torch/csrc/empty.c.o
+[1123/1140] Building CXX object functorch/CMakeFiles/functorch.dir/csrc/dim/dim.cpp.o
+[1124/1140] Building C object functorch/CMakeFiles/functorch.dir/csrc/dim/dim_opcode.c.o
+[1125/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/optim/sgd.cpp.o
+[1126/1140] Linking CXX static library lib/libprotobuf-lite.a
+[1127/1140] Creating executable symlink bin/protoc.js
+[1128/1140] Linking C static library lib/libcpuinfo_internals.a
+[1129/1140] Linking CXX static library lib/libfmt.a
+[1130/1140] Linking C shared library lib/libtorch_global_deps.so
+emcc: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1131/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/serialize/input-archive.cpp.o
+[1132/1140] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/serialize/output-archive.cpp.o
+[1133/1140] Building CXX object functorch/CMakeFiles/functorch.dir/csrc/init_dim_only.cpp.o
+[1134/1140] Linking CXX shared library lib/libtorch_cpu.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1135/1140] Linking CXX shared library lib/libtorch.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[1136/1140] Linking CXX shared module functorch/functorch.so
+FAILED: [code=1] functorch/functorch.so 
+: && /home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -fPIC -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0 -O3 -DNDEBUG -DNDEBUG  -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -shared  -o functorch/functorch.so functorch/CMakeFiles/functorch.dir/csrc/dim/dim.cpp.o functorch/CMakeFiles/functorch.dir/csrc/dim/dim_opcode.c.o functorch/CMakeFiles/functorch.dir/csrc/init_dim_only.cpp.o  lib/libtorch.so  -ltorch_python  lib/libtorch_cpu.so  lib/libprotobuf.a  lib/libc10.so && :
+wasm-ld: error: unable to find library -ltorch_python
+em++: error: '/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/bin/wasm-ld -o functorch/functorch.so -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ functorch/CMakeFiles/functorch.dir/csrc/dim/dim.cpp.o functorch/CMakeFiles/functorch.dir/csrc/dim/dim_opcode.c.o functorch/CMakeFiles/functorch.dir/csrc/init_dim_only.cpp.o lib/libtorch.so -ltorch_python lib/libtorch_cpu.so lib/libprotobuf.a lib/libc10.so --fatal-warnings -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-b2b15c7d3f61/0.27.8/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/pic -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-cxx-exceptions -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --import-memory --strip-debug --export=PyInit__C --export=__wasm_call_ctors --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=__wasm_apply_data_relocs --experimental-pic --unresolved-symbols=import-dynamic -shared --no-export-dynamic' failed (returned 1)
+ninja: build stopped: cannot make progress due to previous errors.
+Building wheel torch-2.8.0a0+gitUnknown
+-- Building version 2.8.0a0+gitUnknown
+cmake -GNinja -DATEN_THREADING=NATIVE -DBUILD_CAFFE2=0 -DBUILD_DEPENDENCY_INDEX_URL=https://pypi.anaconda.org/pyodide/simple -DBUILD_ENV_SCRIPTS_DIR=/tmp/build-env-c9h4zlgz/bin -DBUILD_PYTHON=True -DBUILD_TEST=False -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXECUTABLE=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cmake -DCMAKE_INSTALL_PREFIX=/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch -DCMAKE_PREFIX_PATH=/tmp/build-env-c9h4zlgz/lib/python3.12/site-packages -DCMAKE_TOOLCHAIN_FILE=/workspace/.venv/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/Emscripten.cmake -DPython_EXECUTABLE=/tmp/build-env-c9h4zlgz/bin/python -DTORCH_BUILD_VERSION=2.8.0a0+gitUnknown -DUSE_CUDA=0 -DUSE_DISTRIBUTED=0 -DUSE_FBGEMM=0 -DUSE_GLOO=0 -DUSE_KINETO=0 -DUSE_LEGACY_PLATFORM=0 -DUSE_MKLDNN=0 -DUSE_MPI=0 -DUSE_NNPACK=0 -DUSE_NUMA=0 -DUSE_NUMPY=False -DUSE_OPENMP=0 -DUSE_PYTORCH_QNNPACK=0 -DUSE_QNNPACK=0 -DUSE_ROCM=0 -DUSE_TENSORPIPE=0 -DUSE_XNNPACK=0 -DUSE_XPU=0 /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0
+cmake --build . --target install --config Release -j 4 -- -k 0
+
+[2mTraceback (most recent call last):
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/vendor/_pypabuild.py", line 113, in _handle_build_error
+    yield
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 562, in build
+    built = _build_in_isolated_env(
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 349, in _build_in_isolated_env
+    return builder.build(
+           ^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 329, in build
+    return self._call_backend(f'build_{distribution}', output_directory, config_settings, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 375, in _call_backend
+    with self._handle_backend(hook_name):
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.venv/lib/python3.12/site-packages/build/_builder.py", line 391, in _handle_backend
+    raise BuildBackendException(exception, f'Backend subprocess exited when trying to invoke {hook}') from None
+build._exceptions.BuildBackendException: Backend subprocess exited when trying to invoke build_wheel[0m
+
+[91mERROR[0m Backend subprocess exited when trying to invoke build_wheel
+[1m[2026-09-22 17:49:07] Failed building package torch in 1371.8 seconds.[0m          
+BUILD_EXIT=1

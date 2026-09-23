@@ -1,0 +1,9 @@
+Resolving SDK version '4.0.10' to 'sdk-releases-8103ffedfb0c42d231c6af6859a5a1a832260b43-64bit'
+Installing SDK 'sdk-releases-8103ffedfb0c42d231c6af6859a5a1a832260b43-64bit'..
+Skipped installing node-24.19.0-64bit, already installed.
+Installing tool 'releases-8103ffedfb0c42d231c6af6859a5a1a832260b43-64bit'..
+Downloading: /workspace/.emsdk/downloads/8103ffedfb0c42d231c6af6859a5a1a832260b43-wasm-binaries.tar.xz from https://storage.googleapis.com/webassembly/emscripten-releases-builds/linux/8103ffedfb0c42d231c6af6859a5a1a832260b43/wasm-binaries.tar.xz, 303902856 Bytes
+ [----------------------------------------------------------------------------]
+Unpacking '/workspace/.emsdk/downloads/8103ffedfb0c42d231c6af6859a5a1a832260b43-wasm-binaries.tar.xz' to '/workspace/.emsdk/upstream'
+Done installing tool 'releases-8103ffedfb0c42d231c6af6859a5a1a832260b43-64bit'.
+Done installing SDK 'sdk-releases-8103ffedfb0c42d231c6af6859a5a1a832260b43-64bit'.

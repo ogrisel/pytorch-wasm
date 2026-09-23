@@ -1,0 +1,41 @@
+Loading micropip, packaging
+Loaded micropip, packaging
+packaging already loaded from default channel
+Loading Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+Loaded Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+### FIRST THROW type= ###
+Error
+    at ___cxa_throw (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:164090)
+    at wasm://wasm/0268cb26:wasm-function[12169]:0x518311
+    at wasm://wasm/0268cb26:wasm-function[12158]:0x518071
+    at wasm://wasm/0268cb26:wasm-function[12157]:0x518068
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::allocator<unsigned long>::allocate[abi:ne180100](unsigned long) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[20346]:0x1766679)
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::__split_buffer<unsigned long, std::__2::allocator<unsigned long>&>::__split_buffer(unsigned long, unsigned long, std::__2::allocator<unsigned long>&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[20342]:0x1766558)
+    at _C.cpython-312-wasm32-emscripten.so.unsigned long* std::__2::vector<unsigned long, std::__2::allocator<unsigned long>>::__push_back_slow_path<unsigned long const&>(unsigned long const&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[20327]:0x1765c9e)
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::vector<unsigned long, std::__2::allocator<unsigned long>>::push_back[abi:ne180100](unsigned long const&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[20317]:0x1765996)
+    at _C.cpython-312-wasm32-emscripten.so.torch::jit::Source::calc_line_start_offsets() (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74073]:0x2c6aba7)
+    at invoke_vi (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1246502)
+    at _C.cpython-312-wasm32-emscripten.so.torch::jit::Source::Source(std::__2::basic_string_view<char, std::__2::char_traits<char>>, std::__2::optional<std::__2::basic_string<char, std::__2::char_traits<char>, std::__2::allocator<char>>>, unsigned long, std::__2::shared_ptr<torch::jit::SourceRangeUnpickler>, torch::jit::Source::CopiesString) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74071]:0x2c6a73e)
+    at invoke_iiiiiii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1248610)
+    at _C.cpython-312-wasm32-emscripten.so.void std::__2::allocator<torch::jit::Source>::construct[abi:ne180100]<torch::jit::Source, std::__2::basic_string_view<char, std::__2::char_traits<char>>, std::__2::nullopt_t const&, int, std::nullptr_t, torch::jit::Source::CopiesString>(torch::jit::Source*, std::__2::basic_string_view<char, std::__2::char_traits<char>>&&, std::__2::nullopt_t const&, int&&, std::nullptr_t&&, torch::jit::Source::CopiesString&&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74265]:0x2c737d1)
+    at invoke_viiiiiii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1250642)
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::__shared_ptr_emplace<torch::jit::Source, std::__2::allocator<torch::jit::Source>>::__shared_ptr_emplace[abi:ne180100]<std::__2::basic_string_view<char, std::__2::char_traits<char>>, std::__2::nullopt_t const&, int, std::nullptr_t, torch::jit::Source::CopiesString, std::__2::allocator<torch::jit::Source>, 0>(std::__2::allocator<torch::jit::Source>, std::__2::basic_string_view<char, std::__2::char_traits<char>>&&, std::__2::nullopt_t const&, int&&, std::nullptr_t&&, torch::jit::Source::CopiesString&&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74264]:0x2c73700)
+    at invoke_iiiiiii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1248610)
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::shared_ptr<torch::jit::Source> std::__2::allocate_shared[abi:ne180100]<torch::jit::Source, std::__2::allocator<torch::jit::Source>, std::__2::basic_string_view<char, std::__2::char_traits<char>>, std::__2::nullopt_t const&, int, std::nullptr_t, torch::jit::Source::CopiesString, void>(std::__2::allocator<torch::jit::Source> const&, std::__2::basic_string_view<char, std::__2::char_traits<char>>&&, std::__2::nullopt_t const&, int&&, std::nullptr_t&&, torch::jit::Source::CopiesString&&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74259]:0x2c72b8d)
+    at _C.cpython-312-wasm32-emscripten.so.std::__2::shared_ptr<torch::jit::Source> std::__2::make_shared[abi:ne180100]<torch::jit::Source, std::__2::basic_string_view<char, std::__2::char_traits<char>>, std::__2::nullopt_t const&, int, std::nullptr_t, torch::jit::Source::CopiesString, void>(std::__2::basic_string_view<char, std::__2::char_traits<char>>&&, std::__2::nullopt_t const&, int&&, std::nullptr_t&&, torch::jit::Source::CopiesString&&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74241]:0x2c70ea0)
+    at _C.cpython-312-wasm32-emscripten.so.torch::jit::parseSchemaOrName(std::__2::basic_string<char, std::__2::char_traits<char>, std::__2::allocator<char>> const&, bool) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74239]:0x2c6fe90)
+    at _C.cpython-312-wasm32-emscripten.so.torch::jit::parseName(std::__2::basic_string<char, std::__2::char_traits<char>, std::__2::allocator<char>> const&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[74257]:0x2c729ec)
+    at invoke_vii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1247463)
+    at _C.cpython-312-wasm32-emscripten.so.torch::Library::_parseNameForLib(char const*) const (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[153380]:0x3f3fa0b)
+    at _C.cpython-312-wasm32-emscripten.so.torch::Library::_impl(char const*, torch::CppFunction&&, torch::_RegisterOrVerify) & (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[153383]:0x3f3ff7d)
+    at invoke_iiiii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1248085)
+    at _C.cpython-312-wasm32-emscripten.so.torch::(anonymous namespace)::TORCH_LIBRARY_IMPL_init_aten_Tracer_2(torch::Library&) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[33454]:0x1b76600)
+    at invoke_vi (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1246502)
+    at _C.cpython-312-wasm32-emscripten.so.torch::detail::TorchLibraryInit::TorchLibraryInit(torch::Library::Kind, void (*)(torch::Library&), char const*, std::__2::optional<c10::DispatchKey>, char const*, unsigned int) (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[35306]:0x1cf2881)
+    at _C.cpython-312-wasm32-emscripten.so._GLOBAL__sub_I_TraceType_2.cpp (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[36784]:0x1d14656)
+    at _C.cpython-312-wasm32-emscripten.so.__wasm_call_ctors (wasm://wasm/_C.cpython-312-wasm32-emscripten.so-45de1d6e:wasm-function[18486]:0x12e7608)
+    at postInstantiation (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:153553)
+    at /workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:153837
+    at async Z.loadDynlib (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:89153)
+    at async file:///workspace/prototypes/pyodide/jupyterlite-demo/diag_single_module.mjs:49:3
+LOAD FAILED: type=std::bad_alloc msg=std::bad_alloc

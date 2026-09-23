@@ -1,0 +1,21 @@
+# Emscripten SDK (installed locally by scripts/install-emsdk.sh)
+.emsdk/
+
+# WASM build outputs
+*.wasm
+*.mjs
+!run_node.mjs
+prototypes/**/cmake-out/
+prototypes/**/.et-work/
+prototypes/**/build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# from-source torch build tree (single-module experiment; huge, reproducible)
+build_torch/
+
+# ccache (build accelerator; local only)
+.ccache/

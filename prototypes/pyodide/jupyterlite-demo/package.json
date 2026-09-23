@@ -1,0 +1,1 @@
+{"name":"torch-wasm-verify","private":true,"type":"module","dependencies":{"pyodide":"0.27.8"}}

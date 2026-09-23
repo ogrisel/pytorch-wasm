@@ -1,0 +1,18 @@
+=== pytorch-wasm Pyodide prototype: toolchain versions ===
+Host OS: Ubuntu 24.04.4 LTS (x86_64)
+Host Python: 3.12.3
+CPUs: 4, RAM: ~15Gi
+
+pyodide-build: 0.39.0
+pyodide-cli: 0.5.0
+Pyodide xbuildenv: 0.27.8
+Target CPython (wasm32-emscripten): 3.12.7
+Emscripten (emcc): 3.1.58 (a41843e0860e52c948c1fce20307933c6631c800)
+pyodide_abi_version: 2024_0
+
+emsdk_dir: /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk
+emscripten_version (pyodide config): 3.1.58
+
+Activate toolchain with:
+  export PATH="$HOME/.local/bin:$PATH"
+  source /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/emsdk_env.sh

@@ -1,0 +1,105 @@
+[single] pyodide 0.27.8
+Loading micropip, packaging
+Didn't find package micropip-0.9.0-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package packaging-24.2-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Package packaging-24.2-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package micropip-0.9.0-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Loaded micropip, packaging
+packaging already loaded from default channel
+Loading Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+Didn't find package typing_extensions-4.11.0-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package sympy-1.13.3-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package mpmath-1.3.0-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package networkx-3.4.2-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package decorator-5.1.1-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package setuptools-69.5.1-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package pyparsing-3.1.2-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package contourpy-1.3.0-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package numpy-2.0.2-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package cycler-0.12.1-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package six-1.16.0-py2.py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package fonttools-4.51.0-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package kiwisolver-1.4.5-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package pillow-10.2.0-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package python_dateutil-2.9.0.post0-py2.py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package pytz-2024.1-py2.py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package matplotlib_pyodide-0.2.3-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package Jinja2-3.1.3-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package markupsafe-2.1.5-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package fsspec-2025.3.2-py3-none-any.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Didn't find package matplotlib-3.8.4-cp312-cp312-pyodide_2024_0_wasm32.whl locally, attempting to load from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/
+Package typing_extensions-4.11.0-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package cycler-0.12.1-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package decorator-5.1.1-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package six-1.16.0-py2.py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package markupsafe-2.1.5-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package matplotlib_pyodide-0.2.3-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package kiwisolver-1.4.5-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package pyparsing-3.1.2-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package contourpy-1.3.0-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package Jinja2-3.1.3-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package fsspec-2025.3.2-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package python_dateutil-2.9.0.post0-py2.py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package mpmath-1.3.0-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package pytz-2024.1-py2.py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package setuptools-69.5.1-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package pillow-10.2.0-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package fonttools-4.51.0-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package networkx-3.4.2-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package sympy-1.13.3-py3-none-any.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package numpy-2.0.2-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Package matplotlib-3.8.4-cp312-cp312-pyodide_2024_0_wasm32.whl loaded from https://cdn.jsdelivr.net/pyodide/v0.27.8/full/, caching the wheel in node_modules for future use.
+Loaded Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+[single] python deps installed
+[single] wheel unpacked to /lib/python3.12/site-packages
+[single] single module written: 101148292 bytes
+LOADLIB FAILED: C++ exception: type=c10::Error msg=ten/src/ATen/native/sparse/SparseTensor.cpp":633, please report a bug to PyTorch. _EEEErue or False) with > intgot input with sizes d/torch-2.8.0/torch/custom_class_detail.hfn_weight_2143 parameter weight matrix for backward update, reset, and hidden gates
+
+`RB[zrh]` - R recurrence weight matrix for backward update, reset, and hidden gates
+
+`WBb[zrh]` - W bias vectors for backward update, reset, and hidden gates
+
+`RBb[zrh]` - R bias vectors for backward update, reset, and hidden gates
+
+`H` - Hidden state
+
+`num_directions` - 2 if direction == bidirectional else 1
+
+Activation functions:
+
+  Relu(x)                - max(0, x)
+
+  Tanh(x)                - (1 - e^{-2x})/(1 + e^{-2x})
+
+  Sigmoid(x)             - 1/(1 + e^{-x})
+
+  (NOTE: Below are optional)
+
+  Affine(x)              - alpha*x + beta
+
+  LeakyRelu(x)           - x if x >= 0 else alpha * x
+
+  ThresholdedRelu(x)     - x if x >= alpha else 0
+
+  ScaledTanh(x)          - alpha*Tanh(beta*x)
+
+  HardSigmoid(x)         - min(max(alpha*x + beta, 0), 1)
+
+  Elu(x)                 - x if x >= 0 else alpha*(e^x - 1)
+
+  Softsign(x)            - x/(1 + |x|)
+
+  Softplus(x)            - log(1 + e^x)
+
+Equations (Default: f=Sigmoid, g=Tanh):
+
+  - zt = f(Xt*(Wz^T) + Ht-1*(Rz^T) + Wbz + Rbz)
+
+  - rt = f(Xt*(Wr^T) + Ht-1*(Rr^T) + Wbr + Rbr)
+
+  - ht = g(Xt*(Wh^T) + (rt (.) Ht-1)*(Rh^T) + Rbh + Wbh) # default, when linear_before_reset = 0
+
+  - ht = g(Xt*(Wh^T) + (rt (.) (Ht-1*(Rh^T) + Rbh)) + Wbh) # when linear_before_reset != 0
+
+  - Ht = (1 - zt) (.) ht + zt (.) Ht-1
+yRef stride, SymIntArrayRef dilation, SymInt groups, bool benchmark, bool deterministic)

@@ -1,0 +1,252 @@
+# Pyodide recipe PROBE for a minimal from-source torch build (wasm32-emscripten).
+#
+# This is a probe, not a shipping recipe: it exists to record EXACTLY where a
+# from-source CPU-only `torch` build breaks for Pyodide, with real logs. Everything
+# x86-only / CUDA / threaded is disabled and the build is forced single-threaded.
+#
+# Drop this file into a pyodide/pyodide-recipes checkout as packages/torch/meta.yaml
+# and run:  pyodide build-recipes-no-deps torch --recipe-dir=packages
+#   (tested with pyodide-build 0.39.0, xbuildenv 0.27.8, emscripten 3.1.58,
+#    target CPython 3.12.7; see ../logs/ and ../RESULTS.md for full output.)
+#
+# HOW FAR THIS GETS (empirical, see ../RESULTS.md):
+#   The `build.script` below applies four targeted workarounds (pybind11
+#   Python::Module stub, c10 __assert_fail guard, a host protoc for protobuf/ONNX
+#   codegen, and a c10 SymInt size_t operator guard). With them, the build:
+#     * cross-compiles third_party protobuf/cpuinfo/onnx to wasm static libs,
+#     * links lib/libc10.so as a wasm SIDE_MODULE shared library, and
+#     * compiles ~1219/1374 (~89%) of the torch_cpu (ATen + JIT) objects
+#   before stopping at the NEXT source-level portability bug:
+#     c10/util/Enumerate.h:72  `using difference_type = ssize_t;`
+#     -> error: unknown type name 'ssize_t'  (POSIX <sys/types.h> type not
+#        transitively included under Emscripten musl in torch/nativert/*).
+#   The remaining tail is a long series of similar 32-bit/POSIX/Emscripten source
+#   fixes, followed by the link-time walls the research doc predicts (-pthread /
+#   -matomics / -mbulk-memory ABI consistency, wasm-ld, and binary size). Those
+#   were deliberately deferred here by USE_XNNPACK=0 + single-threaded ATEN_THREADING.
+package:
+  name: torch
+  version: 2.8.0
+  top-level:
+    - torch
+
+source:
+  # NOTE: PyTorch publishes NO sdist on PyPI (all 50 releases are binary wheels
+  # only), so the classic files.pythonhosted.org/.../torch-<v>.tar.gz URL 404s.
+  # The only from-source option is the GitHub release tarball, which (unlike the
+  # auto-generated GitHub archive) bundles the third_party/* submodules
+  # (XNNPACK, sleef, protobuf, cpuinfo, pthreadpool, fmt, FP16, FXdiv, onnx, ...).
+  url: https://github.com/pytorch/pytorch/releases/download/v2.8.0/pytorch-v2.8.0.tar.gz
+  sha256: c70a2c9488f6f6e8af5982a10d1cc2c37b7df5e6506d839daa5d5e250953d7b5
+
+requirements:
+  run:
+    - numpy
+    - typing-extensions
+    - sympy
+    - networkx
+    - jinja2
+    - fsspec
+    - cffi
+
+build:
+  # torch's setup.py honors a large set of env toggles; disable everything that is
+  # x86-only, needs CUDA, or needs a real threadpool. This is the "probe" config.
+  script: |
+    export USE_CUDA=0
+    export USE_ROCM=0
+    export USE_XPU=0
+    export USE_MKLDNN=0
+    export USE_FBGEMM=0
+    export USE_NNPACK=0
+    export USE_QNNPACK=0
+    export USE_XNNPACK=0
+    export USE_KINETO=0
+    export USE_DISTRIBUTED=0
+    export USE_TENSORPIPE=0
+    export USE_GLOO=0
+    export USE_MPI=0
+    export USE_OPENMP=0
+    export USE_NUMA=0
+    export USE_PYTORCH_QNNPACK=0
+    # No wasm numpy in the build env (NumPy component is not found), so disable the
+    # numpy bridge to reduce noise while probing.
+    export USE_NUMPY=0
+    export BUILD_TEST=0
+    export BUILD_CAFFE2=0
+    export ATEN_THREADING=NATIVE
+    export MAX_JOBS=${MAX_JOBS:-4}
+    # Pin the version so the wheel is named torch-2.8.0 and matches this recipe's
+    # `version:` (otherwise setup.py derives 2.8.0a0+gitUnknown from a tarball with no
+    # git metadata, and pyodide-build's post-build check_versions_match aborts before
+    # the wheel is retagged to the pyodide platform). Affects only Python version.py +
+    # the wheel name, not compiled objects.
+    export PYTORCH_BUILD_VERSION=2.8.0
+    export PYTORCH_BUILD_NUMBER=1
+    # PROBE WORKAROUND (blocker #2): the wasm32-emscripten cross-build finds only the
+    # host Python *interpreter*; the target `Development.Module` component is missing
+    # because CPython is statically linked into pyodide.asm.wasm (STATIC_LIBPYTHON=1,
+    # Py_ENABLE_SHARED=0) and no standalone libpython3.12.a exists. Consequently
+    # find_package(Python COMPONENTS Development.Module) fails and the `Python::Module`
+    # target is never created, so cmake/Dependencies.cmake:878
+    #   target_link_libraries(pybind::pybind11 INTERFACE Python::Module)
+    # aborts the CMake *generate* step. Define a header-only stub target so generation
+    # can proceed and the *next* (compile/link) blockers can be surfaced. Extension
+    # modules in Pyodide are SIDE_MODULEs that resolve Python symbols at load time, so
+    # a link-time libpython is intentionally absent.
+    perl -0pi -e 's/target_link_libraries\(pybind::pybind11 INTERFACE Python::Module\)/if(NOT TARGET Python::Module)\n  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB\nendif()\ntarget_link_libraries(pybind::pybind11 INTERFACE Python::Module)/ if !/PYODIDE_PROBE_PYTHON_MODULE_STUB/' cmake/Dependencies.cmake
+    grep -n "PYODIDE_PROBE_PYTHON_MODULE_STUB" cmake/Dependencies.cmake || echo "WARN: stub patch not applied"
+    # PROBE WORKAROUND (blocker #3): c10/macros/Macros.h forward-declares glibc's
+    #   void __assert_fail(const char*, const char*, unsigned int, const char*) noexcept
+    # under `#if defined(NDEBUG)`. Emscripten's musl declares it as
+    #   _Noreturn void __assert_fail(const char*, const char*, int, const char*)
+    # (no C++ exception spec, `int` line), so clang errors with
+    #   "exception specification in declaration does not match previous declaration".
+    # Exclude Emscripten from c10's forward declaration and use the system one.
+    perl -0pi -e 's/#else \/\/ __APPLE__, _MSC_VER\n#if defined\(NDEBUG\)/#else \/\/ __APPLE__, _MSC_VER\n#if defined(NDEBUG) \&\& !defined(__EMSCRIPTEN__) \/\/ PYODIDE_PROBE_EMSCRIPTEN_ASSERT/' c10/macros/Macros.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_ASSERT" c10/macros/Macros.h || echo "WARN: assert patch not applied"
+    # PROBE WORKAROUND (blocker #4): cross-compiling protobuf. PyTorch compiles its
+    # own protoc from third_party/protobuf, but under the Emscripten toolchain that
+    # protoc is a wasm/Node artifact (bin/protoc.js + .wasm) that cannot run as a host
+    # build tool (exit 126, "/bin/sh: protoc.js: Permission denied") to generate the
+    # onnx/caffe2 *.pb.cc/.h sources. As cmake/ProtoBuf.cmake states, a cross build
+    # needs a HOST protoc version-matched to the vendored libprotobuf (3.13.0). Build
+    # it here with the host compiler in a clean env (so emcc/pywasmcross is not used),
+    # then point PyTorch and ONNX at it via CAFFE2_CUSTOM_PROTOC_EXECUTABLE.
+    mkdir -p build_host_protoc/bin
+    if [ ! -x build_host_protoc/bin/protoc ]; then
+      env -i HOME="$HOME" PATH="$HOME/.local/bin:/usr/bin:/bin" CC=gcc CXX=g++ MAX_JOBS="${MAX_JOBS:-4}" bash -c 'set -e; mkdir -p build_host_protoc/build; cd build_host_protoc/build; cmake ../../third_party/protobuf/cmake -DCMAKE_INSTALL_PREFIX="$(cd ..; pwd)" -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -GNinja; cmake --build . --target protoc -j "${MAX_JOBS:-4}"; cp -f protoc ../bin/protoc; chmod +x ../bin/protoc'
+    fi
+    export PYODIDE_HOST_PROTOC="$PWD/build_host_protoc/bin/protoc"
+    "$PYODIDE_HOST_PROTOC" --version || echo "WARN: host protoc not runnable"
+    perl -0pi -e 's/# Figure out which protoc to use\./set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "$ENV{PYODIDE_HOST_PROTOC}")  # PYODIDE_PROBE_HOST_PROTOC\n# Figure out which protoc to use./ if !/PYODIDE_PROBE_HOST_PROTOC/' cmake/ProtoBuf.cmake
+    grep -n "PYODIDE_PROBE_HOST_PROTOC" cmake/ProtoBuf.cmake || echo "WARN: protoc patch not applied"
+    # PROBE WORKAROUND (blocker #5): 32-bit/ILP32 portability in ATen. On wasm32
+    # `size_t` is `unsigned long` (32-bit), a distinct type from the int32/uint32/
+    # int64/uint64 operands for which c10 declares SymInt `operator*` etc. So
+    #   aten/src/ATen/core/TensorBase.h: return impl_->sym_numel() * impl_->itemsize();
+    # is an "ambiguous overload" ('c10::SymInt' * 'size_t'). Upstream already special-
+    # cases exactly this for Apple (`#if defined(__APPLE__)` declares size_t ops);
+    # wasm32 needs the same treatment, so extend the guard to Emscripten.
+    perl -0pi -e 's/#if defined\(__APPLE__\)\nDECLARE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T\nDECLARE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.h
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T" c10/core/SymInt.h || echo "WARN: SymInt size_t DECL patch not applied"
+    # PROBE WORKAROUND (blocker #5, part 2 — the DEFINITION side, found while solving
+    # blocker #11): the SymInt.h change above only extends the *declaration* guard.
+    # The matching *definitions* live in c10/core/SymInt.cpp behind the SAME
+    # `#if defined(__APPLE__)` guard (DEFINE_SYMINT_OP_INTONLY/DEFINE_SYMINT_OP for
+    # size_t). Without extending that too, the (SymInt, size_t) operators
+    #   _ZN3c10{ml,dv,mi,rm}ERKNS_6SymIntEm   (operator *, /, -, % with unsigned long)
+    # are DECLARED + referenced by libtorch_cpu but never DEFINED anywhere -> they end
+    # up as unresolved GOT.func entries (value 0) in the loaded side module. Empirically
+    # confirmed via the Node harness: after exports=requested (#10), libtorch_cpu has
+    # exactly 6 unresolved GOT.func symbols, 4 of which are these SymInt size_t operators
+    # (the other two are `exit` and `cpuinfo_emscripten_init`). Extend the definition
+    # guard to Emscripten so the wheel is self-contained.
+    perl -0pi -e 's/#if defined\(__APPLE__\)\nDEFINE_SYMINT_OP_INTONLY\(size_t, SymInt\)/#if defined(__APPLE__) || defined(__EMSCRIPTEN__)  \/\/ PYODIDE_PROBE_EMSCRIPTEN_SIZE_T_DEF\nDEFINE_SYMINT_OP_INTONLY(size_t, SymInt)/' c10/core/SymInt.cpp
+    grep -n "PYODIDE_PROBE_EMSCRIPTEN_SIZE_T_DEF" c10/core/SymInt.cpp || echo "WARN: SymInt size_t DEF patch not applied"
+    # PROBE WORKAROUND (blocker #6): c10/util/Enumerate.h uses the POSIX type `ssize_t`
+    # (from <sys/types.h>) which is not transitively available under Emscripten musl in
+    # the torch/nativert translation units. `std::ptrdiff_t` is the portable, standard
+    # equivalent (already pulled in via <iterator>/<cstddef>).
+    perl -0pi -e 's/using difference_type = ssize_t;/using difference_type = std::ptrdiff_t;  \/\/ PYODIDE_PROBE_SSIZE_T/' c10/util/Enumerate.h
+    grep -n "PYODIDE_PROBE_SSIZE_T" c10/util/Enumerate.h || echo "WARN: ssize_t patch not applied"
+    # PROBE AID: make the underlying ninja invocation keep going after the first error
+    # (`cmake --build ... -- -k 0`) so one pass surfaces ALL remaining wasm portability
+    # errors across torch_cpu, instead of one-error-per-20-minute-build.
+    perl -0pi -e 's/        self.run\(build_args, my_env\)/        build_args += ["--", "-k", "0"]  # PYODIDE_PROBE_KEEPGOING\n        self.run(build_args, my_env)/ if !/PYODIDE_PROBE_KEEPGOING/' tools/setup_helpers/cmake.py
+    grep -n "PYODIDE_PROBE_KEEPGOING" tools/setup_helpers/cmake.py || echo "WARN: keepgoing patch not applied"
+    # PROBE WORKAROUND (blocker #7): linking lib/libtorch_cpu.so fails with
+    #   llvm-nm: error: : unknown argument '-,'
+    # caffe2_interface_library (cmake/public/utils.cmake) wraps static libs (e.g.
+    # libonnx.a) as a single token `-Wl,--whole-archive,"PATH" -Wl,--no-whole-archive`.
+    # pyodide's pywasmcross.filter_objects() collects any arg ending in `.a` to feed to
+    # `emnm --export-symbols`, so it grabs the combined `-Wl,--whole-archive,<...>.a`
+    # token and passes it to llvm-nm, which errors. Fold `--no-whole-archive` INTO the
+    # same -Wl group so the token ends in `--no-whole-archive` (not `.a`) and is skipped
+    # by filter_objects — the exact form torch already uses at caffe2/CMakeLists.txt for
+    # torch_xpu_ops. Verified to still force-include the archive's symbols.
+    perl -0pi -e 's/\\" -Wl,--no-whole-archive/\\",--no-whole-archive/' cmake/public/utils.cmake
+    grep -n -- '--whole-archive,\\"$<TARGET_FILE:${SRC}>\\",--no-whole-archive' cmake/public/utils.cmake || echo "WARN: whole-archive patch not applied"
+    # PROBE WORKAROUND (blocker #8): torch_cpu links, but no importable module is
+    # produced. cmake/Dependencies.cmake runs find_package(Python COMPONENTS
+    # Development.Module); for wasm32-emscripten this reports "missing components:
+    # Development.Module" (pyodide's CPython is statically linked, no libpython for the
+    # target), so torch force-disables BUILD_PYTHON and never builds libtorch_python or
+    # the torch._C bindings -> `import torch` is impossible. Pyodide extension modules
+    # are SIDE_MODULEs that resolve CPython C-API symbols at load (import-dynamic), and
+    # pywasmcross injects the target Python headers on every compile, so keep
+    # BUILD_PYTHON ON (mirroring the found-branch by enabling USE_OBSERVERS).
+    perl -0pi -e 's/message\(WARNING "Python dependencies not met\. Not compiling with python\. Suppress this warning with -DBUILD_PYTHON=OFF"\)\n    caffe2_update_option\(BUILD_PYTHON OFF\)/message(WARNING "PYODIDE_PROBE_FORCE_BUILD_PYTHON: Development.Module missing under Emscripten; keeping BUILD_PYTHON ON (SIDE_MODULE resolves Python symbols at load)")\n    caffe2_update_option(USE_OBSERVERS ON)/ if !/PYODIDE_PROBE_FORCE_BUILD_PYTHON/' cmake/Dependencies.cmake
+    grep -n "PYODIDE_PROBE_FORCE_BUILD_PYTHON" cmake/Dependencies.cmake || echo "WARN: BUILD_PYTHON patch not applied"
+    # PROBE WORKAROUND (blocker #10): the wheel builds and imports up to the point of
+    # loading the wasm shared libraries, then fails at runtime with
+    #   Dynamic linking error: cannot resolve symbol
+    #   _ZN3c1024getRuntimeDispatchKeySetENS_11DispatchKeyE (c10::getRuntimeDispatchKeySet)
+    # torch compiles every lib with `-fvisibility=hidden` (c10/CMakeLists.txt and, for
+    # torch_cpu/torch_python, cmake/public/utils.cmake's torch_compile_options). On
+    # native ELF the *_API attributes re-export the boundary symbols, but under the
+    # Emscripten SIDE_MODULE + wasm-ld pipeline the hidden symbols get dead-stripped, so
+    # libtorch_cpu cannot resolve c10 symbols across the .so boundary. Force default
+    # visibility so all symbols are exported from each side module.
+    perl -0pi -e 's/-fvisibility=hidden/-fvisibility=default/g' c10/CMakeLists.txt cmake/public/utils.cmake
+    grep -n "fvisibility=default" cmake/public/utils.cmake || echo "WARN: visibility patch not applied"
+  # PROBE WORKAROUND (blocker #10 — SOLVED): even with default visibility the wheel
+  # failed at runtime with
+  #   Dynamic linking error: cannot resolve symbol
+  #   _ZN3c1024getRuntimeDispatchKeySetENS_11DispatchKeyE  (c10::getRuntimeDispatchKeySet)
+  # ROOT CAUSE (found empirically): pyodide-build's pywasmcross defaults to
+  # `exports: pyinit`, which links every SIDE_MODULE with
+  #   -sSIDE_MODULE=2 -sEXPORTED_FUNCTIONS=@<only PyInit_* symbols>
+  # so a non-extension shared lib like libc10.so (which has NO PyInit symbol) exports
+  # essentially nothing and wasm-ld GC-strips its entire C++ surface. libtorch_cpu then
+  # cannot resolve c10 symbols across the .so boundary. Setting `exports: requested`
+  # keeps SIDE_MODULE=2 (normal static-archive dedup — avoids the duplicate-symbol
+  # blowups that plain SIDE_MODULE=1/whole_archive causes with the doubled libcpuinfo.a)
+  # but exports ALL public symbols of each object, so cross-.so C++ symbols resolve.
+  # Verified: relinked libc10.so 153 KB -> 615 KB and now exports getRuntimeDispatchKeySet;
+  # cross-module symbol resolution succeeds and loading proceeds into libtorch_cpu's
+  # static initializers. See ../RESULTS.md and logs/28.
+  #
+  # REMAINING blocker #11 (precisely characterised, needs a relink to fix): once symbols
+  # resolve (#10), libc10.so loads and runs its ctors cleanly, but loading the 82 MB
+  # libtorch_cpu.so runs its static initializers and then throws a c10::Error from
+  # c10::detail::torchInternalAssertFail (a TORCH_INTERNAL_ASSERT), from a libtorch_cpu
+  # ctor near torch::jit::sharedParserData() (operator-schema registration). Reading the
+  # RAW const char* args handed to torchInternalAssertFail shows they point a FEW BYTES
+  # INTO otherwise-correct rodata strings, by NON-UNIFORM offsets, e.g.:
+  #   file @ +1  ...pytorch/b[u]ild/torch-2.8.0/.../NestedIntSymNodeImpl.h
+  #   cond @ +12 ...RegisterComp[o]siteExplicitAutogradNonFunctional_0.cpp":12733,...
+  #   func @ +3  ate[n]::count.int(int[] self, <run of spaces> int el) -> int
+  # The surrounding memory holds the intact strings, so this is a data-relocation /
+  # pointer-addressing defect in the huge from-source module (its data section is only
+  # ~13 MB, so it is NOT a memory-size truncation). Separately, exactly 6 GOT.func
+  # symbols are unresolved: `exit`, `cpuinfo_emscripten_init`, and the 4 SymInt×size_t
+  # operators fixed by the blocker #5 part-2 patch above; aliasing those 4 to their
+  # ABI-identical uint32_t variants resolves them but does NOT stop the assert — the
+  # pointer-corruption abort is a distinct, deeper defect that needs a libtorch_cpu
+  # relink/rebuild to fix; out of the hard time budget. See ../RESULTS.md and logs/30.
+  #
+  # BLOCKER #12 (single-module strategy, from the emscripten-forge sibling): instead of
+  # shipping libc10/libtorch_cpu/libtorch/libtorch_python/torch._C as SEPARATE side
+  # modules (cross-.so relocations => blocker #11), link ONE combined torch/_C.*.so that
+  # whole-includes every torch object + deps and exports PyInit__C, so all cross-module
+  # C++ symbols resolve INTERNALLY. See torch-probe/link_single_module.sh (run against
+  # this build's CMake tree). RESULT: it links (101 MB), and loading it runs static
+  # initializers PAST the blocker-#11 lexer.h:143 assert (that wall is eliminated), but
+  # the same intra-module rodata mis-relocation resurfaces as std::bad_alloc during aten
+  # op-schema registration (torch::jit::Source::calc_line_start_offsets, corrupted
+  # string_view size). Reproduced with BOTH emsdk 3.1.58 and 3.1.73 linkers => baked into
+  # the clang-3.1.58 objects / Pyodide 0.27.8 loader, not the linker. See ../RESULTS.md
+  # blocker #12 and logs/34-36.
+  exports: requested
+  cflags: |
+    -pthread -matomics -mbulk-memory
+  cxxflags: |
+    -pthread -matomics -mbulk-memory
+  cross-build-env: true
+
+about:
+  home: https://pytorch.org
+  PyPI: https://pypi.org/project/torch
+  summary: "PROBE recipe: minimal CPU-only torch for wasm32-emscripten. Builds libc10.so + ~89% of torch_cpu, then stops at a c10 ssize_t portability bug; used to enumerate real blockers (see ../RESULTS.md)."
+  license: BSD-3-Clause

@@ -1,0 +1,8 @@
+# Single-module (3.1.73-linked) load in Pyodide 0.27.8 — SAME std::bad_alloc as 3.1.58 link
+# (proves the mis-relocation is independent of wasm-ld version; objects are clang 3.1.58)
+
+[single] pyodide 0.27.8
+[single] python deps installed
+[single] wheel unpacked to /lib/python3.12/site-packages
+[single] single module written: 101073278 bytes
+LOADLIB FAILED: C++ exception: type=std::bad_alloc msg=std::bad_alloc

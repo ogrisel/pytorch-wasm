@@ -1,0 +1,630 @@
+W0922 13:52:23.435000 35836 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+[INFO 2026-09-22 13:52:24,309 utils.py:50] Core ATen graph:
+graph():
+    %a : [num_users=1] = placeholder[target=a]
+    %x : [num_users=1] = placeholder[target=x]
+    %b : [num_users=1] = placeholder[target=b]
+    %mm : [num_users=1] = call_function[target=torch.ops.aten.mm.default](args = (%a, %x), kwargs = {})
+    %add : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%mm, %b), kwargs = {})
+    return (add,)
+[INFO 2026-09-22 13:52:24,481 utils.py:72] Exported graph:
+ExportedProgram:
+    class GraphModule(torch.nn.Module):
+        def forward(self, a: "f32[2, 2]", x: "f32[2, 2]", b: "f32[2, 2]"):
+            # File: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/examples/models/toy_model/model.py:62 in forward, code: y = torch.mm(a, x)
+            aten_mm_default: "f32[2, 2]" = executorch_exir_dialects_edge__ops_aten_mm_default(a, x);  a = x = None
+    
+            # File: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/examples/models/toy_model/model.py:63 in forward, code: z = torch.add(y, b)
+            aten_add_tensor: "f32[2, 2]" = executorch_exir_dialects_edge__ops_aten_add_Tensor(aten_mm_default, b);  aten_mm_default = b = None
+            return (aten_add_tensor,)
+    
+Graph signature:
+    # inputs
+    a: USER_INPUT
+    x: USER_INPUT
+    b: USER_INPUT
+    
+    # outputs
+    aten_add_tensor: USER_OUTPUT
+    
+Range constraints: {}
+
+[INFO 2026-09-22 13:52:24,493 utils.py:148] Saved exported program to models_demo/add_mul.pte
+configure: cmake -DWASM_MODEL_DIR=/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/models_demo -Bcmake-out-wasm-demo . -DCMAKE_TOOLCHAIN_FILE=/workspace/.emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/workspace/.emsdk/node/24.19.0_64bit/bin/node
+-- ExecuTorch version: 1.6.0
+-- Found Python3: /usr/bin/python3.12 (found version "3.12.3") found components: Interpreter
+-- ccache not found, builds will not be cached
+-- Using the multi-header code from /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/third-party/json/include/
+CMake Deprecation Warning at third-party/gflags/CMakeLists.txt:73 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include inttypes.h
+-- Looking for C++ include inttypes.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include sys/stat.h
+-- Looking for C++ include sys/stat.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+CMake Deprecation Warning at third-party/flatcc/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at third-party/flatcc/CMakeLists.txt:32 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    PROJECT_VERSION
+    PROJECT_VERSION_MAJOR
+    PROJECT_VERSION_MINOR
+    PROJECT_VERSION_PATCH
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- dist install dir /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/third-party/flatcc
+-- lib install dir /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/third-party/flatcc/lib
+-- Setting Clang compiler options
+-- Configured C_FLAGS:  -DFLATCC_REFLECTION=0 -Wstrict-prototypes -Wsign-conversion -Wconversion -std=c11 -pedantic -Wall -Wextra
+CMake Deprecation Warning at backends/xnnpack/third-party/FXdiv/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at backends/xnnpack/third-party/pthreadpool/CMakeLists.txt:10 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Generating selected operator lib:
+--   LIB_NAME: portable_ops_lib
+--   OPS_SCHEMA_YAML: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/kernels/portable/functions.yaml
+--   ROOT_OPS: 
+--   INCLUDE_ALL_OPS: 
+--   OPS_FROM_MODEL: 
+--   DTYPE_SELECTIVE_BUILD: 
+Command - /usr/bin/python3.12;-m;codegen.tools.gen_oplist;--output_path=/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/kernels/portable/portable_ops_lib/selected_operators.yaml;--ops_schema_yaml_path="/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/kernels/portable/functions.yaml"
+-- Generating kernel bindings:
+--   LIB_NAME: portable_ops_lib
+--   FUNCTIONS_YAML: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/kernels/portable/functions.yaml
+--   CUSTOM_OPS_YAML: 
+--   ADD_EXCEPTION_BOUNDARY: FALSE
+--   DTYPE_SELECTIVE_BUILD: 
+Generated files /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/kernels/portable/portable_ops_lib/RegisterCodegenUnboxedKernelsEverything.cpp;/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/kernels/portable/portable_ops_lib/Functions.h;/workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/kernels/portable/portable_ops_lib/NativeFunctions.h
+-- Generating operator lib:
+--   LIB_NAME: portable_ops_lib
+--   KERNEL_LIBS: portable_kernels
+--   DEPS: executorch_core
+--   DTYPE_SELECTIVE_BUILD: 
+-- Looking for sys/mman.h
+-- Looking for sys/mman.h - found
+-- --- Configured Options ---
+
+-- BUILD_TESTING                               : OFF
+-- CCACHE_PROGRAM                              : CCACHE_PROGRAM-NOTFOUND
+-- CMAKE_BUILD_TYPE                            : Debug
+-- CMAKE_CXX_COMPILER_ID                       : Clang
+-- CMAKE_CXX_STANDARD                          : 17
+-- CMAKE_SYSTEM_PROCESSOR                      : x86
+-- CMAKE_TOOLCHAIN_FILE                        : /workspace/.emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
+-- ET_ENABLE_VGF_INPUT_DUMP                    : OFF
+-- EXECUTORCH_BUILD_ARM_BAREMETAL              : OFF
+-- EXECUTORCH_BUILD_ARM_ETHOSU_LINUX           : OFF
+-- EXECUTORCH_BUILD_CADENCE                    : OFF
+-- EXECUTORCH_BUILD_CMSIS_NN_PYBINDS           : OFF
+-- EXECUTORCH_BUILD_COREML                     : OFF
+-- EXECUTORCH_BUILD_CORTEX_M                   : OFF
+-- EXECUTORCH_BUILD_CPUINFO                    : ON
+-- EXECUTORCH_BUILD_CUDA                       : OFF
+-- EXECUTORCH_BUILD_DEVTOOLS                   : OFF
+-- EXECUTORCH_BUILD_EXECUTOR_RUNNER            : ON
+-- EXECUTORCH_BUILD_EXTENSION_APPLE            : OFF
+-- EXECUTORCH_BUILD_EXTENSION_ASR_RUNNER       : OFF
+-- EXECUTORCH_BUILD_EXTENSION_DATA_LOADER      : ON
+-- EXECUTORCH_BUILD_EXTENSION_ETDUMP_APPLE     : OFF
+-- EXECUTORCH_BUILD_EXTENSION_EVALUE_UTIL      : ON
+-- EXECUTORCH_BUILD_EXTENSION_FLAT_TENSOR      : ON
+-- EXECUTORCH_BUILD_EXTENSION_IMAGE            : OFF
+-- EXECUTORCH_BUILD_EXTENSION_LLM              : OFF
+-- EXECUTORCH_BUILD_EXTENSION_LLM_APPLE        : OFF
+-- EXECUTORCH_BUILD_EXTENSION_LLM_RUNNER       : OFF
+-- EXECUTORCH_BUILD_EXTENSION_MODULE           : OFF
+-- EXECUTORCH_BUILD_EXTENSION_NAMED_DATA_MAP   : OFF
+-- EXECUTORCH_BUILD_EXTENSION_RUNNER_UTIL      : ON
+-- EXECUTORCH_BUILD_EXTENSION_TENSOR           : OFF
+-- EXECUTORCH_BUILD_EXTENSION_TRAINING         : OFF
+-- EXECUTORCH_BUILD_KERNELS_CUSTOM_AOT         : OFF
+-- EXECUTORCH_BUILD_KERNELS_LLM                : OFF
+-- EXECUTORCH_BUILD_KERNELS_LLM_AOT            : OFF
+-- EXECUTORCH_BUILD_KERNELS_OPTIMIZED          : OFF
+-- EXECUTORCH_BUILD_KERNELS_QUANTIZED          : OFF
+-- EXECUTORCH_BUILD_KERNELS_QUANTIZED_AOT      : OFF
+-- EXECUTORCH_BUILD_METAL                      : OFF
+-- EXECUTORCH_BUILD_MLX                        : OFF
+-- EXECUTORCH_BUILD_NEURON                     : OFF
+-- EXECUTORCH_BUILD_NXP_NEUTRON                : OFF
+-- EXECUTORCH_BUILD_NXP_NEUTRON_RUNNER         : OFF
+-- EXECUTORCH_BUILD_OPENVINO                   : OFF
+-- EXECUTORCH_BUILD_PORTABLE_OPS               : ON
+-- EXECUTORCH_BUILD_PTHREADPOOL                : ON
+-- EXECUTORCH_BUILD_PYBIND                     : OFF
+-- EXECUTORCH_BUILD_QNN                        : OFF
+-- EXECUTORCH_BUILD_ROCM                       : OFF
+-- EXECUTORCH_BUILD_SHARED                     : OFF
+-- EXECUTORCH_BUILD_SIZE_TEST                  : OFF
+-- EXECUTORCH_BUILD_TESTS                      : OFF
+-- EXECUTORCH_BUILD_TOKENIZERS_WASM            : OFF
+-- EXECUTORCH_BUILD_VGF                        : OFF
+-- EXECUTORCH_BUILD_VULKAN                     : OFF
+-- EXECUTORCH_BUILD_WASM                       : OFF
+-- EXECUTORCH_BUILD_WEBGPU                     : OFF
+-- EXECUTORCH_BUILD_WHEEL_DO_NOT_USE           : FALSE
+-- EXECUTORCH_BUILD_XNNPACK                    : OFF
+-- EXECUTORCH_CADENCE_CPU_RUNNER               : OFF
+-- EXECUTORCH_COREML_BUILD_EXECUTOR_RUNNER     : OFF
+-- EXECUTORCH_ENABLE_BUNDLE_IO                 : OFF
+-- EXECUTORCH_ENABLE_DTYPE_SELECTIVE_BUILD     : FALSE
+-- EXECUTORCH_ENABLE_EVENT_TRACER              : OFF
+-- EXECUTORCH_ENABLE_LOGGING                   : ON
+-- EXECUTORCH_ENABLE_PROGRAM_VERIFICATION      : ON
+-- EXECUTORCH_FLATBUFFERS_MAX_ALIGNMENT        : 1024
+-- EXECUTORCH_LOG_LEVEL                        : Info
+-- EXECUTORCH_METAL_COLLECT_STATS              : OFF
+-- EXECUTORCH_MLX_SWIFTPM_RESOURCES            : OFF
+-- EXECUTORCH_NNLIB_OPT                        : OFF
+-- EXECUTORCH_OPTIMIZE_SIZE                    : OFF
+-- EXECUTORCH_PAL_DEFAULT                      : posix
+-- EXECUTORCH_PAL_DEFAULT_FILE_PATH            : /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/runtime/platform/default/posix.cpp
+-- EXECUTORCH_SELECT_OPS_LIST                  : 
+-- EXECUTORCH_SELECT_OPS_MODEL                 : 
+-- EXECUTORCH_SELECT_OPS_YAML                  : 
+-- EXECUTORCH_THREADPOOL_USE_ALL_LOGICAL_CORES : OFF
+-- EXECUTORCH_THREADPOOL_USE_PERFORMANCE_CORES : OFF
+-- EXECUTORCH_USE_CPP_CODE_COVERAGE            : OFF
+-- EXECUTORCH_USE_DL                           : ON
+-- EXECUTORCH_USE_SANITIZER                    : OFF
+-- EXECUTORCH_XNNPACK_ENABLE_KLEIDI            : ON
+-- EXECUTORCH_XNNPACK_ENABLE_WEIGHT_CACHE      : OFF
+-- EXECUTORCH_XNNPACK_SHARED_WORKSPACE         : ON
+-- PYTHON_EXECUTABLE                           : /usr/bin/python3.12
+-- --------------------------
+-- Configuring done (6.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo
+[  0%] Creating directories for 'flatbuffers_ep'
+[  0%] Building CXX object third-party/gflags/CMakeFiles/gflags_nothreads_static.dir/src/gflags.cc.o
+[  1%] Building CXX object third-party/gflags/CMakeFiles/gflags_nothreads_static.dir/src/gflags_completions.cc.o
+[  1%] Building CXX object third-party/gflags/CMakeFiles/gflags_nothreads_static.dir/src/gflags_reporting.cc.o
+[  2%] No download step for 'flatbuffers_ep'
+[  2%] No update step for 'flatbuffers_ep'
+[  3%] No patch step for 'flatbuffers_ep'
+[  3%] Performing configure step for 'flatbuffers_ep'
+CMake Warning:
+  Ignoring empty string ("") provided on the command line.
+
+
+-- Proceeding with version: 24.3.25.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for strtof_l
+-- Looking for strtof_l - found
+-- Looking for strtoull_l
+-- Looking for strtoull_l - found
+-- Looking for realpath
+-- Looking for realpath - found
+-- CMAKE_CXX_FLAGS: "-DFLATBUFFERS_MAX_ALIGNMENT=1024"
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/src/build
+[  3%] Performing build step for 'flatbuffers_ep'
+[  2%] Building CXX object CMakeFiles/flatc.dir/src/idl_parser.cpp.o
+[  5%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_text.cpp.o
+[  7%] Building CXX object CMakeFiles/flatc.dir/src/reflection.cpp.o
+[ 10%] Building CXX object CMakeFiles/flatc.dir/src/util.cpp.o
+[  3%] Linking CXX static library libgflags_nothreads_debug.a
+[ 13%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_binary.cpp.o
+[  3%] Built target gflags_nothreads_static
+[ 15%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_cpp.cpp.o
+[ 18%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_csharp.cpp.o
+[ 21%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_dart.cpp.o
+[ 23%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_kotlin.cpp.o
+[ 26%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_kotlin_kmp.cpp.o
+[ 28%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_go.cpp.o
+[ 31%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_java.cpp.o
+[ 34%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_ts.cpp.o
+[ 36%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_php.cpp.o
+[ 39%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_python.cpp.o
+[ 42%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_lobster.cpp.o
+[ 44%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_rust.cpp.o
+[ 47%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_fbs.cpp.o
+[ 50%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_grpc.cpp.o
+[ 52%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_json_schema.cpp.o
+[ 55%] Building CXX object CMakeFiles/flatc.dir/src/idl_gen_swift.cpp.o
+[ 57%] Building CXX object CMakeFiles/flatc.dir/src/file_name_saving_file_manager.cpp.o
+[ 60%] Building CXX object CMakeFiles/flatc.dir/src/file_binary_writer.cpp.o
+[ 63%] Building CXX object CMakeFiles/flatc.dir/src/file_writer.cpp.o
+[ 65%] Building CXX object CMakeFiles/flatc.dir/src/flatc.cpp.o
+[ 68%] Building CXX object CMakeFiles/flatc.dir/src/flatc_main.cpp.o
+[ 71%] Building CXX object CMakeFiles/flatc.dir/src/binary_annotator.cpp.o
+[ 73%] Building CXX object CMakeFiles/flatc.dir/src/annotated_binary_text_gen.cpp.o
+[ 76%] Building CXX object CMakeFiles/flatc.dir/src/bfbs_gen_lua.cpp.o
+[ 78%] Building CXX object CMakeFiles/flatc.dir/src/bfbs_gen_nim.cpp.o
+[ 81%] Building CXX object CMakeFiles/flatc.dir/src/code_generators.cpp.o
+[ 84%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/cpp_generator.cc.o
+[ 86%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/go_generator.cc.o
+[ 89%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/java_generator.cc.o
+[ 92%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/python_generator.cc.o
+[ 94%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/swift_generator.cc.o
+[ 97%] Building CXX object CMakeFiles/flatc.dir/grpc/src/compiler/ts_generator.cc.o
+[100%] Linking CXX executable flatc
+[100%] Built target flatc
+[  3%] Performing install step for 'flatbuffers_ep'
+[100%] Built target flatc
+Install the project...
+-- Install configuration: ""
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/pch
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/pch/flatc_pch.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/pch/pch.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/verifier.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/base.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/detached_buffer.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/string.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/vector.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/allocator.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/flatbuffers.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/flatbuffer_builder.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/idl.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/util.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/code_generator.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/struct.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/code_generators.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/buffer.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/array.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/flatc.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/vector_downward.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/reflection.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/reflection_generated.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/table.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/buffer_ref.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/stl_emulation.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/file_manager.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/registry.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/grpc.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/flex_flat_util.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/hash.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/minireflect.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/flexbuffers.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/include/flatbuffers/default_allocator.h
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/lib/cmake/flatbuffers/flatbuffers-config.cmake
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/lib/cmake/flatbuffers/BuildFlatBuffers.cmake
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/lib/cmake/flatbuffers/flatbuffers-config-version.cmake
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/bin/flatc
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/lib/cmake/flatbuffers/FlatcTargets.cmake
+-- Installing: /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch/cmake-out-wasm-demo/third-party/flatc_ep/lib/cmake/flatbuffers/FlatcTargets-noconfig.cmake
+[  4%] Completed 'flatbuffers_ep'
+[  4%] Built target flatbuffers_ep
+[  4%] Generating common_schema headers
+[  5%] Generating scalar_type_schema headers
+[  5%] Built target common_schema
+[  5%] Built target scalar_type_schema
+[  5%] Generating program_schema headers
+[  5%] Generating flat_tensor_schema headers
+[  5%] Built target flat_tensor_schema
+[  5%] Built target program_schema
+[  6%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/device_allocator.cpp.o
+[  6%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/device_memory_buffer.cpp.o
+[  5%] Building CXX object CMakeFiles/executorch_core.dir/runtime/backend/interface.cpp.o
+[  6%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/evalue.cpp.o
+[  7%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/exec_aten/util/tensor_shape_to_c_string.cpp.o
+[  7%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/exec_aten/util/tensor_util_portable.cpp.o
+[  7%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/portable_type/tensor_impl.cpp.o
+[  9%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/tag.cpp.o
+[  9%] Building CXX object CMakeFiles/executorch_core.dir/runtime/core/tensor_layout.cpp.o
+[  9%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/method.cpp.o
+[ 10%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/method_meta.cpp.o
+[ 10%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/program.cpp.o
+[ 10%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/program_validation.cpp.o
+[ 11%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/pte_data_map.cpp.o
+[ 11%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/tensor_parser_exec_aten.cpp.o
+[ 11%] Building CXX object CMakeFiles/executorch_core.dir/runtime/executor/tensor_parser_portable.cpp.o
+[ 12%] Building CXX object CMakeFiles/executorch_core.dir/runtime/kernel/operator_registry.cpp.o
+[ 12%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/abort.cpp.o
+[ 12%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/log.cpp.o
+[ 12%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/platform.cpp.o
+[ 13%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/profiler.cpp.o
+[ 13%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/runtime.cpp.o
+[ 13%] Building CXX object CMakeFiles/executorch_core.dir/schema/extended_header.cpp.o
+[ 14%] Building CXX object CMakeFiles/executorch_core.dir/runtime/platform/default/posix.cpp.o
+[ 14%] Linking CXX static library libexecutorch_core.a
+[ 14%] Built target executorch_core
+[ 14%] Building CXX object extension/runner_util/CMakeFiles/extension_runner_util.dir/inputs.cpp.o
+[ 14%] Building CXX object CMakeFiles/executorch.dir/kernels/prim_ops/et_copy_index.cpp.o
+[ 14%] Building CXX object extension/evalue_util/CMakeFiles/extension_evalue_util.dir/print_evalue.cpp.o
+[ 14%] Building CXX object extension/flat_tensor/CMakeFiles/extension_flat_tensor.dir/flat_tensor_data_map.cpp.o
+[ 14%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/activation_ops_util.cpp.o
+[ 15%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/advanced_index_util.cpp.o
+[ 17%] Linking CXX static library libextension_evalue_util.a
+[ 18%] Building CXX object CMakeFiles/executorch.dir/kernels/prim_ops/et_view.cpp.o
+[ 18%] Building CXX object extension/runner_util/CMakeFiles/extension_runner_util.dir/inputs_portable.cpp.o
+[ 18%] Building CXX object extension/flat_tensor/CMakeFiles/extension_flat_tensor.dir/serialize/flat_tensor_header.cpp.o
+[ 18%] Built target extension_evalue_util
+[ 18%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/arange_util.cpp.o
+[ 19%] Linking CXX static library libextension_flat_tensor.a
+[ 19%] Built target extension_flat_tensor
+[ 19%] Building CXX object CMakeFiles/executorch.dir/kernels/prim_ops/register_prim_ops.cpp.o
+[ 19%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/broadcast_util.cpp.o
+[ 20%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/copy_ops_util.cpp.o
+[ 20%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/delinearize_index.cpp.o
+[ 21%] Linking CXX static library libextension_runner_util.a
+[ 21%] Built target extension_runner_util
+[ 21%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/distance_util.cpp.o
+[ 21%] Linking CXX static library libexecutorch.a
+[ 21%] Built target executorch
+[ 22%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/dtype_util.cpp.o
+[ 22%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/index_util.cpp.o
+[ 22%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/kernel_ops_util.cpp.o
+[ 22%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/matmul_ops_util.cpp.o
+[ 23%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/normalization_ops_util.cpp.o
+[ 23%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/padding_util.cpp.o
+[ 23%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/reduce_util.cpp.o
+[ 25%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/repeat_util.cpp.o
+[ 25%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/select_copy_util.cpp.o
+[ 25%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/slice_util.cpp.o
+[ 26%] Building CXX object kernels/portable/cpu/util/CMakeFiles/kernels_util_all_deps.dir/upsample_util.cpp.o
+[ 26%] Linking CXX static library libkernels_util_all_deps.a
+[ 26%] Built target kernels_util_all_deps
+[ 26%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__adaptive_avg_pool2d.cpp.o
+[ 27%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__clone_dim_order.cpp.o
+[ 27%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__conj_physical.cpp.o
+[ 28%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__empty_dim_order.cpp.o
+[ 28%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__device_copy.cpp.o
+[ 28%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op__to_dim_order_copy.cpp.o
+[ 28%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_abs.cpp.o
+[ 29%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_acos.cpp.o
+[ 29%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_acosh.cpp.o
+[ 29%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_add.cpp.o
+[ 29%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_addmm.cpp.o
+[ 30%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_alias_copy.cpp.o
+[ 30%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_allclose.cpp.o
+[ 30%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_amax.cpp.o
+[ 31%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_amin.cpp.o
+[ 31%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_any.cpp.o
+[ 31%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_arange.cpp.o
+[ 32%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_argmax.cpp.o
+[ 32%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_argmin.cpp.o
+[ 32%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_as_strided_copy.cpp.o
+[ 34%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_asin.cpp.o
+[ 34%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_asinh.cpp.o
+[ 34%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_atan.cpp.o
+[ 35%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_atan2.cpp.o
+[ 35%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_atanh.cpp.o
+[ 35%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_avg_pool2d.cpp.o
+[ 36%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_and.cpp.o
+[ 36%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_left_shift.cpp.o
+[ 36%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_not.cpp.o
+[ 36%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_or.cpp.o
+[ 37%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_right_shift.cpp.o
+[ 37%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bitwise_xor.cpp.o
+[ 37%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bmm.cpp.o
+[ 38%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_bucketize.cpp.o
+[ 38%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_cat.cpp.o
+[ 38%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_cdist_forward.cpp.o
+[ 39%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_ceil.cpp.o
+[ 39%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_clamp.cpp.o
+[ 39%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_clone.cpp.o
+[ 40%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_constant_pad_nd.cpp.o
+[ 40%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_convolution.cpp.o
+[ 40%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_convolution_backward.cpp.o
+[ 42%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_copy.cpp.o
+[ 42%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_cos.cpp.o
+[ 42%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_cosh.cpp.o
+[ 43%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_cumsum.cpp.o
+[ 43%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_detach_copy.cpp.o
+[ 43%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_diagonal_copy.cpp.o
+[ 44%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_div.cpp.o
+[ 44%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_elu.cpp.o
+[ 44%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_embedding.cpp.o
+[ 44%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_empty.cpp.o
+[ 45%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_eq.cpp.o
+[ 45%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_erf.cpp.o
+[ 45%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_exp.cpp.o
+[ 46%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_expand_copy.cpp.o
+[ 46%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_expm1.cpp.o
+[ 46%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_fft_r2c.cpp.o
+[ 47%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_fill.cpp.o
+[ 47%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_flip.cpp.o
+[ 47%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_floor.cpp.o
+[ 48%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_floor_divide.cpp.o
+[ 48%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_fmod.cpp.o
+[ 48%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_full.cpp.o
+[ 50%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_full_like.cpp.o
+[ 50%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_gather.cpp.o
+[ 50%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_ge.cpp.o
+[ 51%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_gelu.cpp.o
+[ 51%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_glu.cpp.o
+[ 51%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_grid_sampler_2d.cpp.o
+[ 51%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_gt.cpp.o
+[ 52%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_hardtanh.cpp.o
+[ 52%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_index.cpp.o
+[ 52%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_index_put.cpp.o
+[ 53%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_index_select.cpp.o
+[ 53%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_isinf.cpp.o
+[ 53%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_isnan.cpp.o
+[ 54%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_le.cpp.o
+[ 54%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_leaky_relu.cpp.o
+[ 54%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_lift_fresh_copy.cpp.o
+[ 55%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_log.cpp.o
+[ 55%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_log10.cpp.o
+[ 55%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_log1p.cpp.o
+[ 56%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_log2.cpp.o
+[ 56%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_log_softmax.cpp.o
+[ 56%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_logical_and.cpp.o
+[ 57%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_logical_not.cpp.o
+[ 57%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_logical_or.cpp.o
+[ 57%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_logical_xor.cpp.o
+[ 57%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_logit.cpp.o
+[ 59%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_lt.cpp.o
+[ 59%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_masked_fill.cpp.o
+[ 59%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_masked_scatter.cpp.o
+[ 59%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_max.cpp.o
+[ 60%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_masked_select.cpp.o
+[ 60%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_max_pool2d_with_indices.cpp.o
+[ 61%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_max_pool2d_with_indices_backward.cpp.o
+[ 61%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_maximum.cpp.o
+[ 61%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_mean.cpp.o
+[ 62%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_min.cpp.o
+[ 62%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_minimum.cpp.o
+[ 62%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_mm.cpp.o
+[ 63%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_mul.cpp.o
+[ 63%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_narrow_copy.cpp.o
+[ 63%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_native_batch_norm.cpp.o
+[ 64%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_native_dropout.cpp.o
+[ 64%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_native_group_norm.cpp.o
+[ 64%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_native_layer_norm.cpp.o
+[ 64%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_ne.cpp.o
+[ 65%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_neg.cpp.o
+[ 65%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_nonzero.cpp.o
+[ 65%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_ones.cpp.o
+[ 67%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_pdist_forward.cpp.o
+[ 67%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_permute_copy.cpp.o
+[ 67%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_pixel_shuffle.cpp.o
+[ 68%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_pixel_unshuffle.cpp.o
+[ 68%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_pow.cpp.o
+[ 68%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_prod.cpp.o
+[ 69%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_rand.cpp.o
+[ 69%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_randn.cpp.o
+[ 69%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_reciprocal.cpp.o
+[ 70%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_reflection_pad1d.cpp.o
+[ 70%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_reflection_pad2d.cpp.o
+[ 70%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_reflection_pad3d.cpp.o
+[ 71%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_relu.cpp.o
+[ 71%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_remainder.cpp.o
+[ 71%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_repeat.cpp.o
+[ 72%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_repeat_interleave.cpp.o
+[ 72%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_replication_pad1d.cpp.o
+[ 72%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_replication_pad2d.cpp.o
+[ 72%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_replication_pad3d.cpp.o
+[ 73%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_roll.cpp.o
+[ 73%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_round.cpp.o
+[ 73%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_rsqrt.cpp.o
+[ 75%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_rsub.cpp.o
+[ 75%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_scalar_tensor.cpp.o
+[ 75%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_scatter.cpp.o
+[ 76%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_scatter_add.cpp.o
+[ 76%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_select_copy.cpp.o
+[ 76%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_select_scatter.cpp.o
+[ 76%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sign.cpp.o
+[ 77%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sigmoid.cpp.o
+[ 77%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sin.cpp.o
+[ 78%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sinh.cpp.o
+[ 78%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_slice_copy.cpp.o
+[ 78%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_slice_scatter.cpp.o
+[ 79%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_softmax.cpp.o
+[ 79%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_split_copy.cpp.o
+[ 79%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_split_with_sizes_copy.cpp.o
+[ 79%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sqrt.cpp.o
+[ 80%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_squeeze_copy.cpp.o
+[ 80%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_stack.cpp.o
+[ 80%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sub.cpp.o
+[ 81%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_sum.cpp.o
+[ 81%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_t_copy.cpp.o
+[ 81%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_tan.cpp.o
+[ 82%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_tanh.cpp.o
+[ 82%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_to_copy.cpp.o
+[ 82%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_topk.cpp.o
+[ 84%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_transpose_copy.cpp.o
+[ 84%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_tril.cpp.o
+[ 84%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_trunc.cpp.o
+[ 85%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_unbind_copy.cpp.o
+[ 85%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_unfold_copy.cpp.o
+[ 85%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_unsqueeze_copy.cpp.o
+[ 86%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_upsample_bilinear2d.cpp.o
+[ 86%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_upsample_bilinear2d_aa.cpp.o
+[ 86%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_upsample_nearest2d.cpp.o
+[ 86%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_var.cpp.o
+[ 87%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_var_mean.cpp.o
+[ 87%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_view_as_real_copy.cpp.o
+[ 87%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_view_copy.cpp.o
+[ 88%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_where.cpp.o
+[ 88%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/op_zeros.cpp.o
+[ 88%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/pattern/unary_ufunc_realhbbf16_to_bool.cpp.o
+[ 89%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/pattern/unary_ufunc_realhbbf16_to_floathbf16.cpp.o
+[ 89%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/pattern/unary_ufunc_realhbf16.cpp.o
+[ 89%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/activation_ops_util.cpp.o
+[ 90%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/advanced_index_util.cpp.o
+[ 90%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/arange_util.cpp.o
+[ 90%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/broadcast_util.cpp.o
+[ 92%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/copy_ops_util.cpp.o
+[ 92%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/delinearize_index.cpp.o
+[ 92%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/distance_util.cpp.o
+[ 93%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/dtype_util.cpp.o
+[ 93%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/grid_sampler_2d_util.cpp.o
+[ 93%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/index_util.cpp.o
+[ 93%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/kernel_ops_util.cpp.o
+[ 94%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/matmul_ops_util.cpp.o
+[ 94%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/normalization_ops_util.cpp.o
+[ 94%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/padding_util.cpp.o
+[ 95%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/reduce_util.cpp.o
+[ 95%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/repeat_util.cpp.o
+[ 95%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/select_copy_util.cpp.o
+[ 96%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/slice_util.cpp.o
+[ 96%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/stack_util.cpp.o
+[ 96%] Building CXX object kernels/portable/CMakeFiles/portable_kernels.dir/cpu/util/upsample_util.cpp.o
+[ 97%] Linking CXX static library libportable_kernels.a
+[ 97%] Built target portable_kernels
+[ 97%] Generating selected_operators.yaml for portable_ops_lib
+[ 97%] Generating code for kernel registration
+[ 98%] Building CXX object kernels/portable/CMakeFiles/portable_ops_lib.dir/portable_ops_lib/RegisterCodegenUnboxedKernelsEverything.cpp.o
+[ 98%] Linking CXX static library libportable_ops_lib.a
+[ 98%] Built target portable_ops_lib
+[ 98%] Building CXX object CMakeFiles/executor_runner.dir/examples/portable/executor_runner/executor_runner.cpp.o
+[ 98%] Building CXX object CMakeFiles/executor_runner.dir/extension/data_loader/file_data_loader.cpp.o
+[100%] Building CXX object CMakeFiles/executor_runner.dir/runtime/executor/test/test_backend_compiler_lib.cpp.o
+[100%] Linking CXX executable executor_runner.html
+[100%] Built target executor_runner
+=== RUN UNDER NODE ===
+I 00:00:00.008443 executorch:executor_runner.cpp:565] Model file add_mul.pte is loaded.
+I 00:00:00.011434 executorch:executor_runner.cpp:575] Using method forward
+I 00:00:00.012092 executorch:executor_runner.cpp:649] Setting up CPU planned buffer 0, size 64.
+I 00:00:00.015121 executorch:executor_runner.cpp:718] Model loaded in 7.854548 ms.
+I 00:00:00.018354 executorch:executor_runner.cpp:880] Iteration 1 of 1: 1.623885 ms
+I 00:00:00.018474 executorch:executor_runner.cpp:889] Model executed successfully 1 time(s) in 1.623885 ms.
+I 00:00:00.018620 executorch:executor_runner.cpp:893] 1 outputs: 
+OutputX 0: tensor(sizes=[2, 2], [3., 3., 3., 3.])
+DEMO_EXIT=0
+PIPE_DONE=0

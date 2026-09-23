@@ -1,0 +1,6 @@
+[verify] pyodide 0.27.8
+packaging already loaded from default channel
+[verify] python deps installed
+[verify] wheel unpacked to /lib/python3.12/site-packages
+[verify] loaded torch/lib/libc10.so
+LOADLIB FAILED torch/lib/libtorch_cpu.so 23263928

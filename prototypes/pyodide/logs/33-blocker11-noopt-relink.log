@@ -1,0 +1,34 @@
+Loading micropip, packaging
+Loaded micropip, packaging
+packaging already loaded from default channel
+Loading Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+Loaded Jinja2, MarkupSafe, Pillow, contourpy, cycler, decorator, fonttools, fsspec, kiwisolver, matplotlib, matplotlib-pyodide, mpmath, networkx, numpy, pyparsing, python-dateutil, pytz, setuptools, six, sympy, typing-extensions
+loaded torch/lib/libc10.so
+### torchInternalAssertFail RAW ARGS ###
+  func = "n::count.int(int[] self,                                                                       int el) -> int"
+  file = "ce/build_torch/packages/torch/build/torch-2.8.0/c10/core/SymBool.h"
+  line = 143
+  cond = "_torch/packages/torch/build/torch-2.8.0/c10/core/TensorImpl.h\":1733, please report a bug to PyTorch. "
+### MEMORY WINDOW around each pointer ([]=pointer target) ###
+  file@32212887: /workspa[c]e/build_torch/packages/torch/build/torch-2.8.0/c10/
+  cond@33663767: ce/build[_]torch/packages/torch/build/torch-2.8.0/c10/core/Ten
+  func@31795051:  int.ate[n]::count.int(int[] self,                            
+### THROW STACK (first c10 throw during libtorch_cpu load) ###
+Error
+    at ___cxa_throw (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:165274)
+    at invoke_viii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1249102)
+    at wasm://wasm/002583aa:wasm-function[2461]:0x8222e
+    at wasm://wasm/002583aa:wasm-function[1828]:0x69101
+    at wasm://wasm/002583aa:wasm-function[548]:0x39159
+    at wasmImports.<computed> (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:152721)
+    at libtorch_cpu_noopt.so.torch::jit::TokenTrie::insert(char const*, int) (wasm://wasm/libtorch_cpu_noopt.so-412244de:wasm-function[35021]:0x1b96198)
+    at invoke_viii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1249102)
+    at libtorch_cpu_noopt.so.torch::jit::SharedParserData::SharedParserData() (wasm://wasm/libtorch_cpu_noopt.so-412244de:wasm-function[35019]:0x1b95fa5)
+    at invoke_ii (/workspace/prototypes/pyodide/jupyterlite-demo/node_modules/pyodide/pyodide.asm.js:10:1247544)
+FAILED to load torch/lib/libtorch_cpu.so
+  exception type: c10::Error
+### GOT.mem (data symbols): requested=23538 unresolved=0 ###
+### GOT.func (function pointers): requested=22503 unresolved=2 ###
+exit
+cpuinfo_emscripten_init
+DIAG_EXIT=0

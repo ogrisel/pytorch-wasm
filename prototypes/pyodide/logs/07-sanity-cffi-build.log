@@ -1,0 +1,15 @@
+Building the following packages: cffi, micropip, pycparser, pydoc_data, and     
+tblib                                                                           
+[2/5] (thread 2) built tblib in 0s                                              
+[4/5] (thread 4) built micropip in 0s                                           
+[3/5] (thread 3) built pycparser in 1s                                          
+[5/5] (thread 2) built pydoc_data in 2s                                         
+[1/5] (thread 1) built cffi in 5s                                               
+                                                                                
+Building packages... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 100% Time elapsed: 0:00:05
+=== cffi build artifacts ===
+packages/cffi/build/cffi-2.0.0/dist/cffi-2.0.0-cp312-cp312-pyemscripten_2024_0_wasm32.whl
+packages/cffi/dist/cffi-2.0.0-cp312-cp312-pyemscripten_2024_0_wasm32.whl
+=== dist ===
+=== cffi build dir ===
+cffi-2.0.0-cp312-cp312-pyemscripten_2024_0_wasm32.whl
