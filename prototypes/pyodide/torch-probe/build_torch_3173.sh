@@ -22,9 +22,13 @@ RECIPES="$ROOT/build_torch/recipes"
 source "$ROOT/.emsdk/emsdk_env.sh"
 emcc --version | head -1
 
-# 2) ccache wraps clang under emcc.
+# 2) ccache wraps clang under emcc. EM_COMPILER_WRAPPER MUST be an ABSOLUTE path:
+#    emcc execv()s it directly and does NOT perform a PATH lookup, so a bare
+#    "ccache" fails with FileNotFoundError. See build_torch_candidate.sh.
 export CCACHE_DIR="${CCACHE_DIR:-$ROOT/.ccache}"
-export EM_COMPILER_WRAPPER=ccache
+export EM_COMPILER_WRAPPER="$(command -v ccache)"
+export CMAKE_C_COMPILER_LAUNCHER=ccache
+export CMAKE_CXX_COMPILER_LAUNCHER=ccache
 ccache -s | head -3 || true
 
 # 3) pyodide-build: use ambient (3.1.73) emcc, skip the 3.1.58 version gate.
