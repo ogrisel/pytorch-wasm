@@ -3,12 +3,15 @@ first goto
 [c.info] Registering new JupyterLite ServiceWorker http://127.0.0.1:8123/service-worker.js?enableCache=false
 [c.info] JupyterLite ServiceWorker was successfully registered
 [c.info] xpython contents will be synced with Jupyter Contents
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/bf5a957f-cc5c-4d64-9450-650a9084829b
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/bf5a957f-cc5c-4d64-9450-650a9084829b
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
 [worker] http://127.0.0.1:8123/extensions/@jupyterlite/xeus-extension/static/654.01688496c997e850.js?v=01688496c997e850
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/bf5a957f-cc5c-4d64-9450-650a9084829b
-[c.warning] Trying to send message on removed socket for kernel bf5a957f-cc5c-4d64-9450-650a9084829b
-[c.warning] Trying to send message on removed socket for kernel bf5a957f-cc5c-4d64-9450-650a9084829b
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[pageerror] generic_type: type "XKernel" is already registered!
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
 reload so SW controls
 [c.error] Blocked attempt to show a 'beforeunload' confirmation panel for a frame that never had a user gesture since its load. https://www.chromestatus.com/feature/5082396709879808
 [c.info] New version, unregistering existing service workers.
@@ -16,56 +19,38 @@ reload so SW controls
 [c.info] JupyterLite ServiceWorker was already registered
 [c.info] Registering new JupyterLite ServiceWorker http://127.0.0.1:8123/service-worker.js?enableCache=false
 [c.info] JupyterLite ServiceWorker was successfully registered
-UI loaded; polling kernel status
 [c.info] xpython contents will be synced with Jupyter Contents
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c11cdcbb-cc5b-4768-914d-04090beeb82a
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c11cdcbb-cc5b-4768-914d-04090beeb82a
-[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c11cdcbb-cc5b-4768-914d-04090beeb82a
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
 [worker] http://127.0.0.1:8123/extensions/@jupyterlite/xeus-extension/static/654.01688496c997e850.js?v=01688496c997e850
-[c.warning] Trying to send message on removed socket for kernel c11cdcbb-cc5b-4768-914d-04090beeb82a
+UI loaded; polling kernel status
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
 kstatus[0] ind=unknown
-[c.warning] Trying to send message on removed socket for kernel c11cdcbb-cc5b-4768-914d-04090beeb82a
-kernel idle at poll 1
-kernel ready=true
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[pageerror] generic_type: type "XKernel" is already registered!
+kstatus[5] ind=unknown
+kstatus[10] ind=unknown
+kstatus[15] ind=unknown
+kstatus[20] ind=unknown
+kstatus[25] ind=unknown
+kstatus[30] ind=unknown
+kstatus[35] ind=unknown
+kstatus[40] ind=unknown
+kstatus[45] ind=unknown
+kstatus[50] ind=unknown
+kstatus[55] ind=unknown
+kernel ready=false
 runAll: no
 menu ran
---- cells @2026-09-22T23:42:42.869Z ---
-[1]: => python 3.13.1 | platform Emscripten
-torch 2.8.0a0
-default dtype torch.float32
+--- cells @2026-09-23T16:25:45.804Z ---
+[*]: => 
 =====
-[2]: => [2]:
-(torch.Size([256, 4]), torch.Size([256, 1]))
+[*]: => 
 =====
 [*]: => 
 =====
 [*]: => 
---- cells @2026-09-22T23:42:47.874Z ---
-[1]: => python 3.13.1 | platform Emscripten
-torch 2.8.0a0
-default dtype torch.float32
-=====
-[2]: => [2]:
-(torch.Size([256, 4]), torch.Size([256, 1]))
-=====
-[3]: => [3]:
-Sequential(
-  (0): Linear(in_features=4, out_features=16, bias=True)
-  (1): ReLU()
-  (2): Linear(in_features=16, out_features=1, bias=True)
-)
-=====
-[4]: => /tmp/xpython_42/2334678770.py:8: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
-Consider using tensor.detach() first. (Triggered internally at /workspace/.src/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
-  losses.append(float(loss))
-
-epoch   0  loss 18.7851
-epoch  40  loss 0.1634
-epoch  80  loss 0.1148
-epoch 120  loss 0.0758
-epoch 160  loss 0.0502
-epoch 199  loss 0.0354
-first loss 18.7851 -> last loss 0.0354
-OK: real torch trained an MLP in WASM; loss decreased 530.2x
-*** TORCH SUCCESS ***
 DONE

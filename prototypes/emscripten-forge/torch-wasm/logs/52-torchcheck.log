@@ -1,0 +1,11 @@
+kernel idle 1
+ready true
+runAll: no
+menu ran
+CELLS:
+PY 3.13.1 Emscripten
+TORCH 2.8.0
+matmul shape (3, 2)
+grad_ok True
+TORCH_WASM_OK sum=2.8822
+*** OK ***

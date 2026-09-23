@@ -1,8 +1,13 @@
-+ PYINC=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include/python3.13
-+ em++ -sSIDE_MODULE=1 -sWASM_BIGINT -sERROR_ON_UNDEFINED_SYMBOLS=0 -fexceptions -O2 -I/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include/python3.13 /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/work/../work/_stub.c
-+ cp /workspace/.src/pytorch/torch/csrc/stub.c /workspace/.torch-stage/stub.c
-+ em++ -sSIDE_MODULE=1 -sWASM_BIGINT -sERROR_ON_UNDEFINED_SYMBOLS=0 -fexceptions -O2 -I/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include/python3.13 /workspace/.torch-stage/stub.c -Wl,--whole-archive /workspace/.torch-build/lib/libtorch_python.a /workspace/.torch-build/lib/libtorch.a /workspace/.torch-build/lib/libtorch_cpu.a -Wl,--no-whole-archive -Wl,--start-group /workspace/.torch-build/lib/libc10.a /workspace/.torch-build/lib/libonnx.a /workspace/.torch-build/lib/libonnx_proto.a /workspace/.torch-build/lib/libprotobuf.a /workspace/.torch-build/lib/libprotobuf-lite.a /workspace/.torch-build/lib/libcpuinfo.a /workspace/.torch-build/lib/libshm.a -Wl,--end-group -o /workspace/.torch-stage/_C.so
-clang++: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+-rw-r--r-- 1 ubuntu ubuntu   2221510 Sep 23 15:15 /workspace/.torch-build/lib/libc10.a
+-rw-r--r-- 1 ubuntu ubuntu     12958 Sep 23 15:13 /workspace/.torch-build/lib/libcpuinfo.a
+-rw-r--r-- 1 ubuntu ubuntu  12378296 Sep 23 15:15 /workspace/.torch-build/lib/libonnx.a
+-rw-r--r-- 1 ubuntu ubuntu    587746 Sep 23 15:13 /workspace/.torch-build/lib/libonnx_proto.a
+-rw-r--r-- 1 ubuntu ubuntu    855388 Sep 23 15:13 /workspace/.torch-build/lib/libprotobuf-lite.a
+-rw-r--r-- 1 ubuntu ubuntu   4759182 Sep 23 15:36 /workspace/.torch-build/lib/libprotobuf.a
+-rw-r--r-- 1 ubuntu ubuntu     38490 Sep 23 15:44 /workspace/.torch-build/lib/libshm.a
+-rw-r--r-- 1 ubuntu ubuntu       394 Sep 23 15:36 /workspace/.torch-build/lib/libtorch.a
+-rw-r--r-- 1 ubuntu ubuntu 368702882 Sep 23 15:36 /workspace/.torch-build/lib/libtorch_cpu.a
+-rw-r--r-- 1 ubuntu ubuntu  83828548 Sep 23 15:49 /workspace/.torch-build/lib/libtorch_python.a
 LINK_C_RC=0
--rwxr-xr-x 1 ubuntu ubuntu 142919486 Sep 22 22:31 /workspace/.torch-stage/_C.so
+-rwxr-xr-x 1 ubuntu ubuntu 142921569 Sep 23 15:51 /workspace/.torch-stage/_C.so
 /workspace/.torch-stage/_C.so: WebAssembly (wasm) binary module version 0x1 (MVP)

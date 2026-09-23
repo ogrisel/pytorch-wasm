@@ -1,5 +1,5 @@
-configure: cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_BINARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_ROCM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DUSE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -DUSE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF -DATEN_THREADING=NATIVE -DPython_EXECUTABLE=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3 -DPYTHON_EXECUTABLE=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace/prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWASM_PYTHON_INCLUDE_DIR=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include/python3.13 -DCAFFE2_CUSTOM_PROTOC_EXECUTABLE=/workspace/.hostprotoc/protoc -DCMAKE_TOOLCHAIN_FILE=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_PREFIX_PATH=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold -DCMAKE_INSTALL_PREFIX=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -DCMAKE_CROSSCOMPILING_EMULATOR=/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/node
-CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
+configure: cmake -S /workspace/.src/pytorch -B /workspace/.torch-build -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_TEST=OFF -DBUILD_BINARY=OFF -DBUILD_CAFFE2=OFF -DBUILD_CAFFE2_OPS=OFF -DUSE_CUDA=OFF -DUSE_ROCM=OFF -DUSE_XPU=OFF -DUSE_MKLDNN=OFF -DUSE_FBGEMM=OFF -DUSE_NNPACK=OFF -DUSE_QNNPACK=OFF -DUSE_PYTORCH_QNNPACK=OFF -DUSE_XNNPACK=OFF -DUSE_KINETO=OFF -DUSE_DISTRIBUTED=OFF -DUSE_TENSORPIPE=OFF -DUSE_GLOO=OFF -DUSE_MPI=OFF -DUSE_OPENMP=OFF -DUSE_NUMA=OFF -DUSE_NUMPY=OFF -DUSE_MAGMA=OFF -DUSE_ITT=OFF -DUSE_MIMALLOC=OFF -DUSE_OBSERVERS=OFF -DUSE_LITE_PROTO=ON -DUSE_ONNX=OFF -DATEN_THREADING=NATIVE -DPython_EXECUTABLE=/workspace/.mmroot/envs/torch-build/bin/python3 -DPYTHON_EXECUTABLE=/workspace/.mmroot/envs/torch-build/bin/python3 -DCMAKE_PROJECT_INCLUDE=/workspace/prototypes/emscripten-forge/torch-wasm/recipe/emscripten_fixups.cmake -DWASM_PYTHON_INCLUDE_DIR=/workspace/.mmroot/envs/torch-build/include/python3.13 -DCAFFE2_CUSTOM_PROTOC_EXECUTABLE=/workspace/.hostprotoc/protoc -DProtobuf_PROTOC_EXECUTABLE=/workspace/.hostprotoc/protoc -DCMAKE_TOOLCHAIN_FILE=/workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_PREFIX_PATH= -DCMAKE_INSTALL_PREFIX= -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ON -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -DCMAKE_INSTALL_PREFIX=/workspace/.mmroot/envs/torch-build -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CROSSCOMPILING_EMULATOR=/workspace/.mmroot/envs/torch-build/bin/node
+CMake Warning (deprecated) at CMakeLists.txt:9 (cmake_policy):
   The OLD behavior for policy CMP0126 will be removed from a future version
   of CMake.
 
@@ -7,9 +7,10 @@ CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
   policies are deprecated and that a policy should be set to OLD only under
   specific short-term circumstances.  Projects should be ported to the NEW
   behavior and not rely on setting a policy to OLD.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
-
-CMake Deprecation Warning at CMakeLists.txt:21 (cmake_policy):
+CMake Warning (deprecated) at CMakeLists.txt:21 (cmake_policy):
   The OLD behavior for policy CMP0146 will be removed from a future version
   of CMake.
 
@@ -17,10 +18,10 @@ CMake Deprecation Warning at CMakeLists.txt:21 (cmake_policy):
   policies are deprecated and that a policy should be set to OLD only under
   specific short-term circumstances.  Projects should be ported to the NEW
   behavior and not rely on setting a policy to OLD.
-
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
 -- Not forcing any particular BLAS to be found
--- Could not find ccache. Consider installing ccache to speed up compilation.
 -- Performing Test C_HAS_AVX_1
 -- Performing Test C_HAS_AVX_1 - Failed
 -- Performing Test C_HAS_AVX_2
@@ -79,14 +80,15 @@ Call Stack (most recent call first):
   CMakeLists.txt:863 (include)
 
 
-CMake Deprecation Warning at third_party/protobuf/cmake/CMakeLists.txt:2 (cmake_minimum_required):
+CMake Warning (deprecated) at third_party/protobuf/cmake/CMakeLists.txt:2 (cmake_minimum_required):
   Compatibility with CMake < 3.10 will be removed from a future version of
   CMake.
 
   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
   to tell CMake that the project requires at least <min> but has been updated
   to work with policies introduced by <max> or earlier.
-
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
 -- 
 -- 3.13.0.0
@@ -168,14 +170,15 @@ Call Stack (most recent call first):
 -- Looking for sgemm_ - found
 -- Cannot find a library with BLAS API. Not using BLAS.
 -- Using pocketfft in directory: /workspace/.src/pytorch/third_party/pocketfft/
-CMake Deprecation Warning at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+CMake Warning (deprecated) at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
   Compatibility with CMake < 3.10 will be removed from a future version of
   CMake.
 
   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
   to tell CMake that the project requires at least <min> but has been updated
   to work with policies introduced by <max> or earlier.
-
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
 CMake Warning at third_party/cpuinfo/CMakeLists.txt:113 (MESSAGE):
   Target operating system "Emscripten" is not supported in cpuinfo.  cpuinfo
@@ -194,32 +197,34 @@ Call Stack (most recent call first):
   CMakeLists.txt:863 (include)
 
 
-CMake Deprecation Warning at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+CMake Warning (deprecated) at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
   Compatibility with CMake < 3.10 will be removed from a future version of
   CMake.
 
   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
   to tell CMake that the project requires at least <min> but has been updated
   to work with policies introduced by <max> or earlier.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
-
-CMake Deprecation Warning at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+CMake Warning (deprecated) at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
   Compatibility with CMake < 3.10 will be removed from a future version of
   CMake.
 
   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
   to tell CMake that the project requires at least <min> but has been updated
   to work with policies introduced by <max> or earlier.
-
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
 
 -- Using third party subdirectory Eigen.
--- Found Python: /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3 (found version "3.13.15") found components: Interpreter missing components: Development.Module
+-- Found Python: /workspace/.mmroot/envs/torch-build/bin/python3 (found version "3.13.15") found components: Interpreter missing components: Development.Module
 -- Using third_party/pybind11.
 -- pybind11 include dirs: /workspace/.src/pytorch/cmake/../third_party/pybind11/include
 -- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS) 
 -- Using third_party/opentelemetry-cpp.
 -- opentelemetry api include dirs: /workspace/.src/pytorch/cmake/../third_party/opentelemetry-cpp/api/include
--- Found Python3: /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3 (found version "3.13.15") found components: Interpreter
+-- Found Python3: /workspace/.mmroot/envs/torch-build/bin/python3 (found version "3.13.15") found components: Interpreter
 -- Using custom protoc executable
 -- ONNX_PROTOC_EXECUTABLE: /workspace/.hostprotoc/protoc
 -- Protobuf_VERSION: Protobuf_VERSION_NOTFOUND
@@ -228,17 +233,17 @@ Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-operators_onnx_tor
 Generated: /workspace/.torch-build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
 -- 
 -- ******** Summary ********
---   CMake version                     : 4.3.4
---   CMake command                     : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/cmake
+--   CMake version                     : 4.4.3
+--   CMake command                     : /workspace/.mmroot/envs/torch-build/bin/cmake
 --   System                            : Emscripten
---   C++ compiler                      : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/em++
+--   C++ compiler                      : /workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/em++
 --   C++ compiler version              : 20.0.0
---   CXX flags                         : -O2 -g0 -fPIC -I/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include -fexceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor
+--   CXX flags                         : -O2 -g0 -fPIC -I/include -fexceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor
 --   Build type                        : Release
 --   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
---   CMAKE_PREFIX_PATH                 : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
---   CMAKE_INSTALL_PREFIX              : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
---   CMAKE_MODULE_PATH                 : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.src/pytorch/cmake/Modules
+--   CMAKE_PREFIX_PATH                 : 
+--   CMAKE_INSTALL_PREFIX              : /workspace/.mmroot/envs/torch-build
+--   CMAKE_MODULE_PATH                 : /workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/cmake/Modules;/workspace/.src/pytorch/cmake/Modules
 -- 
 --   ONNX version                      : 1.18.0
 --   ONNX NAMESPACE                    : onnx_torch
@@ -378,11 +383,11 @@ disabling MKLDNN because USE_MKLDNN is not set
 -- Performing Test HAS_FNO_TRAPPING_MATH - Success
 -- Performing Test HAS_WERROR_FORMAT
 -- Performing Test HAS_WERROR_FORMAT - Success
-CMake Warning (dev) at c10/CMakeLists.txt:52 (add_library):
+CMake Warning (author) at c10/CMakeLists.txt:52 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
 -- don't use NUMA
 -- Looking for backtrace
@@ -397,45 +402,45 @@ AT_INSTALL_INCLUDE_DIR include/ATen/core
 core header install: /workspace/.torch-build/aten/src/ATen/core/TensorBody.h
 core header install: /workspace/.torch-build/aten/src/ATen/core/aten_interned_strings.h
 core header install: /workspace/.torch-build/aten/src/ATen/core/enum_tag.h
-CMake Warning (dev) at caffe2/CMakeLists.txt:792 (add_library):
+CMake Warning (author) at caffe2/CMakeLists.txt:792 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
 -- Performing Test HAS_WMISSING_PROTOTYPES
 -- Performing Test HAS_WMISSING_PROTOTYPES - Success
 -- Performing Test HAS_WERROR_MISSING_PROTOTYPES
 -- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Success
-CMake Warning (dev) at caffe2/CMakeLists.txt:919 (add_library):
+CMake Warning (author) at caffe2/CMakeLists.txt:919 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
-CMake Warning (dev) at torch/lib/libshm/CMakeLists.txt:10 (add_library):
+CMake Warning (author) at torch/lib/libshm/CMakeLists.txt:10 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
-CMake Warning (dev) at torch/CMakeLists.txt:316 (add_library):
+CMake Warning (author) at torch/CMakeLists.txt:316 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
-CMake Warning (dev) at torch/CMakeLists.txt:492 (add_library):
+CMake Warning (author) at torch/CMakeLists.txt:492 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
-CMake Warning (dev) at caffe2/CMakeLists.txt:1709 (add_library):
+CMake Warning (author) at caffe2/CMakeLists.txt:1709 (add_library):
   ADD_LIBRARY called with SHARED option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
 CMake Warning at CMakeLists.txt:1266 (message):
   Generated cmake files are only fully tested if one builds with system glog,
@@ -446,22 +451,22 @@ CMake Warning at CMakeLists.txt:1266 (message):
 -- 
 -- ******** Summary ********
 -- General:
---   CMake version         : 4.3.4
---   CMake command         : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/cmake
+--   CMake version         : 4.4.3
+--   CMake command         : /workspace/.mmroot/envs/torch-build/bin/cmake
 --   System                : Emscripten
---   C++ compiler          : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/opt/emsdk/upstream/emscripten/em++
+--   C++ compiler          : /workspace/.mmroot/envs/torch-build/opt/emsdk/upstream/emscripten/em++
 --   C++ compiler id       : Clang
 --   C++ compiler version  : 20.0.0
 --   Using ccache if found : ON
---   Found ccache          : CCACHE_PROGRAM-NOTFOUND
---   CXX flags             : -O2 -g0 -fPIC -I/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/include -fexceptions -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
---   Shared LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib -s SIDE_MODULE=1 -fexceptions -rdynamic
+--   Found ccache          : /workspace/.mmroot/envs/torch-build/bin/ccache
+--   CXX flags             : -O2 -g0 -fPIC -I/include -fexceptions -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
+--   Shared LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/lib -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/lib -s SIDE_MODULE=1 -fexceptions -rdynamic
 --   Static LD flags       : 
---   Module LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib -s SIDE_MODULE=1 -fexceptions
+--   Module LD flags       : -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/lib -s SIDE_MODULE=1 -O2 -g0 -s WASM=1 -sWASM_BIGINT -L/lib -s SIDE_MODULE=1 -fexceptions
 --   Build type            : Release
 --   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK=1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CRC32_CHECKS
---   CMAKE_PREFIX_PATH     : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
---   CMAKE_INSTALL_PREFIX  : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
+--   CMAKE_PREFIX_PATH     : 
+--   CMAKE_INSTALL_PREFIX  : /workspace/.mmroot/envs/torch-build
 --   USE_GOLD_LINKER       : OFF
 -- 
 --   TORCH_VERSION         : 2.8.0
@@ -471,10 +476,10 @@ CMake Warning at CMakeLists.txt:1266 (message):
 --     Link local protobuf : ON
 --   BUILD_PYTHON          : ON
 --     Python version      : 3.13.15
---     Python executable   : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/build_env/bin/python3
+--     Python executable   : /workspace/.mmroot/envs/torch-build/bin/python3
 --     Python library      : 
 --     Python includes     : _Python_INCLUDE_DIR-NOTFOUND
---     Python site-package : /workspace/.ef-recipes/output/bld/rattler-build_pytorch_1790114126/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/lib/python3.13/site-packages
+--     Python site-package : /workspace/.mmroot/envs/torch-build/lib/python3.13/site-packages
 --   BUILD_SHARED_LIBS     : ON
 --   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
 --   BUILD_TEST            : OFF
@@ -527,23 +532,23 @@ CMake Warning at CMakeLists.txt:1266 (message):
 --   USE_COREML_DELEGATE     : OFF
 --   BUILD_LAZY_TS_BACKEND   : ON
 --   USE_ROCM_KERNEL_ASSERT : OFF
-CMake Warning (dev) at functorch/CMakeLists.txt:11 (add_library):
+CMake Warning (author) at functorch/CMakeLists.txt:11 (add_library):
   ADD_LIBRARY called with MODULE option but the target platform does not
   support dynamic linking.  Building a STATIC library instead.  This may lead
   to problems.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+This warning is for project developers.  Use -Wno-author to suppress it.
 
--- Configuring done (30.3s)
+-- Configuring done (27.6s)
 -- Generating done (0.4s)
-CMake Warning:
+CMake Warning (unused-cli):
   Manually-specified variables were not used by the project:
 
     BUILD_CAFFE2
     BUILD_CAFFE2_OPS
     PYTHON_EXECUTABLE
+    Protobuf_PROTOC_EXECUTABLE
     USE_ONNX
     USE_QNNPACK
 
 
 -- Build files have been written to: /workspace/.torch-build
-CONFIGURE_RC=0
