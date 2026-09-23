@@ -61,6 +61,36 @@ Pipeline:
   `multiprocessing.resource_tracker`, `_load_global_deps`; ship `torchgen`; restore the
   real `torch_version.py`; add `sympy`.
 
+## Upstream test suite vs. the wasm build
+
+Added `tests/`: upstream PyTorch 2.8.0 core test files (`test_torch/autograd/nn/
+optim/type_promotion/ops`) driven against the reduced build, with a categorized,
+machine-readable **wasm-inapplicable skip manifest** (`skip_manifest.json` +
+`conftest.py`, capability-gated so the same policy is correct under host torch
+and the wasm kernel), a host runner (`run_tests.py`), and an in-wasm harness
+(`run_pytest_wasm.js` + `wasm_pytest_driver.py`).
+
+Honest status:
+
+- **True in-wasm run: not performed here.** It needs the built `torch/_C.so`
+  wasm module, absent on a fresh VM; the from-scratch rebuild does not fit the
+  time budget (host `protoc` fails to build on the bare VM → ONNX/Caffe2 fall
+  back to the un-runnable wasm `protoc.js`, exit 126; and `libtorch_cpu` ~368 MB
+  on 4 CPUs is hours). Evidence: `tests/logs/... ` and `logs/50-build-repro-attempt.log`.
+- **Skip classification:** 766 tests across the 6 files are inapplicable-by-
+  environment (GPU 423, numpy-bridge 256, slow/large-mem 51, threads 19,
+  disabled-backends 11, cpp-extension 2, distributed 2, mp 1, profiler 1) —
+  `tests/logs/skip_classification.json`.
+- **Reference-torch execution (proxy) validates the harness:** host baseline runs
+  the upstream tests (e.g. `test_torch` 983 pass / 61 skip / 0 fail; `test_optim`
+  820/146/0); the simulated-wasm applicable subset is **3711 passed / 920 skipped
+  / 0 failed** across type_promotion+optim+torch+nn.
+- **Failure ledger kept separate** from skips: the only executed failures were 63
+  `test_autograd` logging tests, shown to be a single-process isolation artifact
+  (pass in isolation), documented in `tests/logs/known_failures.md`.
+
+See `tests/RUN_IN_WASM.md` and `RESULTS.md` → "Running the upstream test suite".
+
 ## Reproduce
 
 See `RESULTS.md` → "How to reproduce": `build_iter.sh` (build + link `_C.so`) →

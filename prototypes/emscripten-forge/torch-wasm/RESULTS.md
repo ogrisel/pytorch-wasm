@@ -110,6 +110,91 @@ XNNPACK=0`, `USE_KINETO=0`, `USE_DISTRIBUTED/TENSORPIPE/GLOO/MPI=0`,
 `USE_LITE_PROTO=1`. **Kept:** eager ATen CPU ops, autograd, TorchScript/JIT,
 `torch::nn`, `torch::optim`, and the Python bindings (`torch._C`).
 
+## Running the upstream PyTorch test suite
+
+Beyond the MLP demo, this prototype now exercises **upstream PyTorch 2.8.0's own
+test files** against the reduced build and iteratively skips only the tests that
+are *fundamentally inapplicable* to the wasm runtime. Everything lives under
+[`tests/`](tests/) (runner + skip manifest + harness) and
+[`tests/logs/`](tests/logs/) (results + ledger).
+
+### Honest status of the in-wasm run
+
+The **true in-wasm execution was NOT performed in this cloud run.** It requires
+the built `torch/_C.so` wasm module, which is not present on a fresh VM, and the
+from-scratch rebuild could not complete within the time budget: the reproduction
+gets through toolchain env + source + full CMake configure (after supplying
+`-DCMAKE_INSTALL_PREFIX`, which rattler-build sets for free), then stops early in
+compilation because the version-matched **host `protoc` failed to build on the
+bare VM**, so ONNX/Caffe2 fall back to the cross-compiled wasm `protoc.js` which
+cannot run as a host tool (`Exec format error`, exit 126, ninja stops at
+185/1514). Even past that, compiling `libtorch_cpu` (~368 MB of objects) on 4
+CPUs far exceeds the budget. Full evidence:
+[`logs/50-build-repro-attempt.log`](logs/50-build-repro-attempt.log). The in-wasm
+runner ([`tests/run_pytest_wasm.js`](tests/run_pytest_wasm.js) +
+[`tests/wasm_pytest_driver.py`](tests/wasm_pytest_driver.py)) is committed and
+ready for when the module is packaged; under wasm `sys.platform=='emscripten'`
+auto-activates the skips.
+
+### What was executed (reference-torch proxy)
+
+To validate the runner + skip manifest end-to-end and produce real numbers, the
+same `conftest.py`/`skip_manifest.json` were run against a **full host CPU torch
+2.8.0** (a proxy for eager-CPU correctness; it is *not* the reduced wasm build):
+
+* **HOST baseline** (only host-absent capabilities skipped): proves the upstream
+  tests actually execute through the harness —
+  [`tests/logs/results.json`](tests/logs/results.json).
+
+  | file | passed | skipped | failed |
+  | --- | --- | --- | --- |
+  | `test_type_promotion.py` | 423 | 0 | 0 |
+  | `test_optim.py` | 820 | 146 | 0 |
+  | `test_torch.py` | 983 | 61 | 0 |
+  | `test_autograd.py` | 547 | 37 | 63† |
+
+  †The 63 `test_autograd.py` failures are a **single-process harness/isolation
+  artifact** (pt2 logging handlers accumulate → `assertLessEqual(handlers, 2)`
+  trips); the same tests pass in isolation. Not a torch failure, not
+  wasm-inapplicable — see [`tests/logs/known_failures.md`](tests/logs/known_failures.md).
+
+* **SIMULATED-WASM applicable subset** (`TORCH_WASM_SIMULATE=1` forces the wasm
+  capability values, skipping everything the reduced wasm runtime cannot run,
+  and executes the remainder on the reference torch) —
+  [`tests/logs/results-wasm-sim.json`](tests/logs/results-wasm-sim.json):
+
+  | file | passed | skipped | failed |
+  | --- | --- | --- | --- |
+  | `test_type_promotion.py` | 302 | 121 | 0 |
+  | `test_optim.py` | 820 | 146 | 0 |
+  | `test_torch.py` | 944 | 100 | 0 |
+  | `test_nn.py` | 1645 | 553 | 0 |
+  | **total** | **3711** | **920** | **0** |
+
+### Skip classification (wasm-inapplicable)
+
+Across the six core files, **766 tests** are classified inapplicable-by-environment
+(collect-only, so safe even for the 34,364-test `test_ops.py`). Machine-readable:
+[`tests/logs/skip_classification.json`](tests/logs/skip_classification.json).
+
+| category | count | why |
+| --- | --- | --- |
+| `gpu_cuda_rocm_xpu_mps` | 423 | no accelerator (USE_CUDA/ROCM/XPU=0) |
+| `numpy_bridge` | 256 | USE_NUMPY=0 → `from_numpy`/`.numpy()` raise |
+| `slow_large_memory` | 51 | OOM constrained wasm heap / too slow |
+| `threading_threadpool` | 19 | single-threaded (USE_OPENMP=0, NATIVE) |
+| `disabled_backends` | 11 | MKLDNN/FBGEMM/QNNPACK/XNNPACK/quant off |
+| `cpp_extension_jit_compile` | 2 | no host compiler at runtime |
+| `distributed_rpc_c10d` | 2 | USE_DISTRIBUTED=0 |
+| `multiprocessing_fork_subprocess` | 1 | single process, no fork/exec |
+| `profiler_kineto_itt` | 1 | USE_KINETO/ITT=0 |
+| **total** | **766** | |
+
+**Genuine reduced-build failures:** none can be measured until the module runs
+under wasm; the ledger and predicted entries are kept separate in
+[`tests/logs/known_failures.md`](tests/logs/known_failures.md) (never mixed into
+the skip manifest). Reproduce: [`tests/RUN_IN_WASM.md`](tests/RUN_IN_WASM.md).
+
 ## Blockers found & fixed (in build/import order)
 
 Fixes live in [`apply_patches.py`](apply_patches.py),
