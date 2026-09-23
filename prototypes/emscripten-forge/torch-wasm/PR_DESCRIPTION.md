@@ -61,6 +61,42 @@ Pipeline:
   `multiprocessing.resource_tracker`, `_load_global_deps`; ship `torchgen`; restore the
   real `torch_version.py`; add `sympy`.
 
+## TabICL classifier runs on a small dataset in-browser ✅
+
+[TabICL](https://github.com/soda-inria/tabicl) 2.2.0 (sklearn-compatible tabular
+in-context-learning classifier on PyTorch) does **`fit` + `predict` on a small
+dataset entirely in the wasm32 kernel** against this reduced `torch`:
+
+```
+torch 2.8.0 | sklearn 1.8.0 | numpy 2.4.4
+train (180, 6) test (60, 6) classes [0, 1, 2]
+fit done; classes_ [0 1 2]
+accuracy 0.967
+TABICL SUCCESS: fit+predict ran in wasm; accuracy 0.967
+```
+
+`from tabicl import TabICLClassifier`, loading the 110 MB pretrained checkpoint
+via `torch.load`, the transformer in-context forward pass, and the sklearn
+`fit`/`predict` path all run in WebAssembly. What it took:
+
+- **`tabicl-wasm` conda pkg** (`make_tabicl_pkg.py`): `tabicl`+`einops`+`tqdm`
+  `--no-deps`, plus pure-python `psutil` + `huggingface_hub` stubs.
+- **Partial scikit-learn** (`make_sklearn_pure_pkg.py`): the *full* compiled
+  emscripten-forge sklearn (~69 `.so`) aborts kernel boot
+  (`XKernel is already registered`); TabICL's import closure needs only 38
+  extensions, so we keep exactly that closure (43 `.so`:
+  utils/__check_build/_cyutility/_loss/decomposition/linear_model/metrics/
+  neighbors/preprocessing/svm) and strip the rest — this boots cleanly and
+  imports TabICL.
+- **numpy-bridge shim** (`tabicl_wasm_shim.py`): `USE_NUMPY=0`, so
+  `torch.from_numpy`/`Tensor.numpy` are monkeypatched via `.tolist()`.
+- **Checkpoint bundled** at build time (`bundle_checkpoint.py`), git-ignored
+  (>100 MB), loaded with `model_path=<local>` + `allow_auto_download=False`.
+
+Evidence: `jupyterlite/content/tabicl_demo.ipynb`,
+`logs/50-tabicl-run.log`, screenshot `logs/pw-08-tabicl.png`; harness
+`jupyterlite/test/run_retry.js`. Full write-up: `RESULTS.md` → "TabICL".
+
 ## Upstream test suite vs. the wasm build
 
 Added `tests/`: upstream PyTorch 2.8.0 core test files (`test_torch/autograd/nn/

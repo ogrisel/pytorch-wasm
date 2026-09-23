@@ -61,6 +61,85 @@ Pipeline that gets there:
   outputs incl. the `TORCH SUCCESS` marker), captured by the Playwright harness
   [`jupyterlite/test/run_torch.js`](jupyterlite/test/run_torch.js).
 
+## TabICL classifier on a small dataset — in-browser ✅
+
+**[TabICL](https://github.com/soda-inria/tabicl) 2.2.0 (a scikit-learn-compatible
+tabular in-context-learning classifier on PyTorch) runs `fit` + `predict` on a
+small dataset entirely in the wasm32 kernel against this reduced `torch`.**
+Real headless-Chrome run of [`jupyterlite/content/tabicl_demo.ipynb`](jupyterlite/content/tabicl_demo.ipynb):
+
+```
+python 3.13.1 | platform Emscripten
+torch 2.8.0 | sklearn 1.8.0 | numpy 2.4.4
+checkpoint found at: tabicl-classifier-v2-20260212.ckpt
+train (180, 6) test (60, 6) classes [0, 1, 2]
+fit done; classes_ [0 1 2]
+predictions[:12] [2, 0, 1, 0, 1, 1, 0, 0, 2, 2, 1, 1]
+accuracy 0.967
+TABICL SUCCESS: fit+predict ran in wasm; accuracy 0.967
+```
+
+So `from tabicl import TabICLClassifier`, loading the 110 MB pretrained
+checkpoint via `torch.load`, the transformer in-context forward pass, and the
+sklearn-compatible `fit`/`predict` path all run in WebAssembly (fit on 180
+rows, predict 60, 96.7% accuracy on a well-separated 3-class synthetic set).
+
+- Evidence: [`logs/50-tabicl-run.log`](logs/50-tabicl-run.log) (per-cell output)
+  + screenshot `logs/pw-08-tabicl.png`, captured by the retry-boot Playwright
+  harness [`jupyterlite/test/run_retry.js`](jupyterlite/test/run_retry.js).
+
+### What it took (and the findings)
+
+1. **Package TabICL + pure-python deps into the local channel.**
+   [`make_tabicl_pkg.py`](make_tabicl_pkg.py) builds a minimal `tabicl-wasm`
+   conda package (`tabicl` + `einops` + `tqdm`, `--no-deps`) plus a pure-python
+   `psutil` stub and a `huggingface_hub` stub (the checkpoint is bundled, never
+   fetched). The heavy compiled deps (`numpy`/`scipy`/`scikit-learn`/`joblib`/
+   `torch`) come from the channel.
+2. **scikit-learn must be a *partial* build.** Shipping the **full** compiled
+   emscripten-forge scikit-learn (~69 `.so`) makes the xeus-python kernel abort
+   at boot with `generic_type: type "XKernel" is already registered!`. But
+   TabICLClassifier's import closure needs only **38 compiled extensions**
+   (across `utils`/`__check_build`/`_cyutility`/`_loss`/`decomposition`/
+   `linear_model`/`metrics`/`neighbors`/`preprocessing`/`svm`).
+   [`make_sklearn_pure_pkg.py`](make_sklearn_pure_pkg.py) republishes
+   scikit-learn keeping exactly that closure (43 `.so`) and stripping the rest
+   (`ensemble`/`tree`/`cluster`/`manifold`/`mixture`/`feature_*`/`datasets`…).
+   This subset **boots cleanly and satisfies TabICL's import**. (An earlier,
+   over-aggressive strip produced a misleading `_liblinear` "circular import" —
+   that was a cascade from a missing `_cyutility`, not a genuine dlopen failure;
+   with the correct keep-set every needed extension, `svm._liblinear` included,
+   loads.)
+3. **numpy↔torch bridge is off (`USE_NUMPY=0`).** TabICL passes NumPy arrays to
+   `torch.from_numpy`. [`jupyterlite/content/tabicl_wasm_shim.py`](jupyterlite/content/tabicl_wasm_shim.py)
+   monkeypatches `torch.from_numpy` / `Tensor.numpy` via `.tolist()` round-trips
+   (plus the `psutil` stub). Import it once before `TabICLClassifier`.
+4. **Pretrained checkpoint bundled, not downloaded.**
+   [`bundle_checkpoint.py`](bundle_checkpoint.py) copies the ~110 MB
+   `tabicl-classifier-v2-20260212.ckpt` into the site content (git-ignored — it
+   exceeds GitHub's 100 MB limit, so it is fetched once at build time from
+   HuggingFace `jingang/TabICL`); the demo passes `model_path=<local>` with
+   `allow_auto_download=False`.
+5. **Data generation uses plain NumPy**, not `sklearn.datasets` /
+   `sklearn.model_selection` (`sklearn.datasets` imports `requests`, which is
+   absent from the minimal wasm env).
+
+### Reproduce
+
+```
+# after the torch _C.so is built (see below):
+bash build_site.sh              # stages torch, builds tabicl-wasm + partial
+                                # sklearn, bundles the checkpoint, builds the site
+cd jupyterlite/test
+python serve.py ../_output 8170 &
+CELL_DEADLINE_MS=900000 node run_retry.js 8170 tabicl_demo.ipynb \
+    "TABICL SUCCESS|TABICL BLOCKER" 12 /tmp/tabicl.log
+```
+
+`run_retry.js` retries fresh browser contexts until a clean kernel boot (the
+`XKernel already registered` startup race is intermittent for small envs), then
+runs all cells and greps the success marker.
+
 ## Environment / versions
 
 | Component | Version |
