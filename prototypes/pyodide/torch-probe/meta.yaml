@@ -225,6 +225,19 @@ build:
   # ABI-identical uint32_t variants resolves them but does NOT stop the assert — the
   # pointer-corruption abort is a distinct, deeper defect that needs a libtorch_cpu
   # relink/rebuild to fix; out of the hard time budget. See ../RESULTS.md and logs/30.
+  #
+  # BLOCKER #12 (single-module strategy, from the emscripten-forge sibling): instead of
+  # shipping libc10/libtorch_cpu/libtorch/libtorch_python/torch._C as SEPARATE side
+  # modules (cross-.so relocations => blocker #11), link ONE combined torch/_C.*.so that
+  # whole-includes every torch object + deps and exports PyInit__C, so all cross-module
+  # C++ symbols resolve INTERNALLY. See torch-probe/link_single_module.sh (run against
+  # this build's CMake tree). RESULT: it links (101 MB), and loading it runs static
+  # initializers PAST the blocker-#11 lexer.h:143 assert (that wall is eliminated), but
+  # the same intra-module rodata mis-relocation resurfaces as std::bad_alloc during aten
+  # op-schema registration (torch::jit::Source::calc_line_start_offsets, corrupted
+  # string_view size). Reproduced with BOTH emsdk 3.1.58 and 3.1.73 linkers => baked into
+  # the clang-3.1.58 objects / Pyodide 0.27.8 loader, not the linker. See ../RESULTS.md
+  # blocker #12 and logs/34-36.
   exports: requested
   cflags: |
     -pthread -matomics -mbulk-memory

@@ -15,7 +15,17 @@ Error.stackTraceLimit = 40;
 const log = (...a) => console.log("[single]", ...a);
 
 const py = await loadPyodide();
+const M = py._module;
 log("pyodide", py.version);
+
+// Decode an Emscripten/C++ error: numbers are C++ exception pointers.
+function describeErr(e) {
+  if (typeof e === "number") {
+    try { const m = M.getExceptionMessage(e); return `C++ exception: type=${m[0]} msg=${m[1]}`; }
+    catch (_) { return `numeric error ${e} (getExceptionMessage failed)`; }
+  }
+  return String(e).slice(0, 6000);
+}
 await py.loadPackage(["micropip"]);
 const micropip = py.pyimport("micropip");
 await micropip.install(["typing-extensions", "sympy", "mpmath", "networkx", "jinja2", "fsspec", "filelock"]);
@@ -43,14 +53,15 @@ try {
   await py._api.loadDynlib(`${SP}/torch/_C.cpython-312-wasm32-emscripten.so`, true, [`${SP}/torch`, `${SP}/torch/lib`]);
   log("SINGLE MODULE LOADED OK — static initializers ran without abort");
 } catch (e) {
-  console.error("LOADLIB FAILED:", String(e).slice(0, 6000));
+  console.error("LOADLIB FAILED:", describeErr(e));
+  if (e && e.stack) console.error(e.stack.split("\n").slice(0, 20).join("\n"));
   process.exit(4);
 }
 
 try {
   await py.runPythonAsync("import torch; print('[py] import torch OK', torch.__version__)");
   log("import torch OK");
-} catch (e) { console.error("IMPORT FAILED:", String(e).slice(0, 6000)); process.exit(5); }
+} catch (e) { console.error("IMPORT FAILED:", describeErr(e)); process.exit(5); }
 
 const code = `
 import torch, torch.nn as nn

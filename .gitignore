@@ -13,3 +13,6 @@ prototypes/**/build/
 __pycache__/
 *.pyc
 .venv/
+
+# from-source torch build tree (single-module experiment; huge, reproducible)
+build_torch/

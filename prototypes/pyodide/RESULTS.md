@@ -56,8 +56,43 @@ installable `torch` wheel**:
 Net: the *build/packaging* pipeline for a reduced CPU-only `torch` on Pyodide is solved
 end-to-end, **and the cross-module symbol-export wall (#10) is solved**. Blocker #11 is now
 **precisely characterised** (exact throw site, exact unresolved symbols, and direct
-evidence of mis-offset rodata pointers), but the pointer-corruption abort needs a
-**relink/rebuild of `libtorch_cpu`** to fix and is out of the hard time budget.
+evidence of mis-offset rodata pointers).
+
+- ✅ **Single-module strategy (blocker #12, from the emscripten-forge sibling) — the
+  cross-`.so` relocation wall and the `lexer.h:143` assert are ELIMINATED.** Following the
+  sibling's winning approach, this run links **one combined `torch/_C.*.so` SIDE_MODULE**
+  (101 MB) that whole-includes every torch object (`c10` + `torch_cpu` + `torch` +
+  `torch_python`, 1241 `.o`) plus the wasm deps (`onnx` whole-archived, `protobuf`,
+  `onnx_proto`, `cpuinfo`) and exports only `PyInit__C`, so **all cross-module C++ symbols
+  resolve internally**. It links cleanly, exports `PyInit__C`, and loading it runs its C++
+  static initializers **past** the exact blocker-#11 `torchInternalAssertFail` at
+  `lexer.h:143`. See [`link_single_module.sh`](torch-probe/link_single_module.sh) and
+  [`logs/34`](logs/34-single-module-link.log).
+- ⚠️ **But the deeper intra-module data-relocation defect PERSISTS as `std::bad_alloc`
+  (blocker #12).** Loading the single module now aborts *later*, inside ATen op-schema
+  registration: full demangled stack `__wasm_call_ctors` → `_GLOBAL__sub_I_TraceType_2.cpp`
+  → `TORCH_LIBRARY_IMPL_init_aten_Tracer_2` → `torch::Library::_impl` → `parseSchemaOrName`
+  → `torch::jit::Source::calc_line_start_offsets()` → `vector<size_t>::push_back` →
+  `std::bad_alloc`. The schema-name `std::string_view` handed to `Source` has a **corrupted
+  (huge) size**, so `calc_line_start_offsets` scans a huge range and overflows the offsets
+  vector. A `memcpy`-import hook shows the string is a non-owning **view** (no huge copy
+  fires), so it is the *view's size field* — the same mis-relocated-rodata defect as #11,
+  now surfacing as an absurd allocation instead of a bad assert pointer. See
+  [`logs/35`](logs/35-single-module-badalloc-stack.log).
+- ❌ **Not a wasm-ld version issue.** Relinking the identical objects with **emsdk 3.1.73**
+  (the sibling's linker) reproduces the **same `std::bad_alloc` at the same site**
+  ([`logs/36`](logs/36-single-module-3173-link-badalloc.log)). So the mis-relocation is
+  baked into the **clang-3.1.58-compiled objects** (or Pyodide 0.27.8's load-time
+  `__wasm_apply_data_relocs`), **not** the linker revision. The sibling succeeded with a
+  *fully* 3.1.73 toolchain (compile + link + runtime); adopting that would recompile every
+  object with clang 3.1.73, which is **not ABI-compatible with the Pyodide 0.27.8 runtime**
+  (emscripten 3.1.58 / CPython 3.12) this track is pinned to. Loading the module in a newer
+  Pyodide (0.28.3, CPython 3.13) fails earlier on an unrelated `libshm` undefined symbol, so
+  that cross-runtime test is inconclusive.
+
+Blocker #11/#12 remains the true wall: a data-relocation defect that scales with a single
+module's data size, which within the **Pyodide-0.27.8 ABI** cannot be fixed by the
+single-module strategy, the linker version, the optimizer, or EH mode.
 
 ## Environment / versions
 
@@ -259,11 +294,79 @@ Each has a workaround in `torch-probe/meta.yaml`'s `build.script` and a log.
           `torch::jit::TokenTrie::insert(char const*, int)` ←
           `torch::jit::SharedParserData::SharedParserData()` — exactly the `lexer.h:143`
           static-init site inferred above.
-    - **Remaining fallback (out of budget):** **split `libtorch_cpu` into smaller side
-      modules** so no single module hits the relocation-scale defect. This is now the only
-      untried avenue (optimizer, EH mode, and post-hoc-relink are all ruled out), but it is
-      invasive CMake surgery (partitioning ~1.5k sources across multiple shared libs with
-      correct inter-lib symbol exports) and was not attempted within budget.
+    - **Remaining fallback:** **split `libtorch_cpu` into smaller side
+      modules** so no single module hits the relocation-scale defect (invasive CMake
+      surgery), OR the opposite — the emscripten-forge sibling's **single-module** approach
+      (blocker #12 below).
+
+12. **Single-module strategy (from the emscripten-forge sibling) — eliminates the
+    cross-`.so` wall and the `lexer.h:143` assert, but the intra-module relocation defect
+    persists as `std::bad_alloc`.** The sibling got real upstream torch 2.8.0 to import and
+    train an MLP in-browser by linking a **single** `torch/_C.*.so` SIDE_MODULE (~143 MB)
+    that `--whole-archive`s `libtorch_python + libtorch + libtorch_cpu + c10 + deps` and
+    exports `PyInit__C`, so every cross-module C++ symbol resolves *inside one module*.
+    Replicated here for Pyodide 0.27.8 by
+    [`link_single_module.sh`](torch-probe/link_single_module.sh): from the completed shared
+    build's CMake tree, gather all **1241** loose `.o` (equivalent to `--whole-archive` for
+    the torch libraries: c10.dir + torch_cpu.dir + torch.dir + torch_python.dir), add
+    `stub.o` (compiled as **C** so `PyInit__C → initModule` is unmangled) and
+    `cpuinfo_emscripten_init.o`, whole-archive `libonnx.a`, group `libcpuinfo/onnx_proto/
+    protobuf`, and link one `torch/_C.*.so` with `-sSIDE_MODULE=2
+    -sEXPORTED_FUNCTIONS=_PyInit__C`.
+
+    - ✅ **Links + exports.** Output: a **101 MB** `_C.cpython-312-wasm32-emscripten.so`
+      exporting `PyInit__C`; dylink `memsize` = 13.0 MB, `tablesize` = 165760 — all sane
+      ([`logs/34`](logs/34-single-module-link.log)).
+    - ✅ **The `lexer.h:143` `torchInternalAssertFail` abort is GONE.** Loading the single
+      module runs its C++ static initializers **past** the exact blocker-#11 assert site.
+      The single-module strategy genuinely side-steps the per-`.so` `GOT.func`/cross-module
+      relocation wall.
+    - ⚠️ **New wall: `std::bad_alloc` in the same JIT schema-parse subsystem.** Loading now
+      aborts *later*. A `___cxa_throw` hook + a name-preserving (`-g2`) relink give the full
+      demangled stack ([`logs/35`](logs/35-single-module-badalloc-stack.log)):
+      ```
+      __wasm_call_ctors
+        → _GLOBAL__sub_I_TraceType_2.cpp
+        → torch::detail::TorchLibraryInit::TorchLibraryInit(...)
+        → TORCH_LIBRARY_IMPL_init_aten_Tracer_2(torch::Library&)
+        → torch::Library::_impl(char const*, ...)
+        → torch::Library::_parseNameForLib(char const*) const
+        → torch::jit::parseName / parseSchemaOrName
+        → make_shared<torch::jit::Source>(string_view, ...)
+        → torch::jit::Source::calc_line_start_offsets()
+        → std::vector<unsigned long>::push_back → allocate → std::bad_alloc
+      ```
+      `calc_line_start_offsets()` loops `text_view_.find("\n")`, pushing one offset per
+      newline. The schema-name `string_view` handed to `Source` has a **corrupted (huge)
+      size**, so the loop runs unboundedly and the offsets vector overflows `max_size` →
+      `bad_alloc`. A `memcpy`-import hook (log at `> 1 MB`) **never fires**, proving the
+      string is a non-owning **view** (not a huge copy) — i.e. it is the *view's size field*
+      that is wrong. This is the **same mis-relocated-rodata defect as #11** (the prior run
+      directly showed `const char*` shifted by non-uniform `+1/+3/+12`), now surfacing as an
+      absurd allocation during `aten` op-schema registration instead of a bad assert pointer.
+    - ❌ **Independent of wasm-ld version.** Recompiling `stub`/`cpuinfo_init` and relinking
+      the identical 1241 objects with **emsdk 3.1.73** (the sibling's toolchain revision)
+      reproduces the **same `std::bad_alloc` at the same site**
+      ([`logs/36`](logs/36-single-module-3173-link-badalloc.log)). So the defect is not in
+      the linker revision but in the **clang-3.1.58-compiled objects' relocations** (or in
+      Pyodide 0.27.8's load-time `__wasm_apply_data_relocs`).
+    - **Why the sibling worked and this doesn't (within budget/ABI).** The sibling used a
+      *fully* emscripten-3.1.73 + cross-CPython-3.13 toolchain for **compile + link +
+      runtime**. This track is pinned to **Pyodide 0.27.8 = emscripten 3.1.58 / CPython
+      3.12**; recompiling all ~1500 objects with clang 3.1.73 is the only remaining lever
+      that touches the *compile-time* relocations, but the resulting module targets a
+      different libc++/ABI and is not guaranteed loadable in the 0.27.8 runtime (the task's
+      hard constraint). Loading the current 3.1.58 module in **Pyodide 0.28.3** (CPython
+      3.13) is inconclusive: it fails earlier on an unrelated `libshm` undefined symbol
+      (`_ZN21THManagedMapAllocator11fromDataPtrERKN3c107DataPtrE`) — libshm objects were not
+      included in this single-module link.
+    - **Net (honest):** the single-module strategy is a real advance — it removes the
+      cross-`.so` relocation wall and the `lexer.h:143` assert — but the underlying
+      **scale-dependent data-relocation defect** in the 3.1.58 build still corrupts rodata
+      pointers/sizes, so real torch does **not yet import/train** on Pyodide 0.27.8. The
+      viable next steps are both large: (a) recompile the whole tree with a clang revision
+      that emits correct `MEMORY_ADDR` relocations *and* verify 0.27.8 load-ABI, or (b) split
+      `libtorch_cpu` below the relocation-scale threshold.
 
 ## How the wheel is loaded / tested
 
