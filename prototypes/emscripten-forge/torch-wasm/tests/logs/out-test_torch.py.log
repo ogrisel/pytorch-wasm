@@ -1,0 +1,21 @@
+h does not match the required output shape []. This behavior is deprecated, and in a future PyTorch release outputs will not be resized unless they have zero elements. You can explicitly reuse an out tensor t by resizing it, inplace, to zero elements with t.resize_(0). (Triggered internally at /pytorch/aten/src/ATen/native/Resize.cpp:31.)
+    torch.median(a, 0, out=(result, indices))
+
+upstream/test_torch.py::TestTorchDeviceTypeCPU::test_scatter_reduce_non_unique_index_cpu_bfloat16
+  /workspace/prototypes/emscripten-forge/torch-wasm/tests/upstream/test_torch.py:3901: UserWarning: The reduce argument of torch.scatter with Tensor src is deprecated and will be removed in a future PyTorch release. Use torch.scatter_reduce instead for more reduction options. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:232.)
+    input.scatter_(0, index, src, reduce=operation)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================== wasm-inapplicable skip classification =====================
+mode: SIMULATED-WASM   platform: linux
+     24  slow_large_memory
+     13  threading_threadpool
+      8  gpu_cuda_rocm_xpu_mps
+      7  disabled_backends
+      2  distributed_rpc_c10d
+      1  numpy_bridge
+     55  TOTAL classified-inapplicable
+943 passed, 100 skipped, 87 warnings, 1 subtests passed in 8.12s
+[TORCH_VITAL] Dataloader.enabled		 True
+[TORCH_VITAL] Dataloader.basic_unit_test		 TEST_VALUE_STRING
+[TORCH_VITAL] CUDA.used		 False

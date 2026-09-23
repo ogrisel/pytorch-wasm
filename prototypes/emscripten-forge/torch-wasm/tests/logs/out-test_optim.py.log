@@ -1,0 +1,16 @@
+l_hyperparams
+  /workspace/.mmroot/envs/hosttorch/lib/python3.12/site-packages/torch/autograd/graph.py:829: UserWarning: Using backward() with create_graph=True will create a reference cycle between the parameter and its gradient which can cause a memory leak. We recommend using autograd.grad when creating the graph to avoid this. If you have to use this function, make sure to reset the .grad fields of your parameters to None after use to break the cycle and avoid the leak. (Triggered internally at /pytorch/torch/csrc/autograd/engine.cpp:1291.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+upstream/test_optim.py::TestOptimRenewedCPU::test_can_load_from_to_named_state_dict_is_named_optim0_False_is_named_optim1_False_LBFGS_cpu_float32
+  /workspace/.mmroot/envs/hosttorch/lib/python3.12/site-packages/torch/optim/lbfgs.py:457: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+    loss = float(closure())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================== wasm-inapplicable skip classification =====================
+mode: SIMULATED-WASM   platform: linux
+     54  gpu_cuda_rocm_xpu_mps
+     16  slow_large_memory
+     70  TOTAL classified-inapplicable
+820 passed, 146 skipped, 46 warnings in 23.39s

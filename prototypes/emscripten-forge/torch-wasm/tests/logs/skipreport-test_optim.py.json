@@ -1,0 +1,19 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {},
+  "total_classified_inapplicable": 0,
+  "examples": {}
+}

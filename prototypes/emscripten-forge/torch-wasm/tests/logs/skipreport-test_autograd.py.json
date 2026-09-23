@@ -1,0 +1,61 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {
+    "cpp_extension_jit_compile": 2,
+    "threading_threadpool": 6,
+    "disabled_backends": 2,
+    "gpu_cuda_rocm_xpu_mps": 3,
+    "numpy_bridge": 1,
+    "multiprocessing_fork_subprocess": 1,
+    "slow_large_memory": 1,
+    "profiler_kineto_itt": 1
+  },
+  "total_classified_inapplicable": 17,
+  "examples": {
+    "cpp_extension_jit_compile": [
+      "upstream/test_autograd.py::TestAutograd::test_autograd_views_codegen",
+      "upstream/test_autograd.py::TestAutogradForwardMode::test_codegen_ignores_undefined_outputs"
+    ],
+    "threading_threadpool": [
+      "upstream/test_autograd.py::TestAutograd::test_callback_propagates_errors_from_device_thread",
+      "upstream/test_autograd.py::TestAutograd::test_thread_shutdown",
+      "upstream/test_autograd.py::TestMultithreadAutograd::test_custom_function_propagates_errors_from_device_thread",
+      "upstream/test_autograd.py::TestMultithreadAutograd::test_dataparallel_saved_tensors_hooks",
+      "upstream/test_autograd.py::TestMultithreadAutograd::test_python_thread_in_middle"
+    ],
+    "disabled_backends": [
+      "upstream/test_autograd.py::TestAutograd::test_gradcheck_multiple_mkldnn_inputs",
+      "upstream/test_autograd.py::TestAutograd::test_gradcheck_validates_input_mkldnn"
+    ],
+    "gpu_cuda_rocm_xpu_mps": [
+      "upstream/test_autograd.py::TestAutograd::test_graph_save_on_cpu_cuda",
+      "upstream/test_autograd.py::TestAutogradFunctional::test_construct_standard_basis_for_cuda_base_tensor",
+      "upstream/test_autograd.py::TestAutogradFunctional::test_construct_standard_basis_for_cuda_logging_tensor"
+    ],
+    "numpy_bridge": [
+      "upstream/test_autograd.py::TestAutograd::test_numpy_requires_grad"
+    ],
+    "multiprocessing_fork_subprocess": [
+      "upstream/test_autograd.py::TestMultithreadAutograd::test_fork_join_in_middle"
+    ],
+    "slow_large_memory": [
+      "upstream/test_autograd.py::TestAutogradDeviceTypeCPU::test_advanced_indexing_backwards_large_cpu"
+    ],
+    "profiler_kineto_itt": [
+      "upstream/test_autograd.py::TestAutogradDeviceTypeCPU::test_profiler_emit_itt_cpu"
+    ]
+  }
+}

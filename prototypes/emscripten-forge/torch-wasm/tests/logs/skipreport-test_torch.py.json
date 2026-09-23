@@ -1,0 +1,62 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {
+    "gpu_cuda_rocm_xpu_mps": 8,
+    "numpy_bridge": 1,
+    "threading_threadpool": 13,
+    "slow_large_memory": 24,
+    "distributed_rpc_c10d": 2,
+    "disabled_backends": 7
+  },
+  "total_classified_inapplicable": 55,
+  "examples": {
+    "gpu_cuda_rocm_xpu_mps": [
+      "upstream/test_torch.py::TestTorch::test_cuda_not_built",
+      "upstream/test_torch.py::TestTorch::test_no_cuda_monkeypatch",
+      "upstream/test_torch.py::TestVitalSignsCudaCPU::test_cuda_vitals_gpu_only_cpu",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_addcmul_cuda_errors_with_cpu_scalars_cpu",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_cdist_cuda_backward_cpu"
+    ],
+    "numpy_bridge": [
+      "upstream/test_torch.py::TestTorch::test_newaxis_numpy_comparison"
+    ],
+    "threading_threadpool": [
+      "upstream/test_torch.py::TestTorch::test_parallel_info",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_parallel_cow_materialize_error_cpu_bfloat16",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_parallel_cow_materialize_error_cpu_bool",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_parallel_cow_materialize_error_cpu_complex128",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_parallel_cow_materialize_error_cpu_complex64"
+    ],
+    "slow_large_memory": [
+      "upstream/test_torch.py::TestTorch::test_slow_test",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_cdist_euclidean_large_cpu",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_cdist_large_batch_cpu",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_cdist_large_cpu",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_conv_transposed_large_cpu"
+    ],
+    "distributed_rpc_c10d": [
+      "upstream/test_torch.py::TestTorch::test_sobolengine_distribution",
+      "upstream/test_torch.py::TestTorch::test_sobolengine_distribution_scrambled"
+    ],
+    "disabled_backends": [
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_nondeterministic_resize_quantized_cpu_qint32",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_nondeterministic_resize_quantized_cpu_qint8",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_nondeterministic_resize_quantized_cpu_quint2x4",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_nondeterministic_resize_quantized_cpu_quint4x2",
+      "upstream/test_torch.py::TestTorchDeviceTypeCPU::test_nondeterministic_resize_quantized_cpu_quint8"
+    ]
+  }
+}

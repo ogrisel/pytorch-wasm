@@ -1,0 +1,20 @@
+s_shared())
+
+upstream/test_nn.py::TestNN::test_unflatten
+  /workspace/.mmroot/envs/hosttorch/lib/python3.12/site-packages/torch/_tensor.py:1366: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at /pytorch/c10/core/TensorImpl.h:1939.)
+    return super().refine_names(names)
+
+upstream/test_nn.py::TestNNDeviceTypeCPU::test_conv_empty_input_cpu_complex128
+upstream/test_nn.py::TestNNDeviceTypeCPU::test_to_complex_cpu_complex128
+upstream/test_nn.py::TestNNDeviceTypeCPU::test_to_complex_cpu_complex64
+  /workspace/.mmroot/envs/hosttorch/lib/python3.12/site-packages/torch/nn/modules/module.py:1339: UserWarning: Complex modules are a new feature under active development whose design may change, and some modules might not work as expected when using complex tensors as parameters or buffers. Please file an issue at https://github.com/pytorch/pytorch/issues/new?template=bug-report.yml if a complex module does not work as expected.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================== wasm-inapplicable skip classification =====================
+mode: SIMULATED-WASM   platform: linux
+    412  gpu_cuda_rocm_xpu_mps
+     26  slow_large_memory
+      2  disabled_backends
+    440  TOTAL classified-inapplicable
+1645 passed, 551 skipped, 2 xfailed, 132 warnings in 84.51s (0:01:24)

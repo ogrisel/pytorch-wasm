@@ -1,0 +1,31 @@
+{
+  "mode": "HOST-baseline",
+  "generated": "2026-09-23T08:11:42.225766+00:00",
+  "python": "/workspace/.mmroot/envs/hosttorch/bin/python",
+  "platform": "linux",
+  "per_file": {
+    "test_optim.py": {
+      "rc": 0,
+      "passed": 820,
+      "skipped": 146,
+      "failed": 0,
+      "error": 0,
+      "total": 966
+    },
+    "test_torch.py": {
+      "rc": 0,
+      "passed": 983,
+      "skipped": 61,
+      "failed": 0,
+      "error": 0,
+      "total": 1044
+    }
+  },
+  "aggregate": {
+    "passed": 1803,
+    "skipped": 207,
+    "failed": 0,
+    "error": 0,
+    "total": 2010
+  }
+}
