@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Generate the TabICL demo notebook for JupyterLite (wasm32 real-torch build)."""
+import json, os
+
+cells = []
+
+
+def code(src):
+    cells.append({"cell_type": "code", "metadata": {}, "outputs": [],
+                  "execution_count": None, "source": src})
+
+
+def md(src):
+    cells.append({"cell_type": "markdown", "metadata": {}, "source": src})
+
+
+md([
+    "# TabICL on a small dataset — in the browser (wasm32 real-torch)\n",
+    "\n",
+    "[TabICL](https://github.com/soda-inria/tabicl) is a scikit-learn-compatible\n",
+    "tabular in-context-learning classifier built on PyTorch. This notebook runs\n",
+    "`fit` + `predict` on a small synthetic dataset entirely client-side in the\n",
+    "xeus-python **wasm32** kernel, against the reduced CPU-only `torch` built by\n",
+    "this prototype.\n",
+    "\n",
+    "Two shims (see `tabicl_wasm_shim.py`) bridge the reduced runtime: a pure-Python\n",
+    "`psutil` stub, and a `torch.from_numpy`/`Tensor.numpy` reimplementation via\n",
+    "`.tolist()` (the build is `USE_NUMPY=0`, so the C++ numpy bridge is absent).",
+])
+
+code([
+    "import tabicl_wasm_shim  # noqa: F401  applies psutil stub + numpy-bridge patch\n",
+    "import sys, platform, torch, sklearn, numpy as np\n",
+    "print('python', sys.version.split()[0], '| platform', platform.system())\n",
+    "print('torch', torch.__version__, '| sklearn', sklearn.__version__, '| numpy', np.__version__)",
+])
+
+code([
+    "# Locate the bundled pretrained checkpoint (110 MB; not fetched at runtime).\n",
+    "import os\n",
+    "CKPT = 'tabicl-classifier-v2-20260212.ckpt'\n",
+    "cands = [CKPT, os.path.join(os.getcwd(), CKPT), '/drive/' + CKPT,\n",
+    "         os.path.join('files', CKPT)]\n",
+    "ckpt_path = next((p for p in cands if os.path.exists(p)), None)\n",
+    "print('checkpoint found at:', ckpt_path)\n",
+    "print('candidates checked:', cands)",
+])
+
+code([
+    "from sklearn.datasets import make_classification\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "X, y = make_classification(n_samples=260, n_features=6, n_informative=4,\n",
+    "                           n_classes=3, n_clusters_per_class=1, random_state=0)\n",
+    "X_train, X_test, y_train, y_test = train_test_split(\n",
+    "    X, y, test_size=60, random_state=0)\n",
+    "print('train', X_train.shape, 'test', X_test.shape, 'classes', sorted(set(y)))",
+])
+
+code([
+    "from tabicl import TabICLClassifier\n",
+    "from sklearn.metrics import accuracy_score\n",
+    "# Minimal-compute config for single-threaded wasm: few estimators, no AMP,\n",
+    "# no flash-attn, no disk offload (avoids the memmap/psutil-sized paths).\n",
+    "clf = TabICLClassifier(\n",
+    "    n_estimators=2, device='cpu', use_amp=False, use_fa3=False,\n",
+    "    offload_mode=False, batch_size=8, n_jobs=1, verbose=True,\n",
+    "    model_path=ckpt_path, allow_auto_download=False, random_state=42)\n",
+    "try:\n",
+    "    clf.fit(X_train, y_train)\n",
+    "    print('fit done; classes_', clf.classes_)\n",
+    "    y_hat = clf.predict(X_test)\n",
+    "    acc = accuracy_score(y_test, y_hat)\n",
+    "    print('predictions[:12]', list(map(int, y_hat[:12])))\n",
+    "    print('accuracy', round(float(acc), 3))\n",
+    "    assert acc > 0.6, 'accuracy unexpectedly low'\n",
+    "    print('TABICL SUCCESS: fit+predict ran in wasm; accuracy %.3f' % acc)\n",
+    "except Exception as e:\n",
+    "    import traceback; traceback.print_exc()\n",
+    "    print('TABICL BLOCKER:', type(e).__name__, str(e)[:400])",
+])
+
+nb = {
+    "cells": cells,
+    "metadata": {
+        "kernelspec": {"name": "xpython", "display_name": "Python (XPython)",
+                       "language": "python"},
+        "language_info": {"name": "python"},
+    },
+    "nbformat": 4, "nbformat_minor": 5,
+}
+
+out = os.path.join(os.path.dirname(__file__), "content", "tabicl_demo.ipynb")
+os.makedirs(os.path.dirname(out), exist_ok=True)
+json.dump(nb, open(out, "w"), indent=1)
+print("wrote", out)
