@@ -1,0 +1,479 @@
+2026-09-22 13:31:37,359 [ExecuTorch] INFO: All required submodules are present.
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/test/cpu, https://download.pytorch.org/whl/nightly/cpu
+Requirement already satisfied: torch==2.14.0 in /home/ubuntu/.local/lib/python3.12/site-packages (2.14.0+cpu)
+Requirement already satisfied: torchao==0.18.0.dev20260729 in /home/ubuntu/.local/lib/python3.12/site-packages (0.18.0.dev20260729+cpu)
+Requirement already satisfied: cmake<4.0.0,>=3.26 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (3.31.10)
+Requirement already satisfied: packaging>=24.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (26.3)
+Requirement already satisfied: patchelf in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (0.19.1.0)
+Requirement already satisfied: pip>=23 in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 6)) (24.0)
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 7)) (6.0.1)
+Requirement already satisfied: setuptools>=77.0.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 8)) (84.0.0)
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from -r requirements-dev.txt (line 9)) (0.42.0)
+Requirement already satisfied: zstd in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 10)) (1.5.7.2)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from -r requirements-dev.txt (line 11)) (2026.4.22)
+Requirement already satisfied: lintrunner==0.12.7 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 12)) (0.12.7)
+Requirement already satisfied: lintrunner-adapters==0.14.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 13)) (0.14.1)
+Requirement already satisfied: ruff==0.15.4 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 14)) (0.15.4)
+Requirement already satisfied: pytest<9.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 16)) (8.4.2)
+Requirement already satisfied: pytest-xdist in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 17)) (3.8.0)
+Requirement already satisfied: pytest-rerunfailures==15.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 18)) (15.1)
+Requirement already satisfied: pytest-json-report in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 19)) (1.5.0)
+Requirement already satisfied: gguf in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-dev.txt (line 20)) (0.19.0)
+Requirement already satisfied: filelock in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (4.0.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from torch==2.14.0) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (3.7)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch==2.14.0) (3.1.2)
+Requirement already satisfied: fsspec>=0.8.5 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0) (2026.9.0)
+Requirement already satisfied: click>=8.1.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from lintrunner-adapters==0.14.1->-r requirements-dev.txt (line 13)) (8.5.0)
+Requirement already satisfied: iniconfig>=1 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest<9.0->-r requirements-dev.txt (line 16)) (2.21.0)
+Requirement already satisfied: execnet>=2.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest-xdist->-r requirements-dev.txt (line 17)) (2.1.2)
+Requirement already satisfied: pytest-metadata in /home/ubuntu/.local/lib/python3.12/site-packages (from pytest-json-report->-r requirements-dev.txt (line 19)) (3.1.1)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.12/dist-packages (from gguf->-r requirements-dev.txt (line 20)) (2.4.4)
+Requirement already satisfied: requests>=2.25 in /usr/local/lib/python3.12/dist-packages (from gguf->-r requirements-dev.txt (line 20)) (2.33.1)
+Requirement already satisfied: tqdm>=4.27 in /home/ubuntu/.local/lib/python3.12/site-packages (from gguf->-r requirements-dev.txt (line 20)) (4.70.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests>=2.25->gguf->-r requirements-dev.txt (line 20)) (2.6.3)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from sympy>=1.13.3->torch==2.14.0) (1.3.0)
+Defaulting to user installation because normal site-packages is not writeable
+Processing ./extension/llm/tokenizers
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tiktoken (from pytorch_tokenizers==1.3.0)
+  Using cached tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.7 kB)
+Collecting tokenizers (from pytorch_tokenizers==1.3.0)
+  Using cached tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting sentencepiece (from pytorch_tokenizers==1.3.0)
+  Using cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting regex (from tiktoken->pytorch_tokenizers==1.3.0)
+  Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from tiktoken->pytorch_tokenizers==1.3.0) (2.33.1)
+Collecting huggingface-hub<2.0,>=0.16.4 (from tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached huggingface_hub-1.32.0-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (8.5.0)
+Requirement already satisfied: filelock>=3.10.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.0.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (2026.9.0)
+Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: packaging>=20.9 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (6.0.1)
+Requirement already satisfied: tqdm>=4.42.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.70.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0) (4.15.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.12/dist-packages (from requests->tiktoken->pytorch_tokenizers==1.3.0) (2026.4.22)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch_tokenizers==1.3.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Using cached sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+Using cached tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
+Using cached tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+Using cached huggingface_hub-1.32.0-py3-none-any.whl (842 kB)
+Using cached regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Building wheels for collected packages: pytorch_tokenizers
+  Building wheel for pytorch_tokenizers (pyproject.toml): started
+  Building wheel for pytorch_tokenizers (pyproject.toml): finished with status 'done'
+  Created wheel for pytorch_tokenizers: filename=pytorch_tokenizers-1.3.0-cp312-cp312-linux_x86_64.whl size=1527801 sha256=37917cf2655f64949b4f9be887c7b1bd11cfb8b96351dc9032f392a568ab127f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-aip1nt95/wheels/55/cd/56/104e108156f6fbb1220cc0011b0b64d20945def01c5b9e0040
+Successfully built pytorch_tokenizers
+Installing collected packages: typing-extensions, sentencepiece, regex, hf-xet, h11, tiktoken, httpcore, anyio, httpx, huggingface-hub, tokenizers, pytorch_tokenizers
+Successfully installed anyio-4.15.1 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.32.0 pytorch_tokenizers-1.3.0 regex-2026.9.10 sentencepiece-0.2.2 tiktoken-0.14.0 tokenizers-0.23.2 typing-extensions-4.16.0
+Defaulting to user installation because normal site-packages is not writeable
+Processing /workspace/prototypes/emscripten-forge/executorch-wasm/.et-work/executorch
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting expecttest (from executorch==1.6.0+8081eb8)
+  Downloading expecttest-0.3.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting flatbuffers (from executorch==1.6.0+8081eb8)
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+Collecting hypothesis (from executorch==1.6.0+8081eb8)
+  Downloading hypothesis-6.168.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting kgb (from executorch==1.6.0+8081eb8)
+  Downloading kgb-7.3-py2.py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: mpmath==1.3.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (1.3.0)
+Requirement already satisfied: numpy>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from executorch==1.6.0+8081eb8) (2.4.4)
+Requirement already satisfied: packaging in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (26.3)
+Collecting pandas>=2.2.2 (from executorch==1.6.0+8081eb8)
+  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+[?25l                                              0.0/79.5 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 16.1 MB/s eta 0:00:00
+[?25hCollecting parameterized (from executorch==1.6.0+8081eb8)
+  Downloading parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+Collecting py-cpuinfo (from executorch==1.6.0+8081eb8)
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from executorch==1.6.0+8081eb8) (2.33.1)
+Requirement already satisfied: pytorch-tokenizers in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (1.3.0)
+Requirement already satisfied: torchao<0.19,>=0.18.0.dev20260729 in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (0.18.0.dev20260729+cpu)
+Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from executorch==1.6.0+8081eb8) (6.0.1)
+Collecting ruamel.yaml (from executorch==1.6.0+8081eb8)
+  Downloading ruamel_yaml-0.19.1-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: sympy in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (1.14.0)
+Collecting tabulate (from executorch==1.6.0+8081eb8)
+  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+[?25l                                              0.0/40.8 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 5.4 MB/s eta 0:00:00
+[?25hRequirement already satisfied: typing-extensions>=4.10.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from executorch==1.6.0+8081eb8) (4.16.0)
+Collecting coremltools==9.0 (from executorch==1.6.0+8081eb8)
+  Downloading coremltools-9.0-cp312-none-manylinux1_x86_64.whl.metadata (2.7 kB)
+Collecting scikit-learn>=1.7.1 (from executorch==1.6.0+8081eb8)
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting hydra-core>=1.3.0 (from executorch==1.6.0+8081eb8)
+  Downloading hydra_core-1.3.7-py3-none-any.whl.metadata (5.7 kB)
+Collecting omegaconf>=2.3.0 (from executorch==1.6.0+8081eb8)
+  Downloading omegaconf-2.3.1-py3-none-any.whl.metadata (4.5 kB)
+Collecting protobuf>=3.1.0 (from coremltools==9.0->executorch==1.6.0+8081eb8)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Requirement already satisfied: tqdm in /home/ubuntu/.local/lib/python3.12/site-packages (from coremltools==9.0->executorch==1.6.0+8081eb8) (4.70.1)
+Collecting attrs>=21.3.0 (from coremltools==9.0->executorch==1.6.0+8081eb8)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting cattrs (from coremltools==9.0->executorch==1.6.0+8081eb8)
+  Downloading cattrs-26.2.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting pyaml (from coremltools==9.0->executorch==1.6.0+8081eb8)
+  Downloading pyaml-26.7.0-py3-none-any.whl.metadata (12 kB)
+Collecting antlr4-python3-runtime==4.9.* (from hydra-core>=1.3.0->executorch==1.6.0+8081eb8)
+  Downloading antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+[?25l                                              0.0/117.0 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 20.6 MB/s eta 0:00:00
+[?25h  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting python-dateutil>=2.8.2 (from pandas>=2.2.2->executorch==1.6.0+8081eb8)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting scipy>=1.10.0 (from scikit-learn>=1.7.1->executorch==1.6.0+8081eb8)
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+[?25l                                              0.0/62.4 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 12.1 MB/s eta 0:00:00
+[?25hCollecting joblib>=1.4.0 (from scikit-learn>=1.7.1->executorch==1.6.0+8081eb8)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=1.7.1->executorch==1.6.0+8081eb8)
+  Downloading narwhals-2.26.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.7.1->executorch==1.6.0+8081eb8)
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting sortedcontainers<3.0.0,>=2.1.0 (from hypothesis->executorch==1.6.0+8081eb8)
+  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: tiktoken in /home/ubuntu/.local/lib/python3.12/site-packages (from pytorch-tokenizers->executorch==1.6.0+8081eb8) (0.14.0)
+Requirement already satisfied: tokenizers in /home/ubuntu/.local/lib/python3.12/site-packages (from pytorch-tokenizers->executorch==1.6.0+8081eb8) (0.23.2)
+Requirement already satisfied: sentencepiece in /home/ubuntu/.local/lib/python3.12/site-packages (from pytorch-tokenizers->executorch==1.6.0+8081eb8) (0.2.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->executorch==1.6.0+8081eb8) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests->executorch==1.6.0+8081eb8) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests->executorch==1.6.0+8081eb8) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.12/dist-packages (from requests->executorch==1.6.0+8081eb8) (2026.4.22)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=1.7.1->executorch==1.6.0+8081eb8)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas>=2.2.2->executorch==1.6.0+8081eb8) (1.16.0)
+Requirement already satisfied: regex in /home/ubuntu/.local/lib/python3.12/site-packages (from tiktoken->pytorch-tokenizers->executorch==1.6.0+8081eb8) (2026.9.10)
+Requirement already satisfied: huggingface-hub<2.0,>=0.16.4 in /home/ubuntu/.local/lib/python3.12/site-packages (from tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (1.32.0)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (8.5.0)
+Requirement already satisfied: filelock>=3.10.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (4.0.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (2026.9.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (1.6.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (0.28.1)
+Requirement already satisfied: anyio in /home/ubuntu/.local/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (4.15.1)
+Requirement already satisfied: httpcore==1.* in /home/ubuntu/.local/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/ubuntu/.local/lib/python3.12/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers->pytorch-tokenizers->executorch==1.6.0+8081eb8) (0.16.0)
+Downloading coremltools-9.0-cp312-none-manylinux1_x86_64.whl (2.3 MB)
+[?25l                                            0.0/2.3 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 84.5 MB/s eta 0:00:00
+[?25hDownloading hydra_core-1.3.7-py3-none-any.whl (168 kB)
+[?25l                                            0.0/168.8 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 168.8/168.8 kB 28.9 MB/s eta 0:00:00
+[?25hDownloading omegaconf-2.3.1-py3-none-any.whl (79 kB)
+[?25l                                            0.0/79.5 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 12.7 MB/s eta 0:00:00
+[?25hDownloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+[?25l                                            0.0/10.8 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 10.8/10.8 MB 478.5 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 226.7 MB/s eta 0:00:00
+[?25hDownloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+[?25l                                            0.0/9.2 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 9.2/9.2 MB 479.0 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 232.9 MB/s eta 0:00:00
+[?25hDownloading expecttest-0.3.0-py3-none-any.whl (8.2 kB)
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Downloading hypothesis-6.168.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+[?25l                                            0.0/1.2 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 119.4 MB/s eta 0:00:00
+[?25hDownloading kgb-7.3-py2.py3-none-any.whl (59 kB)
+[?25l                                            0.0/59.7 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.7/59.7 kB 8.1 MB/s eta 0:00:00
+[?25hDownloading parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Downloading ruamel_yaml-0.19.1-py3-none-any.whl (118 kB)
+[?25l                                            0.0/118.1 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.1/118.1 kB 24.9 MB/s eta 0:00:00
+[?25hDownloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+[?25l                                            0.0/67.5 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 13.3 MB/s eta 0:00:00
+[?25hDownloading joblib-1.6.0-py3-none-any.whl (306 kB)
+[?25l                                            0.0/306.1 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 47.7 MB/s eta 0:00:00
+[?25hDownloading narwhals-2.26.0-py3-none-any.whl (474 kB)
+[?25l                                            0.0/474.0 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 474.0/474.0 kB 57.1 MB/s eta 0:00:00
+[?25hDownloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+[?25l                                            0.0/343.2 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 37.4 MB/s eta 0:00:00
+[?25hDownloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[?25l                                            0.0/229.9 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 48.2 MB/s eta 0:00:00
+[?25hDownloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+[?25l                                            0.0/35.3 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━                            11.6/35.3 MB 345.2 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━               23.4/35.3 MB 358.6 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 35.3/35.3 MB 478.2 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 35.3/35.3 MB 478.2 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 124.6 MB/s eta 0:00:00
+[?25hDownloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading cattrs-26.2.0-py3-none-any.whl (74 kB)
+[?25l                                            0.0/74.8 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.8/74.8 kB 21.0 MB/s eta 0:00:00
+[?25hDownloading pyaml-26.7.0-py3-none-any.whl (27 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Building wheels for collected packages: executorch, antlr4-python3-runtime
+  Building wheel for executorch (pyproject.toml): started
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): still running...
+  Building wheel for executorch (pyproject.toml): finished with status 'done'
+  Created wheel for executorch: filename=executorch-1.6.0+8081eb8-cp312-cp312-linux_x86_64.whl size=15933641 sha256=621f16813dca62deff33483820b1dc4ad57eea92249d4585683bb4aeaf60246b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-g0voei4i/wheels/18/9d/f4/211901e40f890f8b01833119ee6ad44c66ac1020e23b151028
+  Building wheel for antlr4-python3-runtime (setup.py): started
+  Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144590 sha256=835a09c3a8a34754186a0d731c4b723e647614bf56defaaa67a53abcaa3fc339
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/1f/be/48/13754633f1d08d1fbfc60d5e80ae1e5d7329500477685286cd
+Successfully built executorch antlr4-python3-runtime
+Installing collected packages: sortedcontainers, py-cpuinfo, flatbuffers, antlr4-python3-runtime, threadpoolctl, tabulate, scipy, ruamel.yaml, python-dateutil, pyaml, protobuf, parameterized, omegaconf, narwhals, kgb, hypothesis, expecttest, cloudpickle, attrs, pandas, joblib, hydra-core, cattrs, scikit-learn, coremltools, executorch
+Successfully installed antlr4-python3-runtime-4.9.3 attrs-26.1.0 cattrs-26.2.0 cloudpickle-3.1.2 coremltools-9.0 executorch-1.6.0+8081eb8 expecttest-0.3.0 flatbuffers-25.12.19 hydra-core-1.3.7 hypothesis-6.168.0 joblib-1.6.0 kgb-7.3 narwhals-2.26.0 omegaconf-2.3.1 pandas-3.0.6 parameterized-0.9.0 protobuf-7.36.2 py-cpuinfo-9.0.0 pyaml-26.7.0 python-dateutil-2.9.0.post0 ruamel.yaml-0.19.1 scikit-learn-1.9.1 scipy-1.18.1 sortedcontainers-2.4.0 tabulate-0.10.0 threadpoolctl-3.7.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/test/cpu
+Collecting torchvision==0.29.0
+  Downloading https://download.pytorch.org/whl/test/cpu/torchvision-0.29.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.7 kB)
+Collecting torchaudio==2.11.0
+  Downloading https://download.pytorch.org/whl/test/cpu/torchaudio-2.11.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.9 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from torchvision==0.29.0) (2.4.4)
+Requirement already satisfied: torch==2.14.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from torchvision==0.29.0) (2.14.0+cpu)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.29.0)
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Requirement already satisfied: filelock in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (4.0.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (4.16.0)
+Requirement already satisfied: setuptools>=77.0.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (84.0.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (3.7)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch==2.14.0->torchvision==0.29.0) (3.1.2)
+Requirement already satisfied: fsspec>=0.8.5 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch==2.14.0->torchvision==0.29.0) (2026.9.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from sympy>=1.13.3->torch==2.14.0->torchvision==0.29.0) (1.3.0)
+Downloading https://download.pytorch.org/whl/test/cpu/torchvision-0.29.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (1.7 MB)
+[?25l                                            0.0/1.7 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 63.1 MB/s eta 0:00:00
+[?25hDownloading https://download.pytorch.org/whl/test/cpu/torchaudio-2.11.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (341 kB)
+[?25l                                            0.0/341.3 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 341.3/341.3 kB 10.9 MB/s eta 0:00:00
+[?25hDownloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+[?25l                                            0.0/6.9 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 6.9/6.9 MB 248.6 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 146.4 MB/s eta 0:00:00
+[?25hInstalling collected packages: torchaudio, pillow, torchvision
+Successfully installed pillow-12.3.0 torchaudio-2.11.0+cpu torchvision-0.29.0+cpu
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/test/cpu
+Collecting torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497 (from -r requirements-examples.txt (line 16))
+  Cloning https://github.com/pytorch/torchtune.git (to revision 3c1872ace149f03ef4ffec765d3f0a5fd0399497) to /tmp/pip-install-6o5refm6/torchtune_a7cf4f47167b4a4e904a57e5dbf2d874
+  Running command git clone --filter=blob:none --quiet https://github.com/pytorch/torchtune.git /tmp/pip-install-6o5refm6/torchtune_a7cf4f47167b4a4e904a57e5dbf2d874
+  Running command git rev-parse -q --verify 'sha^3c1872ace149f03ef4ffec765d3f0a5fd0399497'
+  Running command git fetch -q https://github.com/pytorch/torchtune.git 3c1872ace149f03ef4ffec765d3f0a5fd0399497
+  Running command git checkout -q 3c1872ace149f03ef4ffec765d3f0a5fd0399497
+  Resolved https://github.com/pytorch/torchtune.git to commit 3c1872ace149f03ef4ffec765d3f0a5fd0399497
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting datasets==3.6.0 (from -r requirements-examples.txt (line 3))
+  Downloading datasets-3.6.0-py3-none-any.whl.metadata (19 kB)
+Requirement already satisfied: scikit-learn>=1.7.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-examples.txt (line 9)) (1.9.1)
+Requirement already satisfied: scipy in /home/ubuntu/.local/lib/python3.12/site-packages (from -r requirements-examples.txt (line 10)) (1.18.1)
+Collecting timm==1.0.7 (from -r requirements-examples.txt (line 11))
+  Downloading timm-1.0.7-py3-none-any.whl.metadata (47 kB)
+[?25l                                              0.0/47.5 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.5/47.5 kB 6.5 MB/s eta 0:00:00
+[?25hCollecting torchsr==1.0.4 (from -r requirements-examples.txt (line 12))
+  Downloading torchsr-1.0.4-py3-none-any.whl.metadata (12 kB)
+Collecting transformers==5.0.0rc1 (from -r requirements-examples.txt (line 17))
+  Downloading transformers-5.0.0rc1-py3-none-any.whl.metadata (37 kB)
+Requirement already satisfied: filelock in /home/ubuntu/.local/lib/python3.12/site-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (4.0.1)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (2.4.4)
+Collecting pyarrow>=15.0.0 (from datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading pyarrow-25.0.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting dill<0.3.9,>=0.3.0 (from datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading https://download.pytorch.org/whl/test/dill-0.3.8-py3-none-any.whl (116 kB)
+[?25l                                              0.0/116.3 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 kB 19.7 MB/s eta 0:00:00
+[?25hRequirement already satisfied: pandas in /home/ubuntu/.local/lib/python3.12/site-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (3.0.6)
+Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (2.33.1)
+Requirement already satisfied: tqdm>=4.66.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (4.70.1)
+Collecting xxhash (from datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+Collecting multiprocess<0.70.17 (from datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading https://download.pytorch.org/whl/test/multiprocess-0.70.16-py312-none-any.whl (146 kB)
+[?25l                                              0.0/146.7 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.7/146.7 kB 16.3 MB/s eta 0:00:00
+[?25hCollecting fsspec<=2025.3.0,>=2023.1.0 (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading fsspec-2025.3.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: huggingface-hub>=0.24.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (1.32.0)
+Requirement already satisfied: packaging in /home/ubuntu/.local/lib/python3.12/site-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/lib/python3/dist-packages (from datasets==3.6.0->-r requirements-examples.txt (line 3)) (6.0.1)
+Requirement already satisfied: torch in /home/ubuntu/.local/lib/python3.12/site-packages (from timm==1.0.7->-r requirements-examples.txt (line 11)) (2.14.0+cpu)
+Requirement already satisfied: torchvision in /home/ubuntu/.local/lib/python3.12/site-packages (from timm==1.0.7->-r requirements-examples.txt (line 11)) (0.29.0+cpu)
+Collecting safetensors (from timm==1.0.7->-r requirements-examples.txt (line 11))
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: regex!=2019.12.17 in /home/ubuntu/.local/lib/python3.12/site-packages (from transformers==5.0.0rc1->-r requirements-examples.txt (line 17)) (2026.9.10)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting typer-slim (from transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading typer_slim-0.24.0-py3-none-any.whl.metadata (4.2 kB)
+Requirement already satisfied: joblib>=1.4.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from scikit-learn>=1.7.1->-r requirements-examples.txt (line 9)) (1.6.0)
+Requirement already satisfied: narwhals>=2.0.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from scikit-learn>=1.7.1->-r requirements-examples.txt (line 9)) (2.26.0)
+Requirement already satisfied: threadpoolctl>=3.5.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from scikit-learn>=1.7.1->-r requirements-examples.txt (line 9)) (3.7.0)
+Collecting torchdata (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading https://download.pytorch.org/whl/test/cpu/torchdata-0.11.0%2Bcpu-py3-none-any.whl.metadata (6.3 kB)
+Collecting kagglehub (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading kagglehub-1.0.2-py3-none-any.whl.metadata (40 kB)
+[?25l                                              0.0/40.1 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.1/40.1 kB 6.1 MB/s eta 0:00:00
+[?25hRequirement already satisfied: sentencepiece in /home/ubuntu/.local/lib/python3.12/site-packages (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (0.2.2)
+Requirement already satisfied: tiktoken in /home/ubuntu/.local/lib/python3.12/site-packages (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (0.14.0)
+Collecting blobfile>=2 (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading blobfile-3.3.0-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: omegaconf in /home/ubuntu/.local/lib/python3.12/site-packages (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (2.3.1)
+Collecting psutil (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Requirement already satisfied: Pillow>=9.4.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (12.3.0)
+Collecting pyarrow>=15.0.0 (from datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading pyarrow-20.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting pycryptodomex>=3.8 (from blobfile>=2->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.4 kB)
+Requirement already satisfied: urllib3>=2 in /usr/local/lib/python3.12/dist-packages (from blobfile>=2->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (2.6.3)
+Collecting lxml>=4.9 (from blobfile>=2->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (8.5.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (1.6.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (0.28.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (4.16.0)
+Requirement already satisfied: cloudpickle>=3.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from joblib>=1.4.0->scikit-learn>=1.7.1->-r requirements-examples.txt (line 9)) (3.1.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets==3.6.0->-r requirements-examples.txt (line 3)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets==3.6.0->-r requirements-examples.txt (line 3)) (3.13)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.12/dist-packages (from requests>=2.32.2->datasets==3.6.0->-r requirements-examples.txt (line 3)) (2026.4.22)
+Requirement already satisfied: setuptools>=77.0.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch->timm==1.0.7->-r requirements-examples.txt (line 11)) (84.0.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch->timm==1.0.7->-r requirements-examples.txt (line 11)) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /home/ubuntu/.local/lib/python3.12/site-packages (from torch->timm==1.0.7->-r requirements-examples.txt (line 11)) (3.7)
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (from torch->timm==1.0.7->-r requirements-examples.txt (line 11)) (3.1.2)
+[33mWARNING: huggingface-hub 1.32.0 does not provide the extra 'hf-transfer'[0m[33m
+[0mCollecting kagglesdk<1.0,>=0.1.22 (from kagglehub->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16))
+  Downloading kagglesdk-0.1.37-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: antlr4-python3-runtime==4.9.* in /home/ubuntu/.local/lib/python3.12/site-packages (from omegaconf->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (4.9.3)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/ubuntu/.local/lib/python3.12/site-packages (from pandas->datasets==3.6.0->-r requirements-examples.txt (line 3)) (2.9.0.post0)
+Collecting typer>=0.24.0 (from typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: attrs>=17.3.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (26.1.0)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading multidict-6.9.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0->-r requirements-examples.txt (line 3))
+  Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+[?25l                                              0.0/111.6 kB ? eta -:--:--[2K     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 13.9 MB/s eta 0:00:00
+[?25hRequirement already satisfied: anyio in /home/ubuntu/.local/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (4.15.1)
+Requirement already satisfied: httpcore==1.* in /home/ubuntu/.local/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/ubuntu/.local/lib/python3.12/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub>=0.24.0->datasets==3.6.0->-r requirements-examples.txt (line 3)) (0.16.0)
+Requirement already satisfied: protobuf in /home/ubuntu/.local/lib/python3.12/site-packages (from kagglesdk<1.0,>=0.1.22->kagglehub->torchtune@ git+https://github.com/pytorch/torchtune.git@3c1872ace149f03ef4ffec765d3f0a5fd0399497->-r requirements-examples.txt (line 16)) (7.36.2)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas->datasets==3.6.0->-r requirements-examples.txt (line 3)) (1.16.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from sympy>=1.13.3->torch->timm==1.0.7->-r requirements-examples.txt (line 11)) (1.3.0)
+Collecting shellingham>=1.3.0 (from typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading https://download.pytorch.org/whl/test/shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/ubuntu/.local/lib/python3.12/site-packages (from rich>=13.8.0->typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17)) (2.21.0)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer>=0.24.0->typer-slim->transformers==5.0.0rc1->-r requirements-examples.txt (line 17))
+  Downloading https://download.pytorch.org/whl/test/mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading datasets-3.6.0-py3-none-any.whl (491 kB)
+[?25l                                            0.0/491.5 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 491.5/491.5 kB 66.2 MB/s eta 0:00:00
+[?25hDownloading timm-1.0.7-py3-none-any.whl (2.3 MB)
+[?25l                                            0.0/2.3 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 151.2 MB/s eta 0:00:00
+[?25hDownloading torchsr-1.0.4-py3-none-any.whl (31 kB)
+Downloading transformers-5.0.0rc1-py3-none-any.whl (9.9 MB)
+[?25l                                            0.0/9.9 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 9.9/9.9 MB 320.8 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 187.8 MB/s eta 0:00:00
+[?25hDownloading blobfile-3.3.0-py3-none-any.whl (76 kB)
+[?25l                                            0.0/76.8 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.8/76.8 kB 14.3 MB/s eta 0:00:00
+[?25hDownloading fsspec-2025.3.0-py3-none-any.whl (193 kB)
+[?25l                                            0.0/193.6 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.6/193.6 kB 34.2 MB/s eta 0:00:00
+[?25hDownloading pyarrow-20.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (42.3 MB)
+[?25l                                            0.0/42.3 MB ? eta -:--:--[2K   ━━━━━╸                                   6.3/42.3 MB 189.8 MB/s eta 0:00:01[2K   ━━━━━━━━━╸                               10.5/42.3 MB 155.0 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━                           15.2/42.3 MB 129.1 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━╸                    21.7/42.3 MB 175.5 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━                    22.5/42.3 MB 158.0 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━                    22.5/42.3 MB 158.0 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━                    22.5/42.3 MB 158.0 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━                  24.4/42.3 MB 56.6 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━                 25.7/42.3 MB 50.1 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸        34.5/42.3 MB 147.2 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸   39.8/42.3 MB 183.4 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 42.3/42.3 MB 167.3 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 42.3/42.3 MB 167.3 MB/s eta 0:00:01[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 83.0 MB/s eta 0:00:00
+[?25hDownloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+[?25l                                            0.0/516.0 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 58.8 MB/s eta 0:00:00
+[?25hDownloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+[?25l                                            0.0/3.3 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 200.9 MB/s eta 0:00:00
+[?25hDownloading kagglehub-1.0.2-py3-none-any.whl (70 kB)
+[?25l                                            0.0/70.6 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.6/70.6 kB 11.7 MB/s eta 0:00:00
+[?25hDownloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+[?25l                                            0.0/155.6 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 38.7 MB/s eta 0:00:00
+[?25hDownloading https://download.pytorch.org/whl/test/cpu/torchdata-0.11.0%2Bcpu-py3-none-any.whl (59 kB)
+[?25l                                            0.0/59.9 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.9/59.9 kB 11.6 MB/s eta 0:00:00
+[?25hDownloading typer_slim-0.24.0-py3-none-any.whl (3.4 kB)
+Downloading xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+[?25l                                            0.0/261.8 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 261.8/261.8 kB 50.9 MB/s eta 0:00:00
+[?25hDownloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+[?25l                                            0.0/1.8 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 153.6 MB/s eta 0:00:00
+[?25hDownloading kagglesdk-0.1.37-py3-none-any.whl (262 kB)
+[?25l                                            0.0/262.5 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 262.5/262.5 kB 42.5 MB/s eta 0:00:00
+[?25hDownloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+[?25l                                            0.0/5.2 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 215.3 MB/s eta 0:00:00
+[?25hDownloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+[?25l                                            0.0/2.3 MB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 157.2 MB/s eta 0:00:00
+[?25hDownloading typer-0.27.2-py3-none-any.whl (123 kB)
+[?25l                                            0.0/123.1 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.1/123.1 kB 21.8 MB/s eta 0:00:00
+[?25hDownloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+[?25l                                            0.0/242.4 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 44.3 MB/s eta 0:00:00
+[?25hDownloading multidict-6.9.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (336 kB)
+[?25l                                            0.0/336.9 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 336.9/336.9 kB 63.9 MB/s eta 0:00:00
+[?25hDownloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+[?25l                                            0.0/250.4 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 49.2 MB/s eta 0:00:00
+[?25hDownloading rich-15.0.0-py3-none-any.whl (310 kB)
+[?25l                                            0.0/310.7 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 59.5 MB/s eta 0:00:00
+[?25hDownloading https://download.pytorch.org/whl/test/shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+[?25l                                            0.0/117.0 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 18.1 MB/s eta 0:00:00
+[?25hDownloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+[?25l                                            0.0/91.7 kB ? eta -:--:--[2K   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 22.8 MB/s eta 0:00:00
+[?25hDownloading https://download.pytorch.org/whl/test/mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Building wheels for collected packages: torchtune
+  Building wheel for torchtune (pyproject.toml): started
+  Building wheel for torchtune (pyproject.toml): finished with status 'done'
+  Created wheel for torchtune: filename=torchtune-0.0.0-py3-none-any.whl size=1105674 sha256=305582bd48b17299a4a6312b9a52590d04e41f6e5dc0f1383a88c660d7cd2212
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/31/c1/62/59c8824630fe0c5eddb77aad72d058b2cbff5733995032a987
+Successfully built torchtune
+Installing collected packages: xxhash, shellingham, safetensors, pycryptodomex, pyarrow, psutil, propcache, multidict, mdurl, lxml, fsspec, frozenlist, dill, annotated-doc, aiohappyeyeballs, yarl, multiprocess, markdown-it-py, kagglesdk, blobfile, aiosignal, torchdata, rich, kagglehub, aiohttp, typer, torchsr, tokenizers, timm, typer-slim, datasets, transformers, torchtune
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2026.9.0
+    Uninstalling fsspec-2026.9.0:
+      Successfully uninstalled fsspec-2026.9.0
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.23.2
+    Uninstalling tokenizers-0.23.2:
+      Successfully uninstalled tokenizers-0.23.2
+Successfully installed aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 annotated-doc-0.0.5 blobfile-3.3.0 datasets-3.6.0 dill-0.3.8 frozenlist-1.8.0 fsspec-2025.3.0 kagglehub-1.0.2 kagglesdk-0.1.37 lxml-6.1.3 markdown-it-py-4.2.0 mdurl-0.1.2 multidict-6.9.1 multiprocess-0.70.16 propcache-0.5.4 psutil-7.2.2 pyarrow-20.0.0 pycryptodomex-3.23.0 rich-15.0.0 safetensors-0.8.0 shellingham-1.5.4 timm-1.0.7 tokenizers-0.22.2 torchdata-0.11.0+cpu torchsr-1.0.4 torchtune-0.0.0 transformers-5.0.0rc1 typer-0.27.2 typer-slim-0.24.0 xxhash-4.0.1 yarl-1.25.1
+Attempting to detect CUDA via nvcc...
+CUDA detection failed (nvcc (CUDA compiler) is not found in PATH. Install the CUDA toolkit.), using CPU-only PyTorch
+Attempting to detect CUDA via nvcc...
+CUDA detection failed (nvcc (CUDA compiler) is not found in PATH. Install the CUDA toolkit.), using CPU-only PyTorch
+Attempting to detect CUDA via nvcc...
+CUDA detection failed (nvcc (CUDA compiler) is not found in PATH. Install the CUDA toolkit.), using CPU-only PyTorch
+Installing torch domain libraries
+Installing packages in requirements-examples.txt
+INSTALL5_EXIT=0

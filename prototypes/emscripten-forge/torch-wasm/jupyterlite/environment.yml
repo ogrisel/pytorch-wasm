@@ -1,0 +1,17 @@
+name: xeus-torch-wasm
+channels:
+  # Local channel hosting the reduced wasm32 torch built by this recipe.
+  - file:///workspace/.torch-channel
+  - https://prefix.dev/emscripten-forge-dev
+  - conda-forge
+dependencies:
+  - xeus-python
+  - numpy
+  - sympy
+  - torch
+  # TabICL runtime stack (compiled deps from emscripten-forge; pure-python
+  # closure + psutil stub from the local tabicl-wasm bundle).
+  - scikit-learn
+  - scipy
+  - joblib
+  - tabicl-wasm

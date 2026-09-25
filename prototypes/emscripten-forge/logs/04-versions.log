@@ -1,0 +1,5 @@
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.58 (a41843e0860e52c948c1fce20307933c6631c800)
+node: v22.14.0
+cmake: cmake version 3.28.3
+ninja: 1.13.2.git.kitware.jobserver-pipe-1
+python: Python 3.12.3

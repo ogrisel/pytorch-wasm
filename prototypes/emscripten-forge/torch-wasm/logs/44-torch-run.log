@@ -1,0 +1,56 @@
+first goto
+[c.error] Failed to load resource: the server responded with a status of 404 (File not found)
+[c.info] Registering new JupyterLite ServiceWorker http://127.0.0.1:8123/service-worker.js?enableCache=false
+[c.info] JupyterLite ServiceWorker was successfully registered
+[c.info] xpython contents will be synced with Jupyter Contents
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[worker] http://127.0.0.1:8123/extensions/@jupyterlite/xeus-extension/static/654.01688496c997e850.js?v=01688496c997e850
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[pageerror] generic_type: type "XKernel" is already registered!
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+[c.warning] Trying to send message on removed socket for kernel c1ff36b9-9071-4211-a24f-7ce98a8a5f58
+reload so SW controls
+[c.error] Blocked attempt to show a 'beforeunload' confirmation panel for a frame that never had a user gesture since its load. https://www.chromestatus.com/feature/5082396709879808
+[c.info] New version, unregistering existing service workers.
+[c.info] All existing service workers have been unregistered.
+[c.info] JupyterLite ServiceWorker was already registered
+[c.info] Registering new JupyterLite ServiceWorker http://127.0.0.1:8123/service-worker.js?enableCache=false
+[c.info] JupyterLite ServiceWorker was successfully registered
+[c.info] xpython contents will be synced with Jupyter Contents
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.debug] Starting WebSocket: ws://127.0.0.1:8123/api/kernels/ee657a92-22e9-4e97-9c27-58c8028f4cff
+[worker] http://127.0.0.1:8123/extensions/@jupyterlite/xeus-extension/static/654.01688496c997e850.js?v=01688496c997e850
+UI loaded; polling kernel status
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+kstatus[0] ind=unknown
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[c.warning] Trying to send message on removed socket for kernel ee657a92-22e9-4e97-9c27-58c8028f4cff
+[pageerror] generic_type: type "XKernel" is already registered!
+kstatus[5] ind=unknown
+kstatus[10] ind=unknown
+kstatus[15] ind=unknown
+kstatus[20] ind=unknown
+kstatus[25] ind=unknown
+kstatus[30] ind=unknown
+kstatus[35] ind=unknown
+kstatus[40] ind=unknown
+kstatus[45] ind=unknown
+kstatus[50] ind=unknown
+kstatus[55] ind=unknown
+kernel ready=false
+runAll: no
+menu ran
+--- cells @2026-09-23T16:25:45.804Z ---
+[*]: => 
+=====
+[*]: => 
+=====
+[*]: => 
+=====
+[*]: => 
+DONE

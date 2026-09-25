@@ -1,0 +1,54 @@
+# Emscripten SDK (installed locally by scripts/install-emsdk.sh)
+.emsdk/
+
+# emscripten-forge torch-wasm build scratch (toolchain envs, source tree,
+# rattler-build output, cmake build dir). The canonical recipe + driver live
+# under prototypes/emscripten-forge/torch-wasm/recipe/.
+.src/
+.torch-build/
+.mmroot/
+.host-wasm/
+.ef-recipes/
+.tools/
+
+# WASM build outputs
+*.wasm
+*.mjs
+!run_node.mjs
+prototypes/**/cmake-out/
+prototypes/**/.et-work/
+prototypes/**/build/
+
+# The built JupyterLite site under docs/ is committed intact (it is the reviewer
+# artifact), so do NOT apply the global *.wasm / *.mjs ignores to it.
+!docs/**/*.wasm
+!docs/**/*.mjs
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv-jlite/
+# microtorch local build artifacts (the packed wheel lives inside docs/)
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/build/
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/src/*.egg-info/
+prototypes/emscripten-forge/jupyterlite-torch-wasm/microtorch/**/*.egg-info/
+# jupyterlite build cache
+prototypes/emscripten-forge/jupyterlite-torch-wasm/.jupyterlite.doit.db
+
+# host protoc build (native, blocker #4 workaround)
+.hostprotoc/
+
+# torch package staging (large wasm artifacts, not committed)
+.torch-stage/
+
+# local conda channel hosting the wasm torch package (large tarball)
+.torch-channel/
+
+# jupyterlite build scratch for the emscripten-forge torch-wasm prototype
+prototypes/emscripten-forge/torch-wasm/jupyterlite/_site/
+prototypes/emscripten-forge/torch-wasm/jupyterlite/.jupyterlite.doit.db
+
+# in-browser test scratch (playwright harness runtime + minimal baseline site)
+.jlite-test/node_modules/
+.jlite-base/

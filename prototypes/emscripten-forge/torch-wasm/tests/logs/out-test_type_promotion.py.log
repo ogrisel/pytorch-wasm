@@ -1,0 +1,21 @@
+
+........................................................................ [ 85%]
+...............................................................          [100%]
+=============================== warnings summary ===============================
+upstream/test_type_promotion.py::TestTypePromotionCPU::test_booleans_cpu
+  /workspace/prototypes/emscripten-forge/torch-wasm/tests/upstream/test_type_promotion.py:434: UserWarning: This overload of add is deprecated:
+  	add(Tensor input, Number alpha, Tensor other, *, Tensor out = None)
+  Consider using one of the following signatures instead:
+  	add(Tensor input, Tensor other, *, Number alpha = 1, Tensor out = None) (Triggered internally at /pytorch/torch/csrc/utils/python_arg_parser.cpp:1691.)
+    self.assertEqual(torch.add(torch.tensor(True, device=device),
+
+upstream/test_type_promotion.py::TestTypePromotionCPU::test_complex_assertraises_cpu
+  /workspace/prototypes/emscripten-forge/torch-wasm/tests/upstream/test_type_promotion.py:648: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at /pytorch/aten/src/ATen/EmptyTensor.cpp:55.)
+    v = torch.tensor([2], dtype=dt2, device=device)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================== wasm-inapplicable skip classification =====================
+mode: SIMULATED-WASM   platform: linux
+    121  numpy_bridge
+    121  TOTAL classified-inapplicable
+302 passed, 121 skipped, 2 warnings in 2.86s

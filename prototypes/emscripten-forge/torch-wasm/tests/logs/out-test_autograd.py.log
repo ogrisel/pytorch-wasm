@@ -1,0 +1,16 @@
+l(len(primal.storage()), 5)
+
+upstream/test_autograd.py::TestAutogradDeviceTypeCPU::test_inplace_on_view_backprop_view_cpu
+  /workspace/prototypes/emscripten-forge/torch-wasm/tests/upstream/test_autograd.py:12136: UserWarning: The .grad attribute of a Tensor that is not a leaf Tensor is being accessed. Its .grad attribute won't be populated during autograd.backward(). If you indeed want the .grad field to be populated for a non-leaf Tensor, use .retain_grad() on the non-leaf Tensor. If you access the non-leaf Tensor by mistake, make sure you access the leaf Tensor instead. See github.com/pytorch/pytorch/pull/30531 for more informations. (Triggered internally at /pytorch/build/aten/src/ATen/core/TensorBody.h:489.)
+    self.assertIsNone(a.grad)
+
+upstream/test_autograd.py::TestAutogradDeviceTypeCPU::test_scatter_index_reduce_amin_amax_backprops_to_all_values_cpu
+  /workspace/.mmroot/envs/hosttorch/lib/python3.12/site-packages/torch/autograd/gradcheck.py:2078: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+    func_out = func(*tupled_inputs)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================== wasm-inapplicable skip classification =====================
+mode: HOST-baseline   platform: linux
+      3  gpu_cuda_rocm_xpu_mps
+      3  TOTAL classified-inapplicable
+63 failed, 547 passed, 36 skipped, 1 xfailed, 61 warnings in 10.12s

@@ -1,0 +1,11 @@
+=== emcc version ===
+shared:INFO: (Emscripten: Running sanity checks)
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.58 (a41843e0860e52c948c1fce20307933c6631c800)
+Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
+This is free and open source software under the MIT license.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+=== which emcc ===
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/emcc
+=== pyodide config emscripten_version ===
+3.1.58

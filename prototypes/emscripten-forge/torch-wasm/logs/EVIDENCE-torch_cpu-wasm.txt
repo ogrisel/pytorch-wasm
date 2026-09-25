@@ -1,0 +1,17 @@
+# Authoritative evidence: reduced torch_cpu linked for wasm32-emscripten
+# captured Tue Sep 22 09:41:11 PM UTC 2026
+
+## wasm static archives (emscripten 3.1.73 / cross-python 3.13):
+-rw-r--r-- 1 ubuntu ubuntu   2221510 Sep 22 21:37 .torch-build/lib/libc10.a
+-rw-r--r-- 1 ubuntu ubuntu     12958 Sep 22 21:37 .torch-build/lib/libcpuinfo.a
+-rw-r--r-- 1 ubuntu ubuntu  12378296 Sep 22 21:37 .torch-build/lib/libonnx.a
+-rw-r--r-- 1 ubuntu ubuntu    855388 Sep 22 21:36 .torch-build/lib/libprotobuf-lite.a
+-rw-r--r-- 1 ubuntu ubuntu 368703184 Sep 22 21:36 .torch-build/lib/libtorch_cpu.a
+
+## proof objects are WebAssembly (autograd + optim/sgd + nn):
+.torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_1.cpp.o: .torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/autograd/generated/VariableType_1.cpp.o: WebAssembly (wasm) binary module version 0x1 (MVP)
+.torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/optim/sgd.cpp.o: .torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/jit/mobile/train/optim/sgd.cpp.o: WebAssembly (wasm) binary module version 0x1 (MVP)
+.torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/linear.cpp.o: .torch-build/caffe2/CMakeFiles/torch_cpu.dir/__/torch/csrc/api/src/nn/options/linear.cpp.o: WebAssembly (wasm) binary module version 0x1 (MVP)
+
+## torch_cpu build result from first successful run:
+BUILD_TORCH_CPU_RC=0 (see logs/11 / logs/03-rattler-build.log), CONFIGURE_RC=0 (logs/10)

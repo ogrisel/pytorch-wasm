@@ -1,0 +1,29 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {
+    "numpy_bridge": 121
+  },
+  "total_classified_inapplicable": 121,
+  "examples": {
+    "numpy_bridge": [
+      "upstream/test_type_promotion.py::TestTypePromotionCPU::test_numpy_array_binary_ufunc_promotion_cpu_bool_bool",
+      "upstream/test_type_promotion.py::TestTypePromotionCPU::test_numpy_array_binary_ufunc_promotion_cpu_bool_complex128",
+      "upstream/test_type_promotion.py::TestTypePromotionCPU::test_numpy_array_binary_ufunc_promotion_cpu_bool_complex64",
+      "upstream/test_type_promotion.py::TestTypePromotionCPU::test_numpy_array_binary_ufunc_promotion_cpu_bool_float16",
+      "upstream/test_type_promotion.py::TestTypePromotionCPU::test_numpy_array_binary_ufunc_promotion_cpu_bool_float32"
+    ]
+  }
+}

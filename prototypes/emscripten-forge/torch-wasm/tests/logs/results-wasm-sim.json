@@ -1,0 +1,47 @@
+{
+  "mode": "SIMULATED-WASM",
+  "generated": "2026-09-23T08:14:03.186643+00:00",
+  "python": "/workspace/.mmroot/envs/hosttorch/bin/python",
+  "platform": "linux",
+  "per_file": {
+    "test_type_promotion.py": {
+      "rc": 0,
+      "passed": 302,
+      "skipped": 121,
+      "failed": 0,
+      "error": 0,
+      "total": 423
+    },
+    "test_optim.py": {
+      "rc": 0,
+      "passed": 820,
+      "skipped": 146,
+      "failed": 0,
+      "error": 0,
+      "total": 966
+    },
+    "test_torch.py": {
+      "rc": 0,
+      "passed": 944,
+      "skipped": 100,
+      "failed": 0,
+      "error": 0,
+      "total": 1044
+    },
+    "test_nn.py": {
+      "rc": 0,
+      "passed": 1645,
+      "skipped": 553,
+      "failed": 0,
+      "error": 0,
+      "total": 2198
+    }
+  },
+  "aggregate": {
+    "passed": 3711,
+    "skipped": 920,
+    "failed": 0,
+    "error": 0,
+    "total": 4631
+  }
+}

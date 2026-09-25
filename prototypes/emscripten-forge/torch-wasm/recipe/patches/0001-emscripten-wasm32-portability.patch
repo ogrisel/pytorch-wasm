@@ -1,0 +1,58 @@
+wasm32 (ILP32) + Emscripten musl portability + reduced-build fixes for PyTorch 2.8.0.
+
+--- a/c10/core/SymInt.h	2025-08-06 17:08:00.000000000 +0000
++++ b/c10/core/SymInt.h	2026-09-22 20:56:29.257351093 +0000
+@@ -361,7 +361,7 @@
+ 
+ // On OSX size_t is different than uint64_t so we have to
+ // define it separately
+-#if defined(__APPLE__)
++#if defined(__APPLE__) || defined(__EMSCRIPTEN__)
+ DECLARE_SYMINT_OP_INTONLY(size_t, SymInt)
+ DECLARE_SYMINT_OP(size_t, SymInt)
+ #endif
+--- a/c10/macros/Macros.h	2025-08-06 17:08:00.000000000 +0000
++++ b/c10/macros/Macros.h	2026-09-22 20:56:29.257351093 +0000
+@@ -374,7 +374,7 @@
+            0);                                   \
+   }
+ #else // __APPLE__, _MSC_VER
+-#if defined(NDEBUG)
++#if defined(NDEBUG) && !defined(__EMSCRIPTEN__)
+ extern "C" {
+ #if defined(__SYCL_DEVICE_ONLY__)
+ extern SYCL_EXTERNAL void __assert_fail(
+--- a/c10/util/Enumerate.h	2025-08-06 17:08:00.000000000 +0000
++++ b/c10/util/Enumerate.h	2026-09-22 20:56:29.257351093 +0000
+@@ -11,6 +11,9 @@
+ #include <basetsd.h> // @manual
+ using ssize_t = SSIZE_T;
+ #endif
++#ifdef __EMSCRIPTEN__
++#include <sys/types.h> // ssize_t
++#endif
+ 
+ #include <c10/macros/Macros.h>
+ 
+--- a/CMakeLists.txt	2026-09-22 21:38:58.906672215 +0000
++++ b/CMakeLists.txt	2026-09-22 21:02:51.545304722 +0000
+@@ -1319,7 +1319,7 @@
+     FILES ${PROJECT_SOURCE_DIR}/cmake/Modules/FindSYCLToolkit.cmake
+     DESTINATION share/cmake/Caffe2/
+     COMPONENT dev)
+-  if(NOT BUILD_LIBTORCHLESS)
++  if(FALSE)  # emscripten probe: skip Caffe2Targets export
+     install(
+       EXPORT Caffe2Targets
+       DESTINATION share/cmake/Caffe2
+--- a/cmake/Dependencies.cmake	2025-08-06 17:08:00.000000000 +0000
++++ b/cmake/Dependencies.cmake	2026-09-22 21:53:49.195847943 +0000
+@@ -835,7 +835,7 @@
+ 
+ # ---[ Python + Numpy
+ if(BUILD_PYTHON)
+-  if(Python_Development.Module_FOUND)
++  if(Python_Development.Module_FOUND OR DEFINED WASM_PYTHON_INCLUDE_DIR)
+     if(USE_NUMPY)
+       if(NOT Python_NumPy_FOUND)
+         message(WARNING "NumPy could not be found. Not building with NumPy. Suppress this warning with -DUSE_NUMPY=OFF")

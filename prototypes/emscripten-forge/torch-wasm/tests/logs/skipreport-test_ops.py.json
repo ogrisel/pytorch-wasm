@@ -1,0 +1,29 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {
+    "numpy_bridge": 133
+  },
+  "total_classified_inapplicable": 133,
+  "examples": {
+    "numpy_bridge": [
+      "upstream/test_ops.py::TestCommonCPU::test_numpy_ref_addbmm_cpu_complex128",
+      "upstream/test_ops.py::TestCommonCPU::test_numpy_ref_addbmm_cpu_float64",
+      "upstream/test_ops.py::TestCommonCPU::test_numpy_ref_addbmm_cpu_int64",
+      "upstream/test_ops.py::TestCommonCPU::test_numpy_ref_allclose_cpu_complex128",
+      "upstream/test_ops.py::TestCommonCPU::test_numpy_ref_allclose_cpu_float64"
+    ]
+  }
+}

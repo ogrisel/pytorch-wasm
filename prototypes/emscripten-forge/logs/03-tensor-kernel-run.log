@@ -1,0 +1,8 @@
+wasm linearRelu -> [
+  2.5999999046325684,
+  2.799999952316284,
+  3.5999999046325684,
+  0.800000011920929
+]
+js   reference  -> [ 2.6, 2.8, 3.6, 0.8 ]
+OK: WASM tensor kernel matches reference (PyTorch-style dense layer runs in WebAssembly)

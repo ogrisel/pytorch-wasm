@@ -1,0 +1,53 @@
+attempt 1: CLEAN BOOT (kernel idle, no XKernel). Running cells...
+runAll cmd: no
+menu ran
+CELLS:
+[*]: => 
+=====
+[*]: => 
+=====
+[*]: => 
+=====
+[*]: => 
+CELLS:
+[1]: => python 3.13.1 | platform Emscripten
+torch 2.8.0 | sklearn 1.8.0 | numpy 2.4.4
+=====
+[2]: => checkpoint found at: tabicl-classifier-v2-20260212.ckpt
+candidates checked: ['tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', 'files/tabicl-classifier-v2-20260212.ckpt']
+=====
+[3]: => train (180, 6) test (60, 6) classes [0, 1, 2]
+=====
+[*]: => /lib/python3.13/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+CELLS:
+[1]: => python 3.13.1 | platform Emscripten
+torch 2.8.0 | sklearn 1.8.0 | numpy 2.4.4
+=====
+[2]: => checkpoint found at: tabicl-classifier-v2-20260212.ckpt
+candidates checked: ['tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', 'files/tabicl-classifier-v2-20260212.ckpt']
+=====
+[3]: => train (180, 6) test (60, 6) classes [0, 1, 2]
+=====
+[*]: => /lib/python3.13/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+
+fit done; classes_ [0 1 2]
+CELLS:
+[1]: => python 3.13.1 | platform Emscripten
+torch 2.8.0 | sklearn 1.8.0 | numpy 2.4.4
+=====
+[2]: => checkpoint found at: tabicl-classifier-v2-20260212.ckpt
+candidates checked: ['tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', '/drive/tabicl-classifier-v2-20260212.ckpt', 'files/tabicl-classifier-v2-20260212.ckpt']
+=====
+[3]: => train (180, 6) test (60, 6) classes [0, 1, 2]
+=====
+[4]: => /lib/python3.13/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+
+fit done; classes_ [0 1 2]
+predictions[:12] [2, 0, 1, 0, 1, 1, 0, 0, 2, 2, 1, 1]
+accuracy 0.967
+TABICL SUCCESS: fit+predict ran in wasm; accuracy 0.967
+*** SUCCESS MATCH ***
+screenshot /workspace/prototypes/emscripten-forge/torch-wasm/logs/pw-retry.png

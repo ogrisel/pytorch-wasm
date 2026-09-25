@@ -1,0 +1,78 @@
+{
+  "_about": "Machine-readable manifest of upstream PyTorch tests that are FUNDAMENTALLY inapplicable to the reduced, CPU-only, single-threaded wasm32-emscripten torch build packaged by this prototype. Consumed by conftest.py. Each category is either environment-gated (applies only under the wasm runtime, key `wasm_only: true`) or always-inapplicable. Skips here are inapplicability-by-environment ONLY; genuine reduced-build failures are tracked separately in logs/known_failures.md and are NOT listed here.",
+  "_build_config": "USE_CUDA/ROCM/XPU=0, USE_MKLDNN/FBGEMM/NNPACK/QNNPACK/PYTORCH_QNNPACK/XNNPACK=0, USE_DISTRIBUTED/TENSORPIPE/GLOO/MPI=0, USE_OPENMP=0 (ATEN_THREADING=NATIVE, single-threaded), USE_NUMPY=0, USE_KINETO=0, USE_ITT=0, USE_MIMALLOC=0, USE_ONNX=0, BUILD_CAFFE2=0. Runtime: xeus-python wasm32 in the browser, single process, no fork/exec/threads, no host compiler, sandboxed FS.",
+  "categories": [
+    {
+      "id": "gpu_cuda_rocm_xpu_mps",
+      "reason": "No GPU/accelerator backend in wasm; build is USE_CUDA/ROCM/XPU=0. CUDA/MPS/XPU device variants are not even instantiated on a CPU-only runtime, but some tests hardcode accelerator use or gate on multi-GPU.",
+      "wasm_only": false,
+      "capability": "no_gpu",
+      "nodeid_regex": "(?i)(cuda|_mps|_xpu|multigpu|multi_gpu|nccl|_gpu_)",
+      "decorators": ["onlyCUDA", "onlyXPU", "onlyMPS", "skipCPUIf", "deviceCountAtLeast", "requires_cuda"]
+    },
+    {
+      "id": "distributed_rpc_c10d",
+      "reason": "Build is USE_DISTRIBUTED/TENSORPIPE/GLOO/MPI=0; torch.distributed / RPC / c10d process groups are unavailable and the single wasm process cannot form a group.",
+      "wasm_only": false,
+      "capability": "no_distributed",
+      "nodeid_regex": "(?i)(distribut|_rpc|c10d|process_group|_ddp|all_reduce|all_gather|_collective)"
+    },
+    {
+      "id": "multiprocessing_fork_subprocess",
+      "reason": "The wasm runtime is a single process with no fork()/exec()/subprocess and no _multiprocessing/shared-memory manager; tests that spawn processes or shell out cannot run.",
+      "wasm_only": true,
+      "capability": "no_subprocess",
+      "nodeid_regex": "(?i)(multiprocess|_fork|subprocess|_spawn|_daemon|sharedmem|shared_memory|shm_)"
+    },
+    {
+      "id": "threading_threadpool",
+      "reason": "Build is single-threaded (USE_OPENMP=0, ATEN_THREADING=NATIVE); wasm has no host threads/thread-pool. Tests asserting multi-thread parallelism, thread-count>1, or thread-safety races are inapplicable.",
+      "wasm_only": true,
+      "capability": "single_threaded",
+      "nodeid_regex": "(?i)(_thread|threadpool|thread_pool|num_threads|parallel_|_interop|_intraop|concurren)"
+    },
+    {
+      "id": "disabled_backends",
+      "reason": "MKLDNN/oneDNN, FBGEMM, NNPACK, QNNPACK, PYTORCH_QNNPACK, XNNPACK and the quantized engines are all compiled out (USE_*=0); no quantized engine is registered.",
+      "wasm_only": false,
+      "capability": "no_backend_engines",
+      "nodeid_regex": "(?i)(mkldnn|onednn|fbgemm|nnpack|xnnpack|qnnpack|quantiz|_qint|per_channel_q|dynamic_quant|prepack)"
+    },
+    {
+      "id": "cpp_extension_jit_compile",
+      "reason": "No host C/C++ compiler at runtime in wasm; torch.utils.cpp_extension (load/load_inline), TorchInductor/torch.compile codegen, and NVRTC/Triton compilation cannot run.",
+      "wasm_only": true,
+      "capability": "no_host_compiler",
+      "nodeid_regex": "(?i)(cpp_extension|load_inline|_compile|inductor|_codegen|_aot|triton|nvrtc|jit_fuser|nvfuser)"
+    },
+    {
+      "id": "numpy_bridge",
+      "reason": "torch built with USE_NUMPY=0: the C++ numpy bridge is absent, so torch.from_numpy / Tensor.numpy() / numpy-array interop raise even though the numpy Python package is importable.",
+      "wasm_only": true,
+      "capability": "no_numpy_bridge",
+      "nodeid_regex": "(?i)(from_numpy|_numpy|to_numpy|numpy_)"
+    },
+    {
+      "id": "filesystem_mmap_signal",
+      "reason": "The wasm runtime has a sandboxed in-memory FS with no real mmap, file locking, signals, or OS-level paths; tests depending on these OS facilities are inapplicable.",
+      "wasm_only": true,
+      "capability": "no_os_fs",
+      "nodeid_regex": "(?i)(_mmap|mmap_|\\bmmap\\b|sigint|sigkill|sigsegv|signal_handler|_madvise|filelock|file_lock|\\bflock\\b)"
+    },
+    {
+      "id": "slow_large_memory",
+      "reason": "Tests marked slow or allocating very large tensors OOM the constrained wasm heap or exceed the interactive time budget; not a correctness signal for the reduced build.",
+      "wasm_only": true,
+      "capability": "constrained_heap",
+      "decorators": ["slowTest", "largeTensorTest"],
+      "nodeid_regex": "(?i)(_slow|large_tensor|largetensor|_oom|_big_|serialization_2gb|4gb|large_)"
+    },
+    {
+      "id": "profiler_kineto_itt",
+      "reason": "USE_KINETO=0 and USE_ITT=0: the profiler backend and ITT annotations are not built.",
+      "wasm_only": false,
+      "capability": "no_profiler",
+      "nodeid_regex": "(?i)(kineto|_itt|profiler_kineto|_vtune)"
+    }
+  ]
+}

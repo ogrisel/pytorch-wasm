@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "microtorch"
+version = "0.1.0"
+description = "A minimal, pure-Python, numpy-backed reverse-mode autograd engine exposing a PyTorch-compatible API subset, so a basic PyTorch-style training loop runs inside a WebAssembly (xeus-python / JupyterLite) kernel. NOT affiliated with or derived from upstream PyTorch."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "BSD-3-Clause" }
+authors = [{ name = "pytorch-wasm prototype" }]
+# numpy is provided by the emscripten-forge conda environment in the WASM kernel,
+# so it is intentionally listed but installed by conda, not pip (--no-deps).
+dependencies = ["numpy"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

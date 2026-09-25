@@ -1,0 +1,218 @@
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/linux-64                          ⧖ Starting
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/linux-64                    ✔ Done (0.4 sec)
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                            ⧖ Starting
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                      ✔ Done (0.4 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/linux-64                       ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Using Flat Repodata for https://prefix.dev/emscripten-forge-dev/noarch                          ✔ Starting
+Using Flat Repodata for https://prefix.dev/emscripten-forge-dev/noarch                    ✔ Done (0.0 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.6 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/linux-64                       ✔ Done
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/linux-64                       ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+Using Flat Repodata for https://prefix.dev/emscripten-forge-dev/noarch                          ✔ Starting
+Using Flat Repodata for https://prefix.dev/emscripten-forge-dev/noarch                    ✔ Done (0.0 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Parsing Packages' Records                                                                 ✔ Done (0.9 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.2 sec)
+
+Transaction
+
+  Prefix: /workspace/.mmroot/envs/torch-build
+
+  Updating specs:
+
+   - emscripten_emscripten-wasm32=3.1.73
+   - cross-python_emscripten-wasm32=3.13.1
+   - python=3.13
+   - cmake
+   - ninja
+   - pyyaml
+   - setuptools
+   - typing_extensions
+   - six
+   - requests
+   - pip
+
+
+  Package                                Version  Build                 Channel                               Size
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex                            4.5  20_gnu                conda-forge                         Cached
+  + backports.zstd                         1.7.0  py313h8f72f4d_1       conda-forge                          244kB
+  + brotli-python                          1.2.0  py313h2fc2bef_4       conda-forge                          368kB
+  + bzip2                                  1.0.8  hda65f42_10           conda-forge                         Cached
+  + c-ares                                1.34.8  hebe6cf0_2            conda-forge                         Cached
+  + ca-certificates                    2026.7.22  hbd8a1cb_0            conda-forge                         Cached
+  + certifi                            2026.7.22  pyhd8ed1ab_0          conda-forge                         Cached
+  + charset-normalizer                     3.5.1  pyhd8ed1ab_0          conda-forge                         Cached
+  + cmake                                  4.4.3  hff7ac6b_0            conda-forge                           26MB
+  + coreutils                               9.12  hebe6cf0_0            conda-forge                            3MB
+  + cross-python_emscripten-wasm32        3.13.1  ha770c72_15           prefix.dev/emscripten-forge-dev        5kB
+  + crossenv                               1.6.1  pyh5ded981_1          conda-forge                           37kB
+  + emscripten_emscripten-wasm32          3.1.73  h099e90b_12           prefix.dev/emscripten-forge-dev      386MB
+  + h2                                     4.4.1  pyhcf101f3_0          conda-forge                         Cached
+  + hpack                                  4.2.0  pyhd8ed1ab_0          conda-forge                         Cached
+  + hyperframe                             6.1.0  pyhd8ed1ab_0          conda-forge                         Cached
+  + icu                                     75.1  he02047a_0            conda-forge                           12MB
+  + idna                                    3.20  pyh5ded981_0          conda-forge                         Cached
+  + keyutils                               1.6.3  h7cc23a3_1            conda-forge                         Cached
+  + krb5                                  1.22.2  hbc21106_2            conda-forge                         Cached
+  + ld_impl_linux-64                      2.46.1  default_hbd61a6d_102  conda-forge                         Cached
+  + libcurl                               8.21.0  hcf29cc6_1            conda-forge                          479kB
+  + libedit                         3.1.20250104  pl5321h373387f_1      conda-forge                         Cached
+  + libev                                   4.33  h280c20c_3            conda-forge                         Cached
+  + libexpat                               2.8.4  hd2095e1_0            conda-forge                         Cached
+  + libffi                                 3.7.0  h81df57d_1            conda-forge                         Cached
+  + libgcc                                16.2.0  ha9f2e26_5            conda-forge                         Cached
+  + libgcc-ng                             16.2.0  h69a702a_5            conda-forge                           29kB
+  + libgomp                               16.2.0  he0feb66_5            conda-forge                         Cached
+  + libiconv                                1.18  h0cb94f2_3            conda-forge                          789kB
+  + liblzma                                5.8.3  hb03c661_1            conda-forge                         Cached
+  + libmpdec                               4.0.0  hb03c661_2            conda-forge                         Cached
+  + libnghttp2                            1.68.1  h74cf4be_1            conda-forge                         Cached
+  + libpython                            3.13.15  hdc7f604_103_cp313    conda-forge                           10MB
+  + libsqlite                             3.53.4  h0737f62_1            conda-forge                          969kB
+  + libssh2                               1.11.1  h6154650_1            conda-forge                         Cached
+  + libstdcxx                             16.2.0  h934c35e_5            conda-forge                         Cached
+  + libstdcxx-ng                          16.2.0  hdf11a46_5            conda-forge                           29kB
+  + libuuid                               2.42.3  hcfc3c73_0            conda-forge                         Cached
+  + libuv                                 1.52.1  h280c20c_1            conda-forge                          420kB
+  + libzlib                                1.3.2  h25fd6f3_3            conda-forge                         Cached
+  + lz4-c                                 1.10.0  hee9eb32_2            conda-forge                          182kB
+  + ncurses                                  6.6  hdb14827_1            conda-forge                         Cached
+  + ninja                                 1.13.2  h171cf75_1            conda-forge                          187kB
+  + nodejs                               16.20.2  hc19f0b3_3            conda-forge                           14MB
+  + openssl                                3.6.4  h781a0a9_0            conda-forge                         Cached
+  + pip                                   26.2.1  pyh145f28c_0          conda-forge                         Cached
+  + popt                                    1.19  hcfc3c73_2            conda-forge                           76kB
+  + pysocks                                1.7.1  pyha55dd90_7          conda-forge                         Cached
+  + python                               3.13.15  hf47f18c_103_cp313    conda-forge                           24MB
+  + python_abi                              3.13  9_cp313               conda-forge                            7kB
+  + pyyaml                                 6.0.3  py313h3dea7bd_1       conda-forge                          202kB
+  + readline                                 8.3  hd6e31c0_1            conda-forge                         Cached
+  + requests                              2.34.2  pyhcf101f3_0          conda-forge                         Cached
+  + rhash                                  1.4.6  hb03c661_2            conda-forge                          195kB
+  + rsync                                  3.4.4  hffd6c76_1            conda-forge                          378kB
+  + sed                                     4.10  h19d0853_0            conda-forge                          268kB
+  + setuptools                            84.0.0  pyh332efcf_0          conda-forge                          524kB
+  + six                                   1.17.0  pyhe01879c_1          conda-forge                           18kB
+  + tk                                    8.6.13  noxft_h1df4ec4_4      conda-forge                         Cached
+  + typing_extensions                     4.16.0  pyhcf101f3_0          conda-forge                         Cached
+  + tzdata                                 2026c  h151e31d_0            conda-forge                         Cached
+  + urllib3                                2.8.0  pyhd8ed1ab_0          conda-forge                         Cached
+  + xxhash                                 0.8.3  hec8ed23_1            conda-forge                          109kB
+  + yaml                                   0.2.5  hebe6cf0_3            conda-forge                         Cached
+  + zlib                                   1.3.2  h25fd6f3_3            conda-forge                           96kB
+  + zstd                                   1.5.7  hb78ec9c_7            conda-forge                         Cached
+
+  Summary:
+
+  Install: 67 packages
+
+  Total download: 482MB
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking python_abi-3.13-9_cp313
+Linking ca-certificates-2026.7.22-hbd8a1cb_0
+Linking tzdata-2026c-h151e31d_0
+Linking libzlib-1.3.2-h25fd6f3_3
+Linking libgomp-16.2.0-he0feb66_5
+Linking zlib-1.3.2-h25fd6f3_3
+Linking zstd-1.5.7-hb78ec9c_7
+Linking _openmp_mutex-4.5-20_gnu
+Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_102
+Linking libgcc-16.2.0-ha9f2e26_5
+Linking yaml-0.2.5-hebe6cf0_3
+Linking c-ares-1.34.8-hebe6cf0_2
+Linking libev-4.33-h280c20c_3
+Linking keyutils-1.6.3-h7cc23a3_1
+Linking libuv-1.52.1-h280c20c_1
+Linking libsqlite-3.53.4-h0737f62_1
+Linking xxhash-0.8.3-hec8ed23_1
+Linking libiconv-1.18-h0cb94f2_3
+Linking sed-4.10-h19d0853_0
+Linking coreutils-9.12-hebe6cf0_0
+Linking libgcc-ng-16.2.0-h69a702a_5
+Linking bzip2-1.0.8-hda65f42_10
+Linking rhash-1.4.6-hb03c661_2
+Linking libexpat-2.8.4-hd2095e1_0
+Linking openssl-3.6.4-h781a0a9_0
+Linking libffi-3.7.0-h81df57d_1
+Linking libmpdec-4.0.0-hb03c661_2
+Linking liblzma-5.8.3-hb03c661_1
+Linking ncurses-6.6-hdb14827_1
+Linking tk-8.6.13-noxft_h1df4ec4_4
+Linking libstdcxx-16.2.0-h934c35e_5
+Linking libuuid-2.42.3-hcfc3c73_0
+Linking popt-1.19-hcfc3c73_2
+Linking libssh2-1.11.1-h6154650_1
+Linking libedit-3.1.20250104-pl5321h373387f_1
+Linking readline-8.3-hd6e31c0_1
+Linking libnghttp2-1.68.1-h74cf4be_1
+Linking lz4-c-1.10.0-hee9eb32_2
+Linking libstdcxx-ng-16.2.0-hdf11a46_5
+Linking libpython-3.13.15-hdc7f604_103_cp313
+Linking ninja-1.13.2-h171cf75_1
+Linking krb5-1.22.2-hbc21106_2
+Linking rsync-3.4.4-hffd6c76_1
+Linking icu-75.1-he02047a_0
+Linking python-3.13.15-hf47f18c_103_cp313
+Linking libcurl-8.21.0-hcf29cc6_1
+Linking nodejs-16.20.2-hc19f0b3_3
+Linking brotli-python-1.2.0-py313h2fc2bef_4
+Linking backports.zstd-1.7.0-py313h8f72f4d_1
+Linking pyyaml-6.0.3-py313h3dea7bd_1
+Linking cmake-4.4.3-hff7ac6b_0
+Linking pysocks-1.7.1-pyha55dd90_7
+Linking hpack-4.2.0-pyhd8ed1ab_0
+Linking hyperframe-6.1.0-pyhd8ed1ab_0
+Linking crossenv-1.6.1-pyh5ded981_1
+Linking charset-normalizer-3.5.1-pyhd8ed1ab_0
+Linking idna-3.20-pyh5ded981_0
+Linking certifi-2026.7.22-pyhd8ed1ab_0
+Linking typing_extensions-4.16.0-pyhcf101f3_0
+Linking six-1.17.0-pyhe01879c_1
+Linking setuptools-84.0.0-pyh332efcf_0
+Linking pip-26.2.1-pyh145f28c_0
+Linking h2-4.4.1-pyhcf101f3_0
+Linking urllib3-2.8.0-pyhd8ed1ab_0
+Linking requests-2.34.2-pyhcf101f3_0
+Linking emscripten_emscripten-wasm32-3.1.73-h099e90b_12
+Linking cross-python_emscripten-wasm32-3.13.1-ha770c72_15
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate torch-build
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n torch-build mycommand
+

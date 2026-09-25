@@ -1,0 +1,1422 @@
+[2026-09-22 13:34:42] Building package torch...                                 
+Running build script in                                                         
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0                   
+875:  add_library(Python::Module INTERFACE IMPORTED)  # PYODIDE_PROBE_PYTHON_MODULE_STUB
+377:#if defined(NDEBUG) && !defined(__EMSCRIPTEN__) // PYODIDE_PROBE_EMSCRIPTEN_ASSERT
+CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- 3.13.0.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/build
+[1/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/arena.cc.o
+[2/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/any_lite.cc.o
+[3/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_enum_util.cc.o
+[4/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/implicit_weak_message.cc.o
+[5/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/coded_stream.cc.o
+[6/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/io_win32.cc.o
+[7/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_message_util.cc.o
+[8/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/strtod.cc.o
+[9/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/zero_copy_stream.cc.o
+[10/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/extension_set.cc.o
+[11/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+[12/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_message_table_driven_lite.cc.o
+[13/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+[14/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/bytestream.cc.o
+[15/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/message_lite.cc.o
+In file included from /usr/include/string.h:548,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/port.h:39,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/macros.h:34,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/common.h:46,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/message_lite.h:45,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/message_lite.cc:36:
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'google::protobuf::uint8* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, google::protobuf::uint8*)' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/coded_stream.h:699:16,
+    inlined from 'virtual google::protobuf::uint8* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(google::protobuf::uint8*, google::protobuf::io::EpsCopyOutputStream*) const' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/implicit_weak_message.h:85:28,
+    inlined from 'bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/message_lite.cc:419:30:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)' specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[16/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/common.cc.o
+[17/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/parse_context.cc.o
+[18/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/int128.cc.o
+[19/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/statusor.cc.o
+[20/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/status.cc.o
+[21/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/stringpiece.cc.o
+[22/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/stringprintf.cc.o
+[23/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/structurally_valid.cc.o
+[24/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.cc.o
+In file included from /usr/include/string.h:548,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/port.h:39,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/macros.h:34,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/logging.h:34,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:60,
+                 from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.cc:35:
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = bool]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = bool]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = bool]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = bool]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = bool]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 1 and 2147483647 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = bool]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 4 and 8589934588 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = int]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 4 and 8589934588 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = unsigned int]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = long int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = long int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 8 and 17179869176 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long int]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = long unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = long unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = long unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = long unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long unsigned int]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 8 and 17179869176 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = long unsigned int]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = float]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = float]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = float]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = float]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = float]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 4 and 8589934588 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = float]':
+cc1plus: note: source object is likely at address zero
+In function 'void* memcpy(void*, const void*, size_t)',
+    inlined from 'void google::protobuf::internal::ElementCopier<Element, true>::operator()(Element*, const Element*, int) [with Element = double]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1641:11,
+    inlined from 'void google::protobuf::RepeatedField<Element>::CopyArray(Element*, const Element*, int) [with Element = double]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1626:37,
+    inlined from 'void google::protobuf::RepeatedField<Element>::MoveArray(Element*, Element*, int) [with Element = double]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1620:12,
+    inlined from 'void google::protobuf::RepeatedField<Element>::Reserve(int) [with Element = double]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1601:14,
+    inlined from 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = double]' at /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/repeated_field.h:1196:12:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin_memcpy(void*, const void*, long unsigned int)' reading between 8 and 17179869176 bytes from a region of size 0 [-Wstringop-overread]
+   29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   30 |                                  __glibc_objsize0 (__dest));
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In copy constructor 'google::protobuf::RepeatedField<Element>::RepeatedField(const google::protobuf::RepeatedField<Element>&) [with Element = double]':
+cc1plus: note: source object is likely at address zero
+[25/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/time.cc.o
+[26/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/any.cc.o
+[27/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/wire_format_lite.cc.o
+[28/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/strutil.cc.o
+[29/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/any.pb.cc.o
+[30/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/api.pb.cc.o
+[31/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/importer.cc.o
+[32/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/parser.cc.o
+[33/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/duration.pb.cc.o
+[34/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/descriptor_database.cc.o
+[35/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/empty.pb.cc.o
+[36/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/dynamic_message.cc.o
+[37/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/field_mask.pb.cc.o
+[38/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/extension_set_heavy.cc.o
+[39/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/descriptor.pb.cc.o
+[40/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/gzip_stream.cc.o
+[41/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_message_table_driven.cc.o
+[42/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/printer.cc.o
+[43/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/generated_message_reflection.cc.o
+[44/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/io/tokenizer.cc.o
+[45/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/descriptor.cc.o
+[46/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/message.cc.o
+[47/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/map_field.cc.o
+[48/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/reflection_ops.cc.o
+[49/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/service.cc.o
+[50/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/stubs/substitute.cc.o
+[51/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/source_context.pb.cc.o
+[52/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/timestamp.pb.cc.o
+[53/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/unknown_field_set.cc.o
+[54/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/delimited_message_util.cc.o
+[55/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/struct.pb.cc.o
+[56/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/type.pb.cc.o
+[57/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/field_comparator.cc.o
+[58/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/text_format.cc.o
+[59/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/field_mask_util.cc.o
+[60/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/datapiece.cc.o
+[61/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/error_listener.cc.o
+[62/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/json_escaping.cc.o
+[63/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/field_mask_utility.cc.o
+[64/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/default_value_objectwriter.cc.o
+[65/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/json_objectwriter.cc.o
+[66/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/object_writer.cc.o
+[67/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/json_stream_parser.cc.o
+[68/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/proto_writer.cc.o
+[69/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/type_info.cc.o
+[70/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/protostream_objectsource.cc.o
+[71/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/protostream_objectwriter.cc.o
+[72/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/type_info_test_helper.cc.o
+[73/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/json_util.cc.o
+[74/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/internal/utility.cc.o
+[75/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/time_util.cc.o
+[76/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/type_resolver_util.cc.o
+[77/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/wrappers.pb.cc.o
+[78/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/code_generator.cc.o
+[79/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/util/message_differencer.cc.o
+[80/165] Building CXX object CMakeFiles/libprotobuf.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/wire_format.cc.o
+[81/165] Linking CXX static library libprotobuf.a
+[82/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_enum.cc.o
+[83/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o
+[84/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_extension.cc.o
+[85/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/command_line_interface.cc.o
+[86/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_field.cc.o
+[87/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_generator.cc.o
+[88/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_map_field.cc.o
+[89/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_file.cc.o
+[90/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_helpers.cc.o
+[91/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.cc.o
+[92/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_padding_optimizer.cc.o
+[93/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_primitive_field.cc.o
+[94/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_service.cc.o
+[95/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_message.cc.o
+[96/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o
+[97/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o
+[98/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_enum.cc.o
+[99/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/cpp/cpp_string_field.cc.o
+[100/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_generator.cc.o
+[101/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o
+[102/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o
+[103/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o
+[104/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o
+[105/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o
+[106/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o
+[107/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.cc.o
+[108/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_message.cc.o
+[109/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_repeated_message_field.cc.o
+[110/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_field.cc.o
+[111/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_source_generator_base.cc.o
+[112/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o
+[113/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_doc_comment.cc.o
+[114/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_context.cc.o
+[115/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_enum.cc.o
+[116/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_enum_field.cc.o
+[117/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.cc.o
+[118/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_enum_lite.cc.o
+[119/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_extension.cc.o
+[120/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_extension_lite.cc.o
+[121/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_generator_factory.cc.o
+[122/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_field.cc.o
+[123/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_generator.cc.o
+[124/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_file.cc.o
+[125/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_map_field.cc.o
+[126/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_map_field_lite.cc.o
+[127/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_helpers.cc.o
+[128/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message_builder_lite.cc.o
+[129/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message_builder.cc.o
+[130/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message_field.cc.o
+[131/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message.cc.o
+[132/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.cc.o
+[133/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_name_resolver.cc.o
+[134/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_primitive_field.cc.o
+[135/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_message_lite.cc.o
+[136/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.cc.o
+[137/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_service.cc.o
+[138/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_shared_code_generator.cc.o
+[139/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_string_field.cc.o
+[140/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/js/well_known_types_embed.cc.o
+[141/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.cc.o
+[142/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc.o
+[143/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o
+[144/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.o
+[145/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o
+[146/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.o
+[147/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o
+[148/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.o
+[149/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/js/js_generator.cc.o
+[150/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o
+[151/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_message_field.cc.o
+[152/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o
+[153/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o
+[154/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/plugin.cc.o
+[155/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.cc.o
+[156/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/plugin.pb.cc.o
+[157/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/ruby/ruby_generator.cc.o
+[158/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/php/php_generator.cc.o
+[159/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/subprocess.cc.o
+[160/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/zip_writer.cc.o
+[161/165] Building CXX object CMakeFiles/protoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/main.cc.o
+[162/165] Building CXX object CMakeFiles/libprotoc.dir/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src/google/protobuf/compiler/python/python_generator.cc.o
+[163/165] Linking CXX static library libprotoc.a
+[164/165] Linking CXX executable protoc-3.13.0.0
+[165/165] Creating executable symlink protoc
+libprotoc 3.13.0
+123:set(CAFFE2_CUSTOM_PROTOC_EXECUTABLE "/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc")  # PYODIDE_PROBE_HOST_PROTOC
+Creating isolated environment: venv+pip...
+Installing packages in isolated environment:
+- astunparse
+- cmake
+- ninja
+- numpy==2.0.2
+- pyyaml
+- requests
+- setuptools>=62.3.0,<80.0
+- typing-extensions>=4.10.0
+- wheel
+Getting build dependencies for wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+Building wheel torch-2.8.0a0+gitUnknown
+running egg_info
+creating torch.egg-info
+writing torch.egg-info/PKG-INFO
+writing dependency_links to torch.egg-info/dependency_links.txt
+writing entry points to torch.egg-info/entry_points.txt
+writing requirements to torch.egg-info/requires.txt
+writing top-level names to torch.egg-info/top_level.txt
+writing manifest file 'torch.egg-info/SOURCES.txt'
+reading manifest file 'torch.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '.gitmodules'
+warning: no files found matching '*.*' under directory 'ios'
+warning: no files found matching '*.*' under directory 'modules'
+warning: no previously-included files matching '*.o' found anywhere in distribution
+warning: no previously-included files matching '*.so' found anywhere in distribution
+warning: no previously-included files matching '*.dylib' found anywhere in distribution
+warning: no previously-included files matching '*.a' found anywhere in distribution
+warning: no previously-included files matching '.git' found anywhere in distribution
+warning: no previously-included files matching '*.swp' found anywhere in distribution
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'torch.egg-info/SOURCES.txt'
+/tmp/build-env-ls3n1udw/lib/python3.12/site-packages/setuptools/dist.py:334: BuildBackendWarning: Normalizing '2.8.0a0+gitUnknown' to '2.8.0a0+gitunknown'
+  self.metadata.version = self._normalize_version(self.metadata.version)
+/tmp/build-env-ls3n1udw/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/tmp/build-env-ls3n1udw/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/tmp/build-env-ls3n1udw/lib/python3.12/site-packages/setuptools/dist.py:759: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+Building wheel...
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar --version -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+configure: cmake -DCMAKE_C_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cc -DCMAKE_CXX_COMPILER=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DCMAKE_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_C_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -DCMAKE_CXX_COMPILER_AR=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/ar -GNinja -DATEN_THREADING=NATIVE -DBUILD_CAFFE2=0 -DBUILD_DEPENDENCY_INDEX_URL=https://pypi.anaconda.org/pyodide/simple -DBUILD_ENV_SCRIPTS_DIR=/tmp/build-env-ls3n1udw/bin -DBUILD_PYTHON=True -DBUILD_TEST=False -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXECUTABLE=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cmake -DCMAKE_INSTALL_PREFIX=/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch -DCMAKE_PREFIX_PATH=/tmp/build-env-ls3n1udw/lib/python3.12/site-packages -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/Emscripten.cmake -DPython_EXECUTABLE=/tmp/build-env-ls3n1udw/bin/python -DTORCH_BUILD_VERSION=2.8.0a0+gitUnknown -DUSE_CUDA=0 -DUSE_DISTRIBUTED=0 -DUSE_FBGEMM=0 -DUSE_GLOO=0 -DUSE_KINETO=0 -DUSE_LEGACY_PLATFORM=0 -DUSE_MKLDNN=0 -DUSE_MPI=0 -DUSE_NNPACK=0 -DUSE_NUMA=0 -DUSE_NUMPY=False -DUSE_OPENMP=0 -DUSE_PYTORCH_QNNPACK=0 -DUSE_QNNPACK=0 -DUSE_ROCM=0 -DUSE_TENSORPIPE=0 -DUSE_XNNPACK=0 -DUSE_XPU=0 /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0 -DCMAKE_CROSSCOMPILING_EMULATOR=/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/node/24.19.0_64bit/bin/node
+CMake Deprecation Warning at CMakeLists.txt:9 (cmake_policy):
+  The OLD behavior for policy CMP0126 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Not forcing any particular BLAS to be found
+-- Could not find ccache. Consider installing ccache to speed up compilation.
+-- Performing Test C_HAS_AVX_1
+-- Performing Test C_HAS_AVX_1 - Failed
+-- Performing Test C_HAS_AVX_2
+-- Performing Test C_HAS_AVX_2 - Failed
+-- Performing Test C_HAS_AVX_3
+-- Performing Test C_HAS_AVX_3 - Failed
+-- Performing Test C_HAS_AVX2_1
+-- Performing Test C_HAS_AVX2_1 - Failed
+-- Performing Test C_HAS_AVX2_2
+-- Performing Test C_HAS_AVX2_2 - Failed
+-- Performing Test C_HAS_AVX2_3
+-- Performing Test C_HAS_AVX2_3 - Failed
+-- Performing Test C_HAS_AVX512_1
+-- Performing Test C_HAS_AVX512_1 - Failed
+-- Performing Test C_HAS_AVX512_2
+-- Performing Test C_HAS_AVX512_2 - Failed
+-- Performing Test C_HAS_AVX512_3
+-- Performing Test C_HAS_AVX512_3 - Failed
+-- Performing Test CXX_HAS_AVX_1
+-- Performing Test CXX_HAS_AVX_1 - Failed
+-- Performing Test CXX_HAS_AVX_2
+-- Performing Test CXX_HAS_AVX_2 - Failed
+-- Performing Test CXX_HAS_AVX_3
+-- Performing Test CXX_HAS_AVX_3 - Failed
+-- Performing Test CXX_HAS_AVX2_1
+-- Performing Test CXX_HAS_AVX2_1 - Failed
+-- Performing Test CXX_HAS_AVX2_2
+-- Performing Test CXX_HAS_AVX2_2 - Failed
+-- Performing Test CXX_HAS_AVX2_3
+-- Performing Test CXX_HAS_AVX2_3 - Failed
+-- Performing Test CXX_HAS_AVX512_1
+-- Performing Test CXX_HAS_AVX512_1 - Failed
+-- Performing Test CXX_HAS_AVX512_2
+-- Performing Test CXX_HAS_AVX512_2 - Failed
+-- Performing Test CXX_HAS_AVX512_3
+-- Performing Test CXX_HAS_AVX512_3 - Failed
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS - Failed
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC - Success
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this machine.
+-- No OMAP4 processor on this machine.
+-- Compiler does not support SVE extension. Will not build perfkernels.
+-- Building using own protobuf under third_party per request.
+-- Use custom protobuf build.
+CMake Deprecation Warning at third_party/protobuf/cmake/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- 
+-- 3.13.0.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+-- Caffe2 protobuf include directory: $<BUILD_INTERFACE:/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src>$<INSTALL_INTERFACE:include>
+-- Trying to find preferred BLAS backend of choice: MKL
+-- MKL_THREADING = OMP
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of void*
+-- Check size of void* - done
+-- MKL_THREADING = OMP
+CMake Warning at cmake/Dependencies.cmake:208 (message):
+  MKL could not be found.  Defaulting to Eigen
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+CMake Warning at cmake/Dependencies.cmake:256 (message):
+  Preferred BLAS (MKL) cannot be found, now searching for a general BLAS
+  library
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Looking for sgemm_
+-- Looking for sgemm_ - not found
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- Using pocketfft in directory: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/pocketfft/
+CMake Deprecation Warning at third_party/cpuinfo/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning at third_party/cpuinfo/CMakeLists.txt:113 (MESSAGE):
+  Target operating system "Emscripten" is not supported in cpuinfo.  cpuinfo
+  will compile, but cpuinfo_initialize() will always fail.
+
+
+CMake Warning at cmake/Dependencies.cmake:711 (message):
+  Turning USE_FAKELOWP off as it depends on USE_FBGEMM.
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+CMake Deprecation Warning at third_party/FP16/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at third_party/psimd/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Using third party subdirectory Eigen.
+-- Found Python: /tmp/build-env-ls3n1udw/bin/python (found version "3.12.3") found components: Interpreter missing components: Development.Module
+CMake Warning at cmake/Dependencies.cmake:850 (message):
+  Python dependencies not met.  Not compiling with python.  Suppress this
+  warning with -DBUILD_PYTHON=OFF
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- Using third_party/pybind11.
+-- pybind11 include dirs: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/pybind11/include
+-- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS) 
+-- Using third_party/opentelemetry-cpp.
+-- opentelemetry api include dirs: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/opentelemetry-cpp/api/include
+-- Found Python3: /tmp/build-env-ls3n1udw/bin/python (found version "3.12.3") found components: Interpreter
+-- Using custom protoc executable
+-- ONNX_PROTOC_EXECUTABLE: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc
+-- Protobuf_VERSION: Protobuf_VERSION_NOTFOUND
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+Generated: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+-- 
+-- ******** Summary ********
+--   CMake version                     : 3.31.10
+--   CMake command                     : /tmp/build-env-ls3n1udw/lib/python3.12/site-packages/cmake/data/bin/cmake
+--   System                            : Emscripten
+--   C++ compiler                      : /home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++
+--   C++ compiler version              : 19.0.0
+--   CXX flags                         :  -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -Wnon-virtual-dtor
+--   Build type                        : Release
+--   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
+--   CMAKE_PREFIX_PATH                 : /tmp/build-env-ls3n1udw/lib/python3.12/site-packages
+--   CMAKE_INSTALL_PREFIX              : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch
+--   CMAKE_MODULE_PATH                 : /home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/..;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cmake/Modules;/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/Modules
+-- 
+--   ONNX version                      : 1.18.0
+--   ONNX NAMESPACE                    : onnx_torch
+--   ONNX_USE_LITE_PROTO               : OFF
+--   USE_PROTOBUF_SHARED_LIBS          : OFF
+--   ONNX_DISABLE_EXCEPTIONS           : OFF
+--   ONNX_DISABLE_STATIC_REGISTRATION  : OFF
+--   ONNX_WERROR                       : OFF
+--   ONNX_BUILD_TESTS                  : OFF
+--   BUILD_SHARED_LIBS                 : OFF
+-- 
+--   Protobuf compiler                 : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build_host_protoc/bin/protoc
+--   Protobuf includes                 : 
+--   Protobuf libraries                : 
+--   ONNX_BUILD_PYTHON                 : OFF
+-- Found CUDA with FP16 support, compiling with torch.cuda.HalfTensor
+-- Adding -DNDEBUG to compile flags
+CMake Warning at cmake/Dependencies.cmake:1432 (message):
+  Not compiling with MAGMA.  Suppress this warning with -DUSE_MAGMA=OFF.
+Call Stack (most recent call first):
+  CMakeLists.txt:863 (include)
+
+
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this machine.
+-- No OMAP4 processor on this machine.
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - guide - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- LAPACK requires BLAS
+-- Cannot find a library with LAPACK API. Not using LAPACK.
+disabling CUDA because NOT USE_CUDA is set
+disabling ROCM because NOT USE_ROCM is set
+-- MIOpen not found. Compiling without MIOpen support
+disabling MKLDNN because USE_MKLDNN is not set
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for shm_open
+-- Looking for shm_open - found
+-- Looking for shm_unlink
+-- Looking for shm_unlink - found
+-- Looking for malloc_usable_size
+-- Looking for malloc_usable_size - found
+-- {fmt} version: 11.2.0
+-- Build type: Release
+-- Performing Test HAS_NULLPTR_WARNING
+-- Performing Test HAS_NULLPTR_WARNING - Success
+-- Performing Test HAS_WERROR_RETURN_TYPE
+-- Performing Test HAS_WERROR_RETURN_TYPE - Success
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT - Success
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT - Success
+-- Performing Test HAS_WERROR_BOOL_OPERATION
+-- Performing Test HAS_WERROR_BOOL_OPERATION - Success
+-- Performing Test HAS_WNARROWING
+-- Performing Test HAS_WNARROWING - Success
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS - Success
+-- Performing Test HAS_WNO_UNUSED_PARAMETER
+-- Performing Test HAS_WNO_UNUSED_PARAMETER - Success
+-- Performing Test HAS_WNO_STRICT_OVERFLOW
+-- Performing Test HAS_WNO_STRICT_OVERFLOW - Success
+-- Performing Test HAS_WNO_STRICT_ALIASING
+-- Performing Test HAS_WNO_STRICT_ALIASING - Success
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW - Failed
+-- Performing Test HAS_WVLA_EXTENSION
+-- Performing Test HAS_WVLA_EXTENSION - Success
+-- Performing Test HAS_WSUGGEST_OVERRIDE
+-- Performing Test HAS_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAS_WNEWLINE_EOF
+-- Performing Test HAS_WNEWLINE_EOF - Success
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE - Success
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Success
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST - Success
+-- Performing Test HAS_WCONSTANT_CONVERSION
+-- Performing Test HAS_WCONSTANT_CONVERSION - Success
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE - Failed
+-- Performing Test HAS_QUNUSED_ARGUMENTS
+-- Performing Test HAS_QUNUSED_ARGUMENTS - Success
+-- Performing Test HAS_FALIGNED_NEW
+-- Performing Test HAS_FALIGNED_NEW - Success
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED - Failed
+-- Performing Test HAS_FSTANDALONE_DEBUG
+-- Performing Test HAS_FSTANDALONE_DEBUG - Success
+-- Performing Test HAS_FNO_MATH_ERRNO
+-- Performing Test HAS_FNO_MATH_ERRNO - Success
+-- Performing Test HAS_FNO_TRAPPING_MATH
+-- Performing Test HAS_FNO_TRAPPING_MATH - Success
+-- Performing Test HAS_WERROR_FORMAT
+-- Performing Test HAS_WERROR_FORMAT - Success
+-- don't use NUMA
+-- Looking for backtrace
+-- Looking for backtrace - not found
+-- Could NOT find Backtrace (missing: Backtrace_LIBRARY Backtrace_INCLUDE_DIR) 
+-- headers outputs: 
+-- sources outputs: 
+-- declarations_yaml outputs: 
+-- Using ATen parallel backend: NATIVE
+disabling CUDA because USE_CUDA is set false
+AT_INSTALL_INCLUDE_DIR include/ATen/core
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/TensorBody.h
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/aten_interned_strings.h
+core header install: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/enum_tag.h
+-- Performing Test HAS_WMISSING_PROTOTYPES
+-- Performing Test HAS_WMISSING_PROTOTYPES - Success
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Success
+CMake Warning at CMakeLists.txt:1266 (message):
+  Generated cmake files are only fully tested if one builds with system glog,
+  gflags, and protobuf.  Other settings may generate files that are not well
+  tested.
+
+
+-- 
+-- ******** Summary ********
+-- General:
+--   CMake version         : 3.31.10
+--   CMake command         : /tmp/build-env-ls3n1udw/lib/python3.12/site-packages/cmake/data/bin/cmake
+--   System                : Emscripten
+--   C++ compiler          : /home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++
+--   C++ compiler id       : Clang
+--   C++ compiler version  : 19.0.0
+--   Using ccache if found : ON
+--   Found ccache          : CCACHE_PROGRAM-NOTFOUND
+--   CXX flags             :  -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0
+--   Shared LD flags       : -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -rdynamic
+--   Static LD flags       : 
+--   Module LD flags       : -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz -O2 -g0  -L/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/xbuildenv/pyodide-root/cpython/installs/python-3.12.7/lib/ -s WASM_BIGINT -s SIDE_MODULE=1 -Oz
+--   Build type            : Release
+--   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK=1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CRC32_CHECKS
+--   CMAKE_PREFIX_PATH     : /tmp/build-env-ls3n1udw/lib/python3.12/site-packages
+--   CMAKE_INSTALL_PREFIX  : /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch
+--   USE_GOLD_LINKER       : OFF
+-- 
+--   TORCH_VERSION         : 2.8.0
+--   BUILD_STATIC_RUNTIME_BENCHMARK: OFF
+--   BUILD_BINARY          : OFF
+--   BUILD_CUSTOM_PROTOBUF : ON
+--     Link local protobuf : ON
+--   BUILD_PYTHON          : OFF
+--   BUILD_SHARED_LIBS     : ON
+--   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
+--   BUILD_TEST            : False
+--   BUILD_JNI             : OFF
+--   BUILD_MOBILE_AUTOGRAD : OFF
+--   BUILD_LITE_INTERPRETER: OFF
+--   INTERN_BUILD_MOBILE   : 
+--   TRACING_BASED         : OFF
+--   USE_BLAS              : 0
+--   USE_LAPACK            : 0
+--   USE_ASAN              : OFF
+--   USE_TSAN              : OFF
+--   USE_CPP_CODE_COVERAGE : OFF
+--   USE_CUDA              : 0
+--   USE_XPU               : 0
+--   USE_ROCM              : OFF
+--   BUILD_NVFUSER         : 
+--   USE_EIGEN_FOR_BLAS    : ON
+--   USE_FBGEMM            : OFF
+--     USE_FAKELOWP          : OFF
+--   USE_KINETO            : 0
+--   USE_GFLAGS            : OFF
+--   USE_GLOG              : OFF
+--   USE_LITE_PROTO        : OFF
+--   USE_PYTORCH_METAL     : OFF
+--   USE_PYTORCH_METAL_EXPORT     : OFF
+--   USE_MPS               : OFF
+--   CAN_COMPILE_METAL     : 
+--   USE_MKL               : OFF
+--   USE_MKLDNN            : OFF
+--   USE_UCC               : OFF
+--   USE_ITT               : OFF
+--   USE_XCCL              : OFF
+--   USE_NCCL              : OFF
+--   USE_NNPACK            : 0
+--   USE_NUMPY             : False
+--   USE_OBSERVERS         : OFF
+--   USE_OPENCL            : OFF
+--   USE_OPENMP            : 0
+--   USE_MIMALLOC          : OFF
+--   USE_VULKAN            : OFF
+--   USE_PROF              : OFF
+--   USE_PYTORCH_QNNPACK   : 0
+--   USE_XNNPACK           : 0
+--   USE_DISTRIBUTED       : 0
+--   Public Dependencies  : 
+--   Private Dependencies : Threads::Threads;cpuinfo;fp16;rt;fmt::fmt-header-only;dl
+--   Public CUDA Deps.    : 
+--   Private CUDA Deps.   : 
+--   USE_COREML_DELEGATE     : OFF
+--   BUILD_LAZY_TS_BACKEND   : ON
+--   USE_ROCM_KERNEL_ASSERT : OFF
+-- Configuring done (54.4s)
+-- Generating done (0.4s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_CAFFE2
+    BUILD_DEPENDENCY_INDEX_URL
+    BUILD_ENV_SCRIPTS_DIR
+    CMAKE_EXECUTABLE
+    USE_LEGACY_PLATFORM
+    USE_QNNPACK
+
+
+-- Build files have been written to: /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build
+[1/4] Generating ATen declarations_yaml
+[2/4] Generating ATen headers
+[3/4] Generating ATen sources
+[1/1374] Running gen_proto.py on onnx/onnx.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-ml.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_pb.py
+[2/1374] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+[3/1374] Running gen_proto.py on onnx/onnx-operators.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx-operators.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators-ml.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_operators_pb.py
+[4/1374] Running gen_proto.py on onnx/onnx-data.in.proto
+Processing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx/onnx/onnx-data.in.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto3
+Writing /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data.pb.h
+generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx_data_pb.py
+[5/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/arena.cc.o
+[6/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any_lite.cc.o
+[7/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_enum_util.cc.o
+[8/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set.cc.o
+[9/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_util.cc.o
+[10/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/implicit_weak_message.cc.o
+[11/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven_lite.cc.o
+[12/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/io_win32.cc.o
+[13/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/coded_stream.cc.o
+[14/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/strtod.cc.o
+[15/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream.cc.o
+[16/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+[17/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+[18/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message_lite.cc.o
+[19/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/parse_context.cc.o
+[20/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/repeated_field.cc.o
+[21/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+[22/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/common.cc.o
+[23/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/int128.cc.o
+[24/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/status.cc.o
+[25/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/statusor.cc.o
+[26/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringpiece.cc.o
+[27/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/structurally_valid.cc.o
+[28/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/stringprintf.cc.o
+[29/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/strutil.cc.o
+[30/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/time.cc.o
+[31/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format_lite.cc.o
+[32/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.cc.o
+[33/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/any.pb.cc.o
+[34/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/api.pb.cc.o
+[35/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/importer.cc.o
+[36/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/compiler/parser.cc.o
+[37/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/duration.pb.cc.o
+[38/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.pb.cc.o
+[39/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor_database.cc.o
+[40/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/dynamic_message.cc.o
+[41/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/empty.pb.cc.o
+[42/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/extension_set_heavy.cc.o
+[43/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/field_mask.pb.cc.o
+[44/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/descriptor.cc.o
+[45/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/gzip_stream.cc.o
+[46/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_reflection.cc.o
+[47/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/tokenizer.cc.o
+[48/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/io/printer.cc.o
+[49/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/generated_message_table_driven.cc.o
+[50/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/service.cc.o
+[51/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/map_field.cc.o
+[52/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/reflection_ops.cc.o
+[53/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/message.cc.o
+[54/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/source_context.pb.cc.o
+[55/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/stubs/substitute.cc.o
+[56/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/struct.pb.cc.o
+[57/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/timestamp.pb.cc.o
+[58/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/type.pb.cc.o
+[59/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/delimited_message_util.cc.o
+[60/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/text_format.cc.o
+[61/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/unknown_field_set.cc.o
+[62/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_comparator.cc.o
+[63/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/field_mask_util.cc.o
+[64/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/datapiece.cc.o
+[65/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/error_listener.cc.o
+[66/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/default_value_objectwriter.cc.o
+[67/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_escaping.cc.o
+[68/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/field_mask_utility.cc.o
+[69/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_objectwriter.cc.o
+[70/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/json_stream_parser.cc.o
+[71/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/object_writer.cc.o
+[72/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/proto_writer.cc.o
+[73/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectsource.cc.o
+[74/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/protostream_objectwriter.cc.o
+[75/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info.cc.o
+[76/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/type_info_test_helper.cc.o
+[77/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/internal/utility.cc.o
+[78/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/json_util.cc.o
+[79/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/time_util.cc.o
+[80/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/type_resolver_util.cc.o
+[81/1374] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-operators_onnx_torch-ml.proto
+[82/1374] Running C++ protocol buffer compiler on /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx/onnx/onnx-data_onnx_torch.proto
+[83/1374] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/api.c.o
+[84/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/util/message_differencer.cc.o
+[85/1374] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/cache.c.o
+[86/1374] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/init.c.o
+[87/1374] Building C object confu-deps/cpuinfo/CMakeFiles/cpuinfo.dir/src/log.c.o
+[88/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wrappers.pb.cc.o
+[89/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf.dir/__/src/google/protobuf/wire_format.cc.o
+[90/1374] Linking CXX static library lib/libprotobuf.a
+[91/1374] Linking C static library lib/libcpuinfo.a
+[92/1374] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-operators_onnx_torch-ml.pb.cc.o
+[93/1374] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx-data_onnx_torch.pb.cc.o
+[94/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/assertions.cc.o
+[95/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/interned_strings.cc.o
+[96/1374] Building CXX object third_party/onnx/CMakeFiles/onnx_proto.dir/onnx/onnx_onnx_torch-ml.pb.cc.o
+[97/1374] Linking CXX static library lib/libonnx_proto.a
+[98/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/path.cc.o
+[99/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/checker.cc.o
+[100/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/model_helpers.cc.o
+[101/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/status.cc.o
+[102/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/attr_proto_util.cc.o
+[103/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/common/ir_pb_converter.cc.o
+[104/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/defs.cc.o
+[105/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/data_type_utils.cc.o
+[106/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/old.cc.o
+[107/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/controlflow/utils.cc.o
+[108/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/function.cc.o
+[109/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/utils.cc.o
+[110/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/defs.cc.o
+[111/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/generator/old.cc.o
+[112/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/image/defs.cc.o
+[113/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/logical/defs.cc.o
+[114/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/logical/old.cc.o
+[115/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/utils.cc.o
+[116/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/defs.cc.o
+[117/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/math/old.cc.o
+[118/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/object_detection/defs.cc.o
+[119/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/nn/defs.cc.o
+[120/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/object_detection/old.cc.o
+[121/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/nn/old.cc.o
+[122/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/optional/old.cc.o
+[123/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/parser.cc.o
+[124/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/optional/defs.cc.o
+[125/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/printer.cc.o
+[126/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/quantization/defs.cc.o
+[127/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/defs.cc.o
+[128/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/quantization/old.cc.o
+[129/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/old.cc.o
+[130/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/reduction/utils.cc.o
+[131/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/rnn/defs.cc.o
+[132/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/rnn/old.cc.o
+[133/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/shape_inference.cc.o
+[134/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/sequence/defs.cc.o
+[135/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/schema.cc.o
+[136/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor_proto_util.cc.o
+[137/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/utils.cc.o
+[138/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/defs.cc.o
+[139/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor_util.cc.o
+[140/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/text/defs.cc.o
+[141/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/traditionalml/defs.cc.o
+[142/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/traditionalml/old.cc.o
+[143/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/training/defs.cc.o
+[144/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/defs/tensor/old.cc.o
+[145/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/version_converter/helper.cc.o
+[146/1374] Building CXX object c10/CMakeFiles/c10.dir/core/Allocator.cpp.o
+[147/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/shape_inference/implementation.cc.o
+[148/1374] Building CXX object c10/CMakeFiles/c10.dir/core/AutogradState.cpp.o
+[149/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/inliner/inliner.cc.o
+[150/1374] Building CXX object c10/CMakeFiles/c10.dir/core/ConstantSymNodeImpl.cpp.o
+[151/1374] Building CXX object c10/CMakeFiles/c10.dir/core/CPUAllocator.cpp.o
+[152/1374] Building CXX object c10/CMakeFiles/c10.dir/core/CopyBytes.cpp.o
+[153/1374] Building CXX object c10/CMakeFiles/c10.dir/core/DefaultDtype.cpp.o
+[154/1374] Building CXX object c10/CMakeFiles/c10.dir/core/Device.cpp.o
+[155/1374] Building CXX object c10/CMakeFiles/c10.dir/core/DeviceType.cpp.o
+[156/1374] Building CXX object third_party/onnx/CMakeFiles/onnx.dir/onnx/version_converter/convert.cc.o
+[157/1374] Building CXX object c10/CMakeFiles/c10.dir/core/GradMode.cpp.o
+[158/1374] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKeySet.cpp.o
+[159/1374] Building CXX object c10/CMakeFiles/c10.dir/core/GeneratorImpl.cpp.o
+[160/1374] Building CXX object c10/CMakeFiles/c10.dir/core/InferenceMode.cpp.o
+[161/1374] Building CXX object c10/CMakeFiles/c10.dir/core/DispatchKey.cpp.o
+[162/1374] Building CXX object c10/CMakeFiles/c10.dir/core/RefcountedDeleter.cpp.o
+[163/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SafePyObject.cpp.o
+[164/1374] Building CXX object c10/CMakeFiles/c10.dir/core/Scalar.cpp.o
+[165/1374] Building CXX object c10/CMakeFiles/c10.dir/core/ScalarType.cpp.o
+[166/1374] Building CXX object c10/CMakeFiles/c10.dir/core/Storage.cpp.o
+[167/1374] Building CXX object c10/CMakeFiles/c10.dir/core/StorageImpl.cpp.o
+[168/1374] Building CXX object c10/CMakeFiles/c10.dir/core/Stream.cpp.o
+[169/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymBool.cpp.o
+[170/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymFloat.cpp.o
+[171/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymNodeImpl.cpp.o
+[172/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymIntArrayRef.cpp.o
+[173/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymInt.cpp.o
+[174/1374] Building CXX object c10/CMakeFiles/c10.dir/core/SymbolicShapeMeta.cpp.o
+[175/1374] Building CXX object c10/CMakeFiles/c10.dir/core/TensorOptions.cpp.o
+[176/1374] Building CXX object c10/CMakeFiles/c10.dir/core/UndefinedTensorImpl.cpp.o
+[177/1374] Building CXX object c10/CMakeFiles/c10.dir/core/WrapDimMinimal.cpp.o
+[178/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COW.cpp.o
+[179/1374] Building CXX object c10/CMakeFiles/c10.dir/core/TensorImpl.cpp.o
+[180/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/COWDeleter.cpp.o
+[181/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/HermeticPyObjectTLS.cpp.o
+[182/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/DeviceGuardImplInterface.cpp.o
+[183/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/GPUTrace.cpp.o
+[184/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/LocalDispatchKeySet.cpp.o
+[185/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyInterpreter.cpp.o
+[186/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PyObjectSlot.cpp.o
+[187/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/SizesAndStrides.cpp.o
+[188/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/PythonDispatcherTLS.cpp.o
+[189/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/TorchDispatchModeTLS.cpp.o
+[190/1374] Building CXX object c10/CMakeFiles/c10.dir/core/impl/alloc_cpu.cpp.o
+[191/1374] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUCachingAllocator.cpp.o
+[192/1374] Building CXX object c10/CMakeFiles/c10.dir/core/thread_pool.cpp.o
+[193/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Bfloat16.cpp.o
+[194/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Backtrace.cpp.o
+[195/1374] Building CXX object c10/CMakeFiles/c10.dir/util/ApproximateClock.cpp.o
+[196/1374] Building CXX object c10/CMakeFiles/c10.dir/mobile/CPUProfilingAllocator.cpp.o
+[197/1374] Building CXX object c10/CMakeFiles/c10.dir/util/C++17.cpp.o
+[198/1374] Building CXX object c10/CMakeFiles/c10.dir/util/DeadlockDetection.cpp.o
+[199/1374] Building CXX object c10/CMakeFiles/c10.dir/util/DynamicCounter.cpp.o
+[200/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fn.cpp.o
+[201/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Exception.cpp.o
+[202/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e4m3fnuz.cpp.o
+[203/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2.cpp.o
+[204/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e5m2fnuz.cpp.o
+[205/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Float8_e8m0fnu.cpp.o
+[206/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Half.cpp.o
+[207/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Gauge.cpp.o
+[208/1374] Building CXX object c10/CMakeFiles/c10.dir/util/LeftRight.cpp.o
+[209/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Metaprogramming.cpp.o
+[210/1374] Building CXX object c10/CMakeFiles/c10.dir/util/MathConstants.cpp.o
+[211/1374] Building CXX object c10/CMakeFiles/c10.dir/util/ParallelGuard.cpp.o
+[212/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Optional.cpp.o
+[213/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Logging.cpp.o
+[214/1374] Building CXX object c10/CMakeFiles/c10.dir/util/NetworkFlow.cpp.o
+[215/1374] Building CXX object c10/CMakeFiles/c10.dir/util/SmallVector.cpp.o
+[216/1374] Building CXX object c10/CMakeFiles/c10.dir/util/StringUtil.cpp.o
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.cpp:1:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.h:9:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/ostream:189:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/format:195:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/container_adaptor.h:20:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/range_default_formatter.h:23:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/range_formatter.h:23:
+In file included from /home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__format/format_context.h:30:
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3257:1: warning: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' is deprecated [-Wdeprecated-declarations]
+ 3257 | wstring_convert<_Codecvt, _Elem, _WideAlloc, _ByteAlloc>::to_bytes(const _Elem* __frm, const _Elem* __frm_end) {
+      | ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3161:12: note: in instantiation of member function 'std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>::to_bytes' requested here
+ 3161 |     return to_bytes(__wstr.data(), __wstr.data() + __wstr.size());
+      |            ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/util/StringUtil.cpp:53:29: note: in instantiation of member function 'std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>::to_bytes' requested here
+   53 |   return _str(ss, converter.to_bytes(wString));
+      |                             ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/locale:3114:28: note: 'wstring_convert<std::codecvt_utf8_utf16<wchar_t>>' has been explicitly marked deprecated here
+ 3114 | class _LIBCPP_TEMPLATE_VIS _LIBCPP_DEPRECATED_IN_CXX17 wstring_convert {
+      |                            ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:1002:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+ 1002 | #    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+      |                                         ^
+/home/ubuntu/.cache/pyodide-build/.pyodide-xbuildenv-2167202047f0/0.27.8/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:975:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+  975 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+1 warning generated.
+[217/1374] Building CXX object c10/CMakeFiles/c10.dir/util/TypeList.cpp.o
+[218/1374] Building CXX object c10/CMakeFiles/c10.dir/util/ThreadLocalDebugInfo.cpp.o
+[219/1374] Building CXX object c10/CMakeFiles/c10.dir/util/TypeCast.cpp.o
+[220/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Unicode.cpp.o
+[221/1374] Building CXX object c10/CMakeFiles/c10.dir/util/TypeTraits.cpp.o
+[222/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Type_demangle.cpp.o
+[223/1374] Building CXX object c10/CMakeFiles/c10.dir/util/UniqueVoidPtr.cpp.o
+[224/1374] Building CXX object c10/CMakeFiles/c10.dir/util/Type_no_demangle.cpp.o
+[225/1374] Building CXX object c10/CMakeFiles/c10.dir/util/error.cpp.o
+[226/1374] Building CXX object c10/CMakeFiles/c10.dir/util/flags_use_gflags.cpp.o
+[227/1374] Building CXX object c10/CMakeFiles/c10.dir/util/complex_math.cpp.o
+[228/1374] Building CXX object c10/CMakeFiles/c10.dir/util/WaitCounter.cpp.o
+[229/1374] Building CXX object c10/CMakeFiles/c10.dir/util/env.cpp.o
+[230/1374] Building CXX object c10/CMakeFiles/c10.dir/util/intrusive_ptr.cpp.o
+[231/1374] Building CXX object c10/CMakeFiles/c10.dir/util/int128.cpp.o
+[232/1374] Building CXX object c10/CMakeFiles/c10.dir/util/flags_use_no_gflags.cpp.o
+[233/1374] Building CXX object c10/CMakeFiles/c10.dir/util/thread_name.cpp.o
+[234/1374] Building CXX object c10/CMakeFiles/c10.dir/util/numa.cpp.o
+[235/1374] Building CXX object c10/CMakeFiles/c10.dir/util/signal_handler.cpp.o
+[236/1374] Building CXX object c10/CMakeFiles/c10.dir/util/tempfile.cpp.o
+[237/1374] Building CXX object c10/CMakeFiles/c10.dir/util/typeid.cpp.o
+[238/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/code_generator.cc.o
+[239/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum_field.cc.o
+[240/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_enum.cc.o
+[241/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/command_line_interface.cc.o
+[242/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_extension.cc.o
+[243/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_field.cc.o
+[244/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_generator.cc.o
+[245/1374] Generating /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/Functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ViewFuncs.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/TraceType_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ADInplaceOrViewType_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ADInplaceOrViewType_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/inductor/aoti_torch/generated/c_shim_cpu.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNativeFunctions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/RegisterAutogradLazy.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/RegisterLazy.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/Functions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/variable_factories.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/ViewFuncs.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/VariableType.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyIr.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNonNativeIr.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/lazy/generated/LazyNativeFunctions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_3.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions_4.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_variable_methods.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_0.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_1.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_torch_functions_2.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_nn_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_fft_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_linalg_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_nested_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_sparse_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_special_functions.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_return_types.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_enum_tag.cpp, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_functions.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/autograd/generated/python_return_types.h, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/testing/_internal/generated/annotated_fn_args.py, /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/inductor/aoti_torch/generated/c_shim_cuda.cpp
+[246/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_file.cc.o
+[247/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_map_field.cc.o
+[248/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_helpers.cc.o
+[249/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message_field.cc.o
+[250/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_primitive_field.cc.o
+[251/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_padding_optimizer.cc.o
+[252/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_message.cc.o
+[253/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o
+[254/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_service.cc.o
+[255/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/cpp/cpp_string_field.cc.o
+[256/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum.cc.o
+[257/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o
+[258/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o
+[259/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_generator.cc.o
+[260/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o
+[261/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o
+[262/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message.cc.o
+[263/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o
+[264/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o
+[265/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o
+[266/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.cc.o
+[267/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_message_field.cc.o
+[268/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_field.cc.o
+[269/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_source_generator_base.cc.o
+[270/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o
+[271/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_doc_comment.cc.o
+[272/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_context.cc.o
+[273/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum.cc.o
+[274/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field.cc.o
+[275/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_field_lite.cc.o
+[276/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_enum_lite.cc.o
+[277/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension.cc.o
+[278/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_extension_lite.cc.o
+[279/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_field.cc.o
+[280/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_file.cc.o
+[281/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator.cc.o
+[282/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_generator_factory.cc.o
+[283/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_helpers.cc.o
+[284/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field.cc.o
+[285/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_map_field_lite.cc.o
+[286/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message.cc.o
+[287/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder.cc.o
+[288/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_builder_lite.cc.o
+[289/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field.cc.o
+[290/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_field_lite.cc.o
+[291/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_name_resolver.cc.o
+[292/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_message_lite.cc.o
+[293/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field.cc.o
+[294/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_primitive_field_lite.cc.o
+[295/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_service.cc.o
+[296/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field.cc.o
+[297/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_shared_code_generator.cc.o
+[298/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/well_known_types_embed.cc.o
+[299/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/java/java_string_field_lite.cc.o
+[300/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc.o
+[301/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o
+[302/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.o
+[303/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/js/js_generator.cc.o
+[304/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o
+[305/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o
+[306/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.o
+[307/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.o
+[308/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message_field.cc.o
+[309/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o
+[310/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o
+[311/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o
+[312/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.cc.o
+[313/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/php/php_generator.cc.o
+[314/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.cc.o
+[315/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/plugin.pb.cc.o
+[316/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/python/python_generator.cc.o
+[317/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/subprocess.cc.o
+[318/1374] Linking CXX static library lib/libonnx.a
+[319/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/zip_writer.cc.o
+[320/1374] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotoc.dir/__/src/google/protobuf/compiler/ruby/ruby_generator.cc.o
+[321/1374] Linking CXX shared library lib/libc10.so
+em++: warning: ignoring unsupported linker flag: `-soname` [-Wlinkflags]
+[322/1374] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/AccumulateType.cpp.o
+[323/1374] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o
+FAILED: [code=1] caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o 
+/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DAT_PER_OPERATOR_HEADERS -DCAFFE2_BUILD_MAIN_LIB -DCPUINFO_SUPPORTED_PLATFORM=0 -DFMT_HEADER_ONLY=1 -DHAVE_MALLOC_USABLE_SIZE=1 -DHAVE_MMAP=1 -DHAVE_SHM_OPEN=1 -DHAVE_SHM_UNLINK=1 -DMINIZ_DISABLE_ZIP_READER_CRC32_CHECKS -DONNXIFI_ENABLE_EXT=1 -DONNX_ML=1 -DONNX_NAMESPACE=onnx_torch -DUSE_EXTERNAL_MZCRC -D_FILE_OFFSET_BITS=64 -Dtorch_cpu_EXPORTS -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/nlohmann -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/moodycamel -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/../aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/headeronly -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/miniz-3.0.2 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/kineto/libkineto/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpp-httplib -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/FP16/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/fmt/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/flatbuffers/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/eigen -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/INTERFACE -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/nlohmann/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/concurrentqueue -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2 -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0 -O3 -DNDEBUG -DNDEBUG -std=gnu++17 -fPIC -fcolor-diagnostics -Wall -Wextra -Wdeprecated -Wunused -Wno-unused-parameter -Wno-missing-field-initializers -Wno-array-bounds -Wno-unknown-pragmas -Wno-strict-overflow -Wno-strict-aliasing -Wextra-semi -Wno-error=extra-semi -Wmove -fvisibility=hidden -O2 -Wmissing-prototypes -Werror=missing-prototypes -MD -MT caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o -MF caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o.d -o caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CPUGeneratorImpl.cpp.o -c /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/CPUGeneratorImpl.cpp
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/CPUGeneratorImpl.cpp:2:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/Utils.h:3:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/EmptyTensor.h:2:
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/TensorBase.h:311:31: error: use of overloaded operator '*' is ambiguous (with operand types 'c10::SymInt' and 'size_t' (aka 'unsigned long'))
+  311 |     return impl_->sym_numel() * impl_->itemsize();
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:355:1: note: candidate function
+  355 | DECLARE_SYMINT_OP(int64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:356:1: note: candidate function
+  356 | DECLARE_SYMINT_OP(int32_t, SymInt) // make sure constants work
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:357:1: note: candidate function
+  357 | DECLARE_SYMINT_OP(uint64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:358:1: note: candidate function
+  358 | DECLARE_SYMINT_OP(uint32_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:359:1: note: candidate function
+  359 | DECLARE_SYMINT_OP(double, SymFloat)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:360:1: note: candidate function
+  360 | DECLARE_SYMINT_OP(float, SymFloat) // just for completeness
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+1 error generated.
+[324/1374] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/Context.cpp.o
+[325/1374] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o
+FAILED: [code=1] caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o 
+/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DAT_PER_OPERATOR_HEADERS -DCAFFE2_BUILD_MAIN_LIB -DCPUINFO_SUPPORTED_PLATFORM=0 -DFMT_HEADER_ONLY=1 -DHAVE_MALLOC_USABLE_SIZE=1 -DHAVE_MMAP=1 -DHAVE_SHM_OPEN=1 -DHAVE_SHM_UNLINK=1 -DMINIZ_DISABLE_ZIP_READER_CRC32_CHECKS -DONNXIFI_ENABLE_EXT=1 -DONNX_ML=1 -DONNX_NAMESPACE=onnx_torch -DUSE_EXTERNAL_MZCRC -D_FILE_OFFSET_BITS=64 -Dtorch_cpu_EXPORTS -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/nlohmann -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/moodycamel -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/../aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/headeronly -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/miniz-3.0.2 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/kineto/libkineto/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpp-httplib -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/FP16/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/fmt/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/flatbuffers/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/eigen -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/INTERFACE -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/nlohmann/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/concurrentqueue -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2 -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0 -O3 -DNDEBUG -DNDEBUG -std=gnu++17 -fPIC -fcolor-diagnostics -Wall -Wextra -Wdeprecated -Wunused -Wno-unused-parameter -Wno-missing-field-initializers -Wno-array-bounds -Wno-unknown-pragmas -Wno-strict-overflow -Wno-strict-aliasing -Wextra-semi -Wno-error=extra-semi -Wmove -fvisibility=hidden -O2 -Wmissing-prototypes -Werror=missing-prototypes -MD -MT caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o -MF caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o.d -o caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/ConjugateFallback.cpp.o -c /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/ConjugateFallback.cpp
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/ConjugateFallback.cpp:1:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/native/MathBitsFallback.h:1:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/Tensor.h:3:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/TensorBody.h:38:
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/TensorBase.h:311:31: error: use of overloaded operator '*' is ambiguous (with operand types 'c10::SymInt' and 'size_t' (aka 'unsigned long'))
+  311 |     return impl_->sym_numel() * impl_->itemsize();
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:355:1: note: candidate function
+  355 | DECLARE_SYMINT_OP(int64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:356:1: note: candidate function
+  356 | DECLARE_SYMINT_OP(int32_t, SymInt) // make sure constants work
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:357:1: note: candidate function
+  357 | DECLARE_SYMINT_OP(uint64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:358:1: note: candidate function
+  358 | DECLARE_SYMINT_OP(uint32_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:359:1: note: candidate function
+  359 | DECLARE_SYMINT_OP(double, SymFloat)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:360:1: note: candidate function
+  360 | DECLARE_SYMINT_OP(float, SymFloat) // just for completeness
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+1 error generated.
+[326/1374] Building CXX object caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o
+FAILED: [code=1] caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o 
+/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/c++ -DAT_PER_OPERATOR_HEADERS -DCAFFE2_BUILD_MAIN_LIB -DCPUINFO_SUPPORTED_PLATFORM=0 -DFMT_HEADER_ONLY=1 -DHAVE_MALLOC_USABLE_SIZE=1 -DHAVE_MMAP=1 -DHAVE_SHM_OPEN=1 -DHAVE_SHM_UNLINK=1 -DMINIZ_DISABLE_ZIP_READER_CRC32_CHECKS -DONNXIFI_ENABLE_EXT=1 -DONNX_ML=1 -DONNX_NAMESPACE=onnx_torch -DUSE_EXTERNAL_MZCRC -D_FILE_OFFSET_BITS=64 -Dtorch_cpu_EXPORTS -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/nlohmann -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/moodycamel -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc/api/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src/TH -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/caffe2/../aten/src -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/csrc -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch/headeronly -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/miniz-3.0.2 -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/kineto/libkineto/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpp-httplib -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/.. -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/cpuinfo/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/FP16/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/fmt/include -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/third_party/onnx -I/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/flatbuffers/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/protobuf/src -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/cmake/../third_party/eigen -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/INTERFACE -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/nlohmann/include -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/third_party/concurrentqueue -isystem /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/caffe2 -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -O2 -g0 -fPIC -Oz -fvisibility-inlines-hidden -DNDEBUG -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -Wno-implicit-function-declaration -DEMSCRIPTEN -s DISABLE_EXCEPTION_CATCHING=0 -O3 -DNDEBUG -DNDEBUG -std=gnu++17 -fPIC -fcolor-diagnostics -Wall -Wextra -Wdeprecated -Wunused -Wno-unused-parameter -Wno-missing-field-initializers -Wno-array-bounds -Wno-unknown-pragmas -Wno-strict-overflow -Wno-strict-aliasing -Wextra-semi -Wno-error=extra-semi -Wmove -fvisibility=hidden -O2 -Wmissing-prototypes -Werror=missing-prototypes -MD -MT caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o -MF caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o.d -o caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/CachedTensorUtils.cpp.o -c /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/CachedTensorUtils.cpp
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/CachedTensorUtils.cpp:1:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/ATen.h:9:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/DeviceGuard.h:3:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/IListRef.h:631:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/IListRef_inl.h:3:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/List.h:491:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/List_inl.h:4:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/ivalue.h:4:
+In file included from /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/build/aten/src/ATen/core/TensorBody.h:38:
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/aten/src/ATen/core/TensorBase.h:311:31: error: use of overloaded operator '*' is ambiguous (with operand types 'c10::SymInt' and 'size_t' (aka 'unsigned long'))
+  311 |     return impl_->sym_numel() * impl_->itemsize();
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:355:1: note: candidate function
+  355 | DECLARE_SYMINT_OP(int64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:356:1: note: candidate function
+  356 | DECLARE_SYMINT_OP(int32_t, SymInt) // make sure constants work
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:357:1: note: candidate function
+  357 | DECLARE_SYMINT_OP(uint64_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:358:1: note: candidate function
+  358 | DECLARE_SYMINT_OP(uint32_t, SymInt)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:359:1: note: candidate function
+  359 | DECLARE_SYMINT_OP(double, SymFloat)
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:360:1: note: candidate function
+  360 | DECLARE_SYMINT_OP(float, SymFloat) // just for completeness
+      | ^
+/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/c10/core/SymInt.h:332:17: note: expanded from macro 'DECLARE_SYMINT_OP'
+  332 |   C10_API RetTy operator*(const SymInt& a, scalar_t b); \
+      |                 ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+Building wheel torch-2.8.0a0+gitUnknown
+-- Building version 2.8.0a0+gitUnknown
+cmake -GNinja -DATEN_THREADING=NATIVE -DBUILD_CAFFE2=0 -DBUILD_DEPENDENCY_INDEX_URL=https://pypi.anaconda.org/pyodide/simple -DBUILD_ENV_SCRIPTS_DIR=/tmp/build-env-ls3n1udw/bin -DBUILD_PYTHON=True -DBUILD_TEST=False -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXECUTABLE=/home/ubuntu/pyodide-recipes/packages/torch/build/pywasmcross_symlinks/cmake -DCMAKE_INSTALL_PREFIX=/home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0/torch -DCMAKE_PREFIX_PATH=/tmp/build-env-ls3n1udw/lib/python3.12/site-packages -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/tools/cmake/Modules/Platform/Emscripten.cmake -DPython_EXECUTABLE=/tmp/build-env-ls3n1udw/bin/python -DTORCH_BUILD_VERSION=2.8.0a0+gitUnknown -DUSE_CUDA=0 -DUSE_DISTRIBUTED=0 -DUSE_FBGEMM=0 -DUSE_GLOO=0 -DUSE_KINETO=0 -DUSE_LEGACY_PLATFORM=0 -DUSE_MKLDNN=0 -DUSE_MPI=0 -DUSE_NNPACK=0 -DUSE_NUMA=0 -DUSE_NUMPY=False -DUSE_OPENMP=0 -DUSE_PYTORCH_QNNPACK=0 -DUSE_QNNPACK=0 -DUSE_ROCM=0 -DUSE_TENSORPIPE=0 -DUSE_XNNPACK=0 -DUSE_XPU=0 /home/ubuntu/pyodide-recipes/packages/torch/build/torch-2.8.0
+cmake --build . --target install --config Release -j 4
+
+[2mTraceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/vendor/_pypabuild.py", line 113, in _handle_build_error
+    yield
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 562, in build
+    built = _build_in_isolated_env(
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/pyodide_build/pypabuild.py", line 349, in _build_in_isolated_env
+    return builder.build(
+           ^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/build/_builder.py", line 329, in build
+    return self._call_backend(f'build_{distribution}', output_directory, config_settings, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/build/_builder.py", line 375, in _call_backend
+    with self._handle_backend(hook_name):
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/build/_builder.py", line 391, in _handle_backend
+    raise BuildBackendException(exception, f'Backend subprocess exited when trying to invoke {hook}') from None
+build._exceptions.BuildBackendException: Backend subprocess exited when trying to invoke build_wheel[0m
+
+[91mERROR[0m Backend subprocess exited when trying to invoke build_wheel
+[2026-09-22 13:38:18] Failed building package torch in 216.5 seconds.           

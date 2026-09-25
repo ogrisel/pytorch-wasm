@@ -1,0 +1,50 @@
+# Build reproduction attempt on a fresh cloud VM (2026-09-23T08:17:14Z)
+# Goal: rebuild the wasm torch module so the suite can run against it.
+
+## [1] toolchain env create (micromamba + emscripten-forge-dev): SUCCEEDED
+Linking emscripten_emscripten-wasm32-3.1.73-h099e90b_12
+Linking cross-python_emscripten-wasm32-3.13.1-ha770c72_15
+Transaction finished
+CREATE_RC=0
+
+## [2] host protoc build: FAILED on this VM
+##   CMake "Configuring incomplete" at protobuf/cmake/CMakeLists.txt:20 (project());
+##   /workspace/.hostprotoc/protoc was never produced. Root cause: the version-matched
+##   host protoc must be built with a HOST compiler, but here it configured under an
+##   environment where cc/cxx resolve to emcc/em++. The original build (blocker #7 in
+##   ../RESULTS.md) solved this by building libprotoc 3.13.0 with the host GNU toolchain
+##   BEFORE emscripten activation. Reproducing that cleanly needs more setup than the
+##   committed build_iter.sh assumes on a bare VM.
+
+## [3] CMake configure (after adding -DCMAKE_INSTALL_PREFIX, which rattler-build supplies for free): SUCCEEDED
++ echo CONFIGURE_RC=0
+CONFIGURE_RC=0
++ grep -E BUILD_PYTHON /workspace/prototypes/emscripten-forge/torch-wasm/logs/10-configure.log
+--   ONNX_BUILD_PYTHON                 : OFF
+--   BUILD_PYTHON          : ON
+
+## [4] compile — STOPPED early (185/1514) at ONNX protobuf codegen:
+[180/1514] Creating executable symlink bin/protoc.js
+[181/1514] Running gen_proto.py on onnx/onnx.in.proto
+[182/1514] Running C++ protocol buffer compiler on /workspace/.torch-build/third_party/onnx/onnx/onnx_onnx_torch-ml.proto
+/bin/sh: 1: /workspace/.torch-build/bin/protoc.js-3.13.0.0: Exec format error
+[183/1514] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/bytestream.cc.o
+[184/1514] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/repeated_field.cc.o
+[185/1514] Building CXX object third_party/protobuf/cmake/CMakeFiles/libprotobuf-lite.dir/__/src/google/protobuf/stubs/common.cc.o
+ninja: build stopped: subcommand failed.
+emmake: error: 'cmake --build /workspace/.torch-build --target torch_python -j 4' failed (returned 126)
++ echo BUILD_TORCH_PYTHON_RC=1
+BUILD_TORCH_PYTHON_RC=1
+
+## Conclusion: full wasm torch rebuild NOT reachable in-budget on this VM:
+##  (a) The version-matched HOST protoc build failed under the bare-VM bootstrap ([2]),
+##      so both CAFFE2 and ONNX fell back to the cross-compiled wasm protoc.js, which
+##      cannot execute as a host tool (Exec format error, exit 126) -> ninja stops at 185/1514.
+##      This is the same CLASS as blocker #7 in ../RESULTS.md; the original run had a
+##      working host protoc from its rattler-build-managed environment.
+##  (b) even if host protoc were fixed, libtorch_cpu (~368MB of compiled objects) on
+##      4 CPUs would still far exceed the ~3h budget, before the ~143MB _C.so link,
+##      conda packaging, JupyterLite build, and in-browser run.
+## => The upstream suite could NOT be executed against the real wasm module here.
+##    What IS delivered: the runner + skip manifest/conftest, the wasm harness, and a
+##    reference-torch execution baseline + simulated-wasm classification (see RESULTS.md).

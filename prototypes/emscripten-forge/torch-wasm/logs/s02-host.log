@@ -1,0 +1,75 @@
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wasm32                 ⧖ Starting
+Fetch Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wasm32           ✔ Done (0.4 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Fetch Shard Index for conda-forge/emscripten-wasm32                                             ⧖ Starting
+Fetch Shard Index for conda-forge/emscripten-wasm32                                       ✔ Done (0.0 sec)
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/emscripten-wa...               ✔ Done
+Using Cached Shard Index for https://prefix.dev/emscripten-forge-dev/noarch                         ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for conda-forge/emscripten-wasm32                                          ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.0 sec)
+
+Transaction
+
+  Prefix: /workspace/.host-wasm
+
+  Updating specs:
+
+   - python=3.13
+   - pybind11
+   - pip
+
+
+  Package           Version  Build              Channel                               Size
+────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+────────────────────────────────────────────────────────────────────────────────────────────
+
+  + emscripten-abi   3.1.73  h267e887_12        prefix.dev/emscripten-forge-dev       12kB
+  + pip              26.2.1  pyh145f28c_0       conda-forge                         Cached
+  + pybind11          3.0.1  py313h179546c_1    prefix.dev/emscripten-forge-dev      233kB
+  + python           3.13.1  h_c8de616_6_cp313  prefix.dev/emscripten-forge-dev        6MB
+  + python_abi       3.13.1  1_cp313            prefix.dev/emscripten-forge-dev        3kB
+
+  Summary:
+
+  Install: 5 packages
+
+  Total download: 6MB
+
+────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking python_abi-3.13.1-1_cp313
+Linking emscripten-abi-3.1.73-h267e887_12
+Linking python-3.13.1-h_c8de616_6_cp313
+Linking pybind11-3.0.1-py313h179546c_1
+Linking pip-26.2.1-pyh145f28c_0
+warning  libmamba [pip-26.2.1-pyh145f28c_0] The following files were already present in the environment:
+    - bin/pip
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate /workspace/.host-wasm
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -p /workspace/.host-wasm mycommand
+

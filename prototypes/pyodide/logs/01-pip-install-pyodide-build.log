@@ -1,0 +1,103 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pyodide-build
+  Downloading pyodide_build-0.39.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting attrs (from pyodide-build)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting auditwheel-emscripten~=0.2.0 (from pyodide-build)
+  Downloading auditwheel_emscripten-0.2.5-py3-none-any.whl.metadata (7.8 kB)
+Collecting build!=1.4.4,<1.6,>=1.4 (from pyodide-build)
+  Downloading build-1.5.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting cattrs (from pyodide-build)
+  Downloading cattrs-26.2.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting click (from pyodide-build)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: packaging in /usr/lib/python3/dist-packages (from pyodide-build) (24.0)
+Collecting platformdirs (from pyodide-build)
+  Downloading platformdirs-4.11.12-py3-none-any.whl.metadata (5.5 kB)
+Collecting pyodide-cli>=0.4.1 (from pyodide-build)
+  Downloading pyodide_cli-0.5.0-py3-none-any.whl.metadata (2.4 kB)
+Collecting pyodide-lock~=0.2.0 (from pyodide-build)
+  Downloading pyodide_lock-0.2.1-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from pyodide-build) (2.33.1)
+Collecting rich (from pyodide-build)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting ruamel-yaml (from pyodide-build)
+  Downloading ruamel_yaml-0.19.1-py3-none-any.whl.metadata (16 kB)
+Collecting virtualenv (from pyodide-build)
+  Downloading virtualenv-21.9.1-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from pyodide-build) (0.42.0)
+Collecting leb128 (from auditwheel-emscripten~=0.2.0->pyodide-build)
+  Downloading leb128-1.0.9-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting pyproject_hooks (from build!=1.4.4,<1.6,>=1.4->pyodide-build)
+  Downloading pyproject_hooks-1.3.3-py3-none-any.whl.metadata (1.3 kB)
+Requirement already satisfied: typing-extensions>=4.14.0 in /usr/local/lib/python3.12/dist-packages (from cattrs->pyodide-build) (4.15.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->pyodide-build) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests->pyodide-build) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests->pyodide-build) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.12/dist-packages (from requests->pyodide-build) (2026.4.22)
+Collecting markdown-it-py>=2.2.0 (from rich->pyodide-build)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich->pyodide-build)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting distlib<1,>=0.3.7 (from virtualenv->pyodide-build)
+  Downloading distlib-0.4.3-py2.py3-none-any.whl.metadata (5.3 kB)
+Collecting filelock<4,>=3.24.2 (from virtualenv->pyodide-build)
+  Downloading filelock-3.32.7-py3-none-any.whl.metadata (2.0 kB)
+Collecting python-discovery>=1.6 (from virtualenv->pyodide-build)
+  Downloading python_discovery-1.6.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->pyodide-build)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading pyodide_build-0.39.0-py3-none-any.whl (137 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.3/137.3 kB 13.7 MB/s eta 0:00:00
+
+Downloading auditwheel_emscripten-0.2.5-py3-none-any.whl (33 kB)
+Downloading build-1.5.0-py3-none-any.whl (26 kB)
+Downloading pyodide_cli-0.5.0-py3-none-any.whl (12 kB)
+Downloading pyodide_lock-0.2.1-py3-none-any.whl (16 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 10.7 MB/s eta 0:00:00
+
+Downloading cattrs-26.2.0-py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.8/74.8 kB 7.6 MB/s eta 0:00:00
+
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 18.3 MB/s eta 0:00:00
+
+Downloading platformdirs-4.11.12-py3-none-any.whl (24 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 40.6 MB/s eta 0:00:00
+
+Downloading ruamel_yaml-0.19.1-py3-none-any.whl (118 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.1/118.1 kB 19.3 MB/s eta 0:00:00
+
+Downloading virtualenv-21.9.1-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 169.8 MB/s eta 0:00:00
+
+Downloading distlib-0.4.3-py2.py3-none-any.whl (470 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 470.6/470.6 kB 74.2 MB/s eta 0:00:00
+
+Downloading filelock-3.32.7-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 kB 16.6 MB/s eta 0:00:00
+
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 13.0 MB/s eta 0:00:00
+
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 107.3 MB/s eta 0:00:00
+
+Downloading python_discovery-1.6.1-py3-none-any.whl (38 kB)
+Downloading leb128-1.0.9-py2.py3-none-any.whl (3.7 kB)
+Downloading pyproject_hooks-1.3.3-py3-none-any.whl (10 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: leb128, distlib, ruamel-yaml, pyproject_hooks, pygments, platformdirs, mdurl, filelock, click, attrs, python-discovery, markdown-it-py, cattrs, build, virtualenv, rich, pyodide-lock, pyodide-cli, auditwheel-emscripten, pyodide-build
+  WARNING: The script pygmentize is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script markdown-it is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script pyproject-build is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script virtualenv is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script pyodide is installed in '/home/ubuntu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed attrs-26.1.0 auditwheel-emscripten-0.2.5 build-1.5.0 cattrs-26.2.0 click-8.5.0 distlib-0.4.3 filelock-3.32.7 leb128-1.0.9 markdown-it-py-4.2.0 mdurl-0.1.2 platformdirs-4.11.12 pygments-2.21.0 pyodide-build-0.39.0 pyodide-cli-0.5.0 pyodide-lock-0.2.1 pyproject_hooks-1.3.3 python-discovery-1.6.1 rich-15.0.0 ruamel-yaml-0.19.1 virtualenv-21.9.1

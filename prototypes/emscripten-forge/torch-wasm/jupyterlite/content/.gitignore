@@ -1,0 +1,2 @@
+# The 110 MB TabICL checkpoint is bundled at build time, not committed.
+*.ckpt

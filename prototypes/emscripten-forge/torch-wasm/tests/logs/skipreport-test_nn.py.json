@@ -1,0 +1,42 @@
+{
+  "mode": "SIMULATED-WASM",
+  "platform": "linux",
+  "capabilities": {
+    "no_gpu": true,
+    "no_distributed": true,
+    "no_subprocess": true,
+    "single_threaded": true,
+    "no_backend_engines": true,
+    "no_host_compiler": true,
+    "no_numpy_bridge": true,
+    "no_os_fs": true,
+    "constrained_heap": true,
+    "no_profiler": true
+  },
+  "skipped_by_category": {
+    "gpu_cuda_rocm_xpu_mps": 412,
+    "slow_large_memory": 26,
+    "disabled_backends": 2
+  },
+  "total_classified_inapplicable": 440,
+  "examples": {
+    "gpu_cuda_rocm_xpu_mps": [
+      "upstream/test_nn.py::TestNN::test_AdaptiveLogSoftmax_cuda",
+      "upstream/test_nn.py::TestNN::test_BCELoss_no_batch_dim_mean_cuda_double",
+      "upstream/test_nn.py::TestNN::test_BCELoss_no_batch_dim_mean_cuda_float",
+      "upstream/test_nn.py::TestNN::test_BCELoss_no_batch_dim_mean_cuda_half",
+      "upstream/test_nn.py::TestNN::test_BCELoss_no_batch_dim_none_cuda_double"
+    ],
+    "slow_large_memory": [
+      "upstream/test_nn.py::TestNN::test_LayerNorm_3d_no_affine_large_feature",
+      "upstream/test_nn.py::TestNN::test_LayerNorm_3d_no_affine_large_feature_eval",
+      "upstream/test_nn.py::TestNN::test_bce_with_logits_gives_same_result_as_sigmoid_and_bce_loss_large_tensors_with_grad",
+      "upstream/test_nn.py::TestNN::test_layer_norm_large_tensor",
+      "upstream/test_nn.py::TestNNDeviceTypeCPU::test_ReflectionPad2d_large_cpu"
+    ],
+    "disabled_backends": [
+      "upstream/test_nn.py::TestNNDeviceTypeCPU::test_LSTM_differentiable_backward_using_oneDNN_cpu_bfloat16",
+      "upstream/test_nn.py::TestNNDeviceTypeCPU::test_LSTM_differentiable_backward_using_oneDNN_cpu_float32"
+    ]
+  }
+}
